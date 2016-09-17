@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
+import { TopNav } from './views/nav.js'
 
 @Component ({
   selector: 'sellelectronics',
-  template: '<h1>Sell Electronics</h1>'
+  template: '<topnav></topnav>'
 })
 
 export class AppComponent{}
