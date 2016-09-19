@@ -28,9 +28,7 @@
   src:url("/fonts/Roboto-Regular.ttf");
 }
 
-body {
-    /*height: auto !important;*/
-}
+
 .listdivsheetmusic img{
     width: 16px !important;
     padding-top: 2px !important;
@@ -148,7 +146,7 @@ body {
 .lower-panel{
     float: left;
     width: 100%;
-    min-width: 1150px;
+    min-width: 100%;
 }
 
 .songlisttitles{
@@ -432,16 +430,28 @@ body {
 
 .title{
 	font-family: "custom";
-	font-size: 16px;
+	font-size: 20px;
 	color: white !important;
 	text-align: left;
 	padding-left: 10px;
-	color: #7c7c7c !important;
+	color: white !important;
 
 }
 
 #product{
   background: white;
+}
+
+.downbutton img{
+    margin-top: 30px;
+    width: 127px;
+}
+
+.heading-pharse {
+    font-family: customLight;
+    font-size: 20px;
+    padding: 10px;
+    color: black;
 }
 
 .samsung img{
@@ -532,9 +542,7 @@ body {
   margin: auto !important;
   display: block;
   text-align: center !important;
-  overflow-x: hidden !important;
 }
-
 /*
     @color1 = #f8901d
     @color2 = #cc7818
@@ -557,8 +565,95 @@ body {
 body {
   background:#fff;
   font-family: "Times New Roman", "Georgia", serif;
-  width: 100% !important;
-   min-width: 960px;
+    min-width: 100%;
+}
+
+.rotate-right {
+    transform: rotateX(-90deg);
+}
+
+.history-nav {
+    width: 300px;
+}
+
+.app{
+    margin: 0;
+    height: 100%;
+    min-height: 440px;
+}
+
+.app{
+    min-height: 100%;
+    margin-bottom: -10px;
+}
+
+.map{
+    width: 100% !important;
+}
+
+.map img{
+    width: 50px;
+}
+
+.tradin a{
+
+    font-family: customLight !important;
+    font-size: 24px !important;
+    color: black !important;
+}
+
+.tradin{
+    padding: 30px !important;
+}
+
+.footer-app{
+    height: 0px;
+    width: 100%;
+    display: inline-flex;
+    margin: auto;
+    border-bottom-color: black;
+    border-bottom-style: solid;
+    border-bottom-width: thick;
+
+}
+
+.footer-text {
+    font-family: customLight;
+    font-size: 14px;
+    margin-bottom: 10px;
+    padding: 10px;
+    color: black;
+    width: 100%;
+
+}
+
+.left {
+    float: left;
+    text-align: left;
+}
+
+.right {
+    float: right;
+    text-align: right;
+}
+
+
+.startbutton img{
+    width: 160px;
+    margin-top: 50px;
+    cursor: hand;
+}
+
+@-webkit-keyframes startbutton {
+    from { background-color: #749a02; -webkit-box-shadow: 0 0 9px #333; }
+    50% { background-color: #91bd09; -webkit-box-shadow: 0 0 18px #91bd09; }
+    to { background-color: #749a02; -webkit-box-shadow: 0 0 9px #333; }
+}
+
+a.startbutton {
+    -webkit-animation-name: greenPulse;
+    -webkit-animation-duration: 2s;
+    -webkit-animation-iteration-count: infinite;
 }
 
 #content_wrap h1 { padding:0 0 10px; }
@@ -619,7 +714,7 @@ h5 {
 
 .menu {
 	text-align: center;
-  min-width: 1000px;
+  min-width: 100%;
   background: black;
     max-height: 30px;
 }
@@ -1417,7 +1512,7 @@ body.lookbook_detail .controls a.previous.disabled span { background-position:-4
 .footer {
     color:#000;
     position:relative;
-    min-width: 580px;
+    min-width: 100%;
     font-size: 10px;
     z-index:99;
     clear: left;
@@ -1538,9 +1633,7 @@ li.footer_nav ul li {
 /** {
     margin: 0;
 }*/
-html, body {
-    height: 100%;
-}
+
 #wrap {
     min-height: 100%;
     height: auto !important;

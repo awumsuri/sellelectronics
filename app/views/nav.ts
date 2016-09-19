@@ -3,14 +3,13 @@
  */
 import { Component } from '@angular/core';
 
-
 @Component({
     selector: 'topnav',
     template:`               
 
 
 <nav class="nav-top-menu" >
-	<a href="artists.php"><span class="title">Sell Electronics</span></a>
+	<a><span class="title">Sell Electronics</span></a>
 </nav>
 <div class="logo">
 	<div class="leftpanel" >		
@@ -28,10 +27,7 @@ import { Component } from '@angular/core';
 		<a class="samsung" href="#" style="border-right-style: none !important;"><img src="/Images/samsuguicon.png"/></a>
 	</nav>
 <div id="menu" class="nav-container">
-	<nav class="menu">
-		<form id="searchForm" class="searchForm" novalidate="true" method="get" action="./artists.php">
-			<input id="search-field2" class="search" onclick="clearMenuFeild();" type="text" value="find songs"  name='pg' maxlength="30"/>
-		</form>
+	<nav class="menu">		
 		<a href="Contact_Us.php">contact</a>
 		<a href="waterfall.php"><img src="/Images/new-icon.png"/> waterfall tutorials</a>
 		<a href="artists.php">concept noir tutorials</a>
