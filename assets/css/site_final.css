@@ -11,6 +11,11 @@
 }
 
 @font-face{
+    font-family:"headingfont";
+    src:url("/fonts/bebas.ttf");
+}
+
+@font-face{
   font-family:"coco";
   src:url("/fonts/Coco-Regular.otf");
 }
@@ -355,8 +360,36 @@
   margin-right: -15px !important;
 }
 
+.current-index-off {
+    background: grey;
+    color: #222;;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.current-index-on {
+    background-color: cornflowerblue;
+    color: orange;
+    font-size: 40px;
+}
+
+.number {
+    float: left;
+    display: flex;
+    width: 80px;
+    height: 70px;
+    position: relative;
+    font-family: headingfont;
+    margin: auto;
+    text-align: center;
+    margin-left: 29PX;
+    margin-top: 13px;
+
+}
+
 .rightpanel img{
-    width: 280px !important;
+    width: 230px !important;
+    margin-top: 20px;
 }
 
 .artistsName {
@@ -443,15 +476,57 @@
 }
 
 .downbutton img{
-    margin-top: 30px;
-    width: 127px;
-}
+    margin-top: -5px;
+    margin-left: 4px;
+    width: 70px;
 
-.heading-pharse {
+}
+.heading-pharse h2{
     font-family: customLight;
     font-size: 20px;
-    padding: 10px;
+    padding: 35px;
     color: black;
+}
+
+.iphone-menu {
+    width: 160px;
+}
+
+.samsung-menu {
+    width: 160px;
+}
+
+.iphone-menu img{
+    width: 90px;
+    cursor: hand;
+}
+
+.samsung-menu img{
+    width: 135px;
+    margin-top: 33px;
+    cursor: hand;
+}
+
+.make-menu {
+    float: left;
+
+
+}
+
+.makes {
+    width: 320px;
+    text-align: center;
+    margin: auto;
+    /* height: 150px; */
+    margin-top: 42px;
+    /* margin-left: 10px; */
+    /* padding: 8px; */
+    padding-top: 10px;
+    padding-right: 19px;
+    padding-bottom: 100px;
+    border: solid;
+    border-width: 0.5px;
+    border-radius: 85px;
 }
 
 .samsung img{
@@ -568,26 +643,43 @@ body {
     min-width: 100%;
 }
 
-.rotate-right {
-    transform: rotateX(-90deg);
+.rotate-right img{
+    -webkit-transform: rotate(-90deg);
+    transform: rotate(-90deg);
 }
 
 .history-nav {
-    width: 300px;
+    width: 69%;
+    margin-right: auto;
+    margin-left: auto;
+    text-align: left;
+    border: solid;
+    border-width: 0.5px;
+    border-radius: 5px;
+    height: 60px;
+    text-align: center;
 }
 
-.app{
+.history-noborder {
+    margin-right: auto;
+    margin-left: auto;
+    text-align: left;
+    max-width:  500px;
+    height: 78px;
+    text-align: center;
+}
+
+.app {
     margin: 0;
     height: 100%;
-    min-height: 440px;
-}
-
-.app{
+    min-height: 432px !important;
+    max-height: 2000px;
     min-height: 100%;
     margin-bottom: -10px;
 }
 
-.map{
+
+.map {
     width: 100% !important;
 }
 

@@ -6,7 +6,7 @@ import { Entry } from './views/entry.js';
 
 @Component ({
   selector: 'app',
-  template: '<entry><router-outlet></router-outlet></entry>'
+  template: '<router-outlet></router-outlet>'
 
 })
 

@@ -16,12 +16,10 @@ declare var $:any;
                                     <img routerLink="/make" routerLinkActive="active" on-mouseover="over(event)" on-mouseout="out(event)" src="/Images/startbutton.jpg"/>                                   
                                 </div>
                                 <div class="tradin">
-                                    <span><a routerLink="/make" routerLinkActive="active"> START</a></span>         
+                                    <span><a routerLink="/make" routerLinkActive="active">SELL YOUR DEVICE</a></span>         
                                  </div>
                     </div>                     
                   `,
-    host: {'class': 'ng-animate make'}
-
 })
 
 export class MainView{

@@ -6,10 +6,11 @@ import { MainView } from "./views/main-view.js";
 import { Footer } from "./views/footer.js";
 import { SelectionPage } from "./views/selection-view.js";
 import { appRoutingProviders } from "./app.routes.js";
-import {Entry} from "./views/entry.js";
-import {RouterModule} from "@angular/router";
-import {appRoutes} from "./app.routes.js";
-import {MakeView} from "./views/make";
+import { Entry } from "./views/entry.js";
+import { RouterModule } from "@angular/router";
+import { appRoutes } from "./app.routes.js";
+import { MakeView } from "./views/make.js";
+import { History } from "./views/history.js"
 
 
 
@@ -22,7 +23,8 @@ import {MakeView} from "./views/make";
         Footer,
         SelectionPage,
         Entry,
-        MakeView
+        MakeView,
+        History
     ],
     providers:[
         appRoutingProviders
