@@ -3,10 +3,9 @@
  */
 
 import { Routes } from "@angular/router";
-import { SelectionPage } from "./views/selection-view.js"
-import {AppComponent} from "./app-component.js";
-import {MakeView} from "./views/make.js";
-import {Entry} from "./views/entry.js";
+import { AppComponent } from "./app-component.js";
+import { MakeView } from "./views/DeviceAttributes.js";
+import { Entry } from "./views/Entry.js";
 
 export const appRoutes: Routes = [
     { path: '', component: Entry },
@@ -14,5 +13,3 @@ export const appRoutes: Routes = [
 ];
 
 export const appRoutingProviders: any[] = [];
-
-

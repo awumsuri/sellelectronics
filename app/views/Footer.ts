@@ -18,7 +18,6 @@ export class Footer{
     over(){
         $('.map').find("img").attr("src", "/Images/maphover.png");
     }
-
     out() {
         $('.map').find("img").attr("src", "/Images/map.png");
     }

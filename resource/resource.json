@@ -1,0 +1,29 @@
+[
+  {
+    "deviceModel": "Apple",
+    "deviceType": "phone",
+    "resourceUrl": "/Images/iphone/iphone.png",
+    "names": [
+      "iPhone",
+      "iPhone 2",
+      "iPhone 3",
+      "iPhone 4",
+      "iPhone 4s",
+      "iPhone 5",
+      "iPhone 5s",
+      "iPhone 6"
+    ]
+
+  },
+  {
+    "deviceModel": "Samsung",
+    "deviceType": "phone",
+    "resourceUrl": "/Images/samsung/samsung.png",
+    "names": [
+      "Samsung Galaxy S3",
+      "Samsung Galaxy S4",
+      "Samsung Galaxy S5",
+      "Samsung Galaxy S6"
+    ]
+  }
+]

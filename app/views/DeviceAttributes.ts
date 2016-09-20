@@ -1,10 +1,12 @@
 /**
  * Created by Mtui on 9/18/16.
  */
-import { Component } from "@angular/core";
-import { TopNav } from "./nav.js";
-import { Footer } from "./footer.js";
-import { History } from "./history.js";
+import {Component, Injectable} from "@angular/core";
+import { TopNav } from "./Nav.js";
+import { Footer } from "./Footer.js";
+import { History } from "./History.js";
+import { DeviceService } from "../services/DeviceService.js"
+
 declare var $:any;
 
 @Component({
@@ -17,18 +19,30 @@ declare var $:any;
                 <history></history>
                 <div class="makes">
                     <div  class="iphone-menu make-menu">
-                        <img (mouseover)="over($event)" (mouseleave)="out($event)" (click)="clickHandler($event)" src="/Images/iphoneIcon.jpg"/>
+                        <img (mouseover)="over($event)" 
+                        (mouseleave)="out($event)" 
+                        (click)="clickHandler($event)" 
+                        src="/Images/iphoneIcon.jpg"/>
                     </div>
                     <div  class="make-menu samsung-menu">
-                        <img (mouseover)="over($event)" (mouseleave)="out($event)" (click)="clickHandler($event)" src="/Images/samsungicon.jpg"/>
+                        <img (mouseover)="over($event)" 
+                        (mouseleave)="out($event)" 
+                        (click)="clickHandler($event)" 
+                        src="/Images/samsungicon.jpg"/>
                     </div>
                 </div>
                 </div>
+                <router-outlet></router-outlet>
                  <footer></footer>`
-
 })
 
-export class MakeView{
+export class MakeView {
+
+    private deviceData;
+
+    constructor(private deviceService: DeviceService) {
+        this.deviceData = this.deviceService.getDevices();
+    }
 
     over(event) {
 
@@ -47,7 +61,7 @@ export class MakeView{
 
         var button = event.target;
         if (button.selected) return;
-        var src = event.target.src;
+        var src = button.src;
         var indexExtentsion = src.indexOf(".");
         var extention = src.slice(indexExtentsion);
         var hoverIndex = src.indexOf("hover");
@@ -62,6 +76,7 @@ export class MakeView{
         this.over(event);
 
         button.selected = true;
+        this.displayDevices(button);
     }
 
     resetButtons() {
@@ -73,5 +88,9 @@ export class MakeView{
 
         iphone.setAttribute("src", "/Images/iphoneIcon.jpg");
         samsung.setAttribute("src", "/Images/samsungicon.jpg");
+    }
+
+    displayDevices(button:HTMLImageElement) {
+        debugger;
     }
 }

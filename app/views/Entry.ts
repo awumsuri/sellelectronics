@@ -3,8 +3,8 @@
  */
 
 import { Component } from '@angular/core';
-import { TopNav } from './nav.js';
-import { MainView } from './main-view.js';
+import { TopNav } from './Nav.js';
+import { MainView } from './MainView.js';
 
 @Component ({
     selector: 'entry',

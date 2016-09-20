@@ -1,36 +1,42 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from "./app-component.js";
-import { TopNav } from "./views/nav.js";
-import { MainView } from "./views/main-view.js";
-import { Footer } from "./views/footer.js";
-import { SelectionPage } from "./views/selection-view.js";
+import { TopNav } from "./views/Nav.js";
+import { MainView } from "./views/MainView.js";
+import { Footer } from "./views/Footer.js";
 import { appRoutingProviders } from "./app.routes.js";
-import { Entry } from "./views/entry.js";
+import { Entry } from "./views/Entry.js";
 import { RouterModule } from "@angular/router";
 import { appRoutes } from "./app.routes.js";
-import { MakeView } from "./views/make.js";
-import { History } from "./views/history.js"
-
-
+import { MakeView } from "./views/DeviceAttributes.js";
+import { History } from "./views/History.js"
+import { DeviceService } from "./services/DeviceService.js";
+import { HttpModule} from "@angular/http"
 
 @NgModule({
-    imports: [BrowserModule, RouterModule.forRoot(appRoutes)],
+    imports: [
+        BrowserModule,
+        RouterModule.forRoot(appRoutes),
+        HttpModule
+    ],
     declarations: [
         AppComponent,
         TopNav,
         MainView,
         Footer,
-        SelectionPage,
         Entry,
         MakeView,
         History
     ],
     providers:[
-        appRoutingProviders
+        appRoutingProviders,
+        DeviceService
     ],
     bootstrap: [AppComponent]
-
 })
 
-export  class AppModule{}
+export  class AppModule{
+    constructor(private _deviceService: DeviceService){
+
+    }
+}
