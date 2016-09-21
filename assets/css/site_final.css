@@ -294,8 +294,8 @@
 }
 
 .nav-menu-container {
-  /*min-width: 800px;*/
     width: 100% !important;
+    overflow: hidden;
 }
 
 .nav-container .menu{
@@ -306,6 +306,12 @@
 	background: white !important;
 	width: 100% !important;
 }
+.makes ul li{
+    float: left;
+    width: 65px;
+    list-style: none;
+}
+
 .menu a{
 	font-family: "custom";
 	font-size: 15px;
@@ -489,80 +495,75 @@
 }
 
 .iphone-menu {
-    width: 140px;
+    width: 60px;
+    margin-top: -7px;
 }
 
 .samsung-menu {
-    width: 140px;
+    width: 80px;
 }
 
 .samsung-menu img{
-    width: 135px;
+    width: 80px;
     margin-top: 33px;
     cursor: hand;
 }
 
 .iphone-menu img{
-    width: 90px;
-
+    width: 60px;
+    padding-bottom: 5px;
 }
 
 .blackberry-menu{
-    width: 100px;
+    width: 60px;
 }
 
 .blackberry-menu img{
-    width: 65px;
-    cursor: hand;
+    width: 35px;
 }
 
-.htc-menu img{
-    width: 80px;
-    padding-right: 10px;
-    padding-left: 10px;
-
+.htc-menu img {
+    width: 50px;
 }
 
 .lg-menu img{
-    width: 80px;
-    padding-right: 10px;
-    padding-left: 10px;
+    width: 50px;
 }
 
 .motorola-menu img{
-    width: 80px;
-    padding-right: 10px;
-    padding-left: 10px;
+    width: 50px;
 }
 
 .make-menu {
     float: left;
     cursor: hand;
-    padding-right: 10px;
-    padding-left: 10px;
+    padding: 7px;
+}
+
+.nokia-menu {
+    width: 75px;
+    margin-left: -25px;
 }
 
 .nokia-menu img{
-    width: 150px;
-    padding-top: 31px;
+    width: 75px;
+    margin-top: 33px;
 }
 
 .makes {
-    min-width: 300px;
-    max-width: 450px;
-    text-align: center;
+    width: 100%;
+    max-width: 345px;
+    text-align: left !important;
     margin: auto;
-    height: 300px;
+    height: 150px;
     margin-top: 42px;
-    /* margin-left: 10px; */
-    /* padding: 8px; */
     padding-top: 10px;
-    padding-right: 19px;
     /*padding-bottom: 100px;*/
     border: solid;
     border-width: 0.5px;
     border-radius: 10px;
     max-height: 500% !important;
+    overflow: hidden;
 
 }
 

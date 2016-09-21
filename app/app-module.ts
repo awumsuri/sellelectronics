@@ -13,12 +13,25 @@ import { History } from "./views/History.js"
 import { DeviceService } from "./services/DeviceService.js";
 import { HttpModule} from "@angular/http"
 import {UserDevice} from "./model/UserDevice.js";
+import {ResponsiveModule, ResponsiveConfig, ResponsiveConfigInterface} from "ng2-responsive";
+
+let config: ResponsiveConfigInterface = {
+    breakPoints: {
+        xs: {max: 600},
+        sm: {min: 601, max: 959},
+        md: {min: 960, max: 1279},
+        lg: {min: 1280, max: 1919},
+        xl: {min: 1920}
+    },
+    debounceTime: 100 // allow to debounce checking timer
+};
 
 @NgModule({
     imports: [
         BrowserModule,
         RouterModule.forRoot(appRoutes),
-        HttpModule
+        HttpModule,
+        ResponsiveModule
     ],
     declarations: [
         AppComponent,

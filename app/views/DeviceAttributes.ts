@@ -19,49 +19,55 @@ declare var $:any;
                 </span>
                 <history></history>
                 <div class="makes">
-                    <div  class="iphone-menu make-menu">
+                    <ul>
+                       <li> 
+                       <div  class="iphone-menu make-menu">
                         <img name="apple" (mouseover)="over($event)" 
                         (mouseleave)="out($event)" 
                         (click)="clickHandler($event)" 
-                        src="/Images/iphoneIcon.jpg"/>
-                    </div>
-                    <div  class="make-menu samsung-menu">
-                        <img name="samsung" (mouseover)="over($event)" 
-                        (mouseleave)="out($event)" 
-                        (click)="clickHandler($event)" 
-                        src="/Images/samsungicon.jpg"/>
-                    </div>
-                     <div  class="make-menu blackberry-menu">
+                        src="/Images/iphoneIcon.png"/>
+                    </div></li>
+                    
+                     <li><div  class="make-menu blackberry-menu">
                         <img name="blackberry" (mouseover)="over($event)" 
                         (mouseleave)="out($event)" 
                         (click)="clickHandler($event)" 
                         src="/Images/blackberryicon.png"/>
-                    </div>
-                    <div  class="make-menu htc-menu">
+                    </div></li>
+                    <li><div  class="make-menu htc-menu">
                         <img name="htc" (mouseover)="over($event)" 
                         (mouseleave)="out($event)" 
                         (click)="clickHandler($event)" 
                         src="/Images/htcicon.png"/>
-                    </div>
-                    <div  class="make-menu lg-menu">
+                    </div></li>
+                    <li><div  class="make-menu lg-menu">
                         <img name="lg" (mouseover)="over($event)" 
                         (mouseleave)="out($event)" 
                         (click)="clickHandler($event)" 
                         src="/Images/lgicon.png"/>
-                    </div>
-                    <div  class="make-menu motorola-menu">
+                    </div></li>
+                    <li><div  class="make-menu motorola-menu">
                         <img name="motorola" (mouseover)="over($event)" 
                         (mouseleave)="out($event)" 
                         (click)="clickHandler($event)" 
                         src="/Images/motorolaicon.png"/>
-                    </div>
-                     <div  class="make-menu nokia-menu">
+                    </div></li>
+                     <li><div  class="make-menu nokia-menu">
                         <img name="nokia" (mouseover)="over($event)" 
                         (mouseleave)="out($event)" 
                         (click)="clickHandler($event)" 
                         src="/Images/nokiaicon.png"/>
-                    </div>
+                    </div></li>
+                    <li><div  class="make-menu samsung-menu">
+                        <img name="samsung" (mouseover)="over($event)" 
+                        (mouseleave)="out($event)" 
+                        (click)="clickHandler($event)" 
+                        src="/Images/samsungicon.png"/>
+                    </div></li>
+                    </ul>
                 </div>
+                    
+                    
                 </div>
                 <router-outlet></router-outlet>
                  <footer></footer>`
@@ -86,7 +92,7 @@ export class MakeView {
         if(button.selected) return;
 
         var src = event.target.src;
-        var indexExtentsion = src.indexOf(".");
+        var indexExtentsion = src.indexOf(".png");
         var extention = src.slice(indexExtentsion);
         var newSource = src.slice(0, indexExtentsion) + "hover" + extention;
 
@@ -98,7 +104,7 @@ export class MakeView {
         var button = event.target;
         if (button.selected) return;
         var src = button.src;
-        var indexExtentsion = src.indexOf(".");
+        var indexExtentsion = src.indexOf(".png");
         var extention = src.slice(indexExtentsion);
         var hoverIndex = src.indexOf("hover");
         var newSource = (hoverIndex === -1) ? src : src.slice(0, hoverIndex) + extention;
