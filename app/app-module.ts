@@ -12,6 +12,7 @@ import { MakeView } from "./views/DeviceAttributes.js";
 import { History } from "./views/History.js"
 import { DeviceService } from "./services/DeviceService.js";
 import { HttpModule} from "@angular/http"
+import {UserDevice} from "./model/UserDevice.js";
 
 @NgModule({
     imports: [
@@ -30,13 +31,15 @@ import { HttpModule} from "@angular/http"
     ],
     providers:[
         appRoutingProviders,
-        DeviceService
+        DeviceService,
+        UserDevice
     ],
     bootstrap: [AppComponent]
 })
 
 export  class AppModule{
-    constructor(private _deviceService: DeviceService){
+    constructor(private _deviceService: DeviceService,
+                private _userDevice: UserDevice){
 
     }
 }

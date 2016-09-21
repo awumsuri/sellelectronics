@@ -1,13 +1,11 @@
 /**
  * Created by Mtui on 9/19/16.
  */
-
 import { Http } from "@angular/http";
 import {Injectable} from "@angular/core";
 import {DeviceTypes} from "../model/DeviceTypes.js";
 import {DevicesModels} from "../model/DeviceModels.js";
 import {Device} from "../model/Device.js";
-
 
 @Injectable()
 export class DeviceService {
@@ -26,7 +24,7 @@ export class DeviceService {
         this.http.get("/resource/resource.json")
             .subscribe(
                 data => {
-                    this.parseDeviceData(data.json());
+                    this.populateDeviceData(data.json());
                 },
                 err => {
                     console.log(err)
@@ -49,12 +47,30 @@ export class DeviceService {
         return model;
     }
 
-    parseDeviceData(data: Device[]) {
+    getType(d) {
+        var type;
+
+        switch(d.deviceType) {
+            case DeviceTypes[DeviceTypes.Phone]:
+                type = DeviceTypes.Phone;
+                break;
+            case DeviceTypes[DeviceTypes.Tablet]:
+                type = DeviceTypes.Tablet;
+                break;
+            case DeviceTypes[DeviceTypes.Laptop]:
+                type = DeviceTypes.Laptop;
+                break;
+        }
+
+        return type;
+    }
+
+    populateDeviceData(data: Device[]) {
         data.forEach(d => {
             d.names.forEach(name => {
                 this.deviceData.push(
                     new Device(
-                        d.deviceType,
+                        this.getType(d),
                         this.getModel(d),
                         null,
                         d.resourceUrl,

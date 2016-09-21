@@ -1,7 +1,7 @@
 [
   {
     "deviceModel": "Apple",
-    "deviceType": "phone",
+    "deviceType": "Phone",
     "resourceUrl": "/Images/iphone/iphone.png",
     "names": [
       "iPhone",
@@ -17,7 +17,7 @@
   },
   {
     "deviceModel": "Samsung",
-    "deviceType": "phone",
+    "deviceType": "Phone",
     "resourceUrl": "/Images/samsung/samsung.png",
     "names": [
       "Samsung Galaxy S3",

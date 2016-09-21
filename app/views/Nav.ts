@@ -26,22 +26,7 @@ import { Component } from '@angular/core';
 		<a href="#"><img src="/Images/appleicon.png"/></a> 		
 		<a class="samsung" href="#" style="border-right-style: none !important;"><img src="/Images/samsuguicon.png"/></a>
 	</nav>
-<div id="menu" class="nav-container">
-	<nav class="menu">		
-		<a href="">contact</a>
-		<a href=""><img src="/Images/new-icon.png"/> waterfall tutorials</a>
-		<a href="">concept noir tutorials</a>
-		<a href="">retro tutorials</a>
-		<a href="">sheet music</a>
-		<a id="" href="#" style="border-right-style: none !important;"><img src=""/></a>
-		"
-	</nav>
-	<script>
-		function clearMenuFeild() {
-			document.getElementById('search-field2').value = '';
-		}
-	</script>
-</div>
+
             `
 })
 
