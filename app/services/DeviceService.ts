@@ -66,6 +66,7 @@ export class DeviceService {
     }
 
     populateDeviceData(data: Device[]) {
+
         data.forEach(d => {
             d.names.forEach(name => {
                 this.deviceData.push(
@@ -73,7 +74,7 @@ export class DeviceService {
                         this.getType(d),
                         this.getModel(d),
                         null,
-                        d.resourceUrl,
+                        (d.resourceUrl + "/"+name.replace(" ","")+".png"),
                         null,
                         name,
                         null

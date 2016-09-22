@@ -16,6 +16,43 @@
 
   },
   {
+    "deviceModel": "Apple",
+    "deviceType": "Tablet",
+    "resourceUrl": "/Images/tablet",
+    "names": [
+      "iPad 2",
+      "iPad 3",
+      "iPad Air",
+      "iPad Pro"
+    ]
+  },
+  {
+    "deviceModel": "Apple",
+    "deviceType": "Laptop",
+    "resourceUrl": "/Images/laptop",
+    "names": [
+      "macbook pro",
+      "macbook pro 2014"
+
+    ]
+  },
+  {
+    "deviceModel": "Apple",
+    "deviceType": "Phone",
+    "resourceUrl": "/Images/iphone",
+    "names": [
+      "iPhone",
+      "iPhone 2",
+      "iPhone 3",
+      "iPhone 4",
+      "iPhone 4s",
+      "iPhone 5",
+      "iPhone 5s",
+      "iPhone 6"
+    ]
+
+  },
+  {
     "deviceModel": "Samsung",
     "deviceType": "Phone",
     "resourceUrl": "/Images/samsung/samsung.png",

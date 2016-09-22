@@ -23,4 +23,6 @@ import { Component } from '@angular/core';
 `
 })
 
-export class History{}
+export class History{
+
+}

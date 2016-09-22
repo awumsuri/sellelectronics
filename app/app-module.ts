@@ -14,6 +14,9 @@ import { DeviceService } from "./services/DeviceService.js";
 import { HttpModule} from "@angular/http"
 import {UserDevice} from "./model/UserDevice.js";
 import {ResponsiveModule, ResponsiveConfig, ResponsiveConfigInterface} from "ng2-responsive";
+import {HasDeviceType} from "./utils/HasDeviceTypesPipe.js";
+import {DeviceTypes} from "./model/DeviceTypes.js"
+import {DeviceDetails} from "./views/DeviceDetails.js";
 
 let config: ResponsiveConfigInterface = {
     breakPoints: {
@@ -40,7 +43,9 @@ let config: ResponsiveConfigInterface = {
         Footer,
         Entry,
         MakeView,
-        History
+        History,
+        HasDeviceType,
+        DeviceDetails
     ],
     providers:[
         appRoutingProviders,

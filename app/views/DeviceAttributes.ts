@@ -1,12 +1,17 @@
 /**
  * Created by Mtui on 9/18/16.
  */
-import {Component, Injectable} from "@angular/core";
+import {Component} from "@angular/core";
 import { TopNav } from "./Nav.js";
 import { Footer } from "./Footer.js";
 import { History } from "./History.js";
 import { DeviceService } from "../services/DeviceService.js"
 import {UserDevice} from "../model/UserDevice.js";
+import {HasDeviceType } from "../utils/HasDeviceTypesPipe.js";
+import {DevicesModels} from "../model/DeviceModels.js";
+import {Device} from "../model/Device.js";
+import {DeviceTypes} from "../model/DeviceTypes.js"
+import {Router} from "@angular/router";
 
 declare var $:any;
 
@@ -15,79 +20,100 @@ declare var $:any;
     template: `<topnav></topnav>
                 <div class="app">
                 <span class="heading-pharse">
-                    <h2>CHOOSE MAKE</h2>
+                    <h2>CHOOSE DEVICE</h2>
                 </span>
                 <history></history>
                 <div class="makes">
                     <ul>
                        <li> 
                        <div  class="iphone-menu make-menu">
-                        <img name="apple" (mouseover)="over($event)" 
+                        <img name="Apple" (mouseover)="over($event)" 
                         (mouseleave)="out($event)" 
                         (click)="clickHandler($event)" 
                         src="/Images/iphoneIcon.png"/>
                     </div></li>
                     
                      <li><div  class="make-menu blackberry-menu">
-                        <img name="blackberry" (mouseover)="over($event)" 
+                        <img name="Blackberry" (mouseover)="over($event)" 
                         (mouseleave)="out($event)" 
                         (click)="clickHandler($event)" 
                         src="/Images/blackberryicon.png"/>
                     </div></li>
                     <li><div  class="make-menu htc-menu">
-                        <img name="htc" (mouseover)="over($event)" 
+                        <img name="HTC" (mouseover)="over($event)" 
                         (mouseleave)="out($event)" 
                         (click)="clickHandler($event)" 
                         src="/Images/htcicon.png"/>
                     </div></li>
                     <li><div  class="make-menu lg-menu">
-                        <img name="lg" (mouseover)="over($event)" 
+                        <img name="LG" (mouseover)="over($event)" 
                         (mouseleave)="out($event)" 
                         (click)="clickHandler($event)" 
                         src="/Images/lgicon.png"/>
                     </div></li>
                     <li><div  class="make-menu motorola-menu">
-                        <img name="motorola" (mouseover)="over($event)" 
+                        <img name="Motorola" (mouseover)="over($event)" 
                         (mouseleave)="out($event)" 
                         (click)="clickHandler($event)" 
                         src="/Images/motorolaicon.png"/>
                     </div></li>
                      <li><div  class="make-menu nokia-menu">
-                        <img name="nokia" (mouseover)="over($event)" 
+                        <img name="Nokia" (mouseover)="over($event)" 
                         (mouseleave)="out($event)" 
                         (click)="clickHandler($event)" 
                         src="/Images/nokiaicon.png"/>
                     </div></li>
-                    <li><div  class="make-menu samsung-menu">
-                        <img name="samsung" (mouseover)="over($event)" 
+                    <li>
+                    <div  class="make-menu samsung-menu">
+                        <img name="Samsung" (mouseover)="over($event)" 
                         (mouseleave)="out($event)" 
                         (click)="clickHandler($event)" 
                         src="/Images/samsungicon.png"/>
-                    </div></li>
+                    </div>
+                    </li>
                     </ul>
                 </div>
-                    
-                    
-                </div>
-                <router-outlet></router-outlet>
-                 <footer></footer>`
+                 <div  class="device-containers">
+                            <div *ngIf="(filteredModel.length > 0)" class="device-models">
+                                 <div *ngIf="(filteredModel | hasDeviceType:1)" class="device-list iphone-list">
+                                       <a><img (mouseover)="over($event)" 
+                        (mouseleave)="out($event)" 
+                        (click)="clickHandlerDevice($event)" src="/Images/iphone.png"/></a>
+                                       <span class="title-list">Phone</span>
+                                  </div>
+                                  <div *ngIf="(filteredModel | hasDeviceType:3)" class="device-list macbook-list">
+                                       <a><img (mouseover)="over($event)" 
+                        (mouseleave)="out($event)" 
+                        (click)="clickHandlerDevice($event)" src="/Images/macbook.png"/></a>
+                                        <span class="title-list">Laptop</span>
+                                  </div>
+                                   <div *ngIf="(filteredModel | hasDeviceType:2)" class="device-list ipad-list">
+                                       <a><img (mouseover)="over($event)" 
+                                                (mouseleave)="out($event)" 
+                        (click)="clickHandlerDevice($event)" src="/Images/ipad.png"/></a>
+                                       <span class="title-list"> Tablet</span>
+                                  </div>
+                                   
+                                  
+                            </div>
+                      </div>                     
+                </div>                   
+                 <footer></footer>`,
+
 })
 
 export class MakeView {
 
     private deviceData;
+    private filteredModel: Device[] = [];
 
-    constructor(private deviceService: DeviceService, private userDevice: UserDevice) {
+    constructor(private deviceService: DeviceService,
+                private userDevice: UserDevice,
+                private router: Router) {
         this.deviceData = this.deviceService.getDevices();
-        this.setState();
-    }
-
-    setState() {
-
     }
 
     over(event) {
-
         var button = event.target;
         if(button.selected) return;
 
@@ -100,35 +126,41 @@ export class MakeView {
     }
 
     out(event) {
-
         var button = event.target;
         if (button.selected) return;
-        var src = button.src;
-        var indexExtentsion = src.indexOf(".png");
-        var extention = src.slice(indexExtentsion);
-        var hoverIndex = src.indexOf("hover");
-        var newSource = (hoverIndex === -1) ? src : src.slice(0, hoverIndex) + extention;
 
-        button.setAttribute("src",newSource);
+        button.src = button.src.replace("hover","");
     }
 
     clickHandler(event) {
-        this.resetButtons(event, this.out);
+        this.resetButtons();
         var button = event.target;
         this.over(event);
 
         button.selected = true;
-        this.displayDevices(button);
+        this.displayDevicesTypes(button);
     }
 
-    resetButtons(event, fn) {
+    clickHandlerDevice(event) {
+        this.router.navigate(['/device-details']);
+    }
+
+    resetButtons() {
         $(".make-menu").find("img").each( function(){
+            this.src = this.src.replace("hover","");
             this.selected = false;
-            fn(event);
         });
     }
 
-    displayDevices(button:HTMLImageElement) {
+    displayDevicesTypes(button:HTMLImageElement) {
+        var model = DevicesModels[button.name];
 
+        this.userDevice.deviceModel = model;
+
+        this.filteredModel = this.deviceData.filter(
+            device => {
+                return device.deviceModel === model
+            }
+        );
     }
 }

@@ -319,13 +319,9 @@
 	/*border-right-style: solid;
 	border-width: 1px;*/
 	padding: 8px;
-
 	border-color: #8c8c8c;
 }
 
-.menu {
-
-}
 .topMenu {
   background: black;
   height: 20px;
@@ -679,6 +675,7 @@ body {
     background:#fff;
     font-family: "Times New Roman", "Georgia", serif;
     min-width: 100%;
+    height: 100%;
 }
 
 .rotate-right img{
@@ -708,21 +705,55 @@ body {
 }
 
 .app {
-    margin: 0;
+    margin: auto;
     height: 100%;
     min-height: 432px !important;
-    max-height: 1000px;
+}
 
-    margin-bottom: -10px;
+.title-list {
+    font-family: custom;
+    float: left;
+}
+
+.device-container {
+    width: 400px;
+    margin: auto;
+}
+
+.device-models{
+    padding-top: 50px;
+    width: 370px;
+    margin: auto;
+    cursor: hand;
+    overflow: hidden;
+}
+
+.device-list{
+    float: left;
+    padding: 0px;
+}
+
+.iphone-list img{
+    width: 90px;
+}
+
+.ipad-list img{
+    width: 90px;
+}
+
+.macbook-list img{
+    width: 100px;
+    padding-top: 10px;
 }
 
 
 .map {
     width: 100% !important;
+
 }
 
 .map img{
-    padding: 10px;
+    padding: 20px;
     width: 50px;
 }
 
@@ -738,10 +769,16 @@ body {
 }
 
 .footer-app{
-    height: 0px;
+    height: 20px;
+
+    position: fixed;
+    bottom: 40px;
+    left: 0px;
+    right: 0px;
     width: 100%;
     display: inline-flex;
-    margin: auto;
+    margin: auto
+    margin-top: -30px;
     border-bottom-color: black;
     border-bottom-style: solid;
     border-bottom-width: thick;
@@ -752,7 +789,7 @@ body {
     font-family: customLight;
     font-size: 14px;
     margin-bottom: 10px;
-    padding: 10px;
+    padding-top: 25px;
     color: black;
     width: 100%;
 
@@ -1047,6 +1084,7 @@ ul#nav_global li#nav_global_shop_online a,
 
 body {
     background-color: white !important;
+    margin-bottom: 50px;
 }
 
 

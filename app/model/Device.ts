@@ -15,4 +15,8 @@ export class Device {
         public name: string,
         public names: string[]
     ){}
+
+    hasDeviceType(deviceType: DeviceTypes) {
+        return (deviceType === this.deviceType)
+    }
 }
