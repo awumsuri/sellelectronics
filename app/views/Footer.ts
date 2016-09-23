@@ -15,7 +15,9 @@ declare var $:any;
 })
 
 export class Footer{
+
     private closed:boolean = false;
+
     constructor(private renderer: Renderer) {
         var ua = navigator.userAgent.toLowerCase();
         var isSafari = (ua.indexOf("safari") != -1 && ua.indexOf("chrome") == -1);
@@ -28,11 +30,15 @@ export class Footer{
             this.shouldHideFooter();
         });
 
+        this.renderer.listenGlobal('window', 'orientationchange', (evt) => {
+            this.shouldHideFooter();
+        });
+
     }
 
     shouldHideFooter() {
-        console.log($("body").scrollTop());
-        if (!closed && $("body").scrollTop() < 25) {
+
+        if (!closed && $("body").scrollTop() < 25 || ($("body").height() - $("body").scrollTop() - 23) < 0 ) {
 
             $('.footer-app').fadeOut(1);
             this.closed = true;

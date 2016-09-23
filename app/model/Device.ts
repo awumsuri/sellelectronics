@@ -7,7 +7,7 @@ import {DevicesModels} from "./DeviceModels";
 
 export class Device {
     constructor(
-        public deviceType: DeviceTypes,
+        public deviceType,
         public deviceModel: DevicesModels,
         public condition: string,
         public resourceUrl: string,

@@ -66,15 +66,18 @@ export class DeviceService {
     }
 
     populateDeviceData(data: Device[]) {
-
         data.forEach(d => {
             d.names.forEach(name => {
+                var imageName:string = name;
+                while(imageName.indexOf(" ") !== -1){
+                    imageName = imageName.replace(" ", "");
+                }
                 this.deviceData.push(
                     new Device(
                         this.getType(d),
                         this.getModel(d),
                         null,
-                        (d.resourceUrl + "/"+name.replace(" ","")+".png"),
+                        (d.resourceUrl + "/"+ imageName +".jpg"),
                         null,
                         name,
                         null

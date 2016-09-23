@@ -362,17 +362,90 @@
   margin-right: -15px !important;
 }
 
-.current-index-off {
-    background: grey;
-    color: #222;;
-    font-size: 30px;
-    font-weight: bold;
+.number-container {
+    height: 30px;
 }
 
+.current-index-off {
+
+    color: grey;;
+    font-size: 30px;
+    font-weight: bold;
+    /*border-bottom-color: red;
+    border-bottom-style: solid;
+    border-bottom-width: thick;*/
+}
+
+.display-device {
+    width: 100%;
+    max-width: 583px;
+    margin: auto;
+    display: flex;
+
+}
+
+.display-device ul li{
+    float: left;
+    list-style: none;
+    padding: 12px;
+    cursor: hand;
+    color: black;
+    width: 150px;
+    display: block;
+    text-align: center;
+    font-size: 17px;
+
+
+}
+
+.display-device ul{
+    width: 90%;
+    min-width: 390px;
+    text-align: center;
+    margin: 0;
+    display: block;
+}
+
+.display-device ul li p{
+    font-family: custom;
+    font-weight: bold;
+    font-size: 17px;
+    padding-top: 10px;
+}
+ .display-device ul li:hover {
+
+
+}
+
+ .display-device ul li img:hover + .title-display-list p{
+     background-color: orange !important;
+ }
+
+ .display-device .title-display-list p {
+     font-family: customLight !important;
+     border-radius: 10px;
+     padding-bottom: 8px;
+
+ }
+
+
+
 .current-index-on {
-    background-color: cornflowerblue;
+
     color: orange;
     font-size: 40px;
+    /*border-bottom-color: red;
+    border-bottom-style: solid;
+    border-bottom-width: thick;*/
+}
+
+.current-index-complete {
+
+    color: #0b3e72;
+    font-size: 30px;
+    /*border-bottom-color: red;
+    border-bottom-style: solid;
+    border-bottom-width: thick;*/
 }
 
 .number {
@@ -707,7 +780,7 @@ body {
 .app {
     margin: auto;
     height: 100%;
-    min-height: 432px !important;
+    min-height: 500px !important;
 }
 
 .title-list {
@@ -722,7 +795,7 @@ body {
 
 .device-models{
     padding-top: 50px;
-    width: 370px;
+    width: 340px;
     margin: auto;
     cursor: hand;
     overflow: hidden;
@@ -734,16 +807,17 @@ body {
 }
 
 .iphone-list img{
-    width: 90px;
+    width: 133px;
+
 }
 
 .ipad-list img{
-    width: 90px;
+    width: 133px;
 }
 
 .macbook-list img{
     width: 100px;
-    padding-top: 10px;
+    padding-top: 20px;
 }
 
 
@@ -770,12 +844,11 @@ body {
 
 .footer-app{
     height: 20px;
-
-    position: fixed;
     bottom: 40px;
     left: 0px;
     right: 0px;
     width: 100%;
+
     display: inline-flex;
     margin: auto
     margin-top: -30px;

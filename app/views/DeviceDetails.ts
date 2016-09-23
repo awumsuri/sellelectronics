@@ -1,8 +1,10 @@
 /**
  * Created by Mtui on 9/21/16.
  */
-import { Component } from "@angular/core";
+import { Component, Input } from "@angular/core";
+import { Router } from "@angular/router";
 import {UserDevice} from "../model/UserDevice.js";
+import {Device} from "../model/Device.js"
 import {Footer} from "./Footer";
 
 @Component({
@@ -12,13 +14,39 @@ import {Footer} from "./Footer";
                     <span class="heading-pharse">
                         <h2>CHOOSE DEVICE AND CARRIER</h2>
                      </span>
+                     <history></history>
+                        <div class="display-device">
+                            <ul>
+                                <li (mouseout)="out($event)" (mouseover)="over($event);" *ngFor="let device of displayData">
+                                    <img src="{{device.resourceUrl}}" />
+                                    <span class="title-display-list"><p>{{device.name}}</p></span>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
                     <footer></footer>
               `
 })
 
 export class DeviceDetails {
-    constructor(private userDevice: UserDevice) {
+
+    private displayData: Device[] = [];
+
+    ngOnInit() {
+        this.userDevice.page = 2;
+    }
+
+    constructor(private userDevice: UserDevice,
+                private router: Router) {
+        this.displayData = this.userDevice.displayData;
+    }
+
+    out(event) {
 
     }
+
+    over(event) {
+
+    }
+
 }

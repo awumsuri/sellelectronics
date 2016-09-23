@@ -11,7 +11,7 @@ import {DeviceDetails} from "./views/DeviceDetails.js";
 export const appRoutes: Routes = [
     { path: '', component: Entry },
     { path: "make", component: MakeView},
-    { path: "device-details", component: DeviceDetails}
+    { path: "device-details", component: DeviceDetails, data: {s: "", x: ""}}
 ];
 
 export const appRoutingProviders: any[] = [];

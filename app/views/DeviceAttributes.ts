@@ -76,22 +76,22 @@ declare var $:any;
                  <div  class="device-containers">
                             <div *ngIf="(filteredModel.length > 0)" class="device-models">
                                  <div *ngIf="(filteredModel | hasDeviceType:1)" class="device-list iphone-list">
-                                       <a><img (mouseover)="over($event)" 
+                                       <a><img name="Phone" (mouseover)="over($event)" 
                         (mouseleave)="out($event)" 
                         (click)="clickHandlerDevice($event)" src="/Images/iphone.png"/></a>
-                                       <span class="title-list">Phone</span>
+                                       <span class="title-list"><p>Phone</p></span>
                                   </div>
-                                  <div *ngIf="(filteredModel | hasDeviceType:3)" class="device-list macbook-list">
-                                       <a><img (mouseover)="over($event)" 
+                                  <!--<div *ngIf="(filteredModel | hasDeviceType:3)" class="device-list macbook-list">
+                                       <a><img name="Laptop" (mouseover)="over($event)" 
                         (mouseleave)="out($event)" 
                         (click)="clickHandlerDevice($event)" src="/Images/macbook.png"/></a>
                                         <span class="title-list">Laptop</span>
-                                  </div>
+                                  </div>-->
                                    <div *ngIf="(filteredModel | hasDeviceType:2)" class="device-list ipad-list">
-                                       <a><img (mouseover)="over($event)" 
+                                       <a><img name="Tablet" (mouseover)="over($event)" 
                                                 (mouseleave)="out($event)" 
                         (click)="clickHandlerDevice($event)" src="/Images/ipad.png"/></a>
-                                       <span class="title-list"> Tablet</span>
+                                       <p><span class="title-list">Tablet</span></p>
                                   </div>
                                    
                                   
@@ -106,6 +106,10 @@ export class MakeView {
 
     private deviceData;
     private filteredModel: Device[] = [];
+
+    ngOnInit() {
+        this.userDevice.page = 1;
+    }
 
     constructor(private deviceService: DeviceService,
                 private userDevice: UserDevice,
@@ -142,6 +146,14 @@ export class MakeView {
     }
 
     clickHandlerDevice(event) {
+
+        this.userDevice.deviceType = DeviceTypes[event.target.name];
+        this.userDevice.displayData = this.filteredModel.filter(
+            device => {
+                return device.deviceType === this.userDevice.deviceType;
+            }
+        )
+
         this.router.navigate(['/device-details']);
     }
 
@@ -156,7 +168,6 @@ export class MakeView {
         var model = DevicesModels[button.name];
 
         this.userDevice.deviceModel = model;
-
         this.filteredModel = this.deviceData.filter(
             device => {
                 return device.deviceModel === model
