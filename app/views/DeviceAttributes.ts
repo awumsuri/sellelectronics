@@ -12,13 +12,16 @@ import {DevicesModels} from "../model/DeviceModels.js";
 import {Device} from "../model/Device.js";
 import {DeviceTypes} from "../model/DeviceTypes.js"
 import {Router} from "@angular/router";
+import {ResizeEvent} from "angular2-resizable";
 
 declare var $:any;
 
 @Component({
     selector: 'make-view',
-    template: `<topnav></topnav>
-                <div class="app">
+    template: `        
+
+                <topnav></topnav>
+                <div  class="app">
                 <span class="heading-pharse">
                     <h2>CHOOSE DEVICE</h2>
                 </span>
@@ -73,13 +76,13 @@ declare var $:any;
                     </li>
                     </ul>
                 </div>
-                 <div  class="device-containers">
+                 <div class="device-containers">
                             <div *ngIf="(filteredModel.length > 0)" class="device-models">
                                  <div *ngIf="(filteredModel | hasDeviceType:1)" class="device-list iphone-list">
                                        <a><img name="Phone" (mouseover)="over($event)" 
                         (mouseleave)="out($event)" 
                         (click)="clickHandlerDevice($event)" src="/Images/iphone.png"/></a>
-                                       <span class="title-list"><p>Phone</p></span>
+                                       <p><span class="title-list">Phone</span></p>
                                   </div>
                                   <!--<div *ngIf="(filteredModel | hasDeviceType:3)" class="device-list macbook-list">
                                        <a><img name="Laptop" (mouseover)="over($event)" 
@@ -92,13 +95,14 @@ declare var $:any;
                                                 (mouseleave)="out($event)" 
                         (click)="clickHandlerDevice($event)" src="/Images/ipad.png"/></a>
                                        <p><span class="title-list">Tablet</span></p>
-                                  </div>
-                                   
+                                  </div>                             
                                   
                             </div>
-                      </div>                     
+                      </div>
+                                                                 <div class="footer-push"></div>
                 </div>                   
-                 <footer></footer>`,
+                  <footer></footer>
+                  `
 
 })
 
@@ -174,4 +178,5 @@ export class MakeView {
             }
         );
     }
+
 }

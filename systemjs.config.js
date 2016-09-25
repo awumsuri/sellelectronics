@@ -24,7 +24,8 @@
       // other libraries
       'rxjs':                       'npm:rxjs',
       'angular2-in-memory-web-api': 'npm:angular2-in-memory-web-api',
-      "ng2-responsive":              "npm:ng2-responsive"
+      "ng2-responsive":              "npm:ng2-responsive",
+      "angular2-resizable":           "npm:angular2-resizable"
     },
     // packages tells the System loader how to load when no filename and/or no extension
     packages: {
@@ -41,6 +42,10 @@
       },
       'ng2-responsive': {
         main: './index.js',
+        defaultExtension: 'js'
+      },
+      'angular2-resizable': {
+        main: './angular2-resizable.js',
         defaultExtension: 'js'
       }
     }

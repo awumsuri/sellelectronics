@@ -33,6 +33,15 @@
   src:url("/fonts/Roboto-Regular.ttf");
 }
 
+.sprint-menu img{
+    width: 70px;
+}
+
+.tmobile-menu img{
+    width: 82px;
+    margin-top: 10px;
+}
+
 
 .listdivsheetmusic img{
     width: 16px !important;
@@ -113,6 +122,10 @@
     float: left;
 
 }
+
+.footer-push {
+    height: 20px;
+}
 .fb-share-button {
     top: -0.5px;
     padding-left: 5px
@@ -130,24 +143,10 @@
     overflow: hidden;
     height: 18px;
 }
-.video-container {
-    padding: 10px;
-    height: 60%;
-}
-.page-wrap {
- min-height: 100%;
-   /* equal to footer height */
-   margin-bottom: -30px;
- }
- .page-wrap:after {
-    display: block;
-  }
-.site-footer, .page-wrap:after {
-  height: 30px;
-}
-.site-footer {
-   background: orange;
- }
+
+
+
+
 .lower-panel{
     float: left;
     width: 100%;
@@ -381,6 +380,7 @@
     max-width: 583px;
     margin: auto;
     display: flex;
+    height: 100%;
 
 }
 
@@ -394,8 +394,6 @@
     display: block;
     text-align: center;
     font-size: 17px;
-
-
 }
 
 .display-device ul{
@@ -421,14 +419,16 @@
      background-color: orange !important;
  }
 
+ .title-display-list  h2{
+     font-family: customLight !important;
+     color: black;
+ }
+
  .display-device .title-display-list p {
      font-family: customLight !important;
      border-radius: 10px;
      padding-bottom: 8px;
-
  }
-
-
 
 .current-index-on {
 
@@ -607,6 +607,32 @@
     float: left;
     cursor: hand;
     padding: 7px;
+    display: block;
+    list-style: none;
+    list-style-type: none;
+
+}
+
+.make-menu ul li {
+    list-style: none;
+    list-style-type: none;
+}
+
+.make-menu ul{
+    list-style: none;
+    list-style-type: none;
+}
+
+.carriers ul li{
+    list-style: none;
+    list-style-type: none;
+    display: block;
+}
+
+.carriers ul {
+    list-style: none;
+    list-style-type: none;
+    display: block;
 }
 
 .nokia-menu {
@@ -631,9 +657,54 @@
     border: solid;
     border-width: 0.5px;
     border-radius: 10px;
-    max-height: 500% !important;
     overflow: hidden;
 
+}
+
+.carriers {
+    width: 100%;
+    max-width: 345px;
+    text-align: left !important;
+    margin: auto;
+    height: 100px;
+    margin-top: 42px;
+    padding-top: 10px;
+    /*padding-bottom: 100px;*/
+    border: solid;
+    border-width: 0.5px;
+    border-radius: 10px;
+    overflow: hidden;
+
+}
+
+.carries img {
+    width: 50px;
+}
+
+.att-menu img {
+    width: 78px;
+    margin-top: 25;
+}
+
+.verizon-menu img{
+    width: 58px;
+    margin-top: 5px;
+}
+
+.tmobile-menu img {
+
+}
+.center-border {
+    width: 190px;
+    max-height: 200px;
+    text-align: center !important;
+    margin: auto;
+    padding: 10px;
+    display: block;
+    border: solid;
+    border-width: 0.5px;
+    border-radius: 10px;
+    overflow: hidden;
 }
 
 .samsung img{
@@ -744,7 +815,7 @@ body {
 }
 
 /* cloud */
-body {
+body,html {
     background:#fff;
     font-family: "Times New Roman", "Georgia", serif;
     min-width: 100%;
@@ -778,9 +849,10 @@ body {
 }
 
 .app {
-    margin: auto;
+    min-height: 100%;
+    height: auto !important;
     height: 100%;
-    min-height: 500px !important;
+    margin: 0 auto -25;
 }
 
 .title-list {
@@ -795,7 +867,7 @@ body {
 
 .device-models{
     padding-top: 50px;
-    width: 340px;
+    width: 266px;
     margin: auto;
     cursor: hand;
     overflow: hidden;
@@ -842,15 +914,19 @@ body {
     padding: 30px !important;
 }
 
+.enslave {
+    height: 100%;
+    width: 100%;
+}
+
 .footer-app{
     height: 20px;
     bottom: 40px;
     left: 0px;
     right: 0px;
     width: 100%;
-
-    display: inline-flex;
-    margin: auto
+    display: flex;
+    margin: auto;
     margin-top: -30px;
     border-bottom-color: black;
     border-bottom-style: solid;
@@ -865,7 +941,6 @@ body {
     padding-top: 25px;
     color: black;
     width: 100%;
-
 }
 
 .left {
@@ -1872,9 +1947,9 @@ li.footer_nav ul li {
 
 
 /******* Footer Stick Chunk *******/
-/** {
+* {
     margin: 0;
-}*/
+}
 
 #wrap {
     min-height: 100%;

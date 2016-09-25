@@ -1,13 +1,13 @@
 /**
  * Created by Mtui on 9/17/16.
  */
-import { Component } from "@angular/core";
+import {Component} from "@angular/core";
 declare var $:any;
 
 @Component({
     selector: 'main-view',
         template: `
-                    <div class="app">
+                    <div mwlResizable class="app">
                     <span class="heading-pharse"><h2>SELL YOUR ELECTRONIC DEVICES BY CLICKING BELOW</h2></span>
                                <div class="downbutton">
                                     <img src="/Images/downbutton.jpg"/>                             
@@ -22,7 +22,8 @@ declare var $:any;
                   `,
 })
 
-export class MainView{
+export class MainView {
+
     over(){
        $('.startbutton').find("img").attr("src", "/Images/startbuttonhover.jpg");
     }

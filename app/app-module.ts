@@ -17,6 +17,8 @@ import {ResponsiveModule, ResponsiveConfig, ResponsiveConfigInterface} from "ng2
 import {HasDeviceType} from "./utils/HasDeviceTypesPipe.js";
 import {DeviceTypes} from "./model/DeviceTypes.js"
 import {DeviceDetails} from "./views/DeviceDetails.js";
+import {ResizableModule} from "angular2-resizable";
+import {GetPrice} from "./views/GetPrice.js"
 
 let config: ResponsiveConfigInterface = {
     breakPoints: {
@@ -34,7 +36,8 @@ let config: ResponsiveConfigInterface = {
         BrowserModule,
         RouterModule.forRoot(appRoutes),
         HttpModule,
-        ResponsiveModule
+        ResponsiveModule,
+        ResizableModule
     ],
     declarations: [
         AppComponent,
@@ -45,7 +48,8 @@ let config: ResponsiveConfigInterface = {
         MakeView,
         History,
         HasDeviceType,
-        DeviceDetails
+        DeviceDetails,
+        GetPrice
     ],
     providers:[
         appRoutingProviders,
