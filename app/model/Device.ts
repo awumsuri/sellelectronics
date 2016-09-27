@@ -4,12 +4,13 @@
 import { DeviceTypes } from "./DeviceTypes";
 import { DeviceDisplayOffset } from "./DeviceDisplayOffset";
 import {DevicesModels} from "./DeviceModels";
+import {ConditionType} from "./ConditionType";
 
 export class Device {
     constructor(
         public deviceType,
         public deviceModel: DevicesModels,
-        public condition: string,
+        public condition: ConditionType,
         public resourceUrl: string,
         public iconOffset: DeviceDisplayOffset,
         public name: string,

@@ -33,6 +33,10 @@
   src:url("/fonts/Roboto-Regular.ttf");
 }
 
+.hide {
+    display: none;
+}
+
 .sprint-menu img{
     width: 70px;
 }

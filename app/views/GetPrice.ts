@@ -58,20 +58,20 @@ declare var $:any;
                 <span class="heading-middle"><h2>Condition</h2></span>
                 <div class="carriers inputs">      
                          <div class="input-container">
-                         <input type="radio" onclick='conditionHandler();'  name="condition" value="GOOD">GOOD<br>
+                         <input type="radio" (click)='conditionHandler($event);'  name="condition" value="GOOD">GOOD<br>
                         </div>
                         <div class="input-container">
-                         <input type="radio" onclick='conditionHandler()'  name="condition" value="BAD">BAD<br>
+                         <input type="radio" (click)='conditionHandler($event)'  name="condition" value="BAD">BAD<br>
                         </div>
                         <div class="input-container">
-                         <input type="radio" onclick='conditionHandler();' name="condition" value="UGLY">UGLY<br>
+                         <input type="radio" (click)='conditionHandler($event);' name="condition" value="UGLY">UGLY<br>
                         </div>
                       
                 </div>   
-                      <div class="startbutton hidden" >
-                                    <img on-mouseover="over(event)" on-mouseout="out(event)" src="/Images/moneybutton.svg"/>                                   
-                                </div>
-                       </div>
+                      <div class="startbutton hide" >
+                            <img (mouseover)="over(event)" (mouseleave)="break(event)" src="/Images/moneybutton.svg"/>                                   
+                        </div>
+                </div>
                 <div class="footer-push"></div>
                 </div>
                 <footer></footer>
@@ -111,7 +111,6 @@ export class GetPrice {
     }
 
     clickHandler(event) {
-        debugger;
         this.resetButtons();
         var button = event.target;
         this.over(event);
@@ -131,10 +130,10 @@ export class GetPrice {
         $(".condition").css("display", "block");
     }
 
-    conditionHandler() {
+    conditionHandler(event) {
+        var button: HTMLInputElement = event.target;
         //debugger;
-        //this.userDevice.condition = ConditionType[event.target];
-        //debugger;
-        $(".startbutton.hidden").css({"display": "block !important", "visibility": "true"});
+        this.userDevice.condition = ConditionType[button.value];
+        $(".hide").css("display", "block");
     }
 }
