@@ -1,26 +1,19 @@
 {
   "compilerOptions": {
-    "target": "es2015",
-    "module": "system",
+    "target": "es5",
+    "module": "commonjs",
     "moduleResolution": "node",
     "sourceMap": true,
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
-    "declaration": false,
-    "stripInternal": true,
-    "noEmitOnError": true,
-    "rootDir": ".",
-    "inlineSources": true,
     "removeComments": false,
     "noImplicitAny": false,
-    "outDir": "./dist/",
-    "outFile": "bundle.js"
-  },
-  "include": [
-    "./app/**/*"
-  ],
-  "exclude": [
-    "node_modules"
+    "outDir": "./dist/"
 
+  },
+  "exculde": [
+    "node_modules",
+    "typings/main",
+    "typings/main.d.ts"
   ]
 }
