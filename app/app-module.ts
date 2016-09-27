@@ -1,24 +1,24 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { AppComponent } from "./app-component.js";
-import { TopNav } from "./views/Nav.js";
-import { MainView } from "./views/MainView.js";
-import { Footer } from "./views/Footer.js";
-import { appRoutingProviders } from "./app.routes.js";
-import { Entry } from "./views/Entry.js";
+import { AppComponent } from "./app-component";
+import { TopNav } from "./views/Nav";
+import { MainView } from "./views/MainView";
+import { Footer } from "./views/Footer";
+import { appRoutingProviders } from "./app.routes";
+import { Entry } from "./views/Entry";
 import { RouterModule } from "@angular/router";
-import { appRoutes } from "./app.routes.js";
-import { MakeView } from "./views/DeviceAttributes.js";
-import { History } from "./views/History.js"
-import { DeviceService } from "./services/DeviceService.js";
+import { appRoutes } from "./app.routes";
+import { MakeView } from "./views/DeviceAttributes";
+import { History } from "./views/History"
+import { DeviceService } from "./services/DeviceService";
 import { HttpModule} from "@angular/http"
-import {UserDevice} from "./model/UserDevice.js";
-import {ResponsiveModule, ResponsiveConfig, ResponsiveConfigInterface} from "ng2-responsive";
-import {HasDeviceType} from "./utils/HasDeviceTypesPipe.js";
-import {DeviceTypes} from "./model/DeviceTypes.js"
-import {DeviceDetails} from "./views/DeviceDetails.js";
+import {UserDevice} from "./model/UserDevice";
+import {ResponsiveModule, ResponsiveConfigInterface} from "ng2-responsive";
+import {HasDeviceType} from "./utils/HasDeviceTypesPipe";
+import {DeviceTypes} from "./model/DeviceTypes"
+import {DeviceDetails} from "./views/DeviceDetails";
 import {ResizableModule} from "angular2-resizable";
-import {GetPrice} from "./views/GetPrice.js"
+import {GetPrice} from "./views/GetPrice"
 
 let config: ResponsiveConfigInterface = {
     breakPoints: {

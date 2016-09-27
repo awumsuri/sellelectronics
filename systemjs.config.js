@@ -25,12 +25,14 @@
       'rxjs':                       'npm:rxjs',
       'angular2-in-memory-web-api': 'npm:angular2-in-memory-web-api',
       "ng2-responsive":              "npm:ng2-responsive",
-      "angular2-resizable":           "npm:angular2-resizable"
+      "angular2-resizable":           "npm:angular2-resizable",
+      "typescript":                   "npm:typescript"
     },
     // packages tells the System loader how to load when no filename and/or no extension
     packages: {
       app: {
-        main: '../dist/main.js',
+        main: '../dist/app.js',
+        format: "register",
         defaultExtension: 'js'
       },
       rxjs: {

@@ -3,8 +3,8 @@
  */
 import {Component, AfterContentInit, ApplicationRef} from "@angular/core";
 import { Router } from "@angular/router";
-import {UserDevice} from "../model/UserDevice.js";
-import {Device} from "../model/Device.js"
+import {UserDevice} from "../model/UserDevice";
+import {Device} from "../model/Device"
 import {Footer} from "./Footer";
 declare var $:any;
 

@@ -2,15 +2,15 @@
  * Created by Mtui on 9/18/16.
  */
 import {Component} from "@angular/core";
-import { TopNav } from "./Nav.js";
-import { Footer } from "./Footer.js";
-import { History } from "./History.js";
-import { DeviceService } from "../services/DeviceService.js"
-import {UserDevice} from "../model/UserDevice.js";
-import {HasDeviceType } from "../utils/HasDeviceTypesPipe.js";
-import {DevicesModels} from "../model/DeviceModels.js";
-import {Device} from "../model/Device.js";
-import {DeviceTypes} from "../model/DeviceTypes.js"
+import { TopNav } from "./Nav";
+import { Footer } from "./Footer";
+import { History } from "./History";
+import { DeviceService } from "../services/DeviceService"
+import {UserDevice} from "../model/UserDevice";
+import {HasDeviceType } from "../utils/HasDeviceTypesPipe";
+import {DevicesModels} from "../model/DeviceModels";
+import {Device} from "../model/Device";
+import {DeviceTypes} from "../model/DeviceTypes"
 import {Router} from "@angular/router";
 import {ResizeEvent} from "angular2-resizable";
 

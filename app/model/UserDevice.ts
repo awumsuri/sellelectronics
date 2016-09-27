@@ -1,7 +1,7 @@
 /**
  * Created by Mtui on 9/20/16.
  */
-import {Device} from "./Device.js"
+import {Device} from "./Device"
 
 export class UserDevice extends Device {
     public filterdData: Device[];

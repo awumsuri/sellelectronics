@@ -3,7 +3,7 @@
  */
 
 import { Component } from '@angular/core';
-import {UserDevice} from "../model/UserDevice.js";
+import {UserDevice} from "../model/UserDevice";
 
 @Component({
     selector: 'history',

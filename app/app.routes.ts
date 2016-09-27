@@ -3,11 +3,11 @@
  */
 
 import { Routes } from "@angular/router";
-import { AppComponent } from "./app-component.js";
-import { MakeView } from "./views/DeviceAttributes.js";
-import { Entry } from "./views/Entry.js";
-import {DeviceDetails} from "./views/DeviceDetails.js";
-import { GetPrice } from "./views/GetPrice.js"
+import { AppComponent } from "./app-component";
+import { MakeView } from "./views/DeviceAttributes";
+import { Entry } from "./views/Entry";
+import {DeviceDetails} from "./views/DeviceDetails";
+import { GetPrice } from "./views/GetPrice"
 
 export const appRoutes: Routes = [
     { path: '', component: Entry },

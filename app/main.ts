@@ -1,6 +1,9 @@
 import { platformBrowserDynamic } from "@angular/platform-browser-dynamic";
-import { AppModule } from "./app-module.js";
-import {DeviceService} from "./services/DeviceService.js";
+import { AppModule } from "./app-module";
+import {DeviceService} from "./services/DeviceService";
+import {enableProdMode} from "@angular/core";
+
+//enableProdMode();
 
 const platform = platformBrowserDynamic();
 platform.bootstrapModule(AppModule);

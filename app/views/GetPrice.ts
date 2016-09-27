@@ -2,7 +2,10 @@
  * Created by Mtui on 9/24/16.
  */
 import { Component } from "@angular/core";
-import {UserDevice} from "../model/UserDevice.js";
+import {UserDevice} from "../model/UserDevice";
+import {ConditionType} from "../model/ConditionType";
+
+declare var $:any;
 
 @Component({
     selector: "final-price",
@@ -16,6 +19,8 @@ import {UserDevice} from "../model/UserDevice.js";
                    <div class="display-device center-border">
                          <img src="{{userDevice.resourceUrl}}"/>                        
                     </div>
+                    <br>
+                    <span class="heading-middle"><h2>Carrier</h2></span>
                     <div class="carriers">
                     <ul>                      
                     <li><div  class="make-menu att-menu">
@@ -50,8 +55,23 @@ import {UserDevice} from "../model/UserDevice.js";
                     </ul>
                 </div>
                 <div class="condition">
-                    
-                </div>                
+                <span class="heading-middle"><h2>Condition</h2></span>
+                <div class="carriers inputs">      
+                         <div class="input-container">
+                         <input type="radio" onclick='$(".startbutton.hidder").css({"display": "block !important", "visibility": "true"}); '  name="condition" value="GOOD">GOOD<br>
+                        </div>
+                        <div class="input-container">
+                         <input type="radio" onclick=' $(".startbutton.hidder").css({"display": "block !important", "visibility": "true"}); '  name="condition" value="BAD">BAD<br>
+                        </div>
+                        <div class="input-container">
+                         <input type="radio" onclick=' $(".startbutton.hidder").css({"display": "block !important", "visibility": "true"}); ' name="condition" value="UGLY">UGLY<br>
+                        </div>
+                      
+                </div>   
+                      <div class="startbutton hidden" >
+                                    <img routerLink="/make" routerLinkActive="active" on-mouseover="over(event)" on-mouseout="out(event)" src="/Images/moneybutton.svg"/>                                   
+                                </div>
+                       </div>
                 <div class="footer-push"></div>
                 </div>
                 <footer></footer>
@@ -99,11 +119,21 @@ export class GetPrice {
         this.displayCondition(button);
     }
 
-    resetButton() {
-
+    resetButtons() {
+        $(".make-menu").find("img").each( function(){
+            this.src = this.src.replace("hover","");
+            this.selected = false;
+        });
     }
 
     displayCondition(button) {
+        $(".condition").css("display", "block");
+    }
 
+    conditionHandler() {
+        debugger;
+        //this.userDevice.condition = ConditionType[event.target];
+        debugger;
+        $(".startbutton.hidder").css({"display": "block !important", "visibility": "true"});
     }
 }

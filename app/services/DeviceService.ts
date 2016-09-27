@@ -3,9 +3,9 @@
  */
 import { Http } from "@angular/http";
 import {Injectable} from "@angular/core";
-import {DeviceTypes} from "../model/DeviceTypes.js";
-import {DevicesModels} from "../model/DeviceModels.js";
-import {Device} from "../model/Device.js";
+import {DeviceTypes} from "../model/DeviceTypes";
+import {DevicesModels} from "../model/DeviceModels";
+import {Device} from "../model/Device";
 
 @Injectable()
 export class DeviceService {
