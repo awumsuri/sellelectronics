@@ -19,6 +19,7 @@ import {DeviceTypes} from "./model/DeviceTypes"
 import {DeviceDetails} from "./views/DeviceDetails";
 import {ResizableModule} from "angular2-resizable";
 import {GetPrice} from "./views/GetPrice"
+import {FindPricePipe} from "./utils/FindPricePipe";
 
 let config: ResponsiveConfigInterface = {
     breakPoints: {
@@ -49,7 +50,8 @@ let config: ResponsiveConfigInterface = {
         History,
         HasDeviceType,
         DeviceDetails,
-        GetPrice
+        GetPrice,
+        FindPricePipe
     ],
     providers:[
         appRoutingProviders,

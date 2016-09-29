@@ -64,13 +64,8 @@ export class Footer implements AfterContentInit{
         if (footerTop < docHeight) {
             $('#footer').css('margin-top', 1200/*((200+ (docHeight - footerTop)) + 'px')*/);
         }
+
         return;
-        /*var containerHeight = $(".app")[0].scrollHeight;
-        var navHeight = $("topnav").height() ;
-        var historyHeight =  $("history").height();
-        var footer = $(".footer-app");
-        footer.css("top", (containerHeight + navHeight + historyHeight + (this.isMobile() ? 800 : 560)));
-        footer.css("position", "absolute");*/
     }
 
     isMobile() {

@@ -13,8 +13,7 @@ export const appRoutes: Routes = [
     { path: '', component: Entry },
     { path: "make", component: MakeView},
     { path: "device-details", component: DeviceDetails, data: {s: "", x: ""}},
-    { path: "final-price", component: GetPrice, data: {s: "", x: ""}},
-
+    { path: "final-price", component: GetPrice, data: {s: "", x: ""}}
 ];
 
 export const appRoutingProviders: any[] = [];

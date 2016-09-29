@@ -14,7 +14,9 @@ export class Device {
         public resourceUrl: string,
         public iconOffset: DeviceDisplayOffset,
         public name: string,
-        public names: string[]
+        public names: string[],
+        public make: string
+
     ){}
 
     hasDeviceType(deviceType: DeviceTypes) {

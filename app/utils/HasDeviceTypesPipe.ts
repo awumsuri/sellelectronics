@@ -1,7 +1,7 @@
 /**
  * Created by Mtui on 9/21/16.
  */
-import {Pipe, Injectable, PipeTransform} from "@angular/core";
+import {Pipe, PipeTransform} from "@angular/core";
 import {Device} from "../model/Device";
 import {DeviceTypes} from "../model/DeviceTypes";
 

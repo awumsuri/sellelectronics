@@ -7,8 +7,11 @@ export class UserDevice extends Device {
     public filterdData: Device[];
     public page: number;
     public displayData: Device[];
+    public carrier: string;
+    public size: number;
+
 
     constructor(){
-        super(null, null, null, null, null, null, null);
+        super(null, null, null, null, null, null, null, null);
     }
 }

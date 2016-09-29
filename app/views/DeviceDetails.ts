@@ -5,10 +5,7 @@ import {Component, AfterContentInit, ApplicationRef} from "@angular/core";
 import { Router } from "@angular/router";
 import {UserDevice} from "../model/UserDevice";
 import {Device} from "../model/Device"
-import {Footer} from "./Footer";
 declare var $:any;
-
-
 
 @Component({
     selector: 'device-details',
@@ -26,19 +23,19 @@ declare var $:any;
                                 (mouseover)="over($event);"
                                  (click)="clickHandler($event)"
                                 *ngFor="let device of displayData">
-                                    <img name="{{device.name}}" src="{{device.resourceUrl}}"/>
+                                    <img data-make="{{device.make}}" name="{{device.name}}" src="{{device.resourceUrl}}"/>
                                     <span class="title-display-list"><p>{{device.name}}</p></span>
                                 </li>
                             </ul>                            
                         </div>
                                                <div class="footer-push"></div>
-                    </div>        
-                   
-                    
+                    </div>                    
               `
 })
 
 export class DeviceDetails{
+
+    private iPhoneSize: string[] = ["8", "16", "32", "64", "128"];
 
     private displayData: Device[] = [];
 
@@ -60,9 +57,20 @@ export class DeviceDetails{
 
     }
 
+    getSize(name): number {
+        for(var i = 0; i < this.iPhoneSize.length; i++) {
+            if(name.indexOf(this.iPhoneSize[i]) !== -1) {
+                return parseInt(this.iPhoneSize[i]);
+            }
+        }
+    }
+
     clickHandler(event) {
-        this.userDevice.name = event.target.name;
-        this.userDevice.resourceUrl = event.target.src;
+        var element:HTMLImageElement = event.target;
+        this.userDevice.name = element.name;
+        this.userDevice.resourceUrl = element.src;
+        this.userDevice.make = element["data-make"];
+        this.userDevice.size = this.getSize(element.name);
         this.router.navigate(["/final-price"]);
     }
 

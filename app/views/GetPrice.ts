@@ -4,6 +4,8 @@
 import { Component } from "@angular/core";
 import {UserDevice} from "../model/UserDevice";
 import {ConditionType} from "../model/ConditionType";
+import {DeviceService} from "../services/DeviceService";
+import {GazelleDAO} from "../model/GazelleDAO";
 
 declare var $:any;
 
@@ -24,20 +26,20 @@ declare var $:any;
                     <div class="carriers">
                     <ul>                      
                     <li><div  class="make-menu att-menu">
-                        <img name="Att" (mouseover)="over($event)" 
+                        <img name="at-t" (mouseover)="over($event)" 
                         (mouseleave)="out($event)" 
                         (click)="clickHandler($event)" 
                         src="/Images/carries/att.png"/>
                     </div></li>
                      <li><div  class="make-menu sprint-menu">
-                        <img name="Sprint" (mouseover)="over($event)" 
+                        <img name="sprint" (mouseover)="over($event)" 
                         (mouseleave)="out($event)" 
                         (click)="clickHandler($event)" 
                         src="/Images/carries/sprint.png"/>
                     </div></li>
                     <li>
                     <div  class="make-menu verizon-menu">
-                        <img name="Verizon" (mouseover)="over($event)" 
+                        <img name="verizon" (mouseover)="over($event)" 
                         (mouseleave)="out($event)" 
                         (click)="clickHandler($event)" 
                         src="/Images/carries/verizon.png"/>
@@ -45,7 +47,7 @@ declare var $:any;
                     </li>
                     
                     <li> <div  class="make-menu tmobile-menu">
-                        <img name="TMobile" (mouseover)="over($event)" 
+                        <img name="t-mobile" (mouseover)="over($event)" 
                         (mouseleave)="out($event)" 
                         (click)="clickHandler($event)" 
                         src="/Images/carries/tmobile.png"/>
@@ -69,26 +71,29 @@ declare var $:any;
                       
                 </div>   
                       <div class="startbutton hide" >
-                            <img (mouseover)="over(event)" (mouseleave)="break(event)" src="/Images/moneybutton.svg"/>                                   
+                            <span [innerText]="price"  class="finalprice"></span>    
+                            <span  class="noprice"> NO PRICE FOR THIS DEVICE </span> 
                         </div>
                 </div>
                 <div class="footer-push"></div>
                 </div>
-                <footer></footer>
-                    
+                <footer></footer>                    
                 `
 })
 
 export class GetPrice {
 
-    private filteredModel = [];
+    private gazelleData;
+    public price: number = 0;
 
     ngOnInit() {
        this.userDevice.page = 3;
     }
 
-    constructor(private userDevice: UserDevice) {
-
+    constructor(private userDevice: UserDevice,
+                private deviceService: DeviceService) {
+        this.gazelleData = deviceService.getGazelleData();
+        debugger;
     }
 
     over(event) {
@@ -111,6 +116,8 @@ export class GetPrice {
     }
 
     clickHandler(event) {
+
+        this.userDevice.carrier = event.target.name;
         this.resetButtons();
         var button = event.target;
         this.over(event);
@@ -130,9 +137,23 @@ export class GetPrice {
         $(".condition").css("display", "block");
     }
 
+    getPrice(): number {
+        for(var i = 0; i < this.gazelleData.length; i++) {
+            var device: GazelleDAO = this.gazelleData[i];
+            if(device.carrier === this.userDevice.carrier
+                && device.make === this.userDevice.make
+                && device.size === this.userDevice.size) {
+                return device.price;
+            }
+        }
+
+        return 0;
+    }
+
     conditionHandler(event) {
+        this.price = this.getPrice();
+        debugger;
         var button: HTMLInputElement = event.target;
-        //debugger;
         this.userDevice.condition = ConditionType[button.value];
         $(".hide").css("display", "block");
     }

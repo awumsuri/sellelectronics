@@ -33,6 +33,24 @@
   src:url("/fonts/Roboto-Regular.ttf");
 }
 
+.finalprice {
+    font-family: customRegular;
+    color: dimgray;
+    font-size: 20px;
+    margin: auto;
+    display: block;
+}
+
+.noprice {
+
+    font-family: customRegular;
+    color: dimgray;
+    font-size: 14px;
+    margin: auto;
+    display: block;
+
+}
+
 .hide {
     display: none;
 }

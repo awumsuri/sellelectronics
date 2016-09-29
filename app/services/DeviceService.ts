@@ -6,21 +6,41 @@ import {Injectable} from "@angular/core";
 import {DeviceTypes} from "../model/DeviceTypes";
 import {DevicesModels} from "../model/DeviceModels";
 import {Device} from "../model/Device";
+import {GazelleDAO} from "../model/GazelleDAO";
 
 @Injectable()
 export class DeviceService {
 
     private deviceData: Device[] = [];
+    private gazellData;
 
     constructor(private http: Http) {
         this.loadDevices();
+        this.loadGazelleData();
     }
 
-    getDevices() {
+    public getDevices() {
         return this.deviceData;
     }
 
-    loadDevices() {
+    public getGazelleData() {
+        return this.gazellData;
+    }
+
+    private loadGazelleData() {
+        this.http.get("/resource/gazelleData.json")
+            .subscribe(
+                data => {
+                    this.gazellData = data.json();
+                },
+                err => {
+                    console.error(err);
+                },
+                () => console.debug("done")
+            )
+    }
+
+    private loadDevices() {
         this.http.get("/resource/resource.json")
             .subscribe(
                 data => {
@@ -32,7 +52,7 @@ export class DeviceService {
                 () => console.log("done")
             )
     }
-    getModel(d) {
+    private getModel(d) {
         var model;
 
         switch(d.deviceModel) {
@@ -47,7 +67,7 @@ export class DeviceService {
         return model;
     }
 
-    getType(d) {
+    private getType(d) {
         var type;
 
         switch(d.deviceType) {
@@ -65,7 +85,8 @@ export class DeviceService {
         return type;
     }
 
-    populateDeviceData(data: Device[]) {
+
+    private populateDeviceData(data: Device[]) {
         data.forEach(d => {
             d.names.forEach(name => {
                 var imageName:string = name;
@@ -80,7 +101,8 @@ export class DeviceService {
                         (d.resourceUrl + "/"+ imageName +".jpg"),
                         null,
                         name,
-                        null
+                        null,
+                        d.make
                     )
                 )
             }

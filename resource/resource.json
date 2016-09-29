@@ -2,6 +2,7 @@
   {
     "deviceModel": "Apple",
     "deviceType": "Phone",
+    "deviceMake": "iphone",
     "resourceUrl": "/Images/iphone",
     "names": [
       "iPhone 5 16gb",
