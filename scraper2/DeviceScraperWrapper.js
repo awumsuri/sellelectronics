@@ -18,7 +18,7 @@ function scrape(){
     exec = require('child_process').spawn;
     child = exec('casperjs',['ScraperCasper.js']);
     child.stderr.on('data', function(data){
-        console.info("data-error:"+data);
+        console.error("data-error:"+data);
     });
 
     child.stdout.on('data', function(data){
@@ -36,22 +36,10 @@ function getiPhoneIDs() {
     var req     = request('http://127.0.0.1:8003', function(err, res, body){
 
         if(err) {
-
             throw err;
             return;
         }
-
-        var data;
-        try {
-            data = JSON.parse(body);
-        } catch(e) {
-            data = false;
-        }
-
-        if(!data || data.length == 0){
-
-            return;
-        }
+        var data = JSON.parse(body);
         saveData(data);
         killProcess();
     });
@@ -60,7 +48,7 @@ function getiPhoneIDs() {
 function saveData(data){
     MongoClient.connect(DB_URL,function(err, db){
         if(err) throw err;
-        console.info('connected to database saving phone data');
+        console.info('connected to database saving phone data:'+data.length);
         var deviceTypes = db.collection('deviceTypes');
 
         DBRef   = db;
@@ -72,10 +60,7 @@ function saveData(data){
                 if(count === 0){
                     deviceTypes.insertOne(event, function(err){
                         if(err) throw err;
-
                     });
-                } else {
-                   // deviceTypes.update
                 }
             });
 

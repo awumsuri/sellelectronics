@@ -5,8 +5,9 @@
 var ip = "127.0.0.1:8003";
 
 var server = require('webserver').create();
+server.timeout = 9999999;
 var service = server.listen(ip, function(req, res){
-    const CARRIERS = ["at-t", "sprint", "verizon", "t-mobile","unlocked"];
+    /*const CARRIERS = ["at-t", "sprint", "verizon", "t-mobile","unlocked"];
 
     const iPhones = [
         "iphone-se",
@@ -17,7 +18,12 @@ var service = server.listen(ip, function(req, res){
         "iphone-5s",
         "iphone-5",
         "iphone-5c"
-    ];
+    ];*/
+
+    const iPhones = ["iphone-se"];
+    const CARRIERS = ["at-t"];
+    const iPhoneSize = ["16GB", "32GB", "64GB", "128GB"];
+
 
     var index = 0;
     var carrierIndex = 0;
@@ -42,6 +48,31 @@ var service = server.listen(ip, function(req, res){
         });
     }
 
+    function getSize(name) {
+        for(var i = 0; i < iPhoneSize.length; i++) {
+            if(name.indexOf(iPhoneSize[i]) !== -1) {
+                return iPhoneSize[i];
+            }
+        }
+    }
+
+    casper.options.onResourceRequested = function(casper, requestData, request) {
+        // If any of these strings are found in the requested resource's URL, skip
+        // this request. These are not required for running tests.
+        var skip = [
+            'googleads.g.doubleclick.net',
+            'cm.g.doubleclick.net',
+            'www.googleadservices.com',
+            's7.addthis.com'
+        ];
+
+        skip.forEach(function(needle) {
+            if (requestData.url.indexOf(needle) > 0) {
+                request.abort();
+            }
+        })
+    };
+
     casper.on("remote.message", function(e){
         console.info("Inside Start");
         this.echo("remote>"+e);
@@ -64,6 +95,8 @@ var service = server.listen(ip, function(req, res){
                         var _deviceIdArray = this.evaluate(getiPhoneIDs);
                         _deviceIdArray.forEach(function(value){
                             value.carrier = CARRIERS[carrier];
+                            value.make = iPhones[current];
+                            value.size = getSize(value.name);
                             deviceIdArray.push(value);
                         })
                     })
