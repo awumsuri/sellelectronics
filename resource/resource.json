@@ -2,33 +2,32 @@
   {
     "deviceModel": "Apple",
     "deviceType": "Phone",
-    "deviceMake": "iphone",
+    "make": "iphone",
     "resourceUrl": "/Images/iphone",
     "names": [
-      "iPhone 5 16gb",
-      "iPhone 5c 8gb",
-      "iPhone 5s 16gb",
-      "iPhone 6 16gb",
-      "iPhone 6 Plus 16gb",
-      "iPhone 6 s 16gb",
-      "iPhone 6 Plus s 16gb",
-      "iPhone 5 32gb",
-      "iPhone 5c 16gb",
-      "iPhone 5s 32gb",
-      "iPhone 6 32gb",
-      "iPhone 6 Plus 32gb",
-      "iPhone 6 s 32gb",
-      "iPhone 6 Plus s 32gb",
-      "iPhone 5 64gb",
-      "iPhone 5c 32gb",
-      "iPhone 5s 64gb",
-      "iPhone 6 64gb",
-      "iPhone 6 Plus 64gb",
-      "iPhone 6 s 64gb",
-      "iPhone 6 Plus s 64gb",
-      "iPhone SE 16gb",
-      "iPhone SE 32gb",
-      "iPhone SE 64gb"
+      {"display": "iPhone 5 16gb", "gazelle": "iphone-5"},
+      {"display": "iPhone 5c 8gb", "gazelle": "iphone-5c"},
+      {"display": "iPhone 5s 16gb", "gazelle": "iphone-5s"},
+      {"display": "iPhone 6 16gb", "gazelle": "iphone-6"},
+      {"display":"iPhone 6 Plus 16gb", "gazelle": "iphone-6-plus"},
+      {"display":"iPhone 6 s 16gb", "gazelle": "iphone-6s"},
+      {"display":"iPhone 6 Plus s 16gb", "gazelle": "iphone-6s-plus"},
+      {"display":"iPhone 5 32gb", "gazelle": "iphone-5"},
+      {"display":"iPhone 5c 16gb","gazelle": "iphone-5c"},
+      {"display":"iPhone 5s 32gb", "gazelle": "iphone-5s"},
+      {"display":"iPhone 6 32gb", "gazelle": "iphone-6"},
+      {"display":"iPhone 6 Plus 32gb", "gazelle": "iphone-6-plus"},
+      {"display":"iPhone 6 s 32gb", "gazelle": "iphone-6s"},
+      {"display":"iPhone 6 Plus s 32gb", "gazelle": "iphone-6s-plus"},
+      {"display":"iPhone 5 64gb", "gazelle": "iphone-5"},
+      {"display":"iPhone 5c 32gb", "gazelle": "iphone-5c"},
+      {"display":"iPhone 5s 64gb", "gazelle": "iphone-5s"},
+      {"display":"iPhone 6 64gb", "gazelle": "iphone-6-plus"},
+      {"display":"iPhone 6 Plus 64gb", "gazelle": "iphone-6"},
+      {"display":"iPhone 6 s 64gb", "gazelle": "iphone-6s"},
+      {"display":"iPhone 6 Plus s 64gb", "gazelle": "iphone-6s-plus"},
+      {"display":"iPhone SE 16gb", "gazelle": "iphone-se"},
+      {"display":"iPhone SE 64gb", "gazelle": "iphone-se"}
     ]
   },
   {
@@ -36,35 +35,22 @@
     "deviceType": "Tablet",
     "resourceUrl": "/Images/tablet",
     "names": [
-      "iPad",
-      "iPad Mini",
-      "iPad Air",
-      "iPad Pro"
+      {"display":"iPad", "gazelle": "iphone-6"},
+      {"display":"iPad Mini", "gazelle": "iphone-6"},
+      {"display":"iPad Air", "gazelle": "iphone-6"},
+      {"display":"iPad Pro", "gazelle": "iphone-6"}
     ]
   },
-  {
-    "deviceModel": "Apple",
-    "deviceType": "Laptop",
-    "resourceUrl": "/Images/laptop",
-    "names": [
-      "macbook pro",
-      "macbook pro 2014"
 
-    ]
-  },
   {
     "deviceModel": "Blackberry",
     "deviceType": "Phone",
     "resourceUrl": "/Images/blackberry",
     "names": [
-      "iPhone",
-      "iPhone 2",
-      "iPhone 3",
-      "iPhone 4",
-      "iPhone 4s",
-      "iPhone 5",
-      "iPhone 5s",
-      "iPhone 6"
+      {"display":"iPad", "gazelle": "iphone-6"},
+      {"display":"iPad Mini", "gazelle": "iphone-6"},
+      {"display":"iPad Air", "gazelle": "iphone-6"},
+      {"display":"iPad Pro", "gazelle": "iphone-6"}
     ]
 
   },
@@ -73,10 +59,10 @@
     "deviceType": "Phone",
     "resourceUrl": "/Images/samsung/samsung.png",
     "names": [
-      "Samsung Galaxy S3",
-      "Samsung Galaxy S4",
-      "Samsung Galaxy S5",
-      "Samsung Galaxy S6"
+      {"display":"iPad", "gazelle": "iphone-6"},
+      {"display":"iPad Mini", "gazelle": "iphone-6"},
+      {"display":"iPad Air", "gazelle": "iphone-6"},
+      {"display":"iPad Pro", "gazelle": "iphone-6"}
     ]
   }
 ]

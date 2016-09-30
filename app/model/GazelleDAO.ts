@@ -1,11 +1,16 @@
 /**
  * Created by Mtui on 9/29/16.
  */
-export class GazelleDAO extends Object{
+export class GazelleDAO{
     public id: string;
-    name: string;
-    carrier: string;
-    make: string;
-    size: number;
-    price: number;
+    public name: string;
+    public carrier: string;
+    public make: string;
+    public size: string;
+    public priceGood: number;
+    public priceFlawless: number;
+    public pricebrokenYes: number;
+    public pricebrokenNo: number;
+
+
 }

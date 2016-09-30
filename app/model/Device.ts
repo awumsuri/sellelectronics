@@ -14,7 +14,7 @@ export class Device {
         public resourceUrl: string,
         public iconOffset: DeviceDisplayOffset,
         public name: string,
-        public names: string[],
+        public names: {display: "", gazelle: ""}[],
         public make: string
 
     ){}

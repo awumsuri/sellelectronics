@@ -8,7 +8,7 @@ export class UserDevice extends Device {
     public page: number;
     public displayData: Device[];
     public carrier: string;
-    public size: number;
+    public size: string;
 
 
     constructor(){

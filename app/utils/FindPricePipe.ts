@@ -10,13 +10,13 @@ import {GazelleDAO} from "../model/GazelleDAO";
 })
 
 export class FindPricePipe implements PipeTransform{
-    transform(devicesDataList: GazelleDAO[], userDevice: UserDevice): number {
+    transform(devicesDataList: GazelleDAO[], userDevice: UserDevice): any {
         for(var i = 0; i < devicesDataList.length; i++) {
             var device: GazelleDAO = devicesDataList[i];
             if(device.carrier === userDevice.carrier
                 && device.make === userDevice.make
                 && device.size === userDevice.size) {
-                return device.price;
+                return device;
             }
         }
 

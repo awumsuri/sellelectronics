@@ -23,7 +23,7 @@ declare var $:any;
                                 (mouseover)="over($event);"
                                  (click)="clickHandler($event)"
                                 *ngFor="let device of displayData">
-                                    <img data-make="{{device.make}}" name="{{device.name}}" src="{{device.resourceUrl}}"/>
+                                    <img name="{{device.name}}" src="{{device.resourceUrl}}"/>
                                     <span class="title-display-list"><p>{{device.name}}</p></span>
                                 </li>
                             </ul>                            
@@ -36,7 +36,6 @@ declare var $:any;
 export class DeviceDetails{
 
     private iPhoneSize: string[] = ["8", "16", "32", "64", "128"];
-
     private displayData: Device[] = [];
 
     ngOnInit() {
@@ -57,20 +56,26 @@ export class DeviceDetails{
 
     }
 
-    getSize(name): number {
+    getiPhoneSize(name): string {
         for(var i = 0; i < this.iPhoneSize.length; i++) {
             if(name.indexOf(this.iPhoneSize[i]) !== -1) {
-                return parseInt(this.iPhoneSize[i]);
+                return this.iPhoneSize[i]+"GB";
             }
         }
     }
 
     clickHandler(event) {
+
         var element:HTMLImageElement = event.target;
         this.userDevice.name = element.name;
         this.userDevice.resourceUrl = element.src;
-        this.userDevice.make = element["data-make"];
-        this.userDevice.size = this.getSize(element.name);
+        var devices = this.displayData.filter( data => {
+            return data.name === element.name;
+        });
+
+        this.userDevice.make = devices[0].make;
+
+        this.userDevice.size = this.getiPhoneSize(element.name);
         this.router.navigate(["/final-price"]);
     }
 

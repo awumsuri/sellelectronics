@@ -12,7 +12,7 @@ import {GazelleDAO} from "../model/GazelleDAO";
 export class DeviceService {
 
     private deviceData: Device[] = [];
-    private gazellData;
+    private gazellData: GazelleDAO[];
 
     constructor(private http: Http) {
         this.loadDevices();
@@ -23,7 +23,7 @@ export class DeviceService {
         return this.deviceData;
     }
 
-    public getGazelleData() {
+    public getGazelleData(): GazelleDAO[] {
         return this.gazellData;
     }
 
@@ -89,7 +89,7 @@ export class DeviceService {
     private populateDeviceData(data: Device[]) {
         data.forEach(d => {
             d.names.forEach(name => {
-                var imageName:string = name;
+                var imageName: string = name.display;
                 while(imageName.indexOf(" ") !== -1){
                     imageName = imageName.replace(" ", "");
                 }
@@ -100,9 +100,9 @@ export class DeviceService {
                         null,
                         (d.resourceUrl + "/"+ imageName +".jpg"),
                         null,
-                        name,
+                        name["display"],
                         null,
-                        d.make
+                        name["gazelle"]
                     )
                 )
             }

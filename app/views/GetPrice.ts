@@ -63,17 +63,21 @@ declare var $:any;
                          <input type="radio" (click)='conditionHandler($event);'  name="condition" value="GOOD">GOOD<br>
                         </div>
                         <div class="input-container">
-                         <input type="radio" (click)='conditionHandler($event)'  name="condition" value="BAD">BAD<br>
+                         <input type="radio" (click)='conditionHandler($event)'  name="condition" value="FLAWLESS">FLAWLESS<br>
                         </div>
                         <div class="input-container">
-                         <input type="radio" (click)='conditionHandler($event);' name="condition" value="UGLY">UGLY<br>
+                         <input type="radio" (click)='conditionHandler($event);' name="condition" value="BROKEN">BROKEN<br>                         
+                        </div>                      
+                        <div class="broken-buttons">
+                            <span class="broken-button-title">DOES IT TURN ON ?</span>
+                            <input type="radio" checked="false" (click)='conditionHandler($event);' name="turnson" value="YES">Yes
+                            <input type="radio" checked="false" (click)='conditionHandler($event);' name="turnson" value="NO">No<br>                        
                         </div>
-                      
                 </div>   
-                      <div class="startbutton hide" >
-                            <span [innerText]="price"  class="finalprice"></span>    
-                            <span  class="noprice"> NO PRICE FOR THIS DEVICE </span> 
-                        </div>
+              
+                </div>
+                <div class="startbutton hide" >
+                    <span [innerText]="price"  class="finalprice"></span>                    
                 </div>
                 <div class="footer-push"></div>
                 </div>
@@ -83,8 +87,8 @@ declare var $:any;
 
 export class GetPrice {
 
-    private gazelleData;
-    public price: number = 0;
+    private gazelleData: GazelleDAO[];
+    public price: string;
 
     ngOnInit() {
        this.userDevice.page = 3;
@@ -93,7 +97,6 @@ export class GetPrice {
     constructor(private userDevice: UserDevice,
                 private deviceService: DeviceService) {
         this.gazelleData = deviceService.getGazelleData();
-        debugger;
     }
 
     over(event) {
@@ -137,24 +140,47 @@ export class GetPrice {
         $(".condition").css("display", "block");
     }
 
-    getPrice(): number {
+    getPrice(): GazelleDAO {
         for(var i = 0; i < this.gazelleData.length; i++) {
             var device: GazelleDAO = this.gazelleData[i];
             if(device.carrier === this.userDevice.carrier
                 && device.make === this.userDevice.make
                 && device.size === this.userDevice.size) {
-                return device.price;
+                return device;
             }
         }
 
-        return 0;
+        return null;
     }
 
     conditionHandler(event) {
-        this.price = this.getPrice();
-        debugger;
         var button: HTMLInputElement = event.target;
         this.userDevice.condition = ConditionType[button.value];
+        var device: GazelleDAO = this.getPrice();
+
+        switch (button.value) {
+            case "GOOD":
+                debugger;
+                this.price = "$"+device.priceGood;
+                $(".broken-buttons").css("display", "none");
+                break;
+            case "FLAWLESS":
+                this.price = "$"+device.priceFlawless;
+                $(".broken-buttons").css("display", "none");
+                break;
+            case "BROKEN":
+                this.price = "--";
+                $(".broken-buttons").css("display", "block");
+                break;
+            case "YES":
+                this.price = "$" + device.pricebrokenYes;
+                break;
+            case "NO":
+                this.price = "$" + device.pricebrokenNo;
+                break;
+        }
+
         $(".hide").css("display", "block");
+
     }
 }

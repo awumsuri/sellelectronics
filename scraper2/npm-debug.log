@@ -1,320 +1,37 @@
 0 info it worked if it ends with ok
-1 verbose cli [ '/usr/local/bin/node',
-1 verbose cli   '/usr/local/bin/npm',
-1 verbose cli   'install',
-1 verbose cli   'webserver',
-1 verbose cli   '-g',
-1 verbose cli   '--verbose',
-1 verbose cli   '-f' ]
+1 verbose cli [ '/usr/local/bin/node', '/usr/local/bin/npm', 'start' ]
 2 info using npm@2.14.7
 3 info using node@v4.2.1
-4 warn using --force I sure hope you know what you are doing.
-5 verbose install initial load of /usr/local/lib/package.json
-6 verbose readDependencies loading dependencies from /usr/local/lib/package.json
-7 silly cache add args [ 'webserver', null ]
-8 verbose cache add spec webserver
-9 silly cache add parsed spec Result {
-9 silly cache add   raw: 'webserver',
-9 silly cache add   scope: null,
-9 silly cache add   name: 'webserver',
-9 silly cache add   rawSpec: '',
-9 silly cache add   spec: '*',
-9 silly cache add   type: 'range' }
-10 silly addNamed webserver@*
-11 verbose addNamed "*" is a valid semver range for webserver
-12 silly addNameRange { name: 'webserver', range: '*', hasData: false }
-13 silly mapToRegistry name webserver
-14 silly mapToRegistry using default registry
-15 silly mapToRegistry registry https://registry.npmjs.org/
-16 silly mapToRegistry uri https://registry.npmjs.org/webserver
-17 verbose addNameRange registry:https://registry.npmjs.org/webserver not in flight; fetching
-18 verbose request uri https://registry.npmjs.org/webserver
-19 verbose request no auth needed
-20 info attempt registry request try #1 at 3:36:19 PM
-21 verbose request id 6928076cf9aa1ece
-22 verbose etag "5G1UJC18JQ79VJ7M0K4GE9TPC"
-23 http request GET https://registry.npmjs.org/webserver
-24 http 304 https://registry.npmjs.org/webserver
-25 verbose headers { date: 'Wed, 28 Sep 2016 19:36:20 GMT',
-25 verbose headers   via: '1.1 varnish',
-25 verbose headers   'cache-control': 'max-age=300',
-25 verbose headers   etag: '"5G1UJC18JQ79VJ7M0K4GE9TPC"',
-25 verbose headers   age: '127',
-25 verbose headers   connection: 'keep-alive',
-25 verbose headers   'x-served-by': 'cache-jfk8148-JFK',
-25 verbose headers   'x-cache': 'HIT',
-25 verbose headers   'x-cache-hits': '1',
-25 verbose headers   'x-timer': 'S1475091380.795920,VS0,VE0',
-25 verbose headers   vary: 'Accept-Encoding' }
-26 silly get cb [ 304,
-26 silly get   { date: 'Wed, 28 Sep 2016 19:36:20 GMT',
-26 silly get     via: '1.1 varnish',
-26 silly get     'cache-control': 'max-age=300',
-26 silly get     etag: '"5G1UJC18JQ79VJ7M0K4GE9TPC"',
-26 silly get     age: '127',
-26 silly get     connection: 'keep-alive',
-26 silly get     'x-served-by': 'cache-jfk8148-JFK',
-26 silly get     'x-cache': 'HIT',
-26 silly get     'x-cache-hits': '1',
-26 silly get     'x-timer': 'S1475091380.795920,VS0,VE0',
-26 silly get     vary: 'Accept-Encoding' } ]
-27 verbose etag https://registry.npmjs.org/webserver from cache
-28 verbose get saving webserver to /Users/Mtui/.npm/registry.npmjs.org/webserver/.cache.json
-29 silly addNameRange number 2 { name: 'webserver', range: '*', hasData: true }
-30 silly addNameRange versions [ 'webserver', [ '1.0.0', '1.1.0', '1.1.1', '1.1.2' ] ]
-31 silly addNamed webserver@1.1.2
-32 verbose addNamed "1.1.2" is a plain semver version for webserver
-33 silly mapToRegistry name webserver
-34 silly mapToRegistry using default registry
-35 silly mapToRegistry registry https://registry.npmjs.org/
-36 silly mapToRegistry uri https://registry.npmjs.org/webserver
-37 verbose addRemoteTarball https://registry.npmjs.org/webserver/-/webserver-1.1.2.tgz not in flight; adding
-38 verbose addRemoteTarball [ 'https://registry.npmjs.org/webserver/-/webserver-1.1.2.tgz',
-38 verbose addRemoteTarball   'b692991369027911ea3eb7b0828e9da18f3c2372' ]
-39 info retry fetch attempt 1 at 3:36:19 PM
-40 info attempt registry request try #1 at 3:36:19 PM
-41 http fetch GET https://registry.npmjs.org/webserver/-/webserver-1.1.2.tgz
-42 http fetch 200 https://registry.npmjs.org/webserver/-/webserver-1.1.2.tgz
-43 silly fetchAndShaCheck shasum b692991369027911ea3eb7b0828e9da18f3c2372
-44 verbose addTmpTarball /tmp/npm-70853-fcf8c4a7/registry.npmjs.org/webserver/-/webserver-1.1.2.tgz not in flight; adding
-45 verbose addTmpTarball already have metadata; skipping unpack for webserver@1.1.2
-46 silly cache afterAdd webserver@1.1.2
-47 verbose afterAdd /Users/Mtui/.npm/webserver/1.1.2/package/package.json not in flight; writing
-48 verbose afterAdd /Users/Mtui/.npm/webserver/1.1.2/package/package.json written
-49 silly install resolved [ { name: 'webserver',
-49 silly install resolved     version: '1.1.2',
-49 silly install resolved     description: 'A very simple webserver for delivering static files.',
-49 silly install resolved     author: { name: 'Joe Hitchens, Sleepless Inc.,', url: 'sleepless.com' },
-49 silly install resolved     keywords: [ 'simple', 'web', 'server' ],
-49 silly install resolved     dependencies: { paperboy: '0.0.5' },
-49 silly install resolved     _npmUser: { name: 'sleeplessinc', email: 'joe@sleepless.com' },
-49 silly install resolved     _id: 'webserver@1.1.2',
-49 silly install resolved     devDependencies: {},
-49 silly install resolved     engines: { node: '*' },
-49 silly install resolved     _engineSupported: true,
-49 silly install resolved     _npmVersion: '1.0.106',
-49 silly install resolved     _nodeVersion: 'v0.6.1',
-49 silly install resolved     _defaultsLoaded: true,
-49 silly install resolved     dist:
-49 silly install resolved      { shasum: 'b692991369027911ea3eb7b0828e9da18f3c2372',
-49 silly install resolved        tarball: 'http://registry.npmjs.org/webserver/-/webserver-1.1.2.tgz' },
-49 silly install resolved     maintainers: [ [Object] ],
-49 silly install resolved     directories: {},
-49 silly install resolved     _shasum: 'b692991369027911ea3eb7b0828e9da18f3c2372',
-49 silly install resolved     _resolved: 'https://registry.npmjs.org/webserver/-/webserver-1.1.2.tgz',
-49 silly install resolved     _from: 'webserver@*' } ]
-50 info install webserver@1.1.2 into /usr/local/lib
-51 info installOne webserver@1.1.2
-52 verbose installOne of webserver to /usr/local/lib not in flight; installing
-53 verbose lock using /Users/Mtui/.npm/_locks/webserver-1d017f87de7c9b70.lock for /usr/local/lib/node_modules/webserver
-54 silly install write writing webserver 1.1.2 to /usr/local/lib/node_modules/webserver
-55 verbose unbuild lib/node_modules/webserver
-56 info preuninstall webserver@1.1.2
-57 info uninstall webserver@1.1.2
-58 verbose unbuild rmStuff webserver@1.1.2 from /usr/local/lib/node_modules
-59 info postuninstall webserver@1.1.2
-60 silly gentlyRm /usr/local/lib/node_modules/webserver is being purged from base /usr/local
-61 verbose gentlyRm don't care about contents; nuking /usr/local/lib/node_modules/webserver
-62 silly vacuum-fs purging /usr/local/lib/node_modules/webserver
-63 silly vacuum-fs quitting because other entries in /usr/local/lib/node_modules
-64 verbose tar unpack /Users/Mtui/.npm/webserver/1.1.2/package.tgz
-65 verbose tar unpacking to /usr/local/lib/node_modules/webserver
-66 silly gentlyRm /usr/local/lib/node_modules/webserver is being purged
-67 verbose gentlyRm don't care about contents; nuking /usr/local/lib/node_modules/webserver
-68 silly gunzTarPerm modes [ '755', '644' ]
-69 silly gunzTarPerm extractEntry LICENSE.txt
-70 silly gunzTarPerm extractEntry package.json
-71 silly gunzTarPerm extractEntry README.md
-72 silly gunzTarPerm extractEntry webserver.js
-73 verbose write writing to /usr/local/lib/node_modules/webserver/package.json
-74 info preinstall webserver@1.1.2
-75 verbose readDependencies loading dependencies from /usr/local/lib/node_modules/webserver/package.json
-76 silly prepareForInstallMany adding paperboy@0.0.5 from webserver dependencies
-77 verbose readDependencies loading dependencies from /usr/local/lib/node_modules/webserver/package.json
-78 silly cache add args [ 'paperboy@0.0.5', null ]
-79 verbose cache add spec paperboy@0.0.5
-80 silly cache add parsed spec Result {
-80 silly cache add   raw: 'paperboy@0.0.5',
-80 silly cache add   scope: null,
-80 silly cache add   name: 'paperboy',
-80 silly cache add   rawSpec: '0.0.5',
-80 silly cache add   spec: '0.0.5',
-80 silly cache add   type: 'version' }
-81 silly addNamed paperboy@0.0.5
-82 verbose addNamed "0.0.5" is a plain semver version for paperboy
-83 silly mapToRegistry name paperboy
-84 silly mapToRegistry using default registry
-85 silly mapToRegistry registry https://registry.npmjs.org/
-86 silly mapToRegistry uri https://registry.npmjs.org/paperboy
-87 verbose addNameVersion registry:https://registry.npmjs.org/paperboy not in flight; fetching
-88 verbose request uri https://registry.npmjs.org/paperboy
-89 verbose request no auth needed
-90 info attempt registry request try #1 at 3:36:19 PM
-91 verbose etag "75M7LQ7FU6YSHRHXUITWEIY35"
-92 http request GET https://registry.npmjs.org/paperboy
-93 http 304 https://registry.npmjs.org/paperboy
-94 verbose headers { date: 'Wed, 28 Sep 2016 19:36:21 GMT',
-94 verbose headers   via: '1.1 varnish',
-94 verbose headers   'cache-control': 'max-age=300',
-94 verbose headers   etag: '"75M7LQ7FU6YSHRHXUITWEIY35"',
-94 verbose headers   age: '127',
-94 verbose headers   connection: 'keep-alive',
-94 verbose headers   'x-served-by': 'cache-jfk8137-JFK',
-94 verbose headers   'x-cache': 'HIT',
-94 verbose headers   'x-cache-hits': '1',
-94 verbose headers   'x-timer': 'S1475091381.304934,VS0,VE0',
-94 verbose headers   vary: 'Accept-Encoding' }
-95 silly get cb [ 304,
-95 silly get   { date: 'Wed, 28 Sep 2016 19:36:21 GMT',
-95 silly get     via: '1.1 varnish',
-95 silly get     'cache-control': 'max-age=300',
-95 silly get     etag: '"75M7LQ7FU6YSHRHXUITWEIY35"',
-95 silly get     age: '127',
-95 silly get     connection: 'keep-alive',
-95 silly get     'x-served-by': 'cache-jfk8137-JFK',
-95 silly get     'x-cache': 'HIT',
-95 silly get     'x-cache-hits': '1',
-95 silly get     'x-timer': 'S1475091381.304934,VS0,VE0',
-95 silly get     vary: 'Accept-Encoding' } ]
-96 verbose etag https://registry.npmjs.org/paperboy from cache
-97 verbose get saving paperboy to /Users/Mtui/.npm/registry.npmjs.org/paperboy/.cache.json
-98 silly mapToRegistry name paperboy
-99 silly mapToRegistry using default registry
-100 silly mapToRegistry registry https://registry.npmjs.org/
-101 silly mapToRegistry uri https://registry.npmjs.org/paperboy
-102 verbose addRemoteTarball https://registry.npmjs.org/paperboy/-/paperboy-0.0.5.tgz not in flight; adding
-103 verbose addRemoteTarball [ 'https://registry.npmjs.org/paperboy/-/paperboy-0.0.5.tgz',
-103 verbose addRemoteTarball   '0ff35204c532289f0156b577456e6f581ed348bc' ]
-104 info retry fetch attempt 1 at 3:36:20 PM
-105 info attempt registry request try #1 at 3:36:20 PM
-106 http fetch GET https://registry.npmjs.org/paperboy/-/paperboy-0.0.5.tgz
-107 http fetch 200 https://registry.npmjs.org/paperboy/-/paperboy-0.0.5.tgz
-108 silly fetchAndShaCheck shasum 0ff35204c532289f0156b577456e6f581ed348bc
-109 verbose addTmpTarball /tmp/npm-70853-fcf8c4a7/registry.npmjs.org/paperboy/-/paperboy-0.0.5.tgz not in flight; adding
-110 verbose addTmpTarball already have metadata; skipping unpack for paperboy@0.0.5
-111 silly cache afterAdd paperboy@0.0.5
-112 verbose afterAdd /Users/Mtui/.npm/paperboy/0.0.5/package/package.json not in flight; writing
-113 verbose afterAdd /Users/Mtui/.npm/paperboy/0.0.5/package/package.json written
-114 silly install resolved [ { name: 'paperboy',
-114 silly install resolved     author: { name: 'Felix Geisendörfer', email: 'felix@debuggable.com' },
-114 silly install resolved     version: '0.0.5',
-114 silly install resolved     description: 'A node.js module for delivering static files.',
-114 silly install resolved     keywords: [ 'web', 'server' ],
-114 silly install resolved     directories: { lib: 'lib' },
-114 silly install resolved     main: 'lib/paperboy',
-114 silly install resolved     dependencies: {},
-114 silly install resolved     devDependencies: {},
-114 silly install resolved     engines: { node: '*' },
-114 silly install resolved     optionalDependencies: {},
-114 silly install resolved     _npmUser: { name: 'felixge', email: 'felix@debuggable.com' },
-114 silly install resolved     _id: 'paperboy@0.0.5',
-114 silly install resolved     _engineSupported: true,
-114 silly install resolved     _npmVersion: '1.1.19',
-114 silly install resolved     _nodeVersion: 'v0.6.16',
-114 silly install resolved     _defaultsLoaded: true,
-114 silly install resolved     dist:
-114 silly install resolved      { shasum: '0ff35204c532289f0156b577456e6f581ed348bc',
-114 silly install resolved        tarball: 'http://registry.npmjs.org/paperboy/-/paperboy-0.0.5.tgz' },
-114 silly install resolved     maintainers: [ [Object] ],
-114 silly install resolved     _shasum: '0ff35204c532289f0156b577456e6f581ed348bc',
-114 silly install resolved     _resolved: 'https://registry.npmjs.org/paperboy/-/paperboy-0.0.5.tgz',
-114 silly install resolved     _from: 'paperboy@0.0.5' } ]
-115 info install paperboy@0.0.5 into /usr/local/lib/node_modules/webserver
-116 info installOne paperboy@0.0.5
-117 verbose installOne of paperboy to /usr/local/lib/node_modules/webserver not in flight; installing
-118 verbose lock using /Users/Mtui/.npm/_locks/paperboy-9e238fb032093017.lock for /usr/local/lib/node_modules/webserver/node_modules/paperboy
-119 silly install write writing paperboy 0.0.5 to /usr/local/lib/node_modules/webserver/node_modules/paperboy
-120 verbose unbuild lib/node_modules/webserver/node_modules/paperboy
-121 silly gentlyRm /usr/local/lib/node_modules/webserver/node_modules/paperboy is being purged from base /usr/local
-122 verbose gentlyRm don't care about contents; nuking /usr/local/lib/node_modules/webserver/node_modules/paperboy
-123 verbose tar unpack /Users/Mtui/.npm/paperboy/0.0.5/package.tgz
-124 verbose tar unpacking to /usr/local/lib/node_modules/webserver/node_modules/paperboy
-125 silly gentlyRm /usr/local/lib/node_modules/webserver/node_modules/paperboy is being purged
-126 verbose gentlyRm don't care about contents; nuking /usr/local/lib/node_modules/webserver/node_modules/paperboy
-127 silly gunzTarPerm modes [ '755', '644' ]
-128 silly gunzTarPerm extractEntry package.json
-129 silly gunzTarPerm extractEntry .npmignore
-130 silly gunzTarPerm extractEntry README.md
-131 silly gunzTarPerm extractEntry index.js
-132 silly gunzTarPerm extractEntry example/basic.js
-133 silly gunzTarPerm extractEntry example/webroot/img/paperboy.jpg
-134 silly gunzTarPerm extractEntry example/webroot/index.html
-135 silly gunzTarPerm extractEntry lib/paperboy.js
-136 silly gunzTarPerm extractEntry LICENSE.txt
-137 silly gunzTarPerm extractEntry seed.yml
-138 verbose write writing to /usr/local/lib/node_modules/webserver/node_modules/paperboy/package.json
-139 info preinstall paperboy@0.0.5
-140 verbose readDependencies loading dependencies from /usr/local/lib/node_modules/webserver/node_modules/paperboy/package.json
-141 verbose readDependencies loading dependencies from /usr/local/lib/node_modules/webserver/node_modules/paperboy/package.json
-142 silly install resolved []
-143 verbose about to build /usr/local/lib/node_modules/webserver/node_modules/paperboy
-144 info build /usr/local/lib/node_modules/webserver/node_modules/paperboy
-145 info linkStuff paperboy@0.0.5
-146 silly linkStuff paperboy@0.0.5 has /usr/local/lib/node_modules/webserver/node_modules as its parent node_modules
-147 silly linkStuff paperboy@0.0.5 is part of a global install
-148 silly linkStuff paperboy@0.0.5 is installed into a global node_modules
-149 verbose linkBins paperboy@0.0.5
-150 verbose linkMans paperboy@0.0.5
-151 verbose rebuildBundles paperboy@0.0.5
-152 info install paperboy@0.0.5
-153 info postinstall paperboy@0.0.5
-154 verbose unlock done using /Users/Mtui/.npm/_locks/paperboy-9e238fb032093017.lock for /usr/local/lib/node_modules/webserver/node_modules/paperboy
-155 verbose about to build /usr/local/lib/node_modules/webserver
-156 info build /usr/local/lib/node_modules/webserver
-157 info linkStuff webserver@1.1.2
-158 silly linkStuff webserver@1.1.2 has /usr/local/lib/node_modules as its parent node_modules
-159 silly linkStuff webserver@1.1.2 is part of a global install
-160 silly linkStuff webserver@1.1.2 is installed into a global node_modules
-161 silly linkStuff webserver@1.1.2 is installed into the top-level global node_modules
-162 verbose linkBins webserver@1.1.2
-163 verbose linkMans webserver@1.1.2
-164 verbose rebuildBundles webserver@1.1.2
-165 verbose rebuildBundles [ 'paperboy' ]
-166 info install webserver@1.1.2
-167 info postinstall webserver@1.1.2
-168 verbose unlock done using /Users/Mtui/.npm/_locks/webserver-1d017f87de7c9b70.lock for /usr/local/lib/node_modules/webserver
-169 verbose validateInstall loading /usr/local/lib/package.json for validation
-170 warn unmet dependency /usr/local/lib/node_modules/express.io/node_modules/express/node_modules/connect/node_modules/multiparty/node_modules/stream-counter requires readable-stream@'~1.1.8' but will load
-170 warn unmet dependency /usr/local/lib/node_modules/express.io/node_modules/express/node_modules/connect/node_modules/multiparty/node_modules/readable-stream,
-170 warn unmet dependency which is version 1.1.13-1
-171 warn unmet dependency /usr/local/lib/node_modules/mongoose/node_modules/mquery requires sliced@'0.0.5' but will load
-171 warn unmet dependency /usr/local/lib/node_modules/mongoose/node_modules/sliced,
-171 warn unmet dependency which is version 1.0.1
-172 warn unmet dependency /usr/local/lib/node_modules/npm/node_modules/npmconf requires semver@'2' but will load
-172 warn unmet dependency /usr/local/lib/node_modules/npm/node_modules/semver,
-172 warn unmet dependency which is version 5.0.3
-173 warn unmet dependency /usr/local/lib/node_modules/npm/node_modules/npmconf requires uid-number@'0.0.5' but will load
-173 warn unmet dependency /usr/local/lib/node_modules/npm/node_modules/uid-number,
-173 warn unmet dependency which is version 0.0.6
-174 warn unmet dependency /usr/local/lib/node_modules/npm/node_modules/read-package-json/node_modules/normalize-package-data requires semver@'2 || 3' but will load
-174 warn unmet dependency /usr/local/lib/node_modules/npm/node_modules/semver,
-174 warn unmet dependency which is version 5.0.3
-175 warn unmet dependency /usr/local/lib/node_modules/phonegap/node_modules/phonegap-build requires colors@'0.6.x' but will load
-175 warn unmet dependency /usr/local/lib/node_modules/phonegap/node_modules/colors,
-175 warn unmet dependency which is version 0.6.0-1
-176 warn unmet dependency /usr/local/lib/node_modules/phonegap/node_modules/phonegap-build/node_modules/qrcode-terminal requires colors@'*' but will load
-176 warn unmet dependency /usr/local/lib/node_modules/phonegap/node_modules/colors,
-176 warn unmet dependency which is version 0.6.0-1
-177 warn unmet dependency /usr/local/lib/node_modules/phonegap/node_modules/prompt/node_modules/winston requires colors@'0.x.x' but will load
-177 warn unmet dependency /usr/local/lib/node_modules/phonegap/node_modules/colors,
-177 warn unmet dependency which is version 0.6.0-1
-178 verbose stack Error: The package typescript@1.8.10 does not satisfy its siblings' peerDependencies requirements!
-178 verbose stack     at /usr/local/lib/node_modules/npm/lib/install.js:125:32
-178 verbose stack     at /usr/local/lib/node_modules/npm/lib/install.js:268:7
-178 verbose stack     at /usr/local/lib/node_modules/npm/node_modules/read-installed/read-installed.js:142:5
-178 verbose stack     at /usr/local/lib/node_modules/npm/node_modules/read-installed/read-installed.js:263:14
-178 verbose stack     at cb (/usr/local/lib/node_modules/npm/node_modules/slide/lib/async-map.js:47:24)
-178 verbose stack     at /usr/local/lib/node_modules/npm/node_modules/read-installed/read-installed.js:263:14
-178 verbose stack     at cb (/usr/local/lib/node_modules/npm/node_modules/slide/lib/async-map.js:47:24)
-178 verbose stack     at /usr/local/lib/node_modules/npm/node_modules/read-installed/read-installed.js:263:14
-178 verbose stack     at cb (/usr/local/lib/node_modules/npm/node_modules/slide/lib/async-map.js:47:24)
-178 verbose stack     at /usr/local/lib/node_modules/npm/node_modules/read-installed/read-installed.js:263:14
-179 verbose cwd /Users/Mtui/selleletronics/scapper2
-180 error Darwin 15.6.0
-181 error argv "/usr/local/bin/node" "/usr/local/bin/npm" "install" "webserver" "-g" "--verbose" "-f"
-182 error node v4.2.1
-183 error npm  v2.14.7
-184 error code EPEERINVALID
-185 error peerinvalid The package typescript@1.8.10 does not satisfy its siblings' peerDependencies requirements!
-185 error peerinvalid Peer gulp-typescript@3.0.1 wants typescript@~2.0.3 || >=2.0.0-dev || >=2.1.0-dev
-186 verbose exit [ 1, true ]
+4 verbose run-script [ 'prestart', 'start', 'poststart' ]
+5 info prestart sell_eletronic@1.0.0
+6 info start sell_eletronic@1.0.0
+7 verbose unsafe-perm in lifecycle true
+8 info sell_eletronic@1.0.0 Failed to exec start script
+9 verbose stack Error: sell_eletronic@1.0.0 start: `tsc && concurrently "npm run tsc:w" "npm run lite" `
+9 verbose stack Exit status 2
+9 verbose stack     at EventEmitter.<anonymous> (/usr/local/lib/node_modules/npm/lib/utils/lifecycle.js:214:16)
+9 verbose stack     at emitTwo (events.js:87:13)
+9 verbose stack     at EventEmitter.emit (events.js:172:7)
+9 verbose stack     at ChildProcess.<anonymous> (/usr/local/lib/node_modules/npm/lib/utils/spawn.js:24:14)
+9 verbose stack     at emitTwo (events.js:87:13)
+9 verbose stack     at ChildProcess.emit (events.js:172:7)
+9 verbose stack     at maybeClose (internal/child_process.js:818:16)
+9 verbose stack     at Process.ChildProcess._handle.onexit (internal/child_process.js:211:5)
+10 verbose pkgid sell_eletronic@1.0.0
+11 verbose cwd /Users/Mtui/selleletronics/scraper2
+12 error Darwin 15.6.0
+13 error argv "/usr/local/bin/node" "/usr/local/bin/npm" "start"
+14 error node v4.2.1
+15 error npm  v2.14.7
+16 error code ELIFECYCLE
+17 error sell_eletronic@1.0.0 start: `tsc && concurrently "npm run tsc:w" "npm run lite" `
+17 error Exit status 2
+18 error Failed at the sell_eletronic@1.0.0 start script 'tsc && concurrently "npm run tsc:w" "npm run lite" '.
+18 error This is most likely a problem with the sell_eletronic package,
+18 error not with npm itself.
+18 error Tell the author that this fails on your system:
+18 error     tsc && concurrently "npm run tsc:w" "npm run lite"
+18 error You can get their info via:
+18 error     npm owner ls sell_eletronic
+18 error There is likely additional logging output above.
+19 verbose exit [ 1, true ]

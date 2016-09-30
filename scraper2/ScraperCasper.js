@@ -7,7 +7,7 @@ var ip = "127.0.0.1:8003";
 var server = require('webserver').create();
 server.timeout = 9999999;
 var service = server.listen(ip, function(req, res){
-    /*const CARRIERS = ["at-t", "sprint", "verizon", "t-mobile","unlocked"];
+    const CARRIERS = ["at-t", "sprint", "verizon", "t-mobile","unlocked"];
 
     const iPhones = [
         "iphone-se",
@@ -18,12 +18,8 @@ var service = server.listen(ip, function(req, res){
         "iphone-5s",
         "iphone-5",
         "iphone-5c"
-    ];*/
-
-    const iPhones = ["iphone-se"];
-    const CARRIERS = ["at-t"];
+    ];
     const iPhoneSize = ["16GB", "32GB", "64GB", "128GB"];
-
 
     var index = 0;
     var carrierIndex = 0;

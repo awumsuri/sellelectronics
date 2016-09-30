@@ -34,17 +34,18 @@
 }
 
 .finalprice {
-    font-family: customRegular;
-    color: dimgray;
-    font-size: 20px;
+    font-family: custom;
+    color: green;
+    font-size: 70px;
     margin: auto;
     display: block;
+    margin-top: 50px;
 }
 
 .noprice {
 
     font-family: customRegular;
-    color: dimgray;
+    color: green;
     font-size: 14px;
     margin: auto;
     display: block;
@@ -53,6 +54,7 @@
 
 .hide {
     display: none;
+    padding: 10px;
 }
 
 .sprint-menu img{
@@ -721,20 +723,42 @@
     font-family: customRegular;
     font-size: 15px;
     width: 100%;
-    font-family: customRegular;
     font-size: 15px;
     text-align: center !important;
-    height: 24px;
+    height: 40px;
     display: flex;
 }
 
+.broken-button-title {
+    font-family: customLight;
+    font-size: 11px;
+    text-align: center;
+}
 
+.broken-buttons {
+    display: none;
+    width: 155px;
+    display: none;
+    /* width: 100%; */
+    clear: both;
+    margin-top: -10px;
+    color: beige;
+    background: #880000;
+    height: 100px;
+    font-size: 11px;
+}
+
+.broken-buttons input{
+    font-size: 10px;
+    width: 26px;
+}
 
 .input-container {
 
     float: left;
     padding-left: 10px;
-    width: 100px;
+    width: 104px;
+
 
 }
 
