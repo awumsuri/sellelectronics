@@ -70,7 +70,7 @@ declare var $:any;
                         </div>                      
                         <div class="broken-buttons">
                             <span class="broken-button-title">DOES IT TURN ON ?</span>
-                            <input type="radio" checked="false" (click)='conditionHandler($event);' name="turnson" value="YES">Yes
+                            <input type="radio" checked="true" (click)='conditionHandler($event);' name="turnson" value="YES">Yes
                             <input type="radio" checked="false" (click)='conditionHandler($event);' name="turnson" value="NO">No<br>                        
                         </div>
                 </div>   
@@ -160,7 +160,7 @@ export class GetPrice {
 
         switch (button.value) {
             case "GOOD":
-                debugger;
+
                 this.price = "$"+device.priceGood;
                 $(".broken-buttons").css("display", "none");
                 break;
@@ -171,6 +171,13 @@ export class GetPrice {
             case "BROKEN":
                 this.price = "--";
                 $(".broken-buttons").css("display", "block");
+                var inputButtons = $(".broken-buttons input");
+                if(inputButtons[0].checked) {
+                    this.price = "$" + device.pricebrokenYes;
+                } else if (inputButtons[1].checked) {
+                    this.price = "$" + device.pricebrokenNo
+                }
+
                 break;
             case "YES":
                 this.price = "$" + device.pricebrokenYes;

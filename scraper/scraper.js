@@ -30,7 +30,7 @@ const updateDeviceArray = [];
 var complete = [];
 var failed = [];
 var url;
-var index = 0;
+var index = 105;
 var device;
 var deviceTypesGazelle;
 var DbRef = null;
@@ -173,7 +173,7 @@ function gazelleGood() {
         .useragent(USER_AGENT)
         .goto(url)
         .wait(".clearfix h3")
-        .wait(5000)
+        .wait(10000)
         .evaluate(function () {
             var value = document.querySelector('.clearfix h3 span').innerHTML;
             return isNaN(value) ? 0 : value;

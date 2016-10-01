@@ -33,6 +33,7 @@
   {
     "deviceModel": "Apple",
     "deviceType": "Tablet",
+    "make": "ipad",
     "resourceUrl": "/Images/tablet",
     "names": [
       {"display":"iPad", "gazelle": "iphone-6"},
@@ -46,6 +47,7 @@
     "deviceModel": "Blackberry",
     "deviceType": "Phone",
     "resourceUrl": "/Images/blackberry",
+    "make": "blackberry",
     "names": [
       {"display":"iPad", "gazelle": "iphone-6"},
       {"display":"iPad Mini", "gazelle": "iphone-6"},
@@ -58,6 +60,7 @@
     "deviceModel": "Samsung",
     "deviceType": "Phone",
     "resourceUrl": "/Images/samsung/samsung.png",
+    "make": "samsung",
     "names": [
       {"display":"iPad", "gazelle": "iphone-6"},
       {"display":"iPad Mini", "gazelle": "iphone-6"},
