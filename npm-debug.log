@@ -1,37 +1,164 @@
 0 info it worked if it ends with ok
-1 verbose cli [ '/usr/local/bin/node', '/usr/local/bin/npm', 'start' ]
-2 info using npm@2.14.7
+1 verbose cli [ '/usr/local/bin/node',
+1 verbose cli   '/usr/local/bin/npm',
+1 verbose cli   'install',
+1 verbose cli   '-g',
+1 verbose cli   'n' ]
+2 info using npm@3.10.8
 3 info using node@v4.2.1
-4 verbose run-script [ 'prestart', 'start', 'poststart' ]
-5 info prestart sell_eletronic@1.0.0
-6 info start sell_eletronic@1.0.0
-7 verbose unsafe-perm in lifecycle true
-8 info sell_eletronic@1.0.0 Failed to exec start script
-9 verbose stack Error: sell_eletronic@1.0.0 start: `tsc && concurrently "npm run tsc:w" "npm run lite" `
-9 verbose stack Exit status 2
-9 verbose stack     at EventEmitter.<anonymous> (/usr/local/lib/node_modules/npm/lib/utils/lifecycle.js:214:16)
-9 verbose stack     at emitTwo (events.js:87:13)
-9 verbose stack     at EventEmitter.emit (events.js:172:7)
-9 verbose stack     at ChildProcess.<anonymous> (/usr/local/lib/node_modules/npm/lib/utils/spawn.js:24:14)
-9 verbose stack     at emitTwo (events.js:87:13)
-9 verbose stack     at ChildProcess.emit (events.js:172:7)
-9 verbose stack     at maybeClose (internal/child_process.js:818:16)
-9 verbose stack     at Process.ChildProcess._handle.onexit (internal/child_process.js:211:5)
-10 verbose pkgid sell_eletronic@1.0.0
-11 verbose cwd /Users/Mtui/selleletronics
-12 error Darwin 15.6.0
-13 error argv "/usr/local/bin/node" "/usr/local/bin/npm" "start"
-14 error node v4.2.1
-15 error npm  v2.14.7
-16 error code ELIFECYCLE
-17 error sell_eletronic@1.0.0 start: `tsc && concurrently "npm run tsc:w" "npm run lite" `
-17 error Exit status 2
-18 error Failed at the sell_eletronic@1.0.0 start script 'tsc && concurrently "npm run tsc:w" "npm run lite" '.
-18 error This is most likely a problem with the sell_eletronic package,
-18 error not with npm itself.
-18 error Tell the author that this fails on your system:
-18 error     tsc && concurrently "npm run tsc:w" "npm run lite"
-18 error You can get their info via:
-18 error     npm owner ls sell_eletronic
-18 error There is likely additional logging output above.
-19 verbose exit [ 1, true ]
+4 silly loadCurrentTree Starting
+5 silly install loadCurrentTree
+6 silly install readGlobalPackageData
+7 silly fetchPackageMetaData n
+8 silly fetchNamedPackageData n
+9 silly mapToRegistry name n
+10 silly mapToRegistry using default registry
+11 silly mapToRegistry registry https://registry.npmjs.org/
+12 silly mapToRegistry data Result {
+12 silly mapToRegistry   raw: 'n',
+12 silly mapToRegistry   scope: null,
+12 silly mapToRegistry   escapedName: 'n',
+12 silly mapToRegistry   name: 'n',
+12 silly mapToRegistry   rawSpec: '',
+12 silly mapToRegistry   spec: 'latest',
+12 silly mapToRegistry   type: 'tag' }
+13 silly mapToRegistry uri https://registry.npmjs.org/n
+14 verbose request uri https://registry.npmjs.org/n
+15 verbose request no auth needed
+16 info attempt registry request try #1 at 7:38:57 PM
+17 verbose request id f2c1ea82aa554bfb
+18 verbose etag "1B01Y3GQK1HQ9P06V7WO2GDZ5"
+19 http request GET https://registry.npmjs.org/n
+20 http 304 https://registry.npmjs.org/n
+21 verbose headers { date: 'Sat, 01 Oct 2016 23:38:55 GMT',
+21 verbose headers   via: '1.1 varnish',
+21 verbose headers   'cache-control': 'max-age=300',
+21 verbose headers   etag: '"1B01Y3GQK1HQ9P06V7WO2GDZ5"',
+21 verbose headers   age: '52',
+21 verbose headers   connection: 'keep-alive',
+21 verbose headers   'x-served-by': 'cache-iad2121-IAD',
+21 verbose headers   'x-cache': 'HIT',
+21 verbose headers   'x-cache-hits': '1',
+21 verbose headers   'x-timer': 'S1475365135.842374,VS0,VE0',
+21 verbose headers   vary: 'Accept-Encoding' }
+22 silly get cb [ 304,
+22 silly get   { date: 'Sat, 01 Oct 2016 23:38:55 GMT',
+22 silly get     via: '1.1 varnish',
+22 silly get     'cache-control': 'max-age=300',
+22 silly get     etag: '"1B01Y3GQK1HQ9P06V7WO2GDZ5"',
+22 silly get     age: '52',
+22 silly get     connection: 'keep-alive',
+22 silly get     'x-served-by': 'cache-iad2121-IAD',
+22 silly get     'x-cache': 'HIT',
+22 silly get     'x-cache-hits': '1',
+22 silly get     'x-timer': 'S1475365135.842374,VS0,VE0',
+22 silly get     vary: 'Accept-Encoding' } ]
+23 verbose etag https://registry.npmjs.org/n from cache
+24 verbose get saving n to /Users/Mtui/.npm/registry.npmjs.org/n/.cache.json
+25 verbose correctMkdir /Users/Mtui/.npm correctMkdir not in flight; initializing
+26 silly install normalizeTree
+27 silly loadCurrentTree Finishing
+28 silly loadIdealTree Starting
+29 silly install loadIdealTree
+30 silly cloneCurrentTree Starting
+31 silly install cloneCurrentTreeToIdealTree
+32 silly cloneCurrentTree Finishing
+33 silly loadShrinkwrap Starting
+34 silly install loadShrinkwrap
+35 silly loadShrinkwrap Finishing
+36 silly loadAllDepsIntoIdealTree Starting
+37 silly install loadAllDepsIntoIdealTree
+38 silly resolveWithNewModule n@2.1.4 checking installable status
+39 silly cache add args [ 'n', null ]
+40 verbose cache add spec n
+41 silly cache add parsed spec Result {
+41 silly cache add   raw: 'n',
+41 silly cache add   scope: null,
+41 silly cache add   escapedName: 'n',
+41 silly cache add   name: 'n',
+41 silly cache add   rawSpec: '',
+41 silly cache add   spec: 'latest',
+41 silly cache add   type: 'tag' }
+42 silly addNamed n@latest
+43 verbose addNamed "latest" is being treated as a dist-tag for n
+44 info addNameTag [ 'n', 'latest' ]
+45 silly mapToRegistry name n
+46 silly mapToRegistry using default registry
+47 silly mapToRegistry registry https://registry.npmjs.org/
+48 silly mapToRegistry data Result {
+48 silly mapToRegistry   raw: 'n',
+48 silly mapToRegistry   scope: null,
+48 silly mapToRegistry   escapedName: 'n',
+48 silly mapToRegistry   name: 'n',
+48 silly mapToRegistry   rawSpec: '',
+48 silly mapToRegistry   spec: 'latest',
+48 silly mapToRegistry   type: 'tag' }
+49 silly mapToRegistry uri https://registry.npmjs.org/n
+50 verbose addNameTag registry:https://registry.npmjs.org/n not in flight; fetching
+51 verbose get https://registry.npmjs.org/n not expired, no request
+52 silly addNameTag next cb for n with tag latest
+53 silly addNamed n@2.1.4
+54 verbose addNamed "2.1.4" is a plain semver version for n
+55 silly cache afterAdd n@2.1.4
+56 verbose afterAdd /Users/Mtui/.npm/n/2.1.4/package/package.json not in flight; writing
+57 verbose correctMkdir /Users/Mtui/.npm correctMkdir not in flight; initializing
+58 verbose afterAdd /Users/Mtui/.npm/n/2.1.4/package/package.json written
+59 silly loadAllDepsIntoIdealTree Finishing
+60 silly loadIdealTree Finishing
+61 silly currentTree lib
+61 silly currentTree └── n@2.0.2
+62 silly idealTree lib
+62 silly idealTree └── n@2.1.4
+63 silly generateActionsToTake Starting
+64 silly install generateActionsToTake
+65 silly generateActionsToTake Finishing
+66 silly diffTrees action count 1
+67 silly diffTrees update n@2.1.4
+68 silly decomposeActions action count 8
+69 silly decomposeActions fetch n@2.1.4
+70 silly decomposeActions extract n@2.1.4
+71 silly decomposeActions test n@2.1.4
+72 silly decomposeActions preinstall n@2.1.4
+73 silly decomposeActions build n@2.1.4
+74 silly decomposeActions install n@2.1.4
+75 silly decomposeActions postinstall n@2.1.4
+76 silly decomposeActions finalize n@2.1.4
+77 silly runTopLevelLifecycles Starting
+78 silly executeActions Starting
+79 silly install executeActions
+80 silly doSerial global-install 0
+81 silly doParallel fetch 1
+82 verbose correctMkdir /Users/Mtui/.npm/_locks correctMkdir not in flight; initializing
+83 verbose lock using /Users/Mtui/.npm/_locks/staging-3a08f0df5026584d.lock for /usr/local/lib/node_modules/.staging
+84 silly doParallel extract 1
+85 silly extract n@2.1.4
+86 verbose unbuild lib/node_modules/.staging/n-3eb27508
+87 silly gentlyRm /usr/local/lib/node_modules/.staging/n-3eb27508 is being purged from base /usr/local
+88 verbose gentlyRm don't care about contents; nuking /usr/local/lib/node_modules/.staging/n-3eb27508
+89 verbose tar unpack /Users/Mtui/.npm/n/2.1.4/package.tgz
+90 verbose tar unpacking to /usr/local/lib/node_modules/.staging/n-3eb27508
+91 silly gentlyRm /usr/local/lib/node_modules/.staging/n-3eb27508 is being purged
+92 verbose gentlyRm don't care about contents; nuking /usr/local/lib/node_modules/.staging/n-3eb27508
+93 silly gunzTarPerm modes [ '755', '644' ]
+94 silly gunzTarPerm extractEntry package.json
+95 silly gunzTarPerm extractEntry README.md
+96 silly gunzTarPerm extractEntry Makefile
+97 silly gunzTarPerm extractEntry bin/n
+98 verbose stack TypeError: uid must be an unsigned int
+98 verbose stack     at TypeError (native)
+98 verbose stack     at Object.fs.chown (fs.js:1038:11)
+98 verbose stack     at Object.chown (/usr/local/lib/node_modules/npm/node_modules/graceful-fs/polyfills.js:231:17)
+98 verbose stack     at Array.<anonymous> (/usr/local/lib/node_modules/npm/node_modules/slide/lib/bind-actor.js:15:8)
+98 verbose stack     at LOOP (/usr/local/lib/node_modules/npm/node_modules/slide/lib/chain.js:15:14)
+98 verbose stack     at /usr/local/lib/node_modules/npm/node_modules/slide/lib/chain.js:18:7
+98 verbose stack     at /usr/local/lib/node_modules/npm/node_modules/graceful-fs/polyfills.js:211:18
+98 verbose stack     at FSReqWrap.oncomplete (fs.js:82:15)
+99 verbose cwd /Users/Mtui/selleletronics
+100 error Darwin 15.6.0
+101 error argv "/usr/local/bin/node" "/usr/local/bin/npm" "install" "-g" "n"
+102 error node v4.2.1
+103 error npm  v3.10.8
+104 error uid must be an unsigned int
+105 error If you need help, you may report this error at:
+105 error     <https://github.com/npm/npm/issues>
+106 verbose exit [ 1, true ]

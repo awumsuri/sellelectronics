@@ -39,7 +39,7 @@
     font-size: 70px;
     margin: auto;
     display: block;
-    margin-top: 50px;
+    margin-top: 25px;
 }
 
 .noprice {
@@ -458,7 +458,7 @@
  .condition {
      display: none;
      padding: 20px;
-     height: 60px;
+     height: 100px;
  }
 
  .condition input {

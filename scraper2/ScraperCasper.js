@@ -19,7 +19,7 @@ var service = server.listen(ip, function(req, res){
         "iphone-5",
         "iphone-5c"
     ];
-    const iPhoneSize = ["16GB", "32GB", "64GB", "128GB"];
+    const iPhoneSize = ["8GB","16GB", "32GB", "64GB", "128GB"];
 
     var index = 0;
     var carrierIndex = 0;
