@@ -85,7 +85,6 @@ export class DeviceService {
         return type;
     }
 
-
     private populateDeviceData(data: Device[]) {
         data.forEach(d => {
             d.names.forEach(name => {

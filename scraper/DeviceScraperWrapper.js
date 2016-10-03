@@ -34,7 +34,6 @@ function scrape(){
 
 function getiPhoneIDs() {
     var req     = request('http://127.0.0.1:8003', {timeout: 9999999}, function(err, res, body){
-
         if(err) {
             throw err;
             return;

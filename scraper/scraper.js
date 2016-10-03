@@ -56,9 +56,9 @@ function generateIphoneURLS() {
 
 function gazelleFlawless(callback, callFn) {
     var gazelle =  Nightmare({
-        waitTimeout: 15000,
-
+        waitTimeout: 15000
     });
+
     if(callFn && (callFn.indexOf("gazelleFlawless") !== -1) || !callFn) {
         gazelle.viewport(1000, 1000)
             .useragent(USER_AGENT)
@@ -104,7 +104,6 @@ function gazelleBrokenYes(callback, callFn) {
     })
 
     if(callFn && (callFn.indexOf("gazelleBrokenYes") !== -1) || !callFn) {
-
         gazelle.viewport(1000, 1000)
             .useragent(USER_AGENT)
             .goto(url)
@@ -331,7 +330,6 @@ function updateSelected(query, callback, callFn) {
                 if(err) throw  err;
                 console.log("DB.CLOSED!");
                 process.exit();
-
             });
         }
     }
@@ -361,12 +359,12 @@ function saveData() {
     })
 }
 
+
 switch(process.argv[2]) {
     case "updatePrices":
         updatePrices();
         break;
-
-    case "savedata":
+    case "saveData":
         saveData();
         break;
     case "updateSelected":
@@ -380,6 +378,7 @@ switch(process.argv[2]) {
         process.argv.forEach(function (val, index, array) {
             console.log(index + ': ' + val);
         });
+        console.log("\nParameters: saveData, updateSelected, updatePrices")
         break;
 }
 

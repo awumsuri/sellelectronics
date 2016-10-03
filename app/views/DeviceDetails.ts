@@ -56,7 +56,7 @@ export class DeviceDetails{
 
     }
 
-    getiPhoneSize(name): string {
+    getDeviceSize(name): string {
         for(var i = 0; i < this.iPhoneSize.length; i++) {
             if(name.indexOf(this.iPhoneSize[i]) !== -1) {
                 return this.iPhoneSize[i]+"GB";
@@ -72,10 +72,8 @@ export class DeviceDetails{
         var devices = this.displayData.filter( data => {
             return data.name === element.name;
         });
-
         this.userDevice.make = devices[0].make;
-
-        this.userDevice.size = this.getiPhoneSize(element.name);
+        this.userDevice.size = this.getDeviceSize(element.name);
         this.router.navigate(["/final-price"]);
     }
 
