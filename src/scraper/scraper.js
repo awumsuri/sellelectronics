@@ -9,9 +9,8 @@ const DB_URL = 'mongodb://localhost:27017/SellElectronics';
 const USER_AGENT = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.116 Safari/537.36";
 const URL = "https://www.gazelle.com/";
 const deviceTypes = ["iphone", "cell-phone","tablet"];
-const deviceCondition = ["GOOD", "BAD", "UGLY"];
 const deviceCarriers = ["at-t", "sprint", "t-mobile", "verizon", "unlocked"];
-/*const iPhones = [
+const iPhones = [
                 "iphone-se",
                 "iphone-6s-plus",
                 "iphone-6s",
@@ -20,12 +19,11 @@ const deviceCarriers = ["at-t", "sprint", "t-mobile", "verizon", "unlocked"];
                 "iphone-5s",
                 "iphone-5",
                 "iphone-5c"
-            ];*/
+            ];
 
 const iPhoneGB = ["8GB", "16GB", "32GB", "64GB", "128GB"];
-//const iPhoneGB = ["8GB"];
-const iPhones = ["iphone-5c"];
-
+// iPhoneGB = ["8GB"];
+// iPhones = ["iphone-5c"];
 
 const updateDeviceArray = [];
 

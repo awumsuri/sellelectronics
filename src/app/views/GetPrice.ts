@@ -137,6 +137,7 @@ export class GetPrice {
     }
 
     displayCondition(button) {
+      if (button)
         $(".condition").css("display", "block");
     }
 
