@@ -157,7 +157,7 @@ export class GetPrice {
         var button: HTMLInputElement = event.target;
         this.userDevice.condition = ConditionType[button.value];
         var device: GazelleDAO = this.getPrice();
-        $(".input-container").css("margin-top", "0px");
+        $(".input-container").css("margin-top", "10px");
 
         switch (button.value) {
             case "GOOD":

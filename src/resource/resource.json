@@ -1,0 +1,70 @@
+[
+  {
+    "deviceModel": "Apple",
+    "deviceType": "Phone",
+    "make": "iphone",
+    "resourceUrl": "/Images/iphone",
+    "names": [
+      {"display": "iPhone 5c 8gb", "gazelle": "iphone-5c"},
+      {"display":"iPhone 5c 16gb","gazelle": "iphone-5c"},
+      {"display": "iPhone 5 16gb", "gazelle": "iphone-5"},
+      {"display":"iPhone 5 32gb", "gazelle": "iphone-5"},
+      {"display":"iPhone 5 64gb", "gazelle": "iphone-5"},
+      {"display": "iPhone 5s 16gb", "gazelle": "iphone-5s"},
+      {"display":"iPhone 5s 32gb", "gazelle": "iphone-5s"},
+      {"display":"iPhone 5s 64gb", "gazelle": "iphone-5s"},
+      {"display": "iPhone 6 16gb", "gazelle": "iphone-6"},
+      {"display":"iPhone 6 64gb", "gazelle": "iphone-6"},
+      {"display":"iPhone 6 128gb", "gazelle": "iphone-6"},
+      {"display":"iPhone 6 Plus 16gb", "gazelle": "iphone-6-plus"},
+      {"display":"iPhone 6 Plus 64gb", "gazelle": "iphone-6-plus"},
+      {"display":"iPhone 6 Plus 128gb", "gazelle": "iphone-6-plus"},
+      {"display":"iPhone 6 s 16gb", "gazelle": "iphone-6s"},
+      {"display":"iPhone 6 s 64gb", "gazelle": "iphone-6s"},
+      {"display":"iPhone 6 s 128gb", "gazelle": "iphone-6s"},
+      {"display":"iPhone 6 Plus s 16gb", "gazelle": "iphone-6s-plus"},
+      {"display":"iPhone 6 Plus s 64gb", "gazelle": "iphone-6s-plus"},
+      {"display":"iPhone 6 Plus s 128gb", "gazelle": "iphone-6s-plus"},
+      {"display":"iPhone SE 16gb", "gazelle": "iphone-se"},
+      {"display":"iPhone SE 64gb", "gazelle": "iphone-se"}
+    ]
+  },
+  {
+    "deviceModel": "Apple",
+    "deviceType": "Tablet",
+    "make": "ipad",
+    "resourceUrl": "/Images/tablet",
+    "names": [
+      {"display":"iPad", "gazelle": "iphone-6"},
+      {"display":"iPad Mini", "gazelle": "iphone-6"},
+      {"display":"iPad Air", "gazelle": "iphone-6"},
+      {"display":"iPad Pro", "gazelle": "iphone-6"}
+    ]
+  },
+
+  {
+    "deviceModel": "Blackberry",
+    "deviceType": "Phone",
+    "resourceUrl": "/Images/blackberry",
+    "make": "blackberry",
+    "names": [
+      {"display":"iPad", "gazelle": "iphone-6"},
+      {"display":"iPad Mini", "gazelle": "iphone-6"},
+      {"display":"iPad Air", "gazelle": "iphone-6"},
+      {"display":"iPad Pro", "gazelle": "iphone-6"}
+    ]
+
+  },
+  {
+    "deviceModel": "Samsung",
+    "deviceType": "Phone",
+    "resourceUrl": "/Images/samsung/samsung.png",
+    "make": "samsung",
+    "names": [
+      {"display":"iPad", "gazelle": "iphone-6"},
+      {"display":"iPad Mini", "gazelle": "iphone-6"},
+      {"display":"iPad Air", "gazelle": "iphone-6"},
+      {"display":"iPad Pro", "gazelle": "iphone-6"}
+    ]
+  }
+]

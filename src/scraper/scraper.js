@@ -232,10 +232,7 @@ function gazelleGood(callback, callFn) {
 
 function pushNext(callback, callFn) {
     if((complete.length + failed.length) >= 4) {
-        var jDevice = JSON.stringify(devices);
-        fs.writeFile("../resource/gazelleData.json", jDevice, function (err) {
-            if (err) throw err;
-        });
+        saveData(false);
         index++;
         if(callback)
             callback(null, callback, callFn);
@@ -334,7 +331,7 @@ function updateSelected(query, callback, callFn) {
 
 }
 
-function saveData() {
+function saveData(closeDB) {
     MongoClient.connect(DB_URL,function(err, db) {
         if(err) throw err;
 
@@ -343,14 +340,17 @@ function saveData() {
         deviceTypesGazelle.find({}).toArray( function (err, devices) {
             if (err) throw err;
             var jDevice = JSON.stringify(devices);
-            fs.writeFile("../resource/gazelleData.json", jDevice, function (err) {
+            fs.writeFile("../../resource/gazelleData.json", jDevice, function (err) {
                 if (err) throw err;
                 console.log("Data Saved Successfully!");
-                db.close(function(err){
+                if (closeDB) {
+                  db.close(function(err){
                     if(err) throw err;
                     console.log("DB CLOSED!");
                     process.exit();
-                })
+                  })
+                }
+
             });
 
         })
@@ -363,7 +363,7 @@ switch(process.argv[2]) {
         updatePrices();
         break;
     case "saveData":
-        saveData();
+        saveData(true);
         break;
   case "updateSelected":
         var query = {
