@@ -35,7 +35,7 @@ declare var $:any;
 
 export class DeviceDetails{
 
-    private iPhoneSize: string[] = ["8", "16", "32", "64", "128"];
+    private iPhoneSize: string[] = [" 8", " 16", " 32", " 64", " 128"];
     private displayData: Device[] = [];
 
     ngOnInit() {
@@ -58,8 +58,10 @@ export class DeviceDetails{
 
     getDeviceSize(name): string {
         for(var i = 0; i < this.iPhoneSize.length; i++) {
-            if(name.indexOf(this.iPhoneSize[i]) !== -1) {
-                return this.iPhoneSize[i]+"GB";
+            var sizeString: string = this.iPhoneSize[i];
+            if(name.indexOf(sizeString) !== -1) {
+                sizeString = sizeString.replace(" ", "");
+                return sizeString+"GB";
             }
         }
     }

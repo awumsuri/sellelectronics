@@ -340,7 +340,7 @@ function saveData(closeDB) {
         deviceTypesGazelle.find({}).toArray( function (err, devices) {
             if (err) throw err;
             var jDevice = JSON.stringify(devices);
-            fs.writeFile("../../resource/gazelleData.json", jDevice, function (err) {
+            fs.writeFile("../resource/gazelleData.json", jDevice, function (err) {
                 if (err) throw err;
                 console.log("Data Saved Successfully!");
                 if (closeDB) {

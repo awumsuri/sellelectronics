@@ -149,7 +149,6 @@ export class GetPrice {
                 return device;
             }
         }
-
         return null;
     }
 
@@ -158,7 +157,6 @@ export class GetPrice {
         this.userDevice.condition = ConditionType[button.value];
         var device: GazelleDAO = this.getPrice();
         $(".input-container").css("margin-top", "10px");
-
         switch (button.value) {
             case "GOOD":
                 this.price = "$"+device.priceGood;
@@ -180,14 +178,14 @@ export class GetPrice {
                 }
                 break;
             case "YES":
+                $(".input-container").css("margin-top", "0px");
                 this.price = "$" + device.pricebrokenYes;
                 break;
             case "NO":
+                $(".input-container").css("margin-top", "0px");
                 this.price = "$" + device.pricebrokenNo;
                 break;
         }
-
         $(".hide").css("display", "block");
-
     }
 }
