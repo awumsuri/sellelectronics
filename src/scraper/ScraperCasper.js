@@ -6,7 +6,7 @@ var ip = "127.0.0.1:8003";
 
 var server = require('webserver').create();
 server.timeout = 9999999;
-var service = server.listen(ip, function(req, res){
+server.listen(ip, function(req, res){
     const CARRIERS = ["at-t", "sprint", "verizon", "t-mobile","unlocked"];
 
     const iPhones = [

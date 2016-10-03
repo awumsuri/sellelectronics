@@ -157,10 +157,10 @@ export class GetPrice {
         var button: HTMLInputElement = event.target;
         this.userDevice.condition = ConditionType[button.value];
         var device: GazelleDAO = this.getPrice();
+        $(".input-container").css("margin-top", "0px");
 
         switch (button.value) {
             case "GOOD":
-
                 this.price = "$"+device.priceGood;
                 $(".broken-buttons").css("display", "none");
                 break;
@@ -171,13 +171,13 @@ export class GetPrice {
             case "BROKEN":
                 this.price = "--";
                 $(".broken-buttons").css("display", "block");
+                $(".input-container").css("margin-top", "0px");
                 var inputButtons = $(".broken-buttons input");
                 if(inputButtons[0].checked) {
                     this.price = "$" + device.pricebrokenYes;
                 } else if (inputButtons[1].checked) {
                     this.price = "$" + device.pricebrokenNo
                 }
-
                 break;
             case "YES":
                 this.price = "$" + device.pricebrokenYes;

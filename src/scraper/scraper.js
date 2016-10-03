@@ -2,8 +2,6 @@
  * Created by Mtui on 9/27/16.
  */
 var Nightmare = require("nightmare");
-var Device = require('./model/Device');
-var DeviceType = require('./model/DeviceType');
 var MongoClient	= require('mongodb').MongoClient;
 var fs = require('fs');
 
@@ -367,11 +365,14 @@ switch(process.argv[2]) {
     case "saveData":
         saveData();
         break;
-    case "updateSelected":
+  case "updateSelected":
         var query = {
             "$where": process.argv[3]
         };
-        var allow = process.argv[4].split(":");
+        var allowedFunction = process.argv[4];
+        if(!allowedFunction)
+          allowedFunction = "gazelleGood:gazelleFlawless:gazelleBrokenYes:gazelleBrokenNo";
+        var allow = allowedFunction.split(":");
         updateSelected(query, updateSelected, allow);
         break;
     default:
