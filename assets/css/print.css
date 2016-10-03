@@ -1,0 +1,10 @@
+.fb-like,
+.blog .entry .footer,
+.blog .comments,
+ul.share_services,
+#nav_footer,
+#nav_global_secondary,
+#nav_global,
+ul.social,
+.column_nav { display:none; visibility:hidden }
+
