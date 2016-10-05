@@ -21,11 +21,6 @@ const iPhones = [
                 "iphone-5c"
             ];
 
-const iPhoneGB = ["8GB", "16GB", "32GB", "64GB", "128GB"];
-// iPhoneGB = ["8GB"];
-// iPhones = ["iphone-5c"];
-
-const updateDeviceArray = [];
 
 var complete = [];
 var failed = [];
@@ -35,20 +30,7 @@ var device;
 var deviceTypesGazelle;
 var DbRef = null;
 var devices;
-
-function generateIphoneURLS() {
-    var url = URL+"iphone/";
-    iPhones.forEach(function(iphone){
-        for(var i = 0; i  < iPhoneGB.length; i++) {
-            for (var j = 0; j < deviceCarriers.length; j++) {
-                var u = url + iphone + "/" + deviceCarriers[j] + "/" + iphone + "-" + iPhoneGB[i] + "-" +deviceCarriers[j]  + "/495189-gpid";
-                console.log(u);
-                updateDeviceArray.push(u);
-            }
-        }
-
-    })
-}
+var deviceType;
 
 function gazelleFlawless(callback, callFn) {
     var gazelle =  Nightmare({
@@ -77,21 +59,72 @@ function gazelleFlawless(callback, callFn) {
                     "id": device.id,
                     "name": device.name,
                     "carrier": device.carrier
-                }, {$set: {"priceFlawless": price}}, function (err) {
+                }, {$set: {"pf": price}}, function (err) {
                     if (err) throw err;
+                  if(deviceType === "ipad")
+                    gazelleBroken(callback, callFn);
+                  else
                     gazelleBrokenYes(callback, callFn)
                 })
             })
             .catch(function (err) {
                 console.error('Search flawless Failed Retrying' + err);
-
                 gazelleFlawless(callback, callFn);
             });
     } else {
         console.log("Skipping Gazelle Flawless");
         complete.push("skipping gazelle Flawless");
-        gazelleBrokenYes(callback, callFn);
+      if(deviceType === "ipad")
+        gazelleBroken(callback, callFn);
+      else
+        gazelleBrokenYes(callback, callFn)
     }
+}
+
+function gazelleBroken(callback, callFn) {
+  var gazelle =  Nightmare({
+    waitTimeout: 25000
+  })
+
+  if(callFn && (callFn.indexOf("gazelleBrokenYes") !== -1) || !callFn) {
+    gazelle.viewport(1000, 1000)
+      .useragent(USER_AGENT)
+      .goto(url)
+      .wait(".clearfix h3")
+      .click("li#poor a")
+      .wait(3000)
+      .wait(".clearfix h3")
+      .wait(5000)
+      .evaluate(function () {
+        var value = document.querySelector('.clearfix h3 span').innerHTML;
+        return isNaN(value) ? "0" : value;
+      })
+      .end()
+      .then(function (result) {
+
+        console.log("price-broken:" + result + " " + url + " index:" + index);
+        var price = Math.round(parseInt(result) * 1.06);
+        complete.push("Found Broken: " + url);
+        deviceTypesGazelle.update({
+          "id": device.id,
+          "name": device.name,
+          "carrier": device.carrier
+        }, {$set: {"pb": price}}, function (err) {
+          if (err) throw err;
+          pushNext(callback, callFn)
+
+        });
+      })
+      .catch(function (error) {
+        console.error('Search Failed Broken Yes');
+        pushNext(callback, callFn)
+
+      });
+  }  else {
+    console.log("Skipping GazelleBrokenYes");
+    complete.push("skipping gazelle good");
+    pushNext(callback, callFn);
+  }
 }
 
 function gazelleBrokenYes(callback, callFn) {
@@ -124,7 +157,7 @@ function gazelleBrokenYes(callback, callFn) {
                     "id": device.id,
                     "name": device.name,
                     "carrier": device.carrier
-                }, {$set: {"pricebrokenYes": price}}, function (err) {
+                }, {$set: {"pby": price}}, function (err) {
                     if (err) throw err;
                     gazelleBrokenNo(callback, callFn)
 
@@ -169,7 +202,7 @@ function gazelleBrokenNo(callback, callFn) {
                     "id": device.id,
                     "name": device.name,
                     "carrier": device.carrier
-                }, {$set: {"pricebrokenNo": price}}, function (err) {
+                }, {$set: {"pbn": price}}, function (err) {
                     if (err) throw err;
                     pushNext(callback, callFn);
                 });
@@ -210,7 +243,7 @@ function gazelleGood(callback, callFn) {
                     "id": device.id,
                     "name": device.name,
                     "carrier": device.carrier
-                }, {$set: {"priceGood": price}}, function (err) {
+                }, {$set: {"pg": price}}, function (err) {
                     if (err) throw err;
                     gazelleFlawless(callback, callFn);
                 })
@@ -229,59 +262,63 @@ function gazelleGood(callback, callFn) {
 }
 
 function pushNext(callback, callFn) {
-    if((complete.length + failed.length) >= 4) {
-        saveData(false);
-        index++;
-        if(callback)
-            callback(null, callback, callFn);
-        else
-            updatePrices();
-
-    }
-    else {
-        console.error("completed"+(complete.length + failed.length) + ": "+failed);
-        setTimeout(pushNext, 1000);
-    }
+      saveData(false);
+      index++;
+      if(callback)
+          callback(null, callback, callFn);
+      else
+          updatePrices();
 }
 
-function updatePrices() {
+function getURL(deviceType, device) {
+  switch(deviceType) {
+    case "iphone":
+      return URL + deviceType + "/" + device.m
+        + "/" + device.c + "/"
+        + device.m + "-" + device.s
+        + "-" + device.c + "/"
+        + device.id + "-gpid";
+      break;
 
+    case "ipad":
+      return URL + deviceType + "/" + device.m
+      + "/" + device.c + "/"
+      + device.m + "-" + device.s
+      + "-" + device.c + "/"
+      + device.id + "-gpid";
+      break;
+  }
+}
+
+function updatePrices(callback, query) {
     if(!devices) {
         MongoClient.connect(DB_URL,function(err, db) {
             if(err) throw err;
-
             DbRef = db;
             deviceTypesGazelle = db.collection("deviceTypes");
-            deviceTypesGazelle.find({}).toArray( function (err, devicesL) {
+            deviceTypesGazelle.find(query).toArray( function (err, devicesL) {
                 if (err) throw err;
                 devices = devicesL;
                 console.log("devices count:" + devices.length);
                 if (index < devices.length) {
                     device = devices[index];
-                    url = URL + "iphone/" + device.make
-                        + "/" + device.carrier + "/"
-                        + device.make + "-" + device.size
-                        + "-" + device.carrier + "/"
-                        + device.id + "-gpid";
-                    gazelleGood();
+                    url = getURL(deviceType, device);
+                    console.log("url:"+url);
+                    gazelleGood(callback);
                 }
             });
         })
     } else {
         if (index < devices.length) {
             device = devices[index];
-            url = URL + "iphone/" + device.make
-                + "/" + device.carrier + "/"
-                + device.make + "-" + device.size
-                + "-" + device.carrier + "/"
-                + device.id + "-gpid";
+            url = getURL(deviceType, device);
+            console.log("url:"+url);
             gazelleGood(callback);
         } else {
             DbRef.close(function(err) {
                 if(err) throw  err;
                 console.log("DB.CLOSED!");
                 process.exit();
-
             });
         }
     }
@@ -300,7 +337,7 @@ function updateSelected(query, callback, callFn) {
                 console.log("devices count:" + devices.length);
                 if (index < devices.length) {
                     device = devices[index];
-                    url = URL + "iphone/" + device.make
+                    url = URL + deviceTypes + "/" + device.make
                         + "/" + device.carrier + "/"
                         + device.make + "-" + device.size
                         + "-" + device.carrier + "/"
@@ -312,7 +349,7 @@ function updateSelected(query, callback, callFn) {
     } else {
         if (index < devices.length) {
             device = devices[index];
-            url = URL + "iphone/" + device.make
+            url = URL + deviceTypes + "/" + device.make
                 + "/" + device.carrier + "/"
                 + device.make + "-" + device.size
                 + "-" + device.carrier + "/"
@@ -329,7 +366,7 @@ function updateSelected(query, callback, callFn) {
 
 }
 
-function saveData(closeDB) {
+function saveData(closeDB, exit) {
     MongoClient.connect(DB_URL,function(err, db) {
         if(err) throw err;
 
@@ -345,7 +382,8 @@ function saveData(closeDB) {
                   db.close(function(err){
                     if(err) throw err;
                     console.log("DB CLOSED!");
-                    process.exit();
+                    if(exit)
+                        process.exit();
                   })
                 }
 
@@ -357,8 +395,19 @@ function saveData(closeDB) {
 
 
 switch(process.argv[2]) {
-    case "updatePrices":
-        updatePrices();
+    case "updateiPhonePrices":
+        var query = {
+          m: /iphone/
+        };
+        deviceType = "iphone";
+        updatePrices(updatePrices, "iphone", query);
+        break;
+  case "updateiPadPrices":
+        var query = {
+          m: /ipad/
+        };
+        deviceType = "ipad";
+        updatePrices(updatePrices, query);
         break;
     case "saveData":
         saveData(true);
@@ -377,7 +426,7 @@ switch(process.argv[2]) {
         process.argv.forEach(function (val, index, array) {
             console.log(index + ': ' + val);
         });
-        console.log("\nParameters: saveData, updateSelected, updatePrices")
+        console.log("\nParameters: saveData, updateSelected, updatePrices");
         break;
 }
 

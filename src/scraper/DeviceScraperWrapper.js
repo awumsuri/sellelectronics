@@ -24,7 +24,7 @@ function scrape(){
     child.stdout.on('data', function(data){
         console.info("data:"+data);
         if(data.indexOf("Connected to server") !== -1 )
-            getiPhoneIDs();
+            getIDs();
     });
 
     child.on('close', function(data){
@@ -32,15 +32,21 @@ function scrape(){
     });
 }
 
-function getiPhoneIDs() {
-    var req     = request('http://127.0.0.1:8003', {timeout: 9999999}, function(err, res, body){
-        if(err) {
-            throw err;
-            return;
-        }
-        var data = JSON.parse(body);
+function getIDs() {
+    var req     = request('http://127.0.0.1:8003', {timeout: 9999999}, function(err, res, body) {
+      var data;
+      req.setTimeout(0);
+      if (err) {
+        throw err;
+        return;
+      }
+      try {
+        data = JSON.parse(body);
         saveData(data);
         killProcess();
+      } catch (e) {
+        console.error("Error in wrapper service:" + err + " data:" + data);
+      }
     });
 }
 

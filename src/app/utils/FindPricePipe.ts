@@ -13,9 +13,9 @@ export class FindPricePipe implements PipeTransform{
     transform(devicesDataList: GazelleDAO[], userDevice: UserDevice): any {
         for(var i = 0; i < devicesDataList.length; i++) {
             var device: GazelleDAO = devicesDataList[i];
-            if(device.carrier === userDevice.carrier
-                && device.make === userDevice.make
-                && device.size === userDevice.size) {
+            if(device.c === userDevice.carrier
+                && device.m === userDevice.make
+                && device.s === userDevice.size) {
                 return device;
             }
         }
