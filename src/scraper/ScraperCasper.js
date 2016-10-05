@@ -14,8 +14,7 @@ server.listen(ip, function(req, res){
     "at-t",
     "sprint",
     "verizon",
-    "t-mobile",
-    "unlocked"
+    "t-mobile"
   ];
 
   const iPhones = [
@@ -67,7 +66,8 @@ server.listen(ip, function(req, res){
     webSecurityEnabled: false,
     loadImages:  false,        // do not load images
     loadPlugins: false,
-    clientScripts: ["../assets/js/jquery-3.0.0.min.js"]
+    clientScripts: ["../assets/js/jquery-3.0.0.min.js"],
+    resourceTimeout: 3000
   });
   var deviceIdArray = [];
   var URL = "https://www.gazelle.com";
@@ -85,9 +85,13 @@ server.listen(ip, function(req, res){
   function getiPadIDs(){
     this.calItems = $('.main_stack.product_stack').find('[data-id]');
     return Array.prototype.map.call(calItems, function(value){
+      var name = value.querySelector("h4").innerHTML;
+      while(name.indexOf('"') !== - 1) {
+        name = name.replace('"',"");
+      }
       return {
         "id": value.getAttribute("data-id"),
-        "name": value.querySelector("h4").innerHTML
+        "name": name
       }
     });
   }
@@ -102,8 +106,6 @@ server.listen(ip, function(req, res){
 
 
   casper.options.onResourceRequested = function(casper, requestData, request) {
-    // If any of these strings are found in the requested resource's URL, skip
-    // this request. These are not required for running tests.
     var skip = [
       'googleads.g.doubleclick.net',
       'cm.g.doubleclick.net',
@@ -118,8 +120,10 @@ server.listen(ip, function(req, res){
       if (requestData.url.indexOf(needle) > 0) {
         request.abort();
       }
-    })
+    });
   };
+
+
 
   casper.on("remote.message", function(e){
     console.info("Inside Start");
@@ -131,9 +135,13 @@ server.listen(ip, function(req, res){
     this.echo("error>"+e);
   });
 
+  //casper.page.settings.resourceTimeout = 3000;
+
   casper.start(URL, function(){
     console.info("Inside Start");
   });
+
+  casper.userAgent("Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.143 Safari/537.36");
 
   /*casper.then(function() {
    carrierIndex = 0;
@@ -173,21 +181,26 @@ server.listen(ip, function(req, res){
               casper.page.close();
               casper.newPage();
 
+              var deviceModel = deviceArray[index];
+
               var url = "https://www.gazelle.com/ipad/" +
                 deviceType + "/"
-                + deviceArray[index] +"/"
+                + deviceModel +"/"
                 + iPAD_CARRIERS[carrier];
 
               casper.thenOpen(url, function () {
+
                 var _deviceIdArray = this.evaluate(getiPadIDs);
-                _deviceIdArray.forEach(function (value) {
+
+                _deviceIdArray.forEach(function (value, index) {
                   value.carrier = iPAD_CARRIERS[carrier];
-                  value.make = deviceArray[index];
+                  value.make = deviceModel;
                   value.size = getSize(value.name, iPadSize);
                   console.log("url:", url);
                   deviceIdArray.push(value);
-                })
-              })
+                });
+
+              });
             })(index, carrierIndex, catagory);
             carrierIndex++;
           }

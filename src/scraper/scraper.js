@@ -273,18 +273,18 @@ function pushNext(callback, callFn) {
 function getURL(deviceType, device) {
   switch(deviceType) {
     case "iphone":
-      return URL + deviceType + "/" + device.m
-        + "/" + device.c + "/"
-        + device.m + "-" + device.s
-        + "-" + device.c + "/"
+      return URL + deviceType + "/" + device.make
+        + "/" + device.carrier + "/"
+        + device.make + "-" + device.size
+        + "-" + device.carrier + "/"
         + device.id + "-gpid";
       break;
 
     case "ipad":
-      return URL + deviceType + "/" + device.m
-      + "/" + device.c + "/"
-      + device.m + "-" + device.s
-      + "-" + device.c + "/"
+      return URL + deviceType + "/" + device.make
+      + "/" + device.carrier + "/"
+      + device.make + "-" + device.size
+      + "-" + device.carrier + "/"
       + device.id + "-gpid";
       break;
   }
@@ -397,14 +397,14 @@ function saveData(closeDB, exit) {
 switch(process.argv[2]) {
     case "updateiPhonePrices":
         var query = {
-          m: /iphone/
+          make: /iphone/
         };
         deviceType = "iphone";
         updatePrices(updatePrices, query);
         break;
   case "updateiPadPrices":
         var query = {
-          m: /ipad/
+          make: /ipad/
         };
         deviceType = "ipad";
         updatePrices(updatePrices, query);
