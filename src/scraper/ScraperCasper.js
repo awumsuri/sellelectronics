@@ -30,10 +30,10 @@ server.listen(ip, function(req, res){
   ];
 
   const iPAD_CATAGORY = [
-    {
+    /*{
       "ipad-pro": [
         "ipad-pro"
-      ]},
+      ]},*/
     {
       "ipad-mini": [
         "ipad-mini",
@@ -41,7 +41,7 @@ server.listen(ip, function(req, res){
         "ipad-mini3",
         "ipad-mini4"
       ]},
-    {
+    /*{
       "ipad-air": [
         "1st-gen",
         "2nd-gen"
@@ -52,7 +52,7 @@ server.listen(ip, function(req, res){
         "2nd-gen",
         "3st-gen",
         "4nd-gen"
-      ]}
+      ]}*/
   ];
 
   const iPhoneSize = ["8GB","16GB", "32GB", "64GB", "128GB"];
@@ -63,10 +63,11 @@ server.listen(ip, function(req, res){
 
   var casper  = require('casper').create({
     verbose:true,
-    logLevel:"debug",
+    logLevel:"info",
     webSecurityEnabled: false,
     loadImages:  false,        // do not load images
-    loadPlugins: false
+    loadPlugins: false,
+    clientScripts: ["../assets/js/jquery-3.0.0.min.js"]
   });
   var deviceIdArray = [];
   var URL = "https://www.gazelle.com";
@@ -107,7 +108,10 @@ server.listen(ip, function(req, res){
       'googleads.g.doubleclick.net',
       'cm.g.doubleclick.net',
       'www.googleadservices.com',
-      's7.addthis.com'
+      's7.addthis.com',
+      'platform.twitter.com',
+      'staticxx.facebook.com',
+      'cdns.gigya.com'
     ];
 
     skip.forEach(function(needle) {
@@ -166,7 +170,9 @@ server.listen(ip, function(req, res){
           for(; carrierIndex < iPAD_CARRIERS.length;) {
             (function (current, carrier, deviceType) {
 
+              casper.page.close();
               casper.newPage();
+
               var url = "https://www.gazelle.com/ipad/" +
                 deviceType + "/"
                 + deviceArray[index] +"/"
