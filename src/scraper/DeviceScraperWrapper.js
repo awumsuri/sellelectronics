@@ -54,7 +54,6 @@ function saveData(data){
         if(err) throw err;
         console.info('connected to database saving phone data:'+data.length);
         var deviceTypes = db.collection('deviceTypes');
-
         DBRef   = db;
         Array.prototype.forEach.call(data, function(event){
             console.log("event:"+event.id + " event:"+event.name);

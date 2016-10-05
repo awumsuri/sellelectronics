@@ -33,25 +33,25 @@ server.listen(ip, function(req, res){
       "ipad-pro": [
         "ipad-pro"
       ]},*/
-    {
+    /*{
       "ipad-mini": [
         "ipad-mini",
-        "ipad-mini2",
-        "ipad-mini3",
-        "ipad-mini4"
-      ]},
+       "ipad-mini-2",
+        "ipad-mini-3",
+        "ipad-mini-4"
+      ]},*/
     /*{
       "ipad-air": [
-        "1st-gen",
+       /* "1st-gen",
         "2nd-gen"
-      ]},
+      ]}*/,
     {
       "ipad": [
-        "1st-gen",
-        "2nd-gen",
-        "3st-gen",
-        "4nd-gen"
-      ]}*/
+        /*"1st-gen",*/
+        /*"2nd-gen",*/
+        /*"3rd-gen",*/
+        "4th-gen"
+      ]}
   ];
 
   const iPhoneSize = ["8GB","16GB", "32GB", "64GB", "128GB"];
@@ -64,11 +64,11 @@ server.listen(ip, function(req, res){
     verbose:true,
     logLevel:"info",
     webSecurityEnabled: false,
-    loadImages:  false,        // do not load images
+    loadImages:  false,
     loadPlugins: false,
-    clientScripts: ["../assets/js/jquery-3.0.0.min.js"],
-    resourceTimeout: 3000
+    clientScripts: ["../assets/js/jquery-3.0.0.min.js"]
   });
+
   var deviceIdArray = [];
   var URL = "https://www.gazelle.com";
 
@@ -104,8 +104,8 @@ server.listen(ip, function(req, res){
     }
   }
 
-
   casper.options.onResourceRequested = function(casper, requestData, request) {
+
     var skip = [
       'googleads.g.doubleclick.net',
       'cm.g.doubleclick.net',
@@ -113,25 +113,24 @@ server.listen(ip, function(req, res){
       's7.addthis.com',
       'platform.twitter.com',
       'staticxx.facebook.com',
-      'cdns.gigya.com'
+      'cdns.gigya.com',
+      'ws.sessioncam.com',
+
     ];
 
     skip.forEach(function(needle) {
       if (requestData.url.indexOf(needle) > 0) {
-        request.abort();
+        request.cancel();
       }
     });
   };
 
-
-
   casper.on("remote.message", function(e){
-    console.info("Inside Start");
+    this.console.log("currenturls", deviceIdArray)
     this.echo("remote>"+e);
   });
 
   casper.on("page.error", function(e){
-    console.info("Inside Start");
     this.echo("error>"+e);
   });
 
@@ -141,7 +140,13 @@ server.listen(ip, function(req, res){
     console.info("Inside Start");
   });
 
+  /*casper.page.settings = {
+
+  }*/
+
   casper.userAgent("Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.143 Safari/537.36");
+
+  //Load iPhone Details
 
   /*casper.then(function() {
    carrierIndex = 0;
@@ -166,6 +171,7 @@ server.listen(ip, function(req, res){
    }
    });*/
 
+  //Load iPad Details
   casper.then(function() {
     index = 0;
 

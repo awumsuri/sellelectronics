@@ -59,7 +59,7 @@ function gazelleFlawless(callback, callFn) {
                     "id": device.id,
                     "name": device.name,
                     "carrier": device.carrier
-                }, {$set: {"pf": price}}, function (err) {
+                }, {$set: {"priceFlawless": price}}, function (err) {
                     if (err) throw err;
                   if(deviceType === "ipad")
                     gazelleBroken(callback, callFn);
@@ -109,7 +109,7 @@ function gazelleBroken(callback, callFn) {
           "id": device.id,
           "name": device.name,
           "carrier": device.carrier
-        }, {$set: {"pb": price}}, function (err) {
+        }, {$set: {"priceBroken": price}}, function (err) {
           if (err) throw err;
           pushNext(callback, callFn)
 
@@ -157,7 +157,7 @@ function gazelleBrokenYes(callback, callFn) {
                     "id": device.id,
                     "name": device.name,
                     "carrier": device.carrier
-                }, {$set: {"pby": price}}, function (err) {
+                }, {$set: {"priceBrokenYes": price}}, function (err) {
                     if (err) throw err;
                     gazelleBrokenNo(callback, callFn)
 
@@ -202,7 +202,7 @@ function gazelleBrokenNo(callback, callFn) {
                     "id": device.id,
                     "name": device.name,
                     "carrier": device.carrier
-                }, {$set: {"pbn": price}}, function (err) {
+                }, {$set: {"priceBrokenNo": price}}, function (err) {
                     if (err) throw err;
                     pushNext(callback, callFn);
                 });
@@ -243,13 +243,13 @@ function gazelleGood(callback, callFn) {
                     "id": device.id,
                     "name": device.name,
                     "carrier": device.carrier
-                }, {$set: {"pg": price}}, function (err) {
+                }, {$set: {"priceGood": price}}, function (err) {
                     if (err) throw err;
                     gazelleFlawless(callback, callFn);
                 })
             })
             .catch(function(err){
-                console.error('Search good Failed Retrying...'+err);
+                console.error('Search good Failed Retrying...'+err + "url:"+url);
                 gazelleGood(callback, callFn);
             });
 
@@ -262,7 +262,7 @@ function gazelleGood(callback, callFn) {
 }
 
 function pushNext(callback, callFn) {
-      saveData(false);
+      saveData(false, false);
       index++;
       if(callback)
           callback(null, callback, callFn);
@@ -270,7 +270,7 @@ function pushNext(callback, callFn) {
           updatePrices();
 }
 
-function getURL(deviceType, device) {
+function getURL(device) {
   switch(deviceType) {
     case "iphone":
       return URL + deviceType + "/" + device.make
@@ -337,11 +337,8 @@ function updateSelected(query, callback, callFn) {
                 console.log("devices count:" + devices.length);
                 if (index < devices.length) {
                     device = devices[index];
-                    url = URL + deviceTypes + "/" + device.make
-                        + "/" + device.carrier + "/"
-                        + device.make + "-" + device.size
-                        + "-" + device.carrier + "/"
-                        + device.id + "-gpid";
+                    console.log("device:"+device.make);
+                    url = getURL(device);
                     gazelleGood(callback, callFn);
                 }
             });
@@ -349,11 +346,7 @@ function updateSelected(query, callback, callFn) {
     } else {
         if (index < devices.length) {
             device = devices[index];
-            url = URL + deviceTypes + "/" + device.make
-                + "/" + device.carrier + "/"
-                + device.make + "-" + device.size
-                + "-" + device.carrier + "/"
-                + device.id + "-gpid";
+            url = getURL(device);
             gazelleGood(callback, callFn);
         } else {
             DbRef.close(function(err) {
@@ -367,30 +360,49 @@ function updateSelected(query, callback, callFn) {
 }
 
 function saveData(closeDB, exit) {
-    MongoClient.connect(DB_URL,function(err, db) {
+    if(!DbRef) {
+      MongoClient.connect(DB_URL,function(err, db) {
         if(err) throw err;
 
         DbRef = db;
         deviceTypesGazelle = db.collection("deviceTypes");
         deviceTypesGazelle.find({}).toArray( function (err, devices) {
+          if (err) throw err;
+          var jDevice = JSON.stringify(devices);
+          fs.writeFile("../resource/gazelleData.json", jDevice, function (err) {
             if (err) throw err;
-            var jDevice = JSON.stringify(devices);
-            fs.writeFile("../resource/gazelleData.json", jDevice, function (err) {
-                if (err) throw err;
-                console.log("Data Saved Successfully!");
-                if (closeDB) {
-                  db.close(function(err){
-                    if(err) throw err;
-                    console.log("DB CLOSED!");
-                    if(exit)
-                        process.exit();
-                  })
-                }
+            console.log("Data Saved Successfully!");
+            if (closeDB) {
+              db.close(function(err){
+                if(err) throw err;
+                console.log("DB CLOSED!");
+                DbRef = null;
+              })
+            }
 
-            });
+          });
 
         })
-    })
+      })
+    } else {
+      deviceTypesGazelle = DbRef.collection("deviceTypes");
+      deviceTypesGazelle.find({}).toArray(function (err, devices) {
+        if (err) throw err;
+        var jDevice = JSON.stringify(devices);
+        fs.writeFile("../resource/gazelleData.json", jDevice, function (err) {
+          if (err) throw err;
+          console.log("Data Saved Successfully!");
+          if (closeDB) {
+            DbRef.close(function (err) {
+              if (err) throw err;
+              console.log("DB CLOSED!");
+              DbRef = null;
+            })
+          }
+
+        });
+      });
+    }
 }
 
 
@@ -416,6 +428,7 @@ switch(process.argv[2]) {
         var query = {
             "$where": process.argv[3]
         };
+        deviceType = "ipad";
         var allowedFunction = process.argv[4];
         if(!allowedFunction)
           allowedFunction = "gazelleGood:gazelleFlawless:gazelleBrokenYes:gazelleBrokenNo";
