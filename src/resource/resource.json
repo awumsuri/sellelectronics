@@ -35,23 +35,23 @@
     "make": "ipad",
     "resourceUrl": "/Images/tablet",
     "names": [
-      {"display":"iPad 1st Gen 16GB", "gazelle": "ipad-1"},
-      {"display":"iPad 1st Gen 32GB", "gazelle": "ipad-1"},
-      {"display":"iPad 1st Gen 64GB", "gazelle": "ipad-1"},
+      {"display":"iPad 1st Gen 16GB", "gazelle": "1st-gen"},
+      {"display":"iPad 1st Gen 32GB", "gazelle": "1st-gen"},
+      {"display":"iPad 1st Gen 64GB", "gazelle": "1st-gen"},
 
-      {"display":"iPad 2nd Gen 16GB", "gazelle": "ipad-2"},
-      {"display":"iPad 2nd Gen 32GB", "gazelle": "ipad-2"},
-      {"display":"iPad 2nd Gen 64GB", "gazelle": "ipad-2"},
+      {"display":"iPad 2nd Gen 16GB", "gazelle": "2nd-gen"},
+      {"display":"iPad 2nd Gen 32GB", "gazelle": "2nd-gen"},
+      {"display":"iPad 2nd Gen 64GB", "gazelle": "2nd-gen"},
 
-      {"display":"iPad 3rd Gen 16GB", "gazelle": "ipad-3"},
-      {"display":"iPad 3rd Gen 32GB", "gazelle": "ipad-3"},
-      {"display":"iPad 3rd Gen 64GB", "gazelle": "ipad-3"},
+      {"display":"iPad 3rd Gen 16GB", "gazelle": "3rd-gen"},
+      {"display":"iPad 3rd Gen 32GB", "gazelle": "3rd-gen"},
+      {"display":"iPad 3rd Gen 64GB", "gazelle": "3rd-gen"},
 
 
-      {"display":"iPad 4th Gen 16GB", "gazelle": "ipad-4"},
-      {"display":"iPad 4th Gen 32GB", "gazelle": "ipad-4"},
-      {"display":"iPad 4th Gen 64GB", "gazelle": "ipad-4"},
-      {"display":"iPad 4th Gen 128GB", "gazelle": "ipad-4"},
+      {"display":"iPad 4th Gen 16GB", "gazelle": "4th-gen"},
+      {"display":"iPad 4th Gen 32GB", "gazelle": "4th-gen"},
+      {"display":"iPad 4th Gen 64GB", "gazelle": "4th-gen"},
+      {"display":"iPad 4th Gen 128GB", "gazelle": "4th-gen"},
 
       {"display":"iPad Mini 16GB", "gazelle": "ipad-mini"},
       {"display":"iPad Mini 32GB", "gazelle": "ipad-mini"},

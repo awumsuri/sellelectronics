@@ -29,10 +29,10 @@ server.listen(ip, function(req, res){
   ];
 
   const iPAD_CATAGORY = [
-    /*{
+    {
       "ipad-pro": [
         "ipad-pro"
-      ]},*/
+      ]},
     /*{
       "ipad-mini": [
         "ipad-mini",
@@ -44,14 +44,14 @@ server.listen(ip, function(req, res){
       "ipad-air": [
        /* "1st-gen",
         "2nd-gen"
-      ]}*/,
+      ]}
     {
       "ipad": [
-        /*"1st-gen",*/
-        /*"2nd-gen",*/
-        /*"3rd-gen",*/
+        /*"1st-gen",
+        /*"2nd-gen",
+        /*"3rd-gen",
         "4th-gen"
-      ]}
+      ]}*/
   ];
 
   const iPhoneSize = ["8GB","16GB", "32GB", "64GB", "128GB"];
