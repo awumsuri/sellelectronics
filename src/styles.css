@@ -42,6 +42,10 @@
   margin-top: 25px;
 }
 
+.error {
+  color: red;
+}
+
 .noprice {
 
   font-family: customRegular;
@@ -1099,6 +1103,12 @@ h5 {
   text-indent:-9999px;
   font-size:38px;
   width:309px; height:59px;
+}
+
+.unlocked-menu img{
+  width: 70px;
+  float: left;
+  margin-top: -80px;
 }
 
 .logo-image{

@@ -46,14 +46,31 @@ declare var $:any;
                     </div>
                     </li>
                     
-                    <li> <div  class="make-menu tmobile-menu">
-                        <img name="t-mobile" (mouseover)="over($event)" 
-                        (mouseleave)="out($event)" 
-                        (click)="clickHandler($event)" 
-                        src="/Images/carries/tmobile.png"/>
-                    </div>
-                    
+                    <li> 
+                      <div  class="make-menu tmobile-menu">
+                          <img name="t-mobile" (mouseover)="over($event)" 
+                          (mouseleave)="out($event)" 
+                          (click)="clickHandler($event)" 
+                          src="/Images/carries/tmobile.png"/>
+                      </div>                      
                     </li>
+                    <li> 
+                      <div  class="make-menu tmobile-menu">
+                          <img name="wifi" (mouseover)="over($event)" 
+                          (mouseleave)="out($event)" 
+                          (click)="clickHandler($event)" 
+                          src="/Images/carries/wifiicon.png"/>
+                      </div>                      
+                    </li>
+                    <li> 
+                      <div  class="make-menu unlocked-menu">
+                          <img name="unlocked" (mouseover)="over($event)" 
+                          (mouseleave)="out($event)" 
+                          (click)="clickHandler($event)" 
+                          src="/Images/carries/unlockedicon.png"/>
+                      </div>                      
+                    </li>
+                    
                     </ul>
                 </div>
                 <div class="condition">
@@ -101,6 +118,7 @@ export class GetPrice {
 
     over(event) {
         var button = event.target;
+
         if(button.selected) return;
 
         var src = event.target.src;
@@ -160,31 +178,53 @@ export class GetPrice {
         $(".input-container").css("margin-top", "10px");
         switch (button.value) {
             case "GOOD":
-                this.price = "$"+device.priceGood;
-                $(".broken-buttons").css("display", "none");
-                break;
-            case "FLAWLESS":
-                this.price = "$"+device.priceFlawless;
-                $(".broken-buttons").css("display", "none");
-                break;
-            case "BROKEN":
-                this.price = "--";
-                $(".broken-buttons").css("display", "block");
-                $(".input-container").css("margin-top", "0px");
-                var inputButtons = $(".broken-buttons input");
-                if(inputButtons[0].checked) {
-                    this.price = "$" + device.priceBrokenYes;
-                } else if (inputButtons[1].checked) {
-                    this.price = "$" + device.priceBrokenNo
+                if(device == null){
+                  this.price = "N/A";
+                } else {
+                  this.price = "$"+device.priceGood;
+                  $(".broken-buttons").css("display", "none");
                 }
                 break;
+            case "FLAWLESS":
+                if(device == null) {
+                  this.price = "N/A";
+                } else {
+                  this.price = "$"+device.priceFlawless;
+                  $(".broken-buttons").css("display", "none");
+                }
+
+                break;
+            case "BROKEN":
+                if(device == null) {
+                  this.price = "N/A";
+                } else {
+                  this.price = "--";
+                  $(".broken-buttons").css("display", "block");
+                  $(".input-container").css("margin-top", "0px");
+                  var inputButtons = $(".broken-buttons input");
+                  if(inputButtons[0].checked) {
+                    this.price = "$" + device.priceBrokenYes;
+                  } else if (inputButtons[1].checked) {
+                    this.price = "$" + device.priceBrokenNo
+                  }
+                }
+
+                break;
             case "YES":
-                $(".input-container").css("margin-top", "0px");
-                this.price = "$" + device.priceBrokenYes;
+                if(device == null) {
+                  this.price = "N/A";
+                } else {
+                  $(".input-container").css("margin-top", "0px");
+                  this.price = "$" + device.priceBrokenYes;
+                }
                 break;
             case "NO":
-                $(".input-container").css("margin-top", "0px");
-                this.price = "$" + device.priceBrokenNo;
+                if(device == null) {
+                  this.price = "N/A";
+                } else {
+                  $(".input-container").css("margin-top", "0px");
+                  this.price = "$" + device.priceBrokenNo;
+                }
                 break;
         }
         $(".hide").css("display", "block");
