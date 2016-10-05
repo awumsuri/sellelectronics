@@ -35,10 +35,62 @@
     "make": "ipad",
     "resourceUrl": "/Images/tablet",
     "names": [
-      {"display":"iPad", "gazelle": "iphone-6"},
-      {"display":"iPad Mini", "gazelle": "iphone-6"},
-      {"display":"iPad Air", "gazelle": "iphone-6"},
-      {"display":"iPad Pro", "gazelle": "iphone-6"}
+      {"display":"iPad 1st Gen 16GB", "gazelle": "ipad-1"},
+      {"display":"iPad 1st Gen 32GB", "gazelle": "ipad-1"},
+      {"display":"iPad 1st Gen 64GB", "gazelle": "ipad-1"},
+
+      {"display":"iPad 2nd Gen 16GB", "gazelle": "ipad-2"},
+      {"display":"iPad 2nd Gen 32GB", "gazelle": "ipad-2"},
+      {"display":"iPad 2nd Gen 64GB", "gazelle": "ipad-2"},
+
+      {"display":"iPad 3rd Gen 16GB", "gazelle": "ipad-3"},
+      {"display":"iPad 3rd Gen 32GB", "gazelle": "ipad-3"},
+      {"display":"iPad 3rd Gen 64GB", "gazelle": "ipad-3"},
+
+
+      {"display":"iPad 4th Gen 16GB", "gazelle": "ipad-4"},
+      {"display":"iPad 4th Gen 32GB", "gazelle": "ipad-4"},
+      {"display":"iPad 4th Gen 64GB", "gazelle": "ipad-4"},
+      {"display":"iPad 4th Gen 128GB", "gazelle": "ipad-4"},
+
+      {"display":"iPad Mini 16GB", "gazelle": "ipad-mini"},
+      {"display":"iPad Mini 32GB", "gazelle": "ipad-mini"},
+      {"display":"iPad Mini 64GB", "gazelle": "ipad-mini"},
+
+      {"display":"iPad Mini 2 16GB", "gazelle": "ipad-mini-2"},
+      {"display":"iPad Mini 2 32GB", "gazelle": "ipad-mini-2"},
+      {"display":"iPad Mini 2 64GB", "gazelle": "ipad-mini-2"},
+      {"display":"iPad Mini 2 128GB", "gazelle": "ipad-mini-2"},
+
+      {"display":"iPad Mini 3 16GB", "gazelle": "ipad-mini-3"},
+      {"display":"iPad Mini 3 32GB", "gazelle": "ipad-mini-3"},
+      {"display":"iPad Mini 3 64GB", "gazelle": "ipad-mini-3"},
+      {"display":"iPad Mini 3 128GB", "gazelle": "ipad-mini-3"},
+
+      {"display":"iPad Mini 4 16GB", "gazelle": "ipad-mini-4"},
+      {"display":"iPad Mini 4 32GB", "gazelle": "ipad-mini-4"},
+      {"display":"iPad Mini 4 64GB", "gazelle": "ipad-mini-4"},
+      {"display":"iPad Mini 4 128GB", "gazelle": "ipad-mini-4"},
+
+      {"display":"iPad Air 16GB", "gazelle": "ipad-air"},
+      {"display":"iPad Air 32GB", "gazelle": "ipad-air"},
+      {"display":"iPad Air 64GB", "gazelle": "ipad-air"},
+      {"display":"iPad Air 128GB", "gazelle": "ipad-air"},
+
+      {"display":"iPad Air 2 16GB", "gazelle": "ipad-air-2"},
+      {"display":"iPad Air 2 32GB", "gazelle": "ipad-air-2"},
+      {"display":"iPad Air 2 64GB", "gazelle": "ipad-air-2"},
+      {"display":"iPad Air 2 128GB", "gazelle": "ipad-air-2"},
+
+
+      {"display":"iPad Pro 12.9 32GB", "gazelle": "ipad-pro-9"},
+      {"display":"iPad Pro 12.9 128GB", "gazelle": "ipad-pro-9"},
+      {"display":"iPad Pro 12.9 256GB", "gazelle": "ipad-pro-9"},
+
+
+      {"display":"iPad Pro 9.7 32GB", "gazelle": "ipad-pro-9"},
+      {"display":"iPad Pro 9.7 128GB", "gazelle": "ipad-pro-9"},
+      {"display":"iPad Pro 9.7 256GB", "gazelle": "ipad-pro-9"}
     ]
   },
 
