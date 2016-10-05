@@ -3,14 +3,14 @@
  */
 export class GazelleDAO{
     public id: string;
-    public n: string; //name
-    public c: string; //carrier
-    public m: string; //make
-    public s: string; //size
-    public pg: number;  //priceGood
-    public pf: number;  //priceFlawless
-    public pby: number; //pricebrokenYes
-    public pbn: number; //pricebrokenNo
+    public name: string; //name
+    public carrier: string; //carrier
+    public make: string; //make
+    public size: string; //size
+    public priceGood: number;  //priceGood
+    public priceFlawless: number;  //priceFlawless
+    public priceBrokenYes: number; //pricebrokenYes
+    public priceBrokenNo: number; //pricebrokenNo
 
 
 }

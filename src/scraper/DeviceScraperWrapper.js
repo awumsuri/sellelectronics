@@ -35,7 +35,6 @@ function scrape(){
 function getIDs() {
     var req     = request('http://127.0.0.1:8003', {timeout: 9999999}, function(err, res, body) {
       var data;
-      req.setTimeout(0);
       if (err) {
         throw err;
         return;

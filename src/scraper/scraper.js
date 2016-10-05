@@ -400,7 +400,7 @@ switch(process.argv[2]) {
           m: /iphone/
         };
         deviceType = "iphone";
-        updatePrices(updatePrices, "iphone", query);
+        updatePrices(updatePrices, query);
         break;
   case "updateiPadPrices":
         var query = {

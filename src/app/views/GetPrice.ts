@@ -144,9 +144,9 @@ export class GetPrice {
     getPrice(): GazelleDAO {
         for(var i = 0; i < this.gazelleData.length; i++) {
             var device: GazelleDAO = this.gazelleData[i];
-            if(device.c === this.userDevice.carrier
-                && device.m === this.userDevice.make
-                && device.s === this.userDevice.size) {
+            if(device.carrier === this.userDevice.carrier
+                && device.make === this.userDevice.make
+                && device.size === this.userDevice.size) {
                 return device;
             }
         }
@@ -160,11 +160,11 @@ export class GetPrice {
         $(".input-container").css("margin-top", "10px");
         switch (button.value) {
             case "GOOD":
-                this.price = "$"+device.pg;
+                this.price = "$"+device.priceGood;
                 $(".broken-buttons").css("display", "none");
                 break;
             case "FLAWLESS":
-                this.price = "$"+device.pf;
+                this.price = "$"+device.priceFlawless;
                 $(".broken-buttons").css("display", "none");
                 break;
             case "BROKEN":
@@ -173,18 +173,18 @@ export class GetPrice {
                 $(".input-container").css("margin-top", "0px");
                 var inputButtons = $(".broken-buttons input");
                 if(inputButtons[0].checked) {
-                    this.price = "$" + device.pby;
+                    this.price = "$" + device.priceBrokenYes;
                 } else if (inputButtons[1].checked) {
-                    this.price = "$" + device.pbn
+                    this.price = "$" + device.priceBrokenNo
                 }
                 break;
             case "YES":
                 $(".input-container").css("margin-top", "0px");
-                this.price = "$" + device.pby;
+                this.price = "$" + device.priceBrokenYes;
                 break;
             case "NO":
                 $(".input-container").css("margin-top", "0px");
-                this.price = "$" + device.pbn;
+                this.price = "$" + device.priceBrokenNo;
                 break;
         }
         $(".hide").css("display", "block");
