@@ -21,6 +21,7 @@ import {GetPrice} from "./views/GetPrice"
 import {FindPricePipe} from "./utils/FindPricePipe";
 import {GetDeviceTypesPipe} from "./utils/GetDeviceTypesPipe";
 import {DeviceTypes} from "./model/DeviceTypes";
+import {CenterDiv} from "./directives/CenterDiv";
 
 let config: ResponsiveConfigInterface = {
     breakPoints: {
@@ -53,7 +54,8 @@ let config: ResponsiveConfigInterface = {
         DeviceDetails,
         GetPrice,
         FindPricePipe,
-        GetDeviceTypesPipe
+        GetDeviceTypesPipe,
+        CenterDiv
     ],
     providers:[
         appRoutingProviders,

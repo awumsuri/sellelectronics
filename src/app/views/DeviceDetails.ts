@@ -49,7 +49,7 @@ declare var $:any;
                                   </div>                  
                                   
                             </div>
-                            <div *ngIf="(filteredModel.length === 0)" class="device-models">
+                            <div *ngIf="(filteredModel.length === 0)" class="device-models" centerDiv>
                                 <span class="error title">NO DEVICES FOUND</span>
                             </div>
                       </div>

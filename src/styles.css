@@ -10,6 +10,11 @@
   src:url("/fonts/futureFonts.ttf");
 }
 
+@font-face {
+  font-family: "headingfontNumber";
+  src:url("/fonts/_H_HelveticaNeueExtras.ttf");
+}
+
 @font-face{
   font-family:"headingfont";
   src:url("/fonts/bebas.ttf");
@@ -404,6 +409,7 @@
   color: white;
   font-size: 30px;
   font-weight: bold;
+  padding-top: 8px;
   /*border-bottom-color: red;
   border-bottom-style: solid;
   border-bottom-width: thick;*/
@@ -428,6 +434,22 @@
   display: block;
   text-align: center;
   font-size: 17px;
+}
+
+.number-container ul li{
+  list-style: none;
+  float: left;
+}
+
+.number-container ul {
+  float: left;
+  padding: 0px;
+  margin-top: 0px;
+}
+
+.center-error {
+  text-align: center !important;
+  padding: 15px;
 }
 
 .display-device ul{
@@ -495,8 +517,9 @@
 
 .current-index-complete {
 
-  color: #0b3e72;
+  color: orange;
   font-size: 30px;
+  padding-top: 8px;
   /*border-bottom-color: red;
   border-bottom-style: solid;
   border-bottom-width: thick;*/

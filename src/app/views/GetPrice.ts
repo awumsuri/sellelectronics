@@ -13,9 +13,11 @@ declare var $:any;
     selector: "final-price",
     template: ` <topnav></topnav>
                 <div class="app">
+                 <div class="title-display">
                     <span class="heading-pharse">
                         <h2>CHOOSE DEVICE AND CARRIER</h2>
                      </span>
+                  </div>
                    <history></history>
                    <span class="title-display-list"><h2>{{userDevice.name}}</h2></span>
                    <div class="display-device center-border">

@@ -18,7 +18,7 @@ export class GetDeviceTypesPipe implements PipeTransform{
       devices.forEach((device) => {
         if(test[device.make] === undefined && device.deviceType === deviceType) {
           test[device.make] = true;
-          device.displayName = device.make;
+          device.displayName = this.getDisplayName(device.name);
           makes.push(device);
         }
       });
