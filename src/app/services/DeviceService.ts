@@ -97,11 +97,13 @@ export class DeviceService {
                         this.getType(d),
                         this.getModel(d),
                         null,
-                        (d.resourceUrl + "/"+ imageName +".jpg"),
+                        (d.resourceUrl + "/"+ imageName +".png"),
                         null,
                         name["display"],
                         null,
-                        name["gazelle"]
+                        name["gazelle"],
+                        d.deviceMap,
+                        null
                     )
                 )
             }

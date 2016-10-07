@@ -15,7 +15,9 @@ export class Device {
         public iconOffset: DeviceDisplayOffset,
         public name: string,
         public names: {display: "", gazelle: ""}[],
-        public make: string
+        public make: string,
+        public deviceMap: any,
+        public displayName: string
 
     ){}
 

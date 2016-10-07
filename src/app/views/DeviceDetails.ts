@@ -9,6 +9,7 @@ import { DeviceTypes } from "../model/DeviceTypes";
 import {DevicesModels} from "../model/DeviceModels";
 import {Utils} from "../utils/Utils"
 import {DeviceService} from "../services/DeviceService";
+import {GetDeviceTypesPipe} from "../utils/GetDeviceTypesPipe";
 
 declare var $:any;
 
@@ -45,24 +46,29 @@ declare var $:any;
                                                 (mouseleave)="out($event)" 
                         (click)="clickHandlerDevice($event)" src="/Images/ipad.png"/></a>
                                        <p><span class="title-list">Tablet</span></p>
-                                  </div>                             
+                                  </div>                  
                                   
+                            </div>
+                            <div *ngIf="(filteredModel.length === 0)" class="device-models">
+                                <span class="error title">NO DEVICES FOUND</span>
                             </div>
                       </div>
                      
                       </div>
-                     
-                        <div  class="display-device">
+                        <div *ngIf="(displayData.length > 0)" class="list-items display-device">                     
+                          
+                                                  
                             <ul>
-                                <li (mouseout)="out($event)" 
-                                (mouseover)="over($event);"
+                               <li 
                                  (click)="clickHandler($event)"
                                 *ngFor="let device of displayData">
                                     <img name="{{device.name}}" src="{{device.resourceUrl}}"/>
-                                    <span class="title-display-list"><p>{{device.name}}</p></span>
+                                    <span class="title-display-list"><p>{{device.displayName}}</p></span>
                                 </li>
                             </ul>                            
-                        </div>                        
+                         
+                        </div>
+                        
                         <div class="footer-push"></div>
                     </div>    
                     <footer></footer>
@@ -72,7 +78,6 @@ declare var $:any;
 export class DeviceDetails{
 
     private iPhoneSize: string[] = [" 8", " 16", " 32", " 64", " 128"];
-    private deviceTypes: DevicesModels[] = [];
     private filteredModel: Device[] = [];
     private displayData: Device[] = [];
 
@@ -121,6 +126,8 @@ export class DeviceDetails{
         this.over(event);
 
         button.selected = true;
+        this.userDevice.deviceType = Utils.getDeviceType(button.name);
+        this.displayDevices(button);
     }
 
     getDeviceSize(name): string {
@@ -134,29 +141,27 @@ export class DeviceDetails{
     }
 
     clickHandler(event) {
-
         var element:HTMLImageElement = event.target;
         this.userDevice.name = element.name;
         this.userDevice.resourceUrl = element.src;
+
         var devices = this.displayData.filter( data => {
             return data.name === element.name;
         });
+
         this.userDevice.make = devices[0].make;
         this.userDevice.size = this.getDeviceSize(element.name);
         this.router.navigate(["/final-price"]);
     }
 
-  resetButtons() {
-    $(".device-containers").find("img").each( function(){
-      this.src = this.src.replace("hover","");
-      this.selected = false;
-    });
-  }
-
-    displayDevices() {
-
+    resetButtons() {
+      $(".device-containers").find("img").each( function(){
+        this.src = this.src.replace("hover","");
+        this.selected = false;
+      });
     }
 
-
-
+    displayDevices(button) {
+      this.displayData = new GetDeviceTypesPipe().transform(this.filteredModel, this.userDevice.deviceType);
+    }
 }

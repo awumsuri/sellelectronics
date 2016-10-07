@@ -10,9 +10,9 @@ declare var $:any;
                     <div mwlResizable class="app">
                     
                                 <div class="title-display">
-                                  <span class="heading-pharse">
-                                      <h2>SELL YOUR ELECTRONIC DEVICES BY CLICKING BELOW</h2>
-                                  </span>
+                                <span class="heading-pharse">
+                                    <h2>SELL YOUR ELECTRONIC DEVICES BY CLICKING BELOW</h2>
+                                </span>
                                 </div>
                                <div class="downbutton">
                                     <img src="/Images/downbutton.png"/>                             

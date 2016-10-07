@@ -43,7 +43,7 @@
 }
 
 .error {
-  color: red;
+  color: red !important;
 }
 
 .noprice {
@@ -454,7 +454,7 @@
 }
 
 .title-display-list  h2{
-  font-family: customLight !important;
+  font-family: headingfont!important;
   color: black;
 }
 
@@ -477,9 +477,10 @@
 }
 
 .display-device .title-display-list p {
-  font-family: customLight !important;
+  font-family: headingfont !important;
   border-radius: 10px;
   padding-bottom: 8px;
+  color: white;
 }
 
 .current-index-on {
@@ -528,6 +529,8 @@
   position: relative;
   color: #dcdcdc;
 }
+
+
 
 .inverseLogo {
   width: 25px;
@@ -591,10 +594,9 @@
 .title{
   font-family: headingfont;
   font-size: 20px;
-  color: white !important;
   text-align: left;
   padding-left: 10px;
-  color: white !important;
+  color: white;
 
 }
 
@@ -705,8 +707,8 @@
 }
 
 .makes {
-  width: 100%;
-  max-width: 90%;
+  width: 90%;
+  max-width: 455px !important;
   text-align: left !important;
   margin: auto;
   height: 90%;
@@ -720,12 +722,32 @@
   background: beige;
 }
 
+.list-items {
+  width: 775px;
+  max-width: 90%;
+  text-align: left !important;
+  margin: auto;
+  height: 90%;
+  margin-top: 42px;
+  padding-top: 10px;
+  /*padding-bottom: 100px;*/
+  border: solid;
+  border-width: 0.5px;
+  border-radius: 10px;
+  overflow: auto;
+  background: #333333;
+}
+
+.list-items.display-device ul li img{
+  width: 100px;
+}
+
 .carriers {
   width: 100%;
   max-width: 360px;
   text-align: left !important;
   margin: auto;
-  height: 90x;
+  height: 90px;
 
   border: solid;
   border-width: 0.5px;

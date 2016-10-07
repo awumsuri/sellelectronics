@@ -15,11 +15,12 @@ import { HttpModule} from "@angular/http"
 import {UserDevice} from "./model/UserDevice";
 import {ResponsiveModule, ResponsiveConfigInterface} from "ng2-responsive";
 import {HasDeviceType} from "./utils/HasDeviceTypesPipe";
-import {DeviceTypes} from "./model/DeviceTypes"
 import {DeviceDetails} from "./views/DeviceDetails";
 import {ResizableModule} from "angular2-resizable";
 import {GetPrice} from "./views/GetPrice"
 import {FindPricePipe} from "./utils/FindPricePipe";
+import {GetDeviceTypesPipe} from "./utils/GetDeviceTypesPipe";
+import {DeviceTypes} from "./model/DeviceTypes";
 
 let config: ResponsiveConfigInterface = {
     breakPoints: {
@@ -51,7 +52,8 @@ let config: ResponsiveConfigInterface = {
         HasDeviceType,
         DeviceDetails,
         GetPrice,
-        FindPricePipe
+        FindPricePipe,
+        GetDeviceTypesPipe
     ],
     providers:[
         appRoutingProviders,

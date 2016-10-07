@@ -4,6 +4,15 @@
     "deviceType": "Phone",
     "make": "iphone",
     "resourceUrl": "/Images/iphone",
+    "deviceMap": {
+      "iphone-5c": "iPhone 5c",
+      "iphone-5s": "iPhone 5s",
+      "iphone-6": "iPhone 6",
+      "iphone-6-plus": "iPhone 6 Plus",
+      "iphone-6s": "iPhone 6s",
+      "iphone-6s-plus": "iPhone 6s Plus",
+      "iphone-se": "iPhone SE"
+    },
     "names": [
       {"display": "iPhone 5c 8gb", "gazelle": "iphone-5c"},
       {"display":"iPhone 5c 16gb","gazelle": "iphone-5c"},
@@ -34,6 +43,20 @@
     "deviceType": "Tablet",
     "make": "ipad",
     "resourceUrl": "/Images/tablet",
+    "deviceMap": {
+      "1st-gen": "iPad",
+      "2nd-gen": "iPad 2",
+      "3rd-gen": "iPad 3",
+      "4th-gen": "iPad 4",
+      "ipad-mini": "iPad Mini",
+      "ipad-mini-2": "iPad Mini 2",
+      "ipad-mini-3": "iPad Mini 3",
+      "ipad-mini-4": "iPad Mini 4",
+      "ipad-air": "iPad Air",
+      "ipad-air-2": "iPad Air 2",
+      "ipad-pro-9": "iPad Pro 12.9",
+      "ipad-pro-9": "iPad Pro 9.7"
+    },
     "names": [
       {"display":"iPad 1st Gen 16GB", "gazelle": "1st-gen"},
       {"display":"iPad 1st Gen 32GB", "gazelle": "1st-gen"},
@@ -82,9 +105,9 @@
       {"display":"iPad Air 2 128GB", "gazelle": "ipad-air-2"},
 
 
-      {"display":"iPad Pro 12.9 32GB", "gazelle": "ipad-pro-9"},
-      {"display":"iPad Pro 12.9 128GB", "gazelle": "ipad-pro-9"},
-      {"display":"iPad Pro 12.9 256GB", "gazelle": "ipad-pro-9"},
+      {"display":"iPad Pro 12.9 32GB", "gazelle": "ipad-pro-12"},
+      {"display":"iPad Pro 12.9 128GB", "gazelle": "ipad-pro-12"},
+      {"display":"iPad Pro 12.9 256GB", "gazelle": "ipad-pro-12"},
 
 
       {"display":"iPad Pro 9.7 32GB", "gazelle": "ipad-pro-9"},
@@ -98,6 +121,7 @@
     "deviceType": "Phone",
     "resourceUrl": "/Images/blackberry",
     "make": "blackberry",
+    "deviceMap":{},
     "names": [
       {"display":"iPad", "gazelle": "iphone-6"},
       {"display":"iPad Mini", "gazelle": "iphone-6"},
@@ -111,6 +135,7 @@
     "deviceType": "Phone",
     "resourceUrl": "/Images/samsung/samsung.png",
     "make": "samsung",
+    "deviceMap":{},
     "names": [
       {"display":"iPad", "gazelle": "iphone-6"},
       {"display":"iPad Mini", "gazelle": "iphone-6"},
