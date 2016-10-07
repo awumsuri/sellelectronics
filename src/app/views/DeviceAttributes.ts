@@ -10,9 +10,9 @@ import {UserDevice} from "../model/UserDevice";
 import {HasDeviceType } from "../utils/HasDeviceTypesPipe";
 import {DevicesModels} from "../model/DeviceModels";
 import {Device} from "../model/Device";
-import {DeviceTypes} from "../model/DeviceTypes"
 import {Router} from "@angular/router";
-import {ResizeEvent} from "angular2-resizable";
+import {Utils} from "../utils/Utils"
+
 
 declare var $:any;
 
@@ -22,9 +22,11 @@ declare var $:any;
 
                 <topnav></topnav>
                 <div  class="app">
+                <div class="title-display">
                 <span class="heading-pharse">
-                    <h2>CHOOSE DEVICE</h2>
+                    <h2>CHOOSE MANUFACTORER</h2>
                 </span>
+                </div>                
                 <history></history>
                 <div class="makes">
                     <ul>
@@ -65,7 +67,7 @@ declare var $:any;
                         (mouseleave)="out($event)" 
                         (click)="clickHandler($event)" 
                         src="/Images/nokiaicon.png"/>
-                    </div></li>
+                    </div>
                     <li>
                     <div  class="make-menu samsung-menu">
                         <img name="Samsung" (mouseover)="over($event)" 
@@ -76,30 +78,8 @@ declare var $:any;
                     </li>
                     </ul>
                 </div>
-                 <div class="device-containers">
-                            <div *ngIf="(filteredModel.length > 0)" class="device-models">
-                                 <div *ngIf="(filteredModel | hasDeviceType:1)" class="device-list iphone-list">
-                                       <a><img name="Phone" (mouseover)="over($event)" 
-                        (mouseleave)="out($event)" 
-                        (click)="clickHandlerDevice($event)" src="/Images/iphone.png"/></a>
-                                       <p><span class="title-list">Phone</span></p>
-                                  </div>
-                                  <!--<div *ngIf="(filteredModel | hasDeviceType:3)" class="device-list macbook-list">
-                                       <a><img name="Laptop" (mouseover)="over($event)" 
-                        (mouseleave)="out($event)" 
-                        (click)="clickHandlerDevice($event)" src="/Images/macbook.png"/></a>
-                                        <span class="title-list">Laptop</span>
-                                  </div>-->
-                                   <div *ngIf="(filteredModel | hasDeviceType:2)" class="device-list ipad-list">
-                                       <a><img name="Tablet" (mouseover)="over($event)" 
-                                                (mouseleave)="out($event)" 
-                        (click)="clickHandlerDevice($event)" src="/Images/ipad.png"/></a>
-                                       <p><span class="title-list">Tablet</span></p>
-                                  </div>                             
-                                  
-                            </div>
-                      </div>
-                                                                 <div class="footer-push"></div>
+                 
+                   <div class="footer-push"></div>
                 </div>                   
                   <footer></footer>
                   `
@@ -108,9 +88,6 @@ declare var $:any;
 
 export class MakeView {
 
-    private deviceData;
-    private filteredModel: Device[] = [];
-
     ngOnInit() {
         this.userDevice.page = 1;
     }
@@ -118,7 +95,7 @@ export class MakeView {
     constructor(private deviceService: DeviceService,
                 private userDevice: UserDevice,
                 private router: Router) {
-        this.deviceData = this.deviceService.getDevices();
+
     }
 
     over(event) {
@@ -146,21 +123,9 @@ export class MakeView {
         this.over(event);
 
         button.selected = true;
-        this.displayDevicesTypes(button);
-    }
-
-    clickHandlerDevice(event) {
-
-        this.userDevice.deviceType = DeviceTypes[event.target.name];
-        this.userDevice.displayData = this.filteredModel.filter(
-            device => {
-                return device.deviceType === this.userDevice.deviceType;
-            }
-        )
-
+        this.userDevice.deviceModel = Utils.getDeviceModel(button.name);
         this.router.navigate(['/device-details']);
     }
-
     resetButtons() {
         $(".make-menu").find("img").each( function(){
             this.src = this.src.replace("hover","");
@@ -168,15 +133,6 @@ export class MakeView {
         });
     }
 
-    displayDevicesTypes(button:HTMLImageElement) {
-        var model = DevicesModels[button.name];
 
-        this.userDevice.deviceModel = model;
-        this.filteredModel = this.deviceData.filter(
-            device => {
-                return device.deviceModel === model
-            }
-        );
-    }
 
 }

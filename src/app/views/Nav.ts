@@ -10,15 +10,11 @@ import { Component } from '@angular/core';
 	<a><span class="title">Sell Electronics</span></a>
 </nav>
 <div class="logo">
-	<div *hideItDevice="['mobile']" class="leftpanel" >		
-		<img src="/Images/ipad.png"/>
-	</div>
+
 		<div class="logo-image">
-			<a href=""><img src="/Images/iphone.jpg"/></a>
+			<a href=""><img src="/Images/iphoneHeading.png"/></a>
 		</div>
-	<div *hideItDevice="['mobile']" class="rightpanel">
-		<a href=""><img src="/Images/macbook.png"/></a>
-	</div>
+
 </div>
 <nav  class="menu">		
     <a  href="#"><img src="/Images/appleicon.png"/></a> 		

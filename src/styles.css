@@ -316,7 +316,7 @@
 }
 
 .nav-top-menu{
-  height: 21px  !important;
+  height: 28px  !important;
   background:  black !important;
 }
 
@@ -337,6 +337,7 @@
   float: left;
   width: 65px;
   list-style: none;
+  padding: 10px;
 }
 
 .makes ul {
@@ -395,11 +396,12 @@
 
 .number-container {
   height: 30px;
+  background: #333;
 }
 
 .current-index-off {
 
-  color: grey;;
+  color: white;
   font-size: 30px;
   font-weight: bold;
   /*border-bottom-color: red;
@@ -482,8 +484,9 @@
 
 .current-index-on {
 
-  color: orange;
+  color: red;
   font-size: 40px;
+
   /*border-bottom-color: red;
   border-bottom-style: solid;
   border-bottom-width: thick;*/
@@ -586,7 +589,7 @@
 }
 
 .title{
-  font-family: "custom";
+  font-family: headingfont;
   font-size: 20px;
   color: white !important;
   text-align: left;
@@ -605,11 +608,16 @@
   width: 70px;
 
 }
+
+.history {
+  padding-right: 4px;
+}
+
 .heading-pharse h2{
-  font-family: customLight;
+  font-family: headingfont;
   font-size: 20px;
   padding: 35px;
-  color: black;
+  color: white;
 }
 
 .iphone-menu {
@@ -688,7 +696,7 @@
 
 .nokia-menu {
   width: 75px;
-  margin-left: -25px;
+  margin: auto;
 }
 
 .nokia-menu img{
@@ -698,18 +706,18 @@
 
 .makes {
   width: 100%;
-  max-width: 345px;
+  max-width: 90%;
   text-align: left !important;
   margin: auto;
-  height: 150px;
+  height: 90%;
   margin-top: 42px;
   padding-top: 10px;
   /*padding-bottom: 100px;*/
   border: solid;
   border-width: 0.5px;
   border-radius: 10px;
-  overflow: hidden;
-
+  overflow: auto;
+  background: beige;
 }
 
 .carriers {
@@ -830,7 +838,7 @@
   background: white !important;
   width: 100% !important;
   padding-top: 2px !important;
-  height: 169px;
+  height: 120px;
 }
 
 .container {
@@ -916,35 +924,44 @@ body,html {
 
 .history-nav {
   width: 216px;
-  margin-right: auto;
-  margin-left: auto;
+  height: 60px;
   text-align: left;
+  padding-right: 5px;
   border: solid;
   border-width: 0.5px;
   border-radius: 5px;
-  height: 60px;
   text-align: center;
   overflow: hidden;
+  background: #333;
 }
 
 .history-noborder {
   margin-right: auto;
   margin-left: auto;
-  width:  299px;
+  width:  303px;
   height: 78px;
   text-align: center;
+  display: flex;
 }
 
 .app {
   min-height: 100%;
   height: auto !important;
   height: 100%;
+  margin: 0 auto;
+  background: orange;
+  margin-left: 5%;
+  margin-right: 5%;
+  margin-bottom: 40px;
+}
 
-  margin: 0 auto -25px;
+.title-display {
+  background: black;
+  width: 100%;
 }
 
 .title-list {
-  font-family: custom;
+  font-family: customLight;
   float: left;
 }
 
@@ -954,8 +971,8 @@ body,html {
 }
 
 .device-models{
-  padding-top: 50px;
-  width: 266px;
+
+  width: 194px;
   margin: auto;
   cursor: pointer;
   overflow: hidden;
@@ -967,12 +984,12 @@ body,html {
 }
 
 .iphone-list img{
-  width: 133px;
+  width: 88px;
 
 }
 
 .ipad-list img{
-  width: 133px;
+  width: 104px;
 }
 
 .macbook-list img{
@@ -1119,7 +1136,7 @@ h5 {
 }
 
 .logo-image img{
-  width: 160px !important;
+  width: 96px !important;
 }
 
 .menu {

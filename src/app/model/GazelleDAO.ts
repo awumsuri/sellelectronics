@@ -11,6 +11,5 @@ export class GazelleDAO{
     public priceFlawless: number;  //priceFlawless
     public priceBrokenYes: number; //pricebrokenYes
     public priceBrokenNo: number; //pricebrokenNo
-
-
+    public priceBroken: number;
 }

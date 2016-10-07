@@ -8,12 +8,17 @@ declare var $:any;
     selector: 'main-view',
         template: `
                     <div mwlResizable class="app">
-                    <span class="heading-pharse"><h2>SELL YOUR ELECTRONIC DEVICES BY CLICKING BELOW</h2></span>
+                    
+                                <div class="title-display">
+                                  <span class="heading-pharse">
+                                      <h2>SELL YOUR ELECTRONIC DEVICES BY CLICKING BELOW</h2>
+                                  </span>
+                                </div>
                                <div class="downbutton">
-                                    <img src="/Images/downbutton.jpg"/>                             
+                                    <img src="/Images/downbutton.png"/>                             
                                 </div> 
                                 <div class="startbutton" >
-                                    <img routerLink="/make" routerLinkActive="active" on-mouseover="over(event)" on-mouseout="out(event)" src="/Images/startbutton.jpg"/>                                   
+                                    <img routerLink="/make" routerLinkActive="active" on-mouseover="over(event)" on-mouseout="out(event)" src="/Images/startbutton.png"/>                                   
                                 </div>
                                 <div class="tradin">
                                     <span><a routerLink="/make" routerLinkActive="active">SELL YOUR DEVICE</a></span>         
@@ -25,11 +30,11 @@ declare var $:any;
 export class MainView {
 
     over(){
-       $('.startbutton').find("img").attr("src", "/Images/startbuttonhover.jpg");
+       $('.startbutton').find("img").attr("src", "/Images/startbuttonhover.png");
     }
 
     out() {
-        $('.startbutton').find("img").attr("src", "/Images/startbutton.jpg");
+        $('.startbutton').find("img").attr("src", "/Images/startbutton.png");
     }
 }
 

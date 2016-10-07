@@ -19,7 +19,7 @@ export class DeviceService {
         this.loadGazelleData();
     }
 
-    public getDevices() {
+    public getDevices(): Device[] {
         return this.deviceData;
     }
 

@@ -150,13 +150,22 @@ export class GetPrice {
     resetButtons() {
         $(".make-menu").find("img").each( function(){
             this.src = this.src.replace("hover","");
-            this.selected = false;
+          this.selected = false;
         });
     }
 
     displayCondition(button) {
+      var isShowing  = ($(".condition").css(["display"]).display === "block") ? true : false;
       if (button)
         $(".condition").css("display", "block");
+      if(isShowing){
+        var event= {
+          target: {
+            value: $('input[name=condition]:checked').val()
+          }
+        };
+        this.conditionHandler(event);
+      }
     }
 
     getPrice(): GazelleDAO {
@@ -171,15 +180,25 @@ export class GetPrice {
         return null;
     }
 
+    errorPrice() {
+      $(".finalprice").css("color", "red");
+    }
+
+    removeErrorPrice() {
+      $(".finalprice").css("color", "green");
+    }
+
     conditionHandler(event) {
-        var button: HTMLInputElement = event.target;
-        this.userDevice.condition = ConditionType[button.value];
+        var button  = event.target;
+       // this.userDevice.condition = ConditionType[button.value];
         var device: GazelleDAO = this.getPrice();
         $(".input-container").css("margin-top", "10px");
+        this.removeErrorPrice();
         switch (button.value) {
             case "GOOD":
                 if(device == null){
                   this.price = "N/A";
+                  this.errorPrice();
                 } else {
                   this.price = "$"+device.priceGood;
                   $(".broken-buttons").css("display", "none");
@@ -188,6 +207,7 @@ export class GetPrice {
             case "FLAWLESS":
                 if(device == null) {
                   this.price = "N/A";
+                  this.errorPrice();
                 } else {
                   this.price = "$"+device.priceFlawless;
                   $(".broken-buttons").css("display", "none");
@@ -197,15 +217,26 @@ export class GetPrice {
             case "BROKEN":
                 if(device == null) {
                   this.price = "N/A";
+                  this.errorPrice();
                 } else {
                   this.price = "--";
                   $(".broken-buttons").css("display", "block");
                   $(".input-container").css("margin-top", "0px");
                   var inputButtons = $(".broken-buttons input");
                   if(inputButtons[0].checked) {
-                    this.price = "$" + device.priceBrokenYes;
+                    if(device.priceBroken >= 0) {
+                      this.price = "$" + device.priceBroken;
+                    } else{
+                      this.price = "$" + device.priceBrokenYes;
+                    }
+
                   } else if (inputButtons[1].checked) {
-                    this.price = "$" + device.priceBrokenNo
+                    if(device.priceBroken >= 0) {
+                      this.price = "$" + device.priceBroken;
+                    } else{
+                      this.price = "$" + device.priceBrokenNo
+                    }
+
                   }
                 }
 
@@ -213,16 +244,27 @@ export class GetPrice {
             case "YES":
                 if(device == null) {
                   this.price = "N/A";
+                  this.errorPrice();
                 } else {
                   $(".input-container").css("margin-top", "0px");
+                  if(device.priceBroken >= 0) {
+                    this.price = "$" + device.priceBroken;
+                    return;
+                  }
                   this.price = "$" + device.priceBrokenYes;
                 }
                 break;
             case "NO":
                 if(device == null) {
                   this.price = "N/A";
+                  this.errorPrice();
                 } else {
+
                   $(".input-container").css("margin-top", "0px");
+                  if(device.priceBroken >= 0) {
+                    this.price = "$" + device.priceBroken;
+                    return;
+                  }
                   this.price = "$" + device.priceBrokenNo;
                 }
                 break;

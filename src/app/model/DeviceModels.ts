@@ -7,5 +7,6 @@ export enum DevicesModels {
     Samsung,
     Motorola,
     HTC,
-    Nokia
+    Nokia,
+    Blackberry
 }

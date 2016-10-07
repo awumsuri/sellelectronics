@@ -4,7 +4,12 @@
 import {Component, AfterContentInit, ApplicationRef} from "@angular/core";
 import { Router } from "@angular/router";
 import {UserDevice} from "../model/UserDevice";
-import {Device} from "../model/Device"
+import {Device} from "../model/Device";
+import { DeviceTypes } from "../model/DeviceTypes";
+import {DevicesModels} from "../model/DeviceModels";
+import {Utils} from "../utils/Utils"
+import {DeviceService} from "../services/DeviceService";
+
 declare var $:any;
 
 @Component({
@@ -13,10 +18,40 @@ declare var $:any;
     template: `    
                     <topnav></topnav>
                     <div class="app">
-                    <span class="heading-pharse">
-                        <h2>CHOOSE CONDITION AND CARRIER</h2>
-                     </span>
+                    <div class="title-display">
+                      <span class="heading-pharse">
+                      <h2>CHOOSE DEVICE</h2>
+                      </span>                    
+                    </div>
+                    
                      <history></history>
+                     <div class="makes">
+                     <div class="device-containers">
+                            <div *ngIf="(filteredModel.length > 0)" class="device-models">
+                                 <div *ngIf="(filteredModel | hasDeviceType:1)" class="device-list iphone-list">
+                                       <a><img name="Phone" (mouseover)="over($event)" 
+                        (mouseleave)="out($event)" 
+                        (click)="clickHandlerDevice($event)" src="/Images/iphoneType.png"/></a>
+                                       <p><span class="title-list">Phone</span></p>
+                                  </div>
+                                  <div *ngIf="(filteredModel | hasDeviceType:3)" class="device-list macbook-list">
+                                       <a><img name="Laptop" (mouseover)="over($event)" 
+                        (mouseleave)="out($event)" 
+                        (click)="clickHandlerDevice($event)" src="/Images/macbook.png"/></a>
+                                        <span class="title-list">Laptop</span>
+                                  </div>
+                                   <div *ngIf="(filteredModel | hasDeviceType:2)" class="device-list ipad-list">
+                                       <a><img name="Tablet" (mouseover)="over($event)" 
+                                                (mouseleave)="out($event)" 
+                        (click)="clickHandlerDevice($event)" src="/Images/ipad.png"/></a>
+                                       <p><span class="title-list">Tablet</span></p>
+                                  </div>                             
+                                  
+                            </div>
+                      </div>
+                     
+                      </div>
+                     
                         <div  class="display-device">
                             <ul>
                                 <li (mouseout)="out($event)" 
@@ -27,15 +62,18 @@ declare var $:any;
                                     <span class="title-display-list"><p>{{device.name}}</p></span>
                                 </li>
                             </ul>                            
-                        </div>
-                                               <div class="footer-push"></div>
-                    </div>                    
+                        </div>                        
+                        <div class="footer-push"></div>
+                    </div>    
+                    <footer></footer>
               `
 })
 
 export class DeviceDetails{
 
     private iPhoneSize: string[] = [" 8", " 16", " 32", " 64", " 128"];
+    private deviceTypes: DevicesModels[] = [];
+    private filteredModel: Device[] = [];
     private displayData: Device[] = [];
 
     ngOnInit() {
@@ -44,16 +82,45 @@ export class DeviceDetails{
 
     constructor(private userDevice: UserDevice,
                 private router: Router,
-                private appRef: ApplicationRef) {
-        this.displayData = this.userDevice.displayData;
+                private deviceData: DeviceService
+                ) {
+
+      this.showDeviceTypes();
     }
 
-    out(event) {
-
+    showDeviceTypes() {
+      this.filteredModel = this.deviceData.getDevices().filter(
+        device => {
+          return device.deviceModel === this.userDevice.deviceModel
+        }
+      );
     }
 
     over(event) {
+      var button = event.target;
+      if(button.selected) return;
 
+      var src = event.target.src;
+      var indexExtentsion = src.indexOf(".png");
+      var extention = src.slice(indexExtentsion);
+      var newSource = src.slice(0, indexExtentsion) + "hover" + extention;
+
+      button.setAttribute("src",newSource);
+    }
+
+    out(event) {
+      var button = event.target;
+      if (button.selected) return;
+
+      button.src = button.src.replace("hover","");
+    }
+
+    clickHandlerDevice(event) {
+        this.resetButtons();
+        var button = event.target;
+        this.over(event);
+
+        button.selected = true;
     }
 
     getDeviceSize(name): string {
@@ -78,5 +145,18 @@ export class DeviceDetails{
         this.userDevice.size = this.getDeviceSize(element.name);
         this.router.navigate(["/final-price"]);
     }
+
+  resetButtons() {
+    $(".device-containers").find("img").each( function(){
+      this.src = this.src.replace("hover","");
+      this.selected = false;
+    });
+  }
+
+    displayDevices() {
+
+    }
+
+
 
 }

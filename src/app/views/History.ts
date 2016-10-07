@@ -9,8 +9,8 @@ import {UserDevice} from "../model/UserDevice";
     selector: 'history',
     template: ` 
                 <div class="history-noborder">
-                <div class="rotate-right downbutton">
-                        <img class="left" src="/Images/downbutton.jpg"/>
+                <div class="downbutton history">
+                        <img class="left" src="/Images/leftarrowbutton.png"/>
                   </div>
                     <div class="history-nav">                       
                      <div class="number-container">
