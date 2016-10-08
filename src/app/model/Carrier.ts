@@ -5,5 +5,7 @@ export enum Carrier {
     ATT = 1,
     Sprint,
     Verizon,
-    TMoblie
+    TMoblie,
+    Unlocked,
+    Wifi
 }

@@ -6,6 +6,7 @@ import {UserDevice} from "../model/UserDevice";
 import {ConditionType} from "../model/ConditionType";
 import {DeviceService} from "../services/DeviceService";
 import {GazelleDAO} from "../model/GazelleDAO";
+import {Device} from "../model/Device";
 
 declare var $:any;
 
@@ -15,34 +16,30 @@ declare var $:any;
                 <div class="app">
                  <div class="title-display">
                     <span class="heading-pharse">
-                        <h2>CHOOSE DEVICE AND CARRIER</h2>
+                        <h2>CHOOSE DEVICE AND CARRIER FOR <span class="orange-title">{{userDevice.displayName}}</span></h2>
                      </span>
                   </div>
-                   <history></history>
-                   <div class="title-display">
-                      <span class="heading-pharse"><h2>{{userDevice.name}}</h2></span>
-                   </div>
+                   <history></history>                  
                    <div class="display-device center-border">
                          <img src="{{userDevice.resourceUrl}}"/>                        
                     </div>
-                    <br>
-                    <span class="heading-middle"><h2>Carrier</h2></span>
+                    <br>                    
                     <div class="carriers">
                     <ul>                      
-                    <li><div  class="make-menu att-menu">
+                    <li><div *ngIf="(deviceProperties | filterCarrierType:'at-t')"   class="make-menu att-menu">
                         <img name="at-t" (mouseover)="over($event)" 
                         (mouseleave)="out($event)" 
                         (click)="clickHandler($event)" 
                         src="/Images/carries/att.png"/>
                     </div></li>
-                     <li><div  class="make-menu sprint-menu">
+                     <li><div *ngIf="(deviceProperties | filterCarrierType:'sprint')"  class="make-menu sprint-menu">
                         <img name="sprint" (mouseover)="over($event)" 
                         (mouseleave)="out($event)" 
                         (click)="clickHandler($event)" 
                         src="/Images/carries/sprint.png"/>
                     </div></li>
                     <li>
-                    <div  class="make-menu verizon-menu">
+                    <div *ngIf="(deviceProperties | filterCarrierType:'verizon')" class="make-menu verizon-menu">
                         <img name="verizon" (mouseover)="over($event)" 
                         (mouseleave)="out($event)" 
                         (click)="clickHandler($event)" 
@@ -51,7 +48,7 @@ declare var $:any;
                     </li>
                     
                     <li> 
-                      <div  class="make-menu tmobile-menu">
+                      <div *ngIf="(deviceProperties | filterCarrierType:'t-mobile')" class="make-menu tmobile-menu">
                           <img name="t-mobile" (mouseover)="over($event)" 
                           (mouseleave)="out($event)" 
                           (click)="clickHandler($event)" 
@@ -59,7 +56,7 @@ declare var $:any;
                       </div>                      
                     </li>
                     <li> 
-                      <div  class="make-menu tmobile-menu">
+                      <div *ngIf="(deviceProperties | filterCarrierType:'wifi')"  class="make-menu tmobile-menu">
                           <img name="wifi" (mouseover)="over($event)" 
                           (mouseleave)="out($event)" 
                           (click)="clickHandler($event)" 
@@ -67,7 +64,7 @@ declare var $:any;
                       </div>                      
                     </li>
                     <li> 
-                      <div  class="make-menu unlocked-menu">
+                      <div *ngIf="(deviceProperties | filterCarrierType:'unlocked')" class="make-menu unlocked-menu">
                           <img name="unlocked" (mouseover)="over($event)" 
                           (mouseleave)="out($event)" 
                           (click)="clickHandler($event)" 
@@ -78,8 +75,9 @@ declare var $:any;
                     </ul>
                 </div>
                 <div class="condition">
-                <span class="heading-middle"><h2>Condition</h2></span>
-                <div class="carriers inputs">      
+                
+                <div class="carriers inputs">  
+                          <div class="condition-title"><span><h2>Condition</h2></span></div>
                          <div class="input-container">
                          <input type="radio" (click)='conditionHandler($event);'  name="condition" value="GOOD">GOOD<br>
                         </div>
@@ -97,8 +95,8 @@ declare var $:any;
                 </div>   
               
                 </div>
-                <div class="startbutton hide" >
-                    <span [innerText]="price"  class="finalprice"></span>                    
+                <div class="finalprice hide" >
+                    <span><h2 [innerText]="price"></h2></span>                    
                 </div>
                 <div class="footer-push"></div>
                 </div>
@@ -110,14 +108,19 @@ export class GetPriceView {
 
     private gazelleData: GazelleDAO[];
     public price: string;
+    private deviceProperties: GazelleDAO[] = [];
 
     ngOnInit() {
-       this.userDevice.page = 3;
+        this.userDevice.page = 3;
     }
 
     constructor(private userDevice: UserDevice,
-                private deviceService: DeviceService) {
-        this.gazelleData = deviceService.getGazelleData();
+                private deviceService: DeviceService,
+                ) {
+      this.gazelleData = this.deviceService.getGazelleData();
+      this.deviceProperties = this.gazelleData.filter( device => {
+        return device.make === this.userDevice.make;
+      });
     }
 
     over(event) {

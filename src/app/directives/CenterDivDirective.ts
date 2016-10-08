@@ -7,7 +7,7 @@ import {Directive, Renderer, Input, HostListener, ElementRef} from "@angular/cor
   selector: "[centerDiv]"
 })
 
-export class CenterDiv{
+export class CenterDivDirective{
   constructor(private el: ElementRef, private render:Renderer) {
     render.setElementClass(el.nativeElement, "center-error", true);
   }

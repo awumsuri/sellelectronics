@@ -17,7 +17,8 @@ export class Device {
         public names: {display: "", gazelle: ""}[],
         public make: string,
         public deviceMap: any,
-        public displayName: string
+        public displayName: string,
+        public carrier: string
 
     ){}
 

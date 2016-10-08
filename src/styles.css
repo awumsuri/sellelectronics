@@ -39,12 +39,20 @@
 }
 
 .finalprice {
-  font-family: custom;
-  color: green;
-  font-size: 70px;
+  background: black;
   margin: auto;
   display: block;
-  margin-top: 25px;
+  height: 45px;
+  position: relative;
+  top: 20px;
+}
+
+.finalprice span h2 {
+  font-family: headingfont;
+  font-size: 50px;
+  color: white;
+  top: -55px;
+  position: relative;
 }
 
 .error {
@@ -443,6 +451,8 @@
   padding-left: 10px;
 }
 
+
+
 .number-container ul li{
   list-style: none;
   float: left;
@@ -493,13 +503,11 @@
 
 .condition {
   display: none;
-  padding: 20px;
   height: 100px;
 }
 
 .condition input {
   width: 30px;
-
 }
 
 .display-device .title-display-list p {
@@ -715,7 +723,7 @@
 .carriers ul li{
   list-style: none;
   list-style-type: none;
-  display: block;
+  display: inline-block;
 }
 
 .carriers ul {
@@ -723,6 +731,10 @@
   list-style-type: none;
   display: block;
   padding: 0px;
+
+}
+
+.carriers ul li img {
 
 }
 
@@ -772,24 +784,28 @@
 }
 
 .carriers {
-  width: 100%;
-  max-width: 360px;
+  width: 90%;
+  max-width: 575px !important;
   text-align: left !important;
   margin: auto;
-  height: 90px;
+  height: 90%;
+  margin-top: 42px;
+  padding: 10px;
   border-width: 0.5px;
   border-radius: 10px;
-  overflow: hidden;
+  overflow: auto;
+  background: beige;
 }
 
 .inputs{
   font-family: customRegular;
   font-size: 15px;
-  width: 100%;
+  width: 90%;
   font-size: 15px;
   text-align: center !important;
   height: 40px;
   display: flex;
+
 }
 
 .broken-button-title {
@@ -827,12 +843,31 @@
 
 .att-menu img {
   width: 78px;
-  margin-top: 25px;
 }
 
 .verizon-menu img{
   width: 58px;
   margin-top: 5px;
+}
+
+.condition-title {
+  background: black;
+  height: 40px;
+  width: 90%;
+  max-width: 575px;
+  margin: auto;
+  text-align: center;
+  border-radius: 10px;
+
+}
+
+.condition-title  span h2{
+  padding: 0px;
+  padding-top: 5px;
+  color: white;
+  font-family: headingfont;
+  font-size: 20px;
+  font-weight: bold;
 }
 
 .tmobile-menu img {
@@ -1178,8 +1213,10 @@ h5 {
 .unlocked-menu img{
   width: 70px;
   float: left;
-  margin-top: -80px;
+
 }
+
+
 
 .logo-image{
   margin: auto;

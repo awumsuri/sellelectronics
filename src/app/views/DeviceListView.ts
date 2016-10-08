@@ -17,8 +17,11 @@ import { Router } from "@angular/router";
                         <h2>CHOOSE SIZE FOR <span class="orange-title">{{userDevice.displayName}}</span></h2>
                       </span>
                     </div>
-                    <br/>                    
+                    
+                    <br/>
+                    <history></history>   
                     <br>
+                    
                     <div *ngIf="(devices.length > 0)" class="list-items display-device display-device-list">                                                 
                             <ul>
                                <li 
@@ -44,7 +47,7 @@ export class DeviceListView extends  BaseView{
 
   ngOnInit() {
     this.devices = this.userDevice.displayData;
-    this.userDevice.page = 3;
+    this.userDevice.page = 2;
   }
 
   constructor(protected userDevice:UserDevice,
@@ -65,6 +68,7 @@ export class DeviceListView extends  BaseView{
   clickHandler(event) {
     var button:HTMLImageElement = event.target;
     this.userDevice.displayName = button.name;
+    this.userDevice.name = button.name;
     this.userDevice.size = this.getDeviceSize(button.name);
     this.router.navigate(['/final-price']);
   }
