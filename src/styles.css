@@ -419,8 +419,9 @@
   width: 100%;
   max-width: 583px;
   margin: auto;
-  display: flex;
+  display: block;
   height: 100%;
+  padding: 0px;
 
 }
 
@@ -432,7 +433,8 @@
   display: block;
   text-align: left;
   font-size: 17px;
-  padding: 15px;
+  padding-right: 10px;
+  padding-left: 10px;
 }
 
 .number-container ul li{
@@ -454,10 +456,8 @@
 .display-device ul{
   width: 90%;
   height: 100%;
-  margin-left: 5%;
-  margin-right: 5%;
+  padding-top: 10px;
   display: block;
-  min-width: 390px;
   text-align: center;
 }
 
@@ -738,7 +738,7 @@
   margin-top: 42px;
   padding-top: 10px;
   /*padding-bottom: 100px;*/
-  border: solid;
+
   border-width: 0.5px;
   border-radius: 10px;
   overflow: auto;
@@ -750,21 +750,18 @@
   max-width: 95%;
   text-align: center !important;
   margin: auto;
-  display: list-item;
-  height: 90%;
   margin-top: 42px;
-  padding-top: 10px;
   /*padding-bottom: 100px;*/
-  border: solid;
   border-width: 0.5px;
   border-radius: 10px;
-  overflow: auto;
+  overflow: hidden;
   background: #333333;
 }
 
 .list-items.display-device ul li img{
   height: 140px;
   display: block;
+  padding: 5px;
 }
 
 .carriers {
@@ -773,8 +770,6 @@
   text-align: left !important;
   margin: auto;
   height: 90px;
-
-  border: solid;
   border-width: 0.5px;
   border-radius: 10px;
   overflow: hidden;
@@ -840,10 +835,11 @@
   width: 190px;
   max-height: 200px;
   text-align: center !important;
+  background: #333333;
   margin: auto;
   padding: 10px;
   display: block;
-  border: solid;
+
   border-width: 0.5px;
   border-radius: 10px;
   overflow: hidden;
@@ -974,7 +970,6 @@ body,html {
   height: 60px;
   text-align: left;
   padding-right: 5px;
-  border: solid;
   border-width: 0.5px;
   border-radius: 5px;
   text-align: center;
