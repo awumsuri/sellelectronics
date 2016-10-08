@@ -425,6 +425,12 @@
 
 }
 
+.display-device-list {
+  width: 70% !important;
+  min-width: 320px;
+  margin: auto;
+}
+
 .display-device ul li{
   float: left;
   list-style: none;
@@ -456,6 +462,7 @@
 .display-device ul{
   width: 90%;
   height: 100%;
+  margin: auto;
   padding-top: 10px;
   display: block;
   text-align: center;
@@ -1117,6 +1124,10 @@ a.startbutton {
   -webkit-animation-name: greenPulse;
   -webkit-animation-duration: 2s;
   -webkit-animation-iteration-count: infinite;
+}
+
+.orange-title {
+  color: orange;
 }
 
 #content_wrap h1 { padding:0 0 10px; }

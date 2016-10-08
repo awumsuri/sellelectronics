@@ -17,7 +17,7 @@ import {UserDevice} from "../model/UserDevice";
                         <ul>
                           <li><div [ngClass]="getStyle(1)"><span class="number">1</span></div></li>
                           <li><div [ngClass]="getStyle(2)"><span class="number">2</span></div></li>
-                          <li><div [ngClass]="getStyle(3)"><span class="number">3</span></div></li>   
+                          <li><div [ngClass]="getStyle(3)"><span class="number">3</span></div></li>                          
                         </ul>
                                                                   
                       </div>

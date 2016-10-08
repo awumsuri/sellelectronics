@@ -19,7 +19,9 @@ declare var $:any;
                      </span>
                   </div>
                    <history></history>
-                   <span class="title-display-list"><h2>{{userDevice.name}}</h2></span>
+                   <div class="title-display">
+                      <span class="heading-pharse"><h2>{{userDevice.name}}</h2></span>
+                   </div>
                    <div class="display-device center-border">
                          <img src="{{userDevice.resourceUrl}}"/>                        
                     </div>

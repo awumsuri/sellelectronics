@@ -10,6 +10,7 @@ import {DevicesModels} from "../model/DeviceModels";
 import {Utils} from "../utils/Utils"
 import {DeviceService} from "../services/DeviceService";
 import {GetDeviceTypesPipe} from "../utils/GetDeviceTypesPipe";
+import {GetDeviceByMakePipe} from "../utils/GetDeviceByMakePipe";
 
 declare var $:any;
 
@@ -78,7 +79,7 @@ declare var $:any;
 
 export class DeviceDetailsView{
 
-    private iPhoneSize: string[] = [" 8", " 16", " 32", " 64", " 128"];
+
     private filteredModel: Device[] = [];
     private displayData: Device[] = [];
 
@@ -131,28 +132,21 @@ export class DeviceDetailsView{
         this.displayDevices(button);
     }
 
-    getDeviceSize(name): string {
-        for(var i = 0; i < this.iPhoneSize.length; i++) {
-            var sizeString: string = this.iPhoneSize[i];
-            if(name.indexOf(sizeString) !== -1) {
-                sizeString = sizeString.replace(" ", "");
-                return sizeString+"GB";
-            }
-        }
-    }
+
 
     clickHandler(event) {
         var element:HTMLImageElement = event.target;
         this.userDevice.name = element.name;
         this.userDevice.resourceUrl = element.src;
 
-        var devices = this.displayData.filter( data => {
+        var devices: Device[] = this.displayData.filter( data => {
             return data.name === element.name;
         });
 
         this.userDevice.make = devices[0].make;
-        this.userDevice.size = this.getDeviceSize(element.name);
-        this.router.navigate(["/final-price"]);
+        this.userDevice.displayName = element.parentElement.querySelector("span p").innerHTML;
+        this.userDevice.displayData = new GetDeviceByMakePipe().transform(this.filteredModel, this.userDevice.make);
+        this.router.navigate(["/device-list"]);
     }
 
     resetButtons() {

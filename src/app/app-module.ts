@@ -23,6 +23,7 @@ import {DeviceTypes} from "./model/DeviceTypes";
 import {CenterDiv} from "./directives/CenterDiv";
 import {DeviceListView} from "./views/DeviceListView";
 import {MainView} from "./views/MainView";
+import {GetDeviceByMakePipe} from "./utils/GetDeviceByMakePipe";
 
 let config: ResponsiveConfigInterface = {
     breakPoints: {
@@ -57,6 +58,7 @@ let config: ResponsiveConfigInterface = {
         GetPriceView,
         FindPricePipe,
         GetDeviceTypesPipe,
+        GetDeviceByMakePipe,
         CenterDiv
     ],
     providers:[
