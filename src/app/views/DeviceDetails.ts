@@ -35,18 +35,19 @@ declare var $:any;
                         (click)="clickHandlerDevice($event)" src="/Images/iphoneType.png"/></a>
                                        <p><span class="title-list">Phone</span></p>
                                   </div>
+                                  <div *ngIf="(filteredModel | hasDeviceType:2)" class="device-list ipad-list">
+                                       <a><img name="Tablet" (mouseover)="over($event)" 
+                                                (mouseleave)="out($event)" 
+                        (click)="clickHandlerDevice($event)" src="/Images/ipad.png"/></a>
+                                       <p><span class="title-list">Tablet</span></p>
+                                  </div> 
                                   <div *ngIf="(filteredModel | hasDeviceType:3)" class="device-list macbook-list">
                                        <a><img name="Laptop" (mouseover)="over($event)" 
                         (mouseleave)="out($event)" 
                         (click)="clickHandlerDevice($event)" src="/Images/macbook.png"/></a>
                                         <span class="title-list">Laptop</span>
                                   </div>
-                                   <div *ngIf="(filteredModel | hasDeviceType:2)" class="device-list ipad-list">
-                                       <a><img name="Tablet" (mouseover)="over($event)" 
-                                                (mouseleave)="out($event)" 
-                        (click)="clickHandlerDevice($event)" src="/Images/ipad.png"/></a>
-                                       <p><span class="title-list">Tablet</span></p>
-                                  </div>                  
+                                                    
                                   
                             </div>
                             <div *ngIf="(filteredModel.length === 0)" class="device-models" centerDiv>

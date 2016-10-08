@@ -8,7 +8,9 @@ import { MainView } from './MainView';
 
 @Component ({
     selector: 'entry',
-    template: '<topnav></topnav><main-view></main-view><footer></footer>'
+    template: '<topnav></topnav>' +
+    '             <main-view></main-view>' +
+    '         <footer></footer>'
 })
 
 export class Entry{}

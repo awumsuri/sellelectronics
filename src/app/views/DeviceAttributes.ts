@@ -132,7 +132,4 @@ export class MakeView {
             this.selected = false;
         });
     }
-
-
-
 }

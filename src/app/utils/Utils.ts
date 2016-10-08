@@ -19,6 +19,10 @@ export class  Utils{
         return DevicesModels.Motorola;
       case "Nokia":
         return DevicesModels.Nokia
+      case "LG":
+        return DevicesModels.LG
+      case "ASUS":
+        return DevicesModels.ASUS
       default:
         return null;
     }

@@ -424,10 +424,6 @@
 
 }
 
-.list-items ul {
-  padding: 0px;
-}
-
 .display-device ul li{
   float: left;
   list-style: none;
@@ -456,13 +452,13 @@
 }
 
 .display-device ul{
+  width: 90%;
+  height: 100%;
+  margin-left: 5%;
+  margin-right: 5%;
+  display: block;
   min-width: 390px;
   text-align: center;
-  margin-right: 5%;
-  margin-left: 5%;
-  display: block;
-  margin-top: 0px;
-  margin-bottom: 0px;
 }
 
 .display-device ul li p{
@@ -470,10 +466,6 @@
   font-weight: bold;
   font-size: 17px;
   padding-top: 10px;
-}
-.display-device ul li:hover {
-
-
 }
 
 .display-device ul li img:hover + .title-display-list p{

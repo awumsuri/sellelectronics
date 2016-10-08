@@ -8,5 +8,7 @@ export enum DevicesModels {
     Motorola,
     HTC,
     Nokia,
-    Blackberry
+    Blackberry,
+    LG,
+    ASUS
 }
