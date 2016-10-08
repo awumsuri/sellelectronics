@@ -11,6 +11,16 @@ export class  Utils{
         return DevicesModels.Apple;
       case "Blackberry":
         return DevicesModels.Blackberry;
+      case "HTC":
+        return DevicesModels.HTC;
+      case "Samsung":
+        return DevicesModels.Samsung;
+      case "Motorola":
+        return DevicesModels.Motorola;
+      case "Nokia":
+        return DevicesModels.Nokia
+      default:
+        return null;
     }
   }
 
@@ -22,6 +32,8 @@ export class  Utils{
         return DeviceTypes.Laptop;
       case "Phone":
         return DeviceTypes.Phone;
+      default:
+        return null;
     }
   }
 }

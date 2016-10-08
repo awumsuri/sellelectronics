@@ -424,16 +424,19 @@
 
 }
 
+.list-items ul {
+  padding: 0px;
+}
+
 .display-device ul li{
   float: left;
   list-style: none;
-  padding: 12px;
   cursor: pointer;
   color: black;
-  width: 150px;
   display: block;
-  text-align: center;
+  text-align: left;
   font-size: 17px;
+  padding: 15px;
 }
 
 .number-container ul li{
@@ -453,11 +456,13 @@
 }
 
 .display-device ul{
-  width: 90%;
   min-width: 390px;
   text-align: center;
-  margin: 0;
+  margin-right: 5%;
+  margin-left: 5%;
   display: block;
+  margin-top: 0px;
+  margin-bottom: 0px;
 }
 
 .display-device ul li p{
@@ -472,7 +477,7 @@
 }
 
 .display-device ul li img:hover + .title-display-list p{
-  background-color: orange !important;
+  color: orange;
 }
 
 .title-display-list  h2{
@@ -503,6 +508,8 @@
   border-radius: 10px;
   padding-bottom: 8px;
   color: white;
+  text-align: center;
+  font-size: 13px;
 }
 
 .current-index-on {
@@ -692,6 +699,7 @@
   display: block;
   list-style: none;
   list-style-type: none;
+  height: 60px;
 
 }
 
@@ -746,10 +754,11 @@
 }
 
 .list-items {
-  width: 775px;
-  max-width: 90%;
-  text-align: left !important;
+
+  max-width: 95%;
+  text-align: center !important;
   margin: auto;
+  display: list-item;
   height: 90%;
   margin-top: 42px;
   padding-top: 10px;
@@ -762,7 +771,8 @@
 }
 
 .list-items.display-device ul li img{
-  width: 100px;
+  height: 140px;
+  display: block;
 }
 
 .carriers {
@@ -1029,7 +1039,7 @@ body,html {
 }
 
 .iphone-list img{
-  width: 88px;
+  width: 84px;
 
 }
 
