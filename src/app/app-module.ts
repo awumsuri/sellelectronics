@@ -1,27 +1,28 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from "./app-component";
-import { TopNav } from "./views/Nav";
-import { MainView } from "./views/MainView";
-import { Footer } from "./views/Footer";
+import {TopNavView} from "./views/NavView";
+import {FooterView} from "./views/FooterView";
 import { appRoutingProviders } from "./app.routes";
-import { Entry } from "./views/Entry";
+import {EntryView} from "./views/EntryView";
 import { RouterModule } from "@angular/router";
 import { appRoutes } from "./app.routes";
-import { MakeView } from "./views/DeviceAttributes";
-import { History } from "./views/History"
+import { MakeView } from "./views/DeviceAttributesView";
+import { HistoryView } from "./views/HistoryView"
 import { DeviceService } from "./services/DeviceService";
 import { HttpModule} from "@angular/http"
 import {UserDevice} from "./model/UserDevice";
 import {ResponsiveModule, ResponsiveConfigInterface} from "ng2-responsive";
 import {HasDeviceType} from "./utils/HasDeviceTypesPipe";
-import {DeviceDetails} from "./views/DeviceDetails";
+import {DeviceDetailsView} from "./views/DeviceDetailsView";
 import {ResizableModule} from "angular2-resizable";
-import {GetPrice} from "./views/GetPrice"
+import {GetPriceView} from "./views/GetPriceView"
 import {FindPricePipe} from "./utils/FindPricePipe";
 import {GetDeviceTypesPipe} from "./utils/GetDeviceTypesPipe";
 import {DeviceTypes} from "./model/DeviceTypes";
 import {CenterDiv} from "./directives/CenterDiv";
+import {DeviceListView} from "./views/DeviceListView";
+import {MainView} from "./views/MainView";
 
 let config: ResponsiveConfigInterface = {
     breakPoints: {
@@ -44,15 +45,16 @@ let config: ResponsiveConfigInterface = {
     ],
     declarations: [
         AppComponent,
-        TopNav,
+        TopNavView,
         MainView,
-        Footer,
-        Entry,
+        FooterView,
+        EntryView,
         MakeView,
-        History,
+        DeviceListView,
+        HistoryView,
         HasDeviceType,
-        DeviceDetails,
-        GetPrice,
+        DeviceDetailsView,
+        GetPriceView,
         FindPricePipe,
         GetDeviceTypesPipe,
         CenterDiv

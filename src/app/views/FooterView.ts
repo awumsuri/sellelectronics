@@ -14,7 +14,7 @@ declare var $:any;
 </div>`
 })
 
-export class Footer implements AfterContentInit{
+export class FooterView implements AfterContentInit{
 
     private closed:boolean = false;
 

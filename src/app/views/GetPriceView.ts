@@ -104,7 +104,7 @@ declare var $:any;
                 `
 })
 
-export class GetPrice {
+export class GetPriceView {
 
     private gazelleData: GazelleDAO[];
     public price: string;

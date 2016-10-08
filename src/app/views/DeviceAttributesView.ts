@@ -2,9 +2,9 @@
  * Created by Mtui on 9/18/16.
  */
 import {Component} from "@angular/core";
-import { TopNav } from "./Nav";
-import { Footer } from "./Footer";
-import { History } from "./History";
+import { TopNavView } from "./NavView";
+import { FooterView } from "./FooterView";
+import { HistoryView } from "./HistoryView";
 import { DeviceService } from "../services/DeviceService"
 import {UserDevice} from "../model/UserDevice";
 import {HasDeviceType } from "../utils/HasDeviceTypesPipe";

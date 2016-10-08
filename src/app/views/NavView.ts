@@ -23,6 +23,6 @@ import { Component } from '@angular/core';
 `
 })
 
-export class TopNav{}
+export class TopNavView{}
 
 

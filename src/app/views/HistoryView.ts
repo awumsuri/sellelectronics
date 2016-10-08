@@ -27,7 +27,7 @@ import {UserDevice} from "../model/UserDevice";
 `
 })
 
-export class History{
+export class HistoryView {
     private css: string ="current-index-on";
 
     constructor(private userDevice: UserDevice) {

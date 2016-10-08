@@ -76,7 +76,7 @@ declare var $:any;
               `
 })
 
-export class DeviceDetails{
+export class DeviceDetailsView{
 
     private iPhoneSize: string[] = [" 8", " 16", " 32", " 64", " 128"];
     private filteredModel: Device[] = [];

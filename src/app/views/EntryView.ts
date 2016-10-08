@@ -3,8 +3,6 @@
  */
 
 import { Component } from '@angular/core';
-import { TopNav } from './Nav';
-import { MainView } from './MainView';
 
 @Component ({
     selector: 'entry',
@@ -13,4 +11,4 @@ import { MainView } from './MainView';
     '         <footer></footer>'
 })
 
-export class Entry{}
+export class EntryView{}
