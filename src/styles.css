@@ -816,7 +816,6 @@
 
 .broken-buttons {
   display: none;
-  width: 155px;
   display: none;
   /* width: 100%; */
   clear: both;
@@ -824,6 +823,9 @@
   background: #880000;
   height: 100px;
   font-size: 11px;
+  top: -11px;
+  left: 10px;
+  position: relative;
 }
 
 .broken-buttons input{
@@ -835,6 +837,8 @@
   float: left;
   padding-left: 10px;
   margin-top: 10px;
+  margin: auto;
+
 }
 
 .carries img {

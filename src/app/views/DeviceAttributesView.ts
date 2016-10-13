@@ -12,6 +12,7 @@ import {DevicesModels} from "../model/DeviceModels";
 import {Device} from "../model/Device";
 import {Router} from "@angular/router";
 import {Utils} from "../utils/Utils"
+import {BaseView} from "./BaseView";
 
 
 declare var $:any;
@@ -86,36 +87,21 @@ declare var $:any;
 
 })
 
-export class MakeView {
+export class MakeView extends BaseView{
 
     ngOnInit() {
         this.userDevice.page = 1;
     }
 
     constructor(private deviceService: DeviceService,
-                private userDevice: UserDevice,
+                protected userDevice: UserDevice,
                 private router: Router) {
+      super(userDevice);
+
 
     }
 
-    over(event) {
-        var button = event.target;
-        if(button.selected) return;
 
-        var src = event.target.src;
-        var indexExtentsion = src.indexOf(".png");
-        var extention = src.slice(indexExtentsion);
-        var newSource = src.slice(0, indexExtentsion) + "hover" + extention;
-
-        button.setAttribute("src",newSource);
-    }
-
-    out(event) {
-        var button = event.target;
-        if (button.selected) return;
-
-        button.src = button.src.replace("hover","");
-    }
 
     clickHandler(event) {
         this.resetButtons();
@@ -125,11 +111,5 @@ export class MakeView {
         button.selected = true;
         this.userDevice.deviceModel = Utils.getDeviceModel(button.name);
         this.router.navigate(['/device-details']);
-    }
-    resetButtons() {
-        $(".make-menu").find("img").each( function(){
-            this.src = this.src.replace("hover","");
-            this.selected = false;
-        });
     }
 }
