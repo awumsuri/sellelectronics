@@ -7,6 +7,7 @@ import {ConditionType} from "../model/ConditionType";
 import {DeviceService} from "../services/DeviceService";
 import {GazelleDAO} from "../model/GazelleDAO";
 import {Device} from "../model/Device";
+import {BaseView} from "./BaseView";
 
 declare var $:any;
 
@@ -104,7 +105,7 @@ declare var $:any;
                 `
 })
 
-export class GetPriceView {
+export class GetPriceView extends BaseView {
 
     private gazelleData: GazelleDAO[];
     public price: string;
@@ -123,42 +124,15 @@ export class GetPriceView {
       });
     }
 
-    over(event) {
-        var button = event.target;
-
-        if(button.selected) return;
-
-        var src = event.target.src;
-        var indexExtentsion = src.indexOf(".png");
-        var extention = src.slice(indexExtentsion);
-        var newSource = src.slice(0, indexExtentsion) + "hover" + extention;
-
-        button.setAttribute("src",newSource);
-    }
-
-    out(event) {
-        var button = event.target;
-        if (button.selected) return;
-
-        button.src = button.src.replace("hover","");
-    }
-
     clickHandler(event) {
 
-        this.userDevice.carrier = event.target.name;
-        this.resetButtons();
-        var button = event.target;
-        this.over(event);
+      this.userDevice.carrier = event.target.name;
+      this.resetButtons();
+      var button = event.target;
+      this.over(event);
 
-        button.selected = true;
-        this.displayCondition(button);
-    }
-
-    resetButtons() {
-        $(".make-menu").find("img").each( function(){
-            this.src = this.src.replace("hover","");
-          this.selected = false;
-        });
+      button.selected = true;
+      this.displayCondition(button);
     }
 
     displayCondition(button) {
