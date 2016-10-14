@@ -302,7 +302,7 @@ function updatePrices(callback, query) {
                 console.log("devices count:" + devices.length);
                 if (index < devices.length) {
                     device = devices[index];
-                    url = getURL(deviceType, device);
+                    url = getURL(device);
                     console.log("url:"+url);
                     gazelleGood(callback);
                 }
@@ -439,7 +439,7 @@ switch(process.argv[2]) {
         process.argv.forEach(function (val, index, array) {
             console.log(index + ': ' + val);
         });
-        console.log("\nParameters: saveData, updateSelected, updatePrices");
+        console.log("\nNo vailid parameters given use\n: saveData, updateSelected, updateiPhonePrices, updateiPadPrices");
         break;
 }
 
