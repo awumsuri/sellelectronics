@@ -442,10 +442,3 @@ switch(process.argv[2]) {
         console.log("\nNo vailid parameters given use\n: saveData, updateSelected, updateiPhonePrices, updateiPadPrices");
         break;
 }
-
-
-
-
-
-
-

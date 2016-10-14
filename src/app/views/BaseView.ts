@@ -18,7 +18,7 @@ export class BaseView {
     var button = event.target;
     if(button.selected) return;
 
-    var src = event.target.src;
+    var src = button.src;
     var indexExtentsion = src.indexOf(".png");
     var extention = src.slice(indexExtentsion);
     var newSource = src.slice(0, indexExtentsion) + "hover" + extention;
