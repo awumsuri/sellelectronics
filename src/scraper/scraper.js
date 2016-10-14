@@ -311,7 +311,7 @@ function updatePrices(callback, query) {
     } else {
         if (index < devices.length) {
             device = devices[index];
-            url = getURL(deviceType, device);
+            url = getURL(device);
             console.log("url:"+url);
             gazelleGood(callback);
         } else {
