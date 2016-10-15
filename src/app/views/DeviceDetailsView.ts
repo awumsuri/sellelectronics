@@ -92,7 +92,7 @@ export class DeviceDetailsView extends BaseView{
                 private deviceData: DeviceService
                 ) {
 
-      super(userDevice);
+      super();
 
       this.showDeviceTypes();
     }

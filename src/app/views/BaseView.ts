@@ -12,7 +12,7 @@ declare var $: any;
 
 export class BaseView {
 
-  constructor(protected userDevice: UserDevice){}
+  constructor(){}
 
   over(event) {
     var button = event.target;

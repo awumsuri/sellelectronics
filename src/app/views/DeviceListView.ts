@@ -52,7 +52,7 @@ export class DeviceListView extends  BaseView{
 
   constructor(protected userDevice:UserDevice,
               private router:Router){
-    super(userDevice);
+    super();
   };
 
   getDeviceSize(name): string {

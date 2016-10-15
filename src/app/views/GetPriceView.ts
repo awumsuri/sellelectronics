@@ -122,7 +122,7 @@ export class GetPriceView extends BaseView {
                 private deviceService: DeviceService,
                 ) {
 
-      super(userDevice);
+      super();
 
       this.gazelleData = this.deviceService.getGazelleData();
       this.deviceProperties = this.gazelleData.filter( device => {

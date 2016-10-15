@@ -96,7 +96,7 @@ export class MakeView extends BaseView{
     constructor(private deviceService: DeviceService,
                 protected userDevice: UserDevice,
                 private router: Router) {
-      super(userDevice);
+      super();
     }
 
     clickHandler(event) {
