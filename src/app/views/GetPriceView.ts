@@ -27,20 +27,23 @@ declare var $:any;
                     <br>                    
                     <div class="carriers">
                     <ul>                      
-                    <li><div *ngIf="(deviceProperties | filterCarrierType:'at-t')"   class="make-menu att-menu">
+                    <li  *ngIf="(deviceProperties | filterCarrierType:'at-t')">
+                    
+                    <div   class="make-menu att-menu">
                         <img name="at-t" (mouseover)="over($event)" 
                         (mouseleave)="out($event)" 
                         (click)="clickHandler($event)" 
                         src="/Images/carries/att.png"/>
-                    </div></li>
-                     <li><div *ngIf="(deviceProperties | filterCarrierType:'sprint')"  class="make-menu sprint-menu">
+                    </div>
+                    </li>
+                     <li *ngIf="(deviceProperties | filterCarrierType:'sprint')"><div   class="make-menu sprint-menu">
                         <img name="sprint" (mouseover)="over($event)" 
                         (mouseleave)="out($event)" 
                         (click)="clickHandler($event)" 
                         src="/Images/carries/sprint.png"/>
                     </div></li>
-                    <li>
-                    <div *ngIf="(deviceProperties | filterCarrierType:'verizon')" class="make-menu verizon-menu">
+                    <li *ngIf="(deviceProperties | filterCarrierType:'verizon')">
+                    <div  class="make-menu verizon-menu">
                         <img name="verizon" (mouseover)="over($event)" 
                         (mouseleave)="out($event)" 
                         (click)="clickHandler($event)" 
@@ -48,24 +51,24 @@ declare var $:any;
                     </div>
                     </li>
                     
-                    <li> 
-                      <div *ngIf="(deviceProperties | filterCarrierType:'t-mobile')" class="make-menu tmobile-menu">
+                    <li *ngIf="(deviceProperties | filterCarrierType:'t-mobile')"> 
+                      <div  class="make-menu tmobile-menu">
                           <img name="t-mobile" (mouseover)="over($event)" 
                           (mouseleave)="out($event)" 
                           (click)="clickHandler($event)" 
                           src="/Images/carries/tmobile.png"/>
                       </div>                      
                     </li>
-                    <li> 
-                      <div *ngIf="(deviceProperties | filterCarrierType:'wifi')"  class="make-menu tmobile-menu">
+                    <li *ngIf="(deviceProperties | filterCarrierType:'wifi')"> 
+                      <div   class="make-menu tmobile-menu">
                           <img name="wifi" (mouseover)="over($event)" 
                           (mouseleave)="out($event)" 
                           (click)="clickHandler($event)" 
                           src="/Images/carries/wifiicon.png"/>
                       </div>                      
                     </li>
-                    <li> 
-                      <div *ngIf="(deviceProperties | filterCarrierType:'unlocked')" class="make-menu unlocked-menu">
+                    <li *ngIf="(deviceProperties | filterCarrierType:'unlocked')"> 
+                      <div  class="make-menu unlocked-menu">
                           <img name="unlocked" (mouseover)="over($event)" 
                           (mouseleave)="out($event)" 
                           (click)="clickHandler($event)" 

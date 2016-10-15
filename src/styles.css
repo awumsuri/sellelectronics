@@ -347,10 +347,11 @@
   width: 100% !important;
 }
 .makes ul li{
-  float: left;
+
   width: 65px;
   list-style: none;
   padding: 10px;
+  display: inline-block;
 }
 
 .makes ul {
@@ -440,15 +441,13 @@
 }
 
 .display-device ul li{
-  float: left;
   list-style: none;
   cursor: pointer;
   color: black;
-  display: block;
-  text-align: left;
+  display: inline-block;
   font-size: 17px;
-  padding-right: 10px;
-  padding-left: 10px;
+  margin: 15px;
+
 }
 
 
@@ -472,7 +471,7 @@
 .display-device ul{
   width: 90%;
   height: 100%;
-  margin: auto;
+
   padding-top: 10px;
   display: block;
   text-align: center;
@@ -731,7 +730,7 @@
   list-style-type: none;
   display: block;
   padding: 0px;
-
+  text-align: center;
 }
 
 .carriers ul li img {
@@ -750,18 +749,16 @@
 
 .makes {
   width: 90%;
-  max-width: 455px !important;
-  text-align: left !important;
   margin: auto;
   height: 90%;
   margin-top: 42px;
   padding-top: 10px;
-  /*padding-bottom: 100px;*/
-
   border-width: 0.5px;
   border-radius: 10px;
   overflow: auto;
   background: beige;
+  text-align: center;
+
 }
 
 .list-items {
@@ -779,8 +776,7 @@
 
 .list-items.display-device ul li img{
   height: 140px;
-  display: block;
-  padding: 5px;
+  display: inline-block;
 }
 
 .carriers {
@@ -793,7 +789,6 @@
   padding: 10px;
   border-width: 0.5px;
   border-radius: 10px;
-  overflow: auto;
   background: beige;
   overflow: hidden;
 }
@@ -806,7 +801,6 @@
   text-align: center !important;
   height: 40px;
   display: flex;
-
 }
 
 .broken-button-title {

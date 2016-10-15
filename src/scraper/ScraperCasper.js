@@ -148,28 +148,31 @@ server.listen(ip, function(req, res){
 
   //Load iPhone Details
 
-  /*casper.then(function() {
+  casper.then(function() {
+
    carrierIndex = 0;
-   for(;index < iPhones.length;){
-   for(; carrierIndex < CARRIERS.length;){
-   (function(current, carrier) {
-   casper.thenOpen("https://www.gazelle.com/iphone/"+iPhones[current]+ "/" +CARRIERS[carrier], function() {
-   var _deviceIdArray = this.evaluate(getiPhoneIDs);
-   _deviceIdArray.forEach(function(value){
-   value.carrier = CARRIERS[carrier];
-   value.make = iPhones[current];
-   value.size = getSize(value.name, iPhoneSize);
-   deviceIdArray.push(value);
-   })
-   })
-   })(index, carrierIndex);
-   console.log("printing Array:"+deviceIdArray.length);
-   carrierIndex++;
-   }
+
+   for (;index < iPhones.length;) {
+     for (; carrierIndex < CARRIERS.length;) {
+       (function(current, carrier) {
+         casper.thenOpen("https://www.gazelle.com/iphone/"+iPhones[current]+ "/" +CARRIERS[carrier], function() {
+         var _deviceIdArray = this.evaluate(getiPhoneIDs);
+         _deviceIdArray.forEach(function(value){
+           value.carrier = CARRIERS[carrier];
+           value.make = iPhones[current];
+           value.size = getSize(value.name, iPhoneSize);
+           deviceIdArray.push(value);
+        })
+       })
+       })(index, carrierIndex);
+
+     console.log("printing Array:"+deviceIdArray.length);
+     carrierIndex++;
+     }
    index++;
    carrierIndex = 0;
    }
-   });*/
+   });
 
   //Load iPad Details
   casper.then(function() {
@@ -177,8 +180,10 @@ server.listen(ip, function(req, res){
 
     for(var arrayIndex = 0; arrayIndex < iPAD_CATAGORY.length; arrayIndex++) {
       for (var catagory in iPAD_CATAGORY[arrayIndex]) {
+
         var deviceArray = iPAD_CATAGORY[arrayIndex][catagory];
         carrierIndex = 0;
+
         for (; index < deviceArray.length;) {
           carrierIndex = 0;
           for(; carrierIndex < iPAD_CARRIERS.length;) {

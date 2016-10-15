@@ -414,6 +414,7 @@ switch(process.argv[2]) {
         deviceType = "iphone";
         updatePrices(updatePrices, query);
         break;
+
   case "updateiPadPrices":
         var query = {
           make: /ipad/
@@ -424,6 +425,7 @@ switch(process.argv[2]) {
     case "saveData":
         saveData(true);
         break;
+
   case "updateSelected":
         var query = {
             "$where": process.argv[3]
@@ -435,6 +437,7 @@ switch(process.argv[2]) {
         var allow = allowedFunction.split(":");
         updateSelected(query, updateSelected, allow);
         break;
+
     default:
         process.argv.forEach(function (val, index, array) {
             console.log(index + ': ' + val);
