@@ -175,6 +175,10 @@ export class GetPriceView extends BaseView {
       $(".finalprice").css("color", "green");
     }
 
+    showBrokenPrice() {
+
+    }
+
     conditionHandler(event) {
         var button  = event.target;
        // this.userDevice.condition = ConditionType[button.value];
