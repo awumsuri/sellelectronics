@@ -48,8 +48,7 @@ declare var $:any;
                         (mouseleave)="out($event)" 
                         (click)="clickHandlerDevice($event)" src="/Images/macbook.png"/></a>
                                         <span class="title-list">Laptop</span>
-                                  </div>
-                                                    
+                                  </div>                                          
                                   
                             </div>
                             <div *ngIf="(filteredModel.length === 0)" class="device-models" centerDiv>
@@ -117,7 +116,6 @@ export class DeviceDetailsView extends BaseView{
     }
 
 
-
     clickHandler(event) {
         var element:HTMLImageElement = event.target;
         this.userDevice.name = element.name;
@@ -139,7 +137,7 @@ export class DeviceDetailsView extends BaseView{
         this.selected = false;
       });
     }
-    
+
     displayDevices(button) {
       this.displayData = new GetDeviceTypesPipe().transform(this.filteredModel, this.userDevice.deviceType);
     }
