@@ -18,10 +18,10 @@ declare var $:any;
                                     <img src="/Images/downbutton.png"/>                             
                                 </div> 
                                 <div class="startbutton" >
-                                    <img routerLink="/make" routerLinkActive="active" on-mouseover="over(event)" on-mouseout="out(event)" src="/Images/startbutton.png"/>                                   
+                                    <img routerLink="make" routerLinkActive="active" on-mouseover="over(event)" on-mouseout="out(event)" src="/Images/startbutton.png"/>                                   
                                 </div>
                                 <div class="tradin">
-                                    <span><a routerLink="/make" routerLinkActive="active">SELL YOUR DEVICE</a></span>         
+                                    <span><a routerLink="make" routerLinkActive="active">SELL YOUR DEVICE</a></span>         
                                  </div>
                     </div>                     
                   `,

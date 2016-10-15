@@ -11,6 +11,7 @@ import {Utils} from "../utils/Utils"
 import {DeviceService} from "../services/DeviceService";
 import {GetDeviceTypesPipe} from "../utils/GetDeviceTypesPipe";
 import {GetDeviceByMakePipe} from "../utils/GetDeviceByMakePipe";
+import {BaseView} from "./BaseView";
 
 declare var $:any;
 
@@ -77,7 +78,7 @@ declare var $:any;
               `
 })
 
-export class DeviceDetailsView{
+export class DeviceDetailsView extends BaseView{
 
 
     private filteredModel: Device[] = [];
@@ -87,10 +88,12 @@ export class DeviceDetailsView{
         this.userDevice.page = 2;
     }
 
-    constructor(private userDevice: UserDevice,
+    constructor(protected userDevice: UserDevice,
                 private router: Router,
                 private deviceData: DeviceService
                 ) {
+
+      super(userDevice);
 
       this.showDeviceTypes();
     }
@@ -101,25 +104,6 @@ export class DeviceDetailsView{
           return device.deviceModel === this.userDevice.deviceModel
         }
       );
-    }
-
-    over(event) {
-      var button = event.target;
-      if(button.selected) return;
-
-      var src = event.target.src;
-      var indexExtentsion = src.indexOf(".png");
-      var extention = src.slice(indexExtentsion);
-      var newSource = src.slice(0, indexExtentsion) + "hover" + extention;
-
-      button.setAttribute("src",newSource);
-    }
-
-    out(event) {
-      var button = event.target;
-      if (button.selected) return;
-
-      button.src = button.src.replace("hover","");
     }
 
     clickHandlerDevice(event) {
@@ -146,16 +130,16 @@ export class DeviceDetailsView{
         this.userDevice.make = devices[0].make;
         this.userDevice.displayName = element.parentElement.querySelector("span p").innerHTML;
         this.userDevice.displayData = new GetDeviceByMakePipe().transform(this.filteredModel, this.userDevice.make);
-        this.router.navigate(["/device-list"]);
+        this.router.navigate(["device-list"]);
     }
 
     resetButtons() {
-      $(".device-containers").find("img").each( function(){
+      $(".device-list").find("img").each( function(){
         this.src = this.src.replace("hover","");
         this.selected = false;
       });
     }
-
+    
     displayDevices(button) {
       this.displayData = new GetDeviceTypesPipe().transform(this.filteredModel, this.userDevice.deviceType);
     }

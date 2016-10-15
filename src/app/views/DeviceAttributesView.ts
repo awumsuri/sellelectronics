@@ -97,11 +97,7 @@ export class MakeView extends BaseView{
                 protected userDevice: UserDevice,
                 private router: Router) {
       super(userDevice);
-
-
     }
-
-
 
     clickHandler(event) {
         this.resetButtons();
@@ -110,6 +106,6 @@ export class MakeView extends BaseView{
 
         button.selected = true;
         this.userDevice.deviceModel = Utils.getDeviceModel(button.name);
-        this.router.navigate(['/device-details']);
+        this.router.navigate(['device-details']);
     }
 }

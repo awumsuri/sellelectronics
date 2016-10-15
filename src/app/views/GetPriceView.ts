@@ -115,9 +115,12 @@ export class GetPriceView extends BaseView {
         this.userDevice.page = 3;
     }
 
-    constructor(private userDevice: UserDevice,
+    constructor(protected userDevice: UserDevice,
                 private deviceService: DeviceService,
                 ) {
+
+      super(userDevice);
+
       this.gazelleData = this.deviceService.getGazelleData();
       this.deviceProperties = this.gazelleData.filter( device => {
         return device.make === this.userDevice.make;

@@ -70,7 +70,7 @@ export class DeviceListView extends  BaseView{
     this.userDevice.displayName = button.name;
     this.userDevice.name = button.name;
     this.userDevice.size = this.getDeviceSize(button.name);
-    this.router.navigate(['/final-price']);
+    this.router.navigate(['final-price']);
   }
 
 }
