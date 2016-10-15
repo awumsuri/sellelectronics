@@ -795,6 +795,7 @@
   border-radius: 10px;
   overflow: auto;
   background: beige;
+  overflow: hidden;
 }
 
 .inputs{
