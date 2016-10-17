@@ -1,3 +1,3 @@
 #Scraper
-##Requires a mongodb database to run correcctly
+##Requires a mongodb database to run correctly
 
