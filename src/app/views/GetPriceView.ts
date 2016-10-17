@@ -20,7 +20,10 @@ declare var $:any;
                         <h2>CHOOSE DEVICE AND CARRIER FOR <span class="orange-title">{{userDevice.displayName}}</span></h2>
                      </span>
                   </div>
-                   <history></history>                  
+                   <history></history>  
+                   <div>
+                   
+
                    <div class="display-device center-border">
                          <img src="{{userDevice.resourceUrl}}"/>                        
                     </div>
@@ -77,6 +80,7 @@ declare var $:any;
                     </li>
                     
                     </ul>
+                </div>
                 </div>
                 <div class="condition">
                 
