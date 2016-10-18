@@ -1,6 +1,6 @@
 # SellElectronic
 
-A project done for a small pawn shop in NYC. It gives you uptodate marktetprices for you electronic device. This version is not the final skin or with the complete device list. It includes a scraper which runs 24hours a day for maintaining the lastest prices written in Node with Casperjs and Phantomjs
+A project done for a small pawn shop in NYC. It gives you uptodate marktetprices for you electronic device. This version is not the final skin or with the complete device list. It includes a scraper which runs 24hours a day for maintaining the lastest prices written in Node with Casperjs.
 
 ## Development server
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
