@@ -216,7 +216,7 @@ server.listen(ip, function(req, res){
 
                 }, 1);
 
-              }, 1000);
+              }, 200); //Phantomjs Hack to release memory https://github.com/ariya/phantomjs/issues/13581
 
               });
             })(index, carrierIndex, catagory);
