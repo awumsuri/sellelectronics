@@ -188,28 +188,35 @@ server.listen(ip, function(req, res){
           carrierIndex = 0;
           for(; carrierIndex < iPAD_CARRIERS.length;) {
             (function (current, carrier, deviceType) {
+              var ref = this;
 
-              casper.page.close();
-              casper.newPage();
+              setTimeout(function() {
+                setTimeout(function() {
+                  casper.page.close();
+                  casper.newPage();
 
-              var deviceModel = deviceArray[index];
+                  var deviceModel = deviceArray[index];
 
-              var url = "https://www.gazelle.com/ipad/" +
-                deviceType + "/"
-                + deviceModel +"/"
-                + iPAD_CARRIERS[carrier];
+                  var url = "https://www.gazelle.com/ipad/" +
+                    deviceType + "/"
+                    + deviceModel +"/"
+                    + iPAD_CARRIERS[carrier];
 
-              casper.thenOpen(url, function () {
+                  casper.thenOpen(url, function () {
 
-                var _deviceIdArray = this.evaluate(getiPadIDs);
+                    var _deviceIdArray = ref.evaluate(getiPadIDs);
 
-                _deviceIdArray.forEach(function (value, index) {
-                  value.carrier = iPAD_CARRIERS[carrier];
-                  value.make = deviceModel;
-                  value.size = getSize(value.name, iPadSize);
-                  console.log("url:", url);
-                  deviceIdArray.push(value);
-                });
+                    _deviceIdArray.forEach(function (value, index) {
+                      value.carrier = iPAD_CARRIERS[carrier];
+                      value.make = deviceModel;
+                      value.size = getSize(value.name, iPadSize);
+                      console.log("url:", url);
+                      deviceIdArray.push(value);
+                    });
+
+                }, 1);
+
+              }, 1000);
 
               });
             })(index, carrierIndex, catagory);

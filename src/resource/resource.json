@@ -96,19 +96,16 @@
       {"display":"iPad Air 128GB", "gazelle": "ipad-air"},
 
       {"display":"iPad Air 2 16GB", "gazelle": "ipad-air-2"},
-      {"display":"iPad Air 2 32GB", "gazelle": "ipad-air-2"},
       {"display":"iPad Air 2 64GB", "gazelle": "ipad-air-2"},
       {"display":"iPad Air 2 128GB", "gazelle": "ipad-air-2"},
-
-
-      {"display":"iPad Pro 12.9 32GB", "gazelle": "ipad-pro-12"},
-      {"display":"iPad Pro 12.9 128GB", "gazelle": "ipad-pro-12"},
-      {"display":"iPad Pro 12.9 256GB", "gazelle": "ipad-pro-12"},
-
 
       {"display":"iPad Pro 9.7 32GB", "gazelle": "ipad-pro-9"},
       {"display":"iPad Pro 9.7 128GB", "gazelle": "ipad-pro-9"},
       {"display":"iPad Pro 9.7 256GB", "gazelle": "ipad-pro-9"}
+
+      {"display":"iPad Pro 12.9 32GB", "gazelle": "ipad-pro-12"},
+      {"display":"iPad Pro 12.9 128GB", "gazelle": "ipad-pro-12"},
+      {"display":"iPad Pro 12.9 256GB", "gazelle": "ipad-pro-12"},
     ]
   },
 
