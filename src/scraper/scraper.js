@@ -9,23 +9,10 @@ const DB_URL = 'mongodb://localhost:27017/SellElectronics';
 const USER_AGENT = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.116 Safari/537.36";
 const URL = "https://www.gazelle.com/";
 const deviceTypes = ["iphone", "cell-phone","tablet"];
-const deviceCarriers = ["at-t", "sprint", "t-mobile", "verizon", "unlocked"];
-const iPhones = [
-                "iphone-se",
-                "iphone-6s-plus",
-                "iphone-6s",
-                "iphone-6-plus",
-                "iphone-6",
-                "iphone-5s",
-                "iphone-5",
-                "iphone-5c"
-            ];
-
 
 var complete = [];
-var failed = [];
 var url;
-var index = 0;
+var index = 90;
 var device;
 var deviceTypesGazelle;
 var DbRef = null;
@@ -258,7 +245,6 @@ function gazelleGood(callback, callFn) {
         complete.push("skipping gazelle good");
         gazelleFlawless(callback, callFn);
     }
-
 }
 
 function pushNext(callback, callFn) {
@@ -289,7 +275,7 @@ function getURL(device) {
       break;
 
     case "samsung":
-      var nameArray = device.name.split(" ");
+      var nameArray = device.name.replace(".","").split(" ");
       var name = nameArray.join("-");
 
       return URL +"sell/cell-phone/" + device.make
@@ -417,13 +403,14 @@ function saveData(closeDB, exit) {
 
 
 switch(process.argv[2]) {
-    case "updateiPhonePrices":
-        var query = {
-          make: /iphone/
-        };
-        deviceType = "iphone";
-        updatePrices(updatePrices, query);
-        break;
+
+  case "updateiPhonePrices":
+      var query = {
+        make: /iphone/
+      };
+      deviceType = "iphone";
+      updatePrices(updatePrices, query);
+      break;ß
 
   case "updateiPadPrices":
         var query = {
@@ -459,6 +446,6 @@ switch(process.argv[2]) {
         process.argv.forEach(function (val, index, array) {
             console.log(index + ': ' + val);
         });
-        console.log("\nNo vailid parameters given use\n: saveData, updateSelected, updateiPhonePrices, updateiPadPrices");
+        console.log("\nNo vailid parameters given use\n: saveData, updateSelected, updateiPhonePrices, updateiPadPrices, updateSamsungPhones");
         break;
 }

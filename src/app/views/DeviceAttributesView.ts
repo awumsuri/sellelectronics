@@ -69,7 +69,7 @@ declare var $:any;
                         (click)="clickHandler($event)"
                         src="/Images/nokiaicon.png"/>
                     </div>
-                    <li *ngIf="(filteredModel | hasDeviceModel: 7)">
+                    <li *ngIf="(filteredModel | hasDeviceModel: 1)">
                     <div  class="make-menu samsung-menu">
                         <img name="Samsung" (mouseover)="over($event)"
                         (mouseleave)="out($event)"
