@@ -7,7 +7,7 @@ var ip = "127.0.0.1:8003";
 var server = require('webserver').create();
 server.timeout = 9999999;
 server.listen(ip, function(req, res){
-  const CARRIERS = ["at-t", "sprint", "verizon", "t-mobile","unlocked"];
+  const CARRIERS = /*["at-t", */["sprint", "verizon", "t-mobile","unlocked"];
   const iPAD_CARRIERS = [
     "unlocked",
     "wifi",
@@ -32,7 +32,8 @@ server.listen(ip, function(req, res){
     {
       "ipad-pro": [
         "ipad-pro"
-      ]},
+      ]
+    },
     /*{
       "ipad-mini": [
         "ipad-mini",
@@ -96,6 +97,16 @@ server.listen(ip, function(req, res){
     });
   }
 
+  function getSamsungIDs() {
+    this.calItems = $(".level_3 li");
+    return Array.prototype.map.call(calItems, function(value) {
+      return {
+        "name": value.querySelector("h4").innerHTML,
+        "id": value.getAttribute("data-id")
+      }
+    })
+  }
+
   function getSize(name, array) {
     for(var i = 0; i < array.length; i++) {
       if(name.indexOf(array[i]) !== -1) {
@@ -140,16 +151,10 @@ server.listen(ip, function(req, res){
     console.info("Inside Start");
   });
 
-  /*casper.page.settings = {
-
-  }*/
-
   casper.userAgent("Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.143 Safari/537.36");
 
   //Load iPhone Details
-
-  casper.then(function() {
-
+  /*casper.then(function() {
    carrierIndex = 0;
 
    for (;index < iPhones.length;) {
@@ -172,10 +177,10 @@ server.listen(ip, function(req, res){
    index++;
    carrierIndex = 0;
    }
-   });
+   });*/
 
   //Load iPad Details
-  casper.then(function() {
+  /*casper.then(function() {
     index = 0;
 
     for(var arrayIndex = 0; arrayIndex < iPAD_CATAGORY.length; arrayIndex++) {
@@ -226,14 +231,57 @@ server.listen(ip, function(req, res){
         }
       }
     }
+  });*/
 
+
+  //Samsung Phones
+  casper.then(function() {
+
+    index = 0;
+
+    var ref = this;
+
+    for(;index < CARRIERS.length;) {
+        (function (current) {
+
+          //setTimeout(function() {
+            //setTimeout(function() {
+              console.log("index in samsung:"+current);
+
+                var carrier = CARRIERS[current];
+                casper.page.close();
+                casper.newPage();
+
+
+                console.log("carriers:"+carrier);
+                var url = "https://www.gazelle.com/sell/cell-phone/samsung" + "/" + carrier;
+                console.log("url:"+url);
+
+                casper.thenOpen(url, function () {
+                  var _deviceIdArray = ref.evaluate(getSamsungIDs);
+                  _deviceIdArray.forEach(function (value) {
+                    value.carrier = carrier;
+                    value.make = "samsung";
+                    value.size = "N/A";
+                    console.log("url:", url);
+                    deviceIdArray.push(value);
+                  });
+                });
+              //}, 1);
+            //}, 1); //Phantomjs Hack to release memory https://github.com/ariya/phantomjs/issues/13581
+        })(index);
+
+      index++;
+    }
   });
 
-  casper.run(function(){
+  casper.run(function() {
+
     for(var i = 0; i < deviceIdArray.length; i++){
       var data = deviceIdArray[i];
       this.echo("id:"+data.id+" name:"+data.name+ " carrier:"+data.carrier+" size:"+data.size);
     }
+
     res.status  = 200;
     res.setHeader('Content-Type', 'text/plain');
     res.write(JSON.stringify(deviceIdArray, null, ''));

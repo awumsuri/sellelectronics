@@ -287,6 +287,16 @@ function getURL(device) {
       + "-" + device.carrier + "/"
       + device.id + "-gpid";
       break;
+
+    case "samsung":
+      var nameArray = device.name.split(" ");
+      var name = nameArray.join("-");
+
+      return URL +"sell/cell-phone/" + device.make
+        + "/" + device.carrier + "/"
+        + name + "-" + device.carrier + "/"
+        + device.id + "-gpid";
+      break;
   }
 }
 
@@ -422,6 +432,13 @@ switch(process.argv[2]) {
         deviceType = "ipad";
         updatePrices(updatePrices, query);
         break;
+  case "updateSamsungPrices":
+    var query = {
+      make: "samsung"
+    };
+    deviceType = "samsung";
+    updatePrices(updatePrices, query);
+    break;
     case "saveData":
         saveData(true);
         break;
