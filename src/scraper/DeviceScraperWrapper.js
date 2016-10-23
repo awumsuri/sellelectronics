@@ -12,6 +12,7 @@ var DB_URL = 'mongodb://localhost:27017/SellElectronics';
 var DBRef;
 var child;
 var exec;
+var index = 0;
 
 function scrape(){
     console.info("Scraper starting...");

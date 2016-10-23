@@ -86,9 +86,9 @@ declare var $:any;
                 
                 <div class="carriers inputs">  
                          <!-- <div class="condition-title"><span><h2>Condition</h2></span></div>-->
-                         <div class="input-container">
+                         <!--<div class="input-container">
                          <input type="radio" (click)='conditionHandler($event);'  name="condition" value="GOOD">GOOD<br>
-                        </div>
+                        </div>-->
                         <div class="input-container">
                          <input type="radio" (click)='conditionHandler($event)'  name="condition" value="FLAWLESS">FLAWLESS<br>
                         </div>
