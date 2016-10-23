@@ -6,7 +6,7 @@ import { Component } from '@angular/core';
 @Component({
     selector: 'topnav',
     template:`
-<nav class="nav-top-menu" >
+<!--<nav class="nav-top-menu" >
 	<a><span class="title">Sell Electronics</span></a>
 </nav>
 <div class="logo">
@@ -19,7 +19,7 @@ import { Component } from '@angular/core';
 <nav  class="menu">		
     <a  href="#"><img src="/Images/appleicon.png"/></a> 		
     <a class="samsung" href="#" style="border-right-style: none !important;"><img src="/Images/samsuguicon.png"/></a>
-</nav>
+</nav>-->
 `
 })
 

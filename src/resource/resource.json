@@ -101,14 +101,12 @@
 
       {"display":"iPad Pro 9.7 32GB", "gazelle": "ipad-pro-9"},
       {"display":"iPad Pro 9.7 128GB", "gazelle": "ipad-pro-9"},
-      {"display":"iPad Pro 9.7 256GB", "gazelle": "ipad-pro-9"}
-
+      {"display":"iPad Pro 9.7 256GB", "gazelle": "ipad-pro-9"},
       {"display":"iPad Pro 12.9 32GB", "gazelle": "ipad-pro-12"},
       {"display":"iPad Pro 12.9 128GB", "gazelle": "ipad-pro-12"},
-      {"display":"iPad Pro 12.9 256GB", "gazelle": "ipad-pro-12"},
+      {"display":"iPad Pro 12.9 256GB", "gazelle": "ipad-pro-12"}
     ]
   },
-
   {
     "deviceModel": "Blackberry",
     "deviceType": "Phone",
