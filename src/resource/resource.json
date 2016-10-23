@@ -108,30 +108,17 @@
     ]
   },
   {
-    "deviceModel": "Blackberry",
-    "deviceType": "Phone",
-    "resourceUrl": "/Images/blackberry",
-    "make": "blackberry",
-    "deviceMap":{},
-    "names": [
-      {"display":"iPad", "gazelle": "iphone-6"},
-      {"display":"iPad Mini", "gazelle": "iphone-6"},
-      {"display":"iPad Air", "gazelle": "iphone-6"},
-      {"display":"iPad Pro", "gazelle": "iphone-6"}
-    ]
-
-  },
-  {
     "deviceModel": "Samsung",
     "deviceType": "Phone",
-    "resourceUrl": "/Images/samsung/samsung.png",
+    "resourceUrl": "/Images/samsung",
     "make": "samsung",
     "deviceMap":{},
     "names": [
-      {"display":"iPad", "gazelle": "iphone-6"},
-      {"display":"iPad Mini", "gazelle": "iphone-6"},
-      {"display":"iPad Air", "gazelle": "iphone-6"},
-      {"display":"iPad Pro", "gazelle": "iphone-6"}
+      {"display":"iPad", "gazelle": "samsung"},
+      {"display":"iPad Mini", "gazelle": "samsung"},
+      {"display":"iPad Air", "gazelle": "samsung"},
+      {"display":"iPad Pro", "gazelle": "samsung"}
     ]
+
   }
 ]
