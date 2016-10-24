@@ -114,7 +114,7 @@
     "make": "samsung",
     "deviceMap":{},
     "names": [
-      {"display":"iPad", "gazelle": "samsung"},
+      {"display":"Samsung Galaxy Mega 2", "gazelle": "samsung"},
       {"display":"iPad Mini", "gazelle": "samsung"},
       {"display":"iPad Air", "gazelle": "samsung"},
       {"display":"iPad Pro", "gazelle": "samsung"}

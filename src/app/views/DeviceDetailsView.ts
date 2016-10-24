@@ -31,13 +31,13 @@ declare var $:any;
                      <div class="makes">
                      <div class="device-containers">
                             <div *ngIf="(filteredModel.length > 0)" class="device-models">
-                                 <div *ngIf="(filteredModel | hasDeviceType:1)" class="device-list iphone-list">
+                                 <div *ngIf="(filteredModel | hasDeviceType:2)" class="device-list iphone-list">
                                        <a><img name="Phone" (mouseover)="over($event)" 
                         (mouseleave)="out($event)" 
                         (click)="clickHandlerDevice($event)" src="/Images/iphoneType.png"/></a>
                                        <p><span class="title-list">Phone</span></p>
                                   </div>
-                                  <div *ngIf="(filteredModel | hasDeviceType:2)" class="device-list ipad-list">
+                                  <div *ngIf="(filteredModel | hasDeviceType:1)" class="device-list ipad-list">
                                        <a><img name="Tablet" (mouseover)="over($event)" 
                                                 (mouseleave)="out($event)" 
                         (click)="clickHandlerDevice($event)" src="/Images/ipad.png"/></a>
