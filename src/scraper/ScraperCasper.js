@@ -2,10 +2,13 @@
  * Created by Mtui on 9/28/16.
  */
 "use-strict";
+
 var ip = "127.0.0.1:8003";
 
 var server = require('webserver').create();
+
 server.timeout = 9999999;
+
 server.listen(ip, function(req, res){
   const CARRIERS = /*["at-t", */["sprint", "verizon", "t-mobile","unlocked"];
   const iPAD_CARRIERS = [
@@ -29,12 +32,12 @@ server.listen(ip, function(req, res){
   ];
 
   const iPAD_CATAGORY = [
-    {
+    /*{
       "ipad-pro": [
         "ipad-pro"
       ]
     },
-    /*{
+    {
       "ipad-mini": [
         "ipad-mini",
        "ipad-mini-2",
@@ -55,6 +58,45 @@ server.listen(ip, function(req, res){
       ]}*/
   ];
 
+  const MACBOOK = {
+    screen: [
+      {
+        size: "12",
+        processors: [
+          "1-10-ghz",
+          "1-20-ghz",
+          "1-30-ghz"
+        ],
+        year: [
+          "early-2015"
+        ]
+
+      },
+     /* {
+        size:"13",
+        processors: [
+          "1-83-ghz",
+          "2-0 -ghz",
+          "2-10-ghz",
+          "2-13-ghz",
+          "2-16-ghz",
+          "2-20-ghz",
+          "2-26-ghz",
+          "2-40-ghz"
+        ],
+        year: [
+          "early-2009",
+          "late-2006",
+          "late-2007",
+          "late-2008",
+          "mid-2006",
+          "mid-2006"
+        ]
+      }*/
+    ]
+
+  }
+
   const iPhoneSize = ["8GB","16GB", "32GB", "64GB", "128GB"];
   const iPadSize = ["16GB", "32GB", "64GB", "128GB", "256GB"];
 
@@ -72,6 +114,23 @@ server.listen(ip, function(req, res){
 
   var deviceIdArray = [];
   var URL = "https://www.gazelle.com";
+
+  function getMacbookIDs() {
+
+        console.log("HERERER");
+        this.calItems = $("#back_button")[0].href;
+        return Array.prototype.map.call(calItems, function() {
+          var a = $("#back_button")[0].href.split("/");
+          var id = a[a.length - 1];
+          var name = a[9];
+          name = name.split("-").join(" ");
+
+          return{
+            "id": id,
+            "name": name
+          }
+        });
+  }
 
   function getiPhoneIDs(){
     this.calItems = $('.main_stack.product_stack').find('[data-id]');
@@ -137,15 +196,12 @@ server.listen(ip, function(req, res){
   };
 
   casper.on("remote.message", function(e){
-    this.console.log("currenturls", deviceIdArray)
     this.echo("remote>"+e);
   });
 
   casper.on("page.error", function(e){
     this.echo("error>"+e);
   });
-
-  //casper.page.settings.resourceTimeout = 3000;
 
   casper.start(URL, function(){
     console.info("Inside Start");
@@ -235,7 +291,7 @@ server.listen(ip, function(req, res){
 
 
   //Samsung Phones
-  casper.then(function() {
+  /*casper.then(function() {
 
     index = 0;
 
@@ -272,6 +328,61 @@ server.listen(ip, function(req, res){
         })(index);
 
       index++;
+    }
+  });*/
+
+  //mackbooks
+
+  casper.then(function() {
+    var screens = MACBOOK.screen;
+
+    var ref = this;
+    console.log("screens"+ screens);
+
+    for(var i = 0; i < screens.length; i++ ) {
+
+
+      var screen = screens[i];
+      var years = screen.year;
+      console.log("years:"+ years);
+
+      for(var j = 0; j < years.length; j++) {
+
+        var year = years[j];
+        var size = screen.size;
+        var processors = screen.processors;
+        for(var k = 0; k < processors.length; k++) {
+          var processor = processors[k];
+          var url = "https://www.gazelle.com/sell/macbook/macbook" + "/" + size + "/" + processor;
+
+          casper.thenOpen(url, function() {
+
+            var value = "/sell/macbook/macbook" + "/" + size + "/" + "processor" + "/" + year;
+             ref.deviceArray = null;
+
+            ref.evaluate(function(value) {
+              console.log("options:"+$("#year option"));
+              $("#year option").val(value).change();
+            }, {value: value});
+
+            ref.waitForSelector("#back_button", function(){
+              //ref._deviceArray = this.evaluate(getMacbookIDs);
+              this.echo("HERE WONNNNNNNNN")
+
+            });
+
+            console.log("devicearray:" + _deviceArray );
+
+            _deviceArray.forEach( function(device) {
+              device.make = "macbook";
+              device.size = size;
+              device.screen = screen;
+              deviceIdArray.push(device);
+            });
+
+          });
+        }
+      }
     }
   });
 
