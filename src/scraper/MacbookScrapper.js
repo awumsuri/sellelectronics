@@ -4,6 +4,10 @@ var Nightmare = require("nightmare");
 var MongoClient	= require('mongodb').MongoClient;
 var fs = require('fs');
 
+const DB_URL = 'mongodb://localhost:27017/SellElectronics';
+var DBRef = null;
+var macbooks = [];
+
 const MACBOOK = {
   screen: [
     {
@@ -17,7 +21,7 @@ const MACBOOK = {
         "early-2015"
       ]
     },
-     {
+     /*{
        size:"13",
        processors: [
        "1-83-ghz",
@@ -37,16 +41,15 @@ const MACBOOK = {
        "mid-2006",
        "mid-2006"
      ]
-     }
+     }*/
   ]
 
 };
 
-const URL =  "https://www.gazelle.com";
 const USER_AGENT = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.116 Safari/537.36";
 
 function scrape(url, macbook) {
-  var scraper = new Nightmare({
+  var scraper = Nightmare({
     waitTimeout: 200000
   });
   console.log("url:"+url);
@@ -61,7 +64,7 @@ function scrape(url, macbook) {
     .select("option", value)
     .wait("#back_button")
     .evaluate(function() {
-        var macbook = {};
+
         var a = $("#back_button")[0].href.split("/");
         var id = a[a.length - 1].split("-")[0];
         var name = a[9];
@@ -77,16 +80,17 @@ function scrape(url, macbook) {
 
       macbook.id = result.id;
       macbook.name = result.name;
-      console.log(macbook);
+      macbook.make = "macbook";
+      console.log("macbook:"+macbook.toString());
+
+      save(macbook);
 
       scraper = null;
-
     })
     .catch(function (err) {
       console.error(err);
       scraper = null;
     });
-
 }
 
 function init() {
@@ -110,15 +114,11 @@ function init() {
         var url = "https://www.gazelle.com/sell/macbook/macbook" + "/" + macbook.size + "/" + macbook.processor;
 
         //var url = URL + getURL(value);
-        new scrape(url, macbook);
+        scrape(url, macbook);
       }
     }
   }
-
-
-
 }
-
 
 function getURL(value) {
   var s = value.split("/");
@@ -126,6 +126,42 @@ function getURL(value) {
   return s.join("/");
 }
 
+function save(data, closeDB) {
+
+
+  var deviceTypesGazelle;
+
+  if(!DBRef) {
+    MongoClient.connect(DB_URL,function(err, db){
+      if(err) throw err;
+      console.info('connected to database saving phone data:'+data);
+      DBRef = db;
+      saveToMongo(data);
+
+    });
+  } else {
+    saveToMongo(data);
+  }
+}
+
+
+function saveToMongo(data) {
+  var deviceTypes = DBRef.collection('deviceTypes');
+
+  console.log("data.id:"+data.id + " data.name:"+data.name);
+
+  deviceTypes.find({"id":data.id,"name":data.name}).count(function(err, count) {
+    if(err) throw err;
+
+    console.log("new device:"+count === 0);
+    if(count === 0){
+      deviceTypes.insertOne(data, function(err){
+        if(err) throw err;
+        console.log("inserted:"+data);
+      });
+    }
+  });
+}
 init();
 
 

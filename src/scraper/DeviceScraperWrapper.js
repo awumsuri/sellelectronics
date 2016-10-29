@@ -51,25 +51,34 @@ function getIDs() {
 }
 
 function saveData(data){
-    MongoClient.connect(DB_URL,function(err, db){
+    if(!DBRef) {
+      MongoClient.connect(DB_URL,function(err, db){
         if(err) throw err;
         console.info('connected to database saving phone data:'+data.length);
-        var deviceTypes = db.collection('deviceTypes');
         DBRef = db;
-        Array.prototype.forEach.call(data, function(event){
-            console.log("event:"+event.id + " event:"+event.name);
-            deviceTypes.find({"id":event.id,"name":event.name}).count(function(e, count){
-                if(e) throw e;
-                console.log("new device:"+count === 0);
-                if(count === 0){
-                    deviceTypes.insertOne(event, function(err){
-                        if(err) throw err;
-                    });
-                }
-            });
+        saveToMongo(data);
 
+      });
+    } else {
+      saveToMongo(data);
+    }
+}
+
+function saveToMongo(data) {
+  var deviceTypes = DBRef.collection('deviceTypes');
+  Array.prototype.forEach.call(data, function(event){
+    console.log("event:"+event.id + " event:"+event.name);
+    deviceTypes.find({"id":event.id,"name":event.name}).count(function(e, count){
+      if(e) throw e;
+      console.log("new device:"+count === 0);
+      if(count === 0){
+        deviceTypes.insertOne(event, function(err){
+          if(err) throw err;
         });
+      }
     });
+
+  });
 }
 
 function killProcess(){
