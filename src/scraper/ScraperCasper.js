@@ -357,7 +357,7 @@ server.listen(ip, function(req, res){
 
           casper.thenOpen(url, function() {
 
-            var value = "/sell/macbook/macbook" + "/" + size + "/" + "processor" + "/" + year;
+            var value = "/sell/macbook/macbook" + "/" + size + "/" + processor + "/" + year;
              ref.deviceArray = null;
 
             ref.evaluate(function(value) {
@@ -366,8 +366,8 @@ server.listen(ip, function(req, res){
             }, {value: value});
 
             ref.waitForSelector("#back_button", function(){
-              //ref._deviceArray = this.evaluate(getMacbookIDs);
-              this.echo("HERE WONNNNNNNNN")
+              ref._deviceArray = this.evaluate(getMacbookIDs);
+              //this.echo("HERE WONNNNNNNNN")
 
             });
 

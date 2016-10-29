@@ -21,7 +21,7 @@ const MACBOOK = {
        size:"13",
        processors: [
        "1-83-ghz",
-       "2-0 -ghz",
+       "2-0-ghz",
        "2-10-ghz",
        "2-13-ghz",
        "2-16-ghz",
@@ -42,15 +42,91 @@ const MACBOOK = {
 
 };
 
-const URL =  "https://www.gazelle.com/sell/macbook/macbook";
+const URL =  "https://www.gazelle.com";
 const USER_AGENT = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.116 Safari/537.36";
 
-function scrape() {
-  var scraper = Nightmare({
-    waitTimeout: 20000
+function scrape(url, macbook) {
+  var scraper = new Nightmare({
+    waitTimeout: 200000
   });
-  var url = URL;
-  scraper.viewport(1000, 1000).
-    .goto(url, )
+  console.log("url:"+url);
+  console.log("value:"+macbook);
+
+  var value = "/sell/macbook/macbook" + "/" + macbook.size + "/" + macbook.processor + "/" + macbook.year;
+
+  scraper.viewport(1000, 1000)
+    .useragent(USER_AGENT)
+    .goto(url)
+    .wait("#year option")
+    .select("option", value)
+    .wait("#back_button")
+    .evaluate(function() {
+        var macbook = {};
+        var a = $("#back_button")[0].href.split("/");
+        var id = a[a.length - 1].split("-")[0];
+        var name = a[9];
+        name = name.split("-").join(" ");
+
+        return {
+          "id": id,
+          "name": name
+        }
+    })
+    .end()
+    .then(function(result){
+
+      macbook.id = result.id;
+      macbook.name = result.name;
+      console.log(macbook);
+
+      scraper = null;
+
+    })
+    .catch(function (err) {
+      console.error(err);
+      scraper = null;
+    });
 
 }
+
+function init() {
+  var screens = MACBOOK.screen;
+
+  for(var i = 0; i < screens.length; i++ ) {
+
+    var macbook = {};
+
+    var screen = screens[i];
+    var years = screen.year;
+    console.log("years:" + years);
+
+    for (var j = 0; j < years.length; j++) {
+
+      macbook.year = years[j];
+      macbook.size = screen.size;
+      var processors = screen.processors;
+      for (var k = 0; k < processors.length; k++) {
+        macbook.processor = processors[k];
+        var url = "https://www.gazelle.com/sell/macbook/macbook" + "/" + macbook.size + "/" + macbook.processor;
+
+        //var url = URL + getURL(value);
+        new scrape(url, macbook);
+      }
+    }
+  }
+
+
+
+}
+
+
+function getURL(value) {
+  var s = value.split("/");
+  s = s.slice(0, s.length-1);
+  return s.join("/");
+}
+
+init();
+
+
+
