@@ -12,7 +12,7 @@ const deviceTypes = ["iphone", "cell-phone","tablet"];
 
 var complete = [];
 var url;
-var index = 0;
+var index = 53;
 var device;
 var deviceTypesGazelle;
 var DbRef = null;
@@ -294,6 +294,8 @@ function getURL(device) {
         + device.id + "-gpid";
 
       break;
+    default:
+          throw new Error("Incorrect device type passed as a parameter.")
   }
 }
 
@@ -389,7 +391,6 @@ function saveData(closeDB, exit) {
             }
 
           });
-
         })
       })
     } else {
