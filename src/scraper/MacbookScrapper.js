@@ -5,15 +5,20 @@ var MongoClient	= require('mongodb').MongoClient;
 var fs = require('fs');
 
 const DB_URL = 'mongodb://localhost:27017/SellElectronics';
+
+var URL = null;
+var TYPE = null;
 var DBRef = null;
-var macbooks = [];
+var MAKE = null;
+
+var devices = [];
 
 const MACBOOK = {
   screen: [
     {
       size: "12",
       processors: [
-        "1-10-ghz",
+        "1-1-ghz",
         "1-20-ghz",
         "1-30-ghz"
       ],
@@ -21,41 +26,113 @@ const MACBOOK = {
         "early-2015"
       ]
     },
-     /*{
+     {
        size:"13",
        processors: [
-       "1-83-ghz",
+       /*"1-83-ghz"
        "2-0-ghz",
-       "2-10-ghz",
+       "2-1-ghz",
        "2-13-ghz",
        "2-16-ghz",
        "2-20-ghz",
-       "2-26-ghz",
+       "2-26-ghz",*/
        "2-40-ghz"
        ],
        year: [
-       "early-2009",
+       /*"early-2009",
        "late-2006",
-       "late-2007",
-       "late-2008",
+       "late-2007",*/
+       "early-2008",
+       /*"late-2008",
+         "mid-2008",
+       /*"late-2006",
        "mid-2006",
-       "mid-2006"
+       "mid-2006",
+         "early-2008"
+         "mid-2009"
+         "mid-2007"
+         "mid-2010"*/
      ]
-     }*/
+     }
   ]
+}
 
-};
+const MACBOOK_AIR = {
+  screen: [
+    {
+     size: "11",
+     processors: [
+    /* "1-30-ghz",
+    /*"1-40-ghz",
+     "1-60-ghz",*/
+       /*"1-70-ghz",*/
+       "1-80-ghz",
+       "2-0-ghz",
+       "2-20-ghz"
+     ],
+     year: [
+      /*"mid-2013",
+       "late-2010",*/
+       /* "early-2014",*/
+        "mid-2011",
+       "mid-2012",
+       "early-2015"
+       /*"early-2015",
+        "mid-2012",
+        "mid-2013",
+        /*"late-2006",
+        "mid-2006",
+        "mid-2006",
+        "early-2008"
+        "mid-2009"
+        "mid-2007"
+        "mid-2010"*/
+    /* "early-2015" */
+     ]
+     },
+    {
+      size:"13",
+      processors: [
+        /*"1-83-ghz"
+         "2-0-ghz",
+         "2-1-ghz",
+         "2-13-ghz",
+         "2-16-ghz",
+         "2-20-ghz",
+         "2-26-ghz",
+        "2-40-ghz"*/
+      ],
+      year: [
+        /*"early-2009",
+         "late-2006",
+         "late-2007",
+        "early-2008",
+        /*"late-2008",
+         "mid-2008",
+         /*"late-2006",
+         "mid-2006",
+         "mid-2006",
+         "early-2008"
+         "mid-2009"
+         "mid-2007"
+         "mid-2010"*/
+      ]
+    }
+  ]
+}
 
 const USER_AGENT = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.116 Safari/537.36";
 
-function scrape(url, macbook) {
-  var scraper = Nightmare({
-    waitTimeout: 200000
-  });
-  console.log("url:"+url);
-  console.log("value:"+macbook);
+function scrape(url, macbook, ref) {
 
-  var value = "/sell/macbook/macbook" + "/" + macbook.size + "/" + macbook.processor + "/" + macbook.year;
+  var scraper = new Nightmare({
+    waitTimeout: 10000
+  });
+
+  console.log("url:"+url);
+
+  var value = URL + "/" + macbook.size + "/" + macbook.processor + "/" + macbook.year;
+  console.log("value:"+value);
 
   scraper.viewport(1000, 1000)
     .useragent(USER_AGENT)
@@ -80,44 +157,71 @@ function scrape(url, macbook) {
 
       macbook.id = result.id;
       macbook.name = result.name;
-      macbook.make = "macbook";
+      macbook.make = MAKE;
       console.log("macbook:"+macbook.toString());
 
       save(macbook);
 
-      scraper = null;
+      ref = null;
+      devices.shift();
+      scrapeInit();
     })
     .catch(function (err) {
       console.error(err);
-      scraper = null;
+
+      ref = null;
+      devices.shift();
+      scrapeInit();
     });
 }
 
+function scrapeInit() {
+  if(devices.length != 0) {
+    var device = devices[0];
+
+    console.log("scrapeInit id:"+device.macbook.year);
+
+    var s = new scrape(device.url, device.macbook, s);
+
+  } else {
+    console.log("COMPLETE! Scrape")
+    process.exit();
+  }
+}
+
 function init() {
-  var screens = MACBOOK.screen;
+  var screens = TYPE.screen;
 
   for(var i = 0; i < screens.length; i++ ) {
 
-    var macbook = {};
-
     var screen = screens[i];
     var years = screen.year;
+
     console.log("years:" + years);
 
     for (var j = 0; j < years.length; j++) {
 
-      macbook.year = years[j];
-      macbook.size = screen.size;
       var processors = screen.processors;
-      for (var k = 0; k < processors.length; k++) {
-        macbook.processor = processors[k];
-        var url = "https://www.gazelle.com/sell/macbook/macbook" + "/" + macbook.size + "/" + macbook.processor;
 
-        //var url = URL + getURL(value);
-        scrape(url, macbook);
+      for (var k = 0; k < processors.length; k++) {
+
+        var macbook = {};
+
+        macbook.year = years[j];
+        macbook.size = screen.size;
+        macbook.processor = processors[k];
+
+        var url = "https://www.gazelle.com" + URL + "/" + macbook.size + "/" + macbook.processor;
+
+        devices.push({
+          url: url,
+          macbook: macbook
+        });
+
       }
     }
   }
+  scrapeInit();
 }
 
 
@@ -152,10 +256,28 @@ function saveToMongo(data) {
         if(err) throw err;
         console.log("inserted:"+data.name);
       });
+    } else {
+      console.log(data.name + " is already in DB")
     }
   });
 }
-init();
+
+switch(process.argv[2]) {
+  case "macbook":
+    URL = "/sell/macbook/macbook";
+    TYPE = MACBOOK;
+    MAKE = "macbook";
+    init();
+    break;
+  case "macbook-air":
+    URL = "/sell/macbook/macbook-air";
+    TYPE = MACBOOK_AIR;
+    MAKE = "macbook-air";
+    init();
+    break;
+  default:
+        throw new Error("No type found");
+}
 
 
 

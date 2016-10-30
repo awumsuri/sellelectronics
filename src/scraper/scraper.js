@@ -419,7 +419,7 @@ switch(process.argv[2]) {
       };
       deviceType = "iphone";
       updatePrices(updatePrices, query);
-      break;ß
+      break;
 
   case "updateiPadPrices":
         var query = {
@@ -451,7 +451,7 @@ switch(process.argv[2]) {
         var query = {
             "$where": process.argv[3]
         };
-        deviceType = "ipad";
+        deviceType = "macbook";
         var allowedFunction = process.argv[4];
         if(!allowedFunction)
           allowedFunction = "gazelleGood:gazelleFlawless:gazelleBrokenYes:gazelleBrokenNo";
