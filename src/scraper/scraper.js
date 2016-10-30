@@ -285,11 +285,14 @@ function getURL(device) {
       break;
 
     case "macbook":
+    case "macbook-air":
+    case "macbook-pro":
 
-      return URL + "sell/macbook/macbook/"+device.size+"/"
+      return URL + "sell/macbook/" + deviceType + "/" + device.size + "/"
         + device.processor +"/"
         + device.year + "/"
         + device.id + "-gpid";
+
       break;
   }
 }
@@ -446,12 +449,20 @@ switch(process.argv[2]) {
         deviceType = "macbook";
         updatePrices(updatePrices, query);
         break;
+  case "updateMacbookAirPrices":
+    var query = {
+      make: "macbook-air"
+    };
+
+    deviceType = "macbook-air";
+    updatePrices(updatePrices, query);
+    break;
 
   case "updateSelected":
         var query = {
             "$where": process.argv[3]
         };
-        deviceType = "macbook";
+        deviceType = process.argv[5] || "";
         var allowedFunction = process.argv[4];
         if(!allowedFunction)
           allowedFunction = "gazelleGood:gazelleFlawless:gazelleBrokenYes:gazelleBrokenNo";

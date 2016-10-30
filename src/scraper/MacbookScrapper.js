@@ -13,6 +13,8 @@ var MAKE = null;
 
 var devices = [];
 
+const MAX_CONCURRENT = 10;
+
 const MACBOOK = {
   screen: [
     {
@@ -55,7 +57,9 @@ const MACBOOK = {
      ]
      }
   ]
-}
+};
+
+
 
 const MACBOOK_AIR = {
   screen: [
@@ -65,57 +69,166 @@ const MACBOOK_AIR = {
     /* "1-30-ghz",
     /*"1-40-ghz",
      "1-60-ghz",*/
-       /*"1-70-ghz",*/
+       /*"1-70-ghz",
        "1-80-ghz",
        "2-0-ghz",
-       "2-20-ghz"
+       "2-20-ghz"*/
      ],
      year: [
       /*"mid-2013",
        "late-2010",*/
-       /* "early-2014",*/
+       /* "early-2014",
         "mid-2011",
        "mid-2012",
        "early-2015"
-       /*"early-2015",
+       "early-2015",
         "mid-2012",
         "mid-2013",
-        /*"late-2006",
+        "late-2006",
         "mid-2006",
         "mid-2006",
         "early-2008"
         "mid-2009"
         "mid-2007"
-        "mid-2010"*/
-    /* "early-2015" */
+        "mid-2010"
+      "early-2015" */
      ]
      },
     {
       size:"13",
       processors: [
-        /*"1-83-ghz"
+        /*"1-30-ghz",*/
+         /*"1-40-ghz",
+        "1-60-ghz"
+         "1-70-ghz",
+         "1-80-ghz",*/
+         "1-86-ghz",
          "2-0-ghz",
-         "2-1-ghz",
          "2-13-ghz",
-         "2-16-ghz",
-         "2-20-ghz",
-         "2-26-ghz",
-        "2-40-ghz"*/
+        "2-20-ghz"
+
       ],
       year: [
-        /*"early-2009",
-         "late-2006",
-         "late-2007",
+        "mid-2013",
+        "early-2014",
         "early-2008",
-        /*"late-2008",
-         "mid-2008",
-         /*"late-2006",
-         "mid-2006",
-         "mid-2006",
-         "early-2008"
-         "mid-2009"
-         "mid-2007"
-         "mid-2010"*/
+        "early-2015",
+        "late-2008",
+        "mid-2011",
+        "mid-2013",
+        "mid-2012",
+        "late-2010",
+        "mid-2009",
+        "early-2015"
+      ]
+    }
+  ]
+}
+
+const MACBOOK_PRO = {
+  screen: [
+    /*{
+      size: "13",
+      processors: [
+         "2-26-ghz",
+         "2-30-ghz",
+         "2-40-ghz",
+         "2-5-ghz",
+         "2-53-ghz",
+         "2-60-ghz",
+         "2-66-ghz",
+          "2-70-ghz",
+          "2-80-ghz",
+          "2-90-ghz",
+          "3-00-ghz",
+          "3-0ghz",
+          "3-10-ghz"
+      ],
+      year: [
+        "mid-2006",
+        "early-2006",
+        "late-2006",
+        "mid-2007",
+        "early-2007",
+        "late-2007",
+        "mid-2008",
+        "early-2008",
+        "late-2008",
+
+        "mid-2009",
+        "early-2009",
+        "late-2009",
+        "mid-2010",
+        "late-2010",
+        "mid-2010",
+        "mid-2011",
+        "mid-2011",
+        "early-2011",
+        "early-2012",
+        "mid-2012",
+        "late-2012",
+        "early-2013",
+        "mid-2013",
+        "late-2013",
+        "early-2014",
+        "mid-2014",
+        "late-2014",
+        "early-2015",
+        "mid-2015",
+        "late-2015",
+      ]
+    },*/
+    {
+      size:"15",
+      processors: [
+          "1-67-ghz",
+          "1-83-ghz",
+          "2-0-ghz",
+          "2-16-ghz",
+          "2-20-ghz",
+          "2-30-ghz",
+          "2-33-ghz",
+          "2-40-ghz",
+          "2-5-ghz",
+          "2-53-ghz",
+          "2-60-ghz",
+          "2-66-ghz",
+          "2-70-ghz",
+          "2-80-ghz",
+          "2-93-ghz",
+          "3-06-ghz"
+      ],
+      year: [
+        "mid-2006",
+        "early-2006",
+        "late-2006",
+        "mid-2007",
+        "early-2007",
+        "late-2007",
+        "mid-2008",
+        "early-2008",
+        "late-2008",
+        "mid-2009",
+        "early-2009",
+        "late-2009",
+        "mid-2010",
+        "late-2010",
+        "mid-2010",
+        "mid-2011",
+        "mid-2011",
+        "early-2011",
+        "early-2012",
+        "mid-2012",
+        "late-2012",
+        "early-2013",
+        "mid-2013",
+        "late-2013",
+        "early-2014",
+        "mid-2014",
+        "late-2014",
+        "early-2015",
+        "mid-2015",
+        "late-2015"
       ]
     }
   ]
@@ -126,7 +239,8 @@ const USER_AGENT = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/
 function scrape(url, macbook, ref) {
 
   var scraper = new Nightmare({
-    waitTimeout: 10000
+    waitTimeout: 6000,
+    gotoTimeout: 3000
   });
 
   console.log("url:"+url);
@@ -162,30 +276,38 @@ function scrape(url, macbook, ref) {
 
       save(macbook);
 
-      ref = null;
-      devices.shift();
-      scrapeInit();
+      scrapeInit(ref);
+
     })
     .catch(function (err) {
       console.error(err);
 
-      ref = null;
-      devices.shift();
       scrapeInit();
     });
 }
 
-function scrapeInit() {
+function scrapePopulateDevices() {
+ // for(var i = 0; i < MAX_CONCURRENT; i++) {
+    scrapeInit(null);
+  //}
+}
+
+function scrapeInit(ref) {
+
+  if(ref)
+    ref = null;
+
   if(devices.length != 0) {
-    var device = devices[0];
+      var device = devices[0];
 
-    console.log("scrapeInit id:"+device.macbook.year);
+      console.log("scrapeInit id:"+device.macbook.year);
+      console.log("remaing devices:"+devices.length);
 
-    var s = new scrape(device.url, device.macbook, s);
-
+      var s = new scrape(device.url, device.macbook, s);
+      devices.shift();
   } else {
     console.log("COMPLETE! Scrape")
-    process.exit();
+    //process.exit();
   }
 }
 
@@ -221,7 +343,7 @@ function init() {
       }
     }
   }
-  scrapeInit();
+  scrapePopulateDevices();
 }
 
 
@@ -230,7 +352,7 @@ function save(data, closeDB) {
   if(!DBRef) {
     MongoClient.connect(DB_URL,function(err, db){
       if(err) throw err;
-      console.info('connected to database saving phone data:'+data);
+      console.info('connected to database saving data:'+data);
       DBRef = db;
       saveToMongo(data);
 
@@ -273,6 +395,12 @@ switch(process.argv[2]) {
     URL = "/sell/macbook/macbook-air";
     TYPE = MACBOOK_AIR;
     MAKE = "macbook-air";
+    init();
+    break;
+  case "macbook-pro":
+    URL = "/sell/macbook/macbook-pro";
+    TYPE = MACBOOK_PRO;
+    MAKE = "macbook-pro";
     init();
     break;
   default:
