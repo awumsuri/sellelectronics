@@ -108,6 +108,18 @@
     ]
   },
   {
+    "deviceModel": "Apple",
+    "deviceType": "Laptop",
+    "resourceUrl": "Images/macbook",
+    "make": "macbook",
+    "names": [
+      {"display":"Macbook 81 core m 110 ghz 12 early 2015", "gazelle": "macbook"},
+      {"display":"Macbook 81 core m 120 ghz 12 early 2015", "gazelle": "macbook"},
+      {"display":"Macbook 81 core m 130 ghz 12 early 2015", "gazelle": "macbook"}
+    ]
+
+  },
+  {
     "deviceModel": "Samsung",
     "deviceType": "Phone",
     "resourceUrl": "/Images/samsung",

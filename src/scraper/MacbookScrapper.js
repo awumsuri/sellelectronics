@@ -120,16 +120,8 @@ function init() {
   }
 }
 
-function getURL(value) {
-  var s = value.split("/");
-  s = s.slice(0, s.length-1);
-  return s.join("/");
-}
 
 function save(data, closeDB) {
-
-
-  var deviceTypesGazelle;
 
   if(!DBRef) {
     MongoClient.connect(DB_URL,function(err, db){
@@ -154,10 +146,11 @@ function saveToMongo(data) {
     if(err) throw err;
 
     console.log("new device:"+count === 0);
+
     if(count === 0){
       deviceTypes.insertOne(data, function(err){
         if(err) throw err;
-        console.log("inserted:"+data);
+        console.log("inserted:"+data.name);
       });
     }
   });

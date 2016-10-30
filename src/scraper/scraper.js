@@ -12,7 +12,7 @@ const deviceTypes = ["iphone", "cell-phone","tablet"];
 
 var complete = [];
 var url;
-var index = 90;
+var index = 0;
 var device;
 var deviceTypesGazelle;
 var DbRef = null;
@@ -152,7 +152,7 @@ function gazelleBrokenYes(callback, callFn) {
             })
             .catch(function (error) {
                 console.error('Search Failed Broken Yes');
-                gazelleBrokenYes(callback, callFn)
+                gazelleBrokenNo(callback, callFn)
             });
     }  else {
         console.log("Skipping GazelleBrokenYes");
@@ -196,8 +196,8 @@ function gazelleBrokenNo(callback, callFn) {
 
             })
             .catch(function (error) {
-                console.error('Search Failed Retrying .....' + error + " \n" + url);
-                gazelleBrokenNo(callback, callFn);
+                console.error('Search Failed .....' + error + " \n" + url);
+                pushNext(callback, callFn);
             });
     } else {
         console.log("Skipping GazelleBroken No");
@@ -283,6 +283,14 @@ function getURL(device) {
         + name + "-" + device.carrier + "/"
         + device.id + "-gpid";
       break;
+
+    case "macbook":
+
+      return URL + "sell/macbook/macbook/"+device.size+"/"
+        + device.processor +"/"
+        + device.year + "/"
+        + device.id + "-gpid";
+      break;
   }
 }
 
@@ -298,6 +306,7 @@ function updatePrices(callback, query) {
                 console.log("devices count:" + devices.length);
                 if (index < devices.length) {
                     device = devices[index];
+                    debugger;
                     url = getURL(device);
                     console.log("url:"+url);
                     gazelleGood(callback);
@@ -428,6 +437,14 @@ switch(process.argv[2]) {
     break;
     case "saveData":
         saveData(true);
+        break;
+  case "updateMacbookPrices":
+        var query = {
+          make: "macbook"
+        };
+
+        deviceType = "macbook";
+        updatePrices(updatePrices, query);
         break;
 
   case "updateSelected":
