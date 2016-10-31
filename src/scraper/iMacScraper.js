@@ -14,12 +14,11 @@ var MAKE = null;
 var devices = [];
 
 const iMAC = [
-
-        "2-00-ghz", "2-26-ghz",
-        "2-40-ghz", "2-50-ghz", "2-66-ghz", "2-70-ghz",
-        "2-80-ghz", "2-90-ghz", "2-93-ghz", "3-06-ghz",
-        "3-10-ghz", "3-20-ghz", "3-33-ghz", "3-4-ghz",
-        "3-40-ghz", "3-50-ghz", "3-60-ghz", "4-00-ghz"
+  "2-00-ghz", "2-26-ghz",
+  "2-40-ghz", "2-50-ghz", "2-66-ghz", "2-70-ghz",
+  "2-80-ghz", "2-90-ghz", "2-93-ghz", "3-06-ghz",
+  "3-10-ghz", "3-20-ghz", "3-33-ghz", "3-4-ghz",
+  "3-40-ghz", "3-50-ghz", "3-60-ghz", "4-00-ghz"
 ];
 
 const USER_AGENT = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.116 Safari/537.36";
@@ -66,9 +65,7 @@ function scrape(url, macbook, ref) {
 }
 
 function scrapePopulateDevices() {
-  // for(var i = 0; i < MAX_CONCURRENT; i++) {
-  scrapeInit(null);
-  //}
+ scrapeInit(null);
 }
 
 function scrapeInit(ref) {
@@ -78,34 +75,31 @@ function scrapeInit(ref) {
 
   if(devices.length != 0) {
     var device = devices[0];
-
     console.log("scrapeInit id:"+device.macbook.year);
     console.log("remaing devices:"+devices.length);
 
     var s = new scrape(device.url, device.macbook, s);
     devices.shift();
   } else {
-    console.log("COMPLETE! Scrape")
-    //process.exit();
+    console.log("COMPLETE! Scrape");
   }
 }
 
 function init() {
-    var processors = iMAC;
+  var processors = iMAC;
 
-    for (var k = 0; k < processors.length; k++) {
-      var macbook = {};
-      macbook.processor = processors[k];
-      var url = "https://www.gazelle.com" + URL + "/"+ macbook.processor;
-      devices.push({
-        url: url,
-        macbook: macbook
-      });
+  for (var k = 0; k < processors.length; k++) {
+    var macbook = {};
+    macbook.processor = processors[k];
+    var url = "https://www.gazelle.com" + URL + "/" + macbook.processor;
+    devices.push({
+      url: url,
+      macbook: macbook
+    });
 
-    }
-    scrapePopulateDevices();
+  }
+  scrapePopulateDevices();
 }
-
 
 function save(data, closeDB) {
 
@@ -121,7 +115,6 @@ function save(data, closeDB) {
     saveToMongo(data);
   }
 }
-
 
 function saveToMongo(data) {
   var deviceTypes = DBRef.collection('deviceTypes');

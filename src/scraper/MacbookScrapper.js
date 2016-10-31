@@ -59,8 +59,6 @@ const MACBOOK = {
   ]
 };
 
-
-
 const MACBOOK_AIR = {
   screen: [
     {

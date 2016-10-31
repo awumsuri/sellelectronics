@@ -98,8 +98,7 @@ function gazelleBroken(callback, callFn) {
           "carrier": device.carrier
         }, {$set: {"priceBroken": price}}, function (err) {
           if (err) throw err;
-          pushNext(callback, callFn)
-
+          pushNext(callback, callFn);
         });
       })
       .catch(function (error) {
@@ -366,7 +365,6 @@ function updateSelected(query, callback, callFn) {
             });
         }
     }
-
 }
 
 function saveData(closeDB, exit) {
