@@ -55,11 +55,9 @@ function scrape(url, macbook, ref) {
         save(mac);
         scrapeInit(ref);
       });
-
     })
     .catch(function (err) {
       console.error(err);
-
       scrapeInit(ref);
     });
 }

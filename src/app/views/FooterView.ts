@@ -18,37 +18,8 @@ export class FooterView implements AfterContentInit{
 
     private closed:boolean = false;
 
-    constructor(private renderer: Renderer, private appRef: ApplicationRef) {
-        /*var ua = navigator.userAgent.toLowerCase();
-         var isSafari = (ua.indexOf("safari") != -1 && ua.indexOf("chrome") == -1);
-         if( isSafari) {
-         $("body").css("height", "auto !important");
-         $("html").css("height", "auto !important");
-         }
-         this.shouldHideFooter();
-         this.renderer.listenGlobal('window', 'scroll', (evt) => {
-         this.shouldHideFooter();
-         });
-
-         this.renderer.listenGlobal('window', 'orientationchange', (evt) => {
-         this.shouldHideFooter();
-         });
-
-         }
-
-         shouldHideFooter() {
-
-         if (!closed && $("body").scrollTop() < 25 || ($("body").height() - $("body").scrollTop() - 23) < 0 ) {
-
-         $('.footer-app').fadeOut(1);
-         this.closed = true;
-         }
-         else{
-         $('.footer-app').fadeIn(1);
-         this.closed = false;
-         }
-         }*/
-        this.appRef.tick();
+    constructor(private renderer: Renderer) {
+       
     }
 
     public resizeHandler() {

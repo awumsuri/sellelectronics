@@ -44,18 +44,7 @@
     "make": "ipad",
     "resourceUrl": "/Images/tablet",
     "deviceMap": {
-      "1st-gen": "iPad",
-      "2nd-gen": "iPad 2",
-      "3rd-gen": "iPad 3",
-      "4th-gen": "iPad 4",
-      "ipad-mini": "iPad Mini",
-      "ipad-mini-2": "iPad Mini 2",
-      "ipad-mini-3": "iPad Mini 3",
-      "ipad-mini-4": "iPad Mini 4",
-      "ipad-air": "iPad Air",
-      "ipad-air-2": "iPad Air 2",
-      "ipad-pro-9": "iPad Pro 12.9",
-      "ipad-pro-9": "iPad Pro 9.7"
+
     },
     "names": [
       {"display":"iPad 2nd Gen 16GB", "gazelle": "2nd-gen"},
@@ -113,9 +102,9 @@
     "resourceUrl": "Images/macbook",
     "make": "macbook",
     "names": [
-      {"display":"Macbook 81 core m 110 ghz 12 early 2015", "gazelle": "macbook"},
-      {"display":"Macbook 81 core m 120 ghz 12 early 2015", "gazelle": "macbook"},
-      {"display":"Macbook 81 core m 130 ghz 12 early 2015", "gazelle": "macbook"}
+      {"display":"Macbook", "gazelle": "macbook"},
+      {"display":"Macbook Air", "gazelle": "macbook-air"},
+      {"display":"Macbook Pro", "gazelle": "macbook-pro"}
     ]
 
   },

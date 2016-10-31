@@ -77,8 +77,7 @@ declare var $:any;
               `
 })
 
-export class DeviceDetailsView extends BaseView{
-
+export class DeviceDetailsView extends BaseView {
 
     private filteredModel: Device[] = [];
     private displayData: Device[] = [];
