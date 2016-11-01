@@ -47,7 +47,7 @@ declare var $:any;
                                        <a><img name="Laptop" (mouseover)="over($event)" 
                         (mouseleave)="out($event)" 
                         (click)="clickHandlerDevice($event)" src="/Images/macbook.png"/></a>
-                                        <span class="title-list">Laptop</span>
+                                        <span class="title-list">Mac</span>
                                   </div>                                          
                                   
                             </div>
