@@ -4,7 +4,7 @@
 import {DevicesModels} from "../model/DeviceModels";
 import {DeviceTypes} from "../model/DeviceTypes";
 
-export class  Utils{
+export class  Utils {
   static getDeviceModel(deviceType:string): DevicesModels {
     switch(deviceType) {
       case "Apple":

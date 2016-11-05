@@ -412,7 +412,6 @@ function saveData(closeDB, exit) {
     }
 }
 
-
 switch(process.argv[2]) {
 
   case "updateiPhonePrices":

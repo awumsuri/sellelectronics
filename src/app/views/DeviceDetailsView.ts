@@ -47,7 +47,7 @@ declare var $:any;
                                        <a><img name="Laptop" (mouseover)="over($event)" 
                         (mouseleave)="out($event)" 
                         (click)="clickHandlerDevice($event)" src="/Images/macbook.png"/></a>
-                                        <span class="title-list">Laptop</span>
+                                        <span class="title-list">Mac</span>
                                   </div>                                          
                                   
                             </div>
@@ -57,9 +57,7 @@ declare var $:any;
                       </div>
                      
                       </div>
-                        <div *ngIf="(displayData.length > 0)" class="list-items display-device">                     
-                          
-                                                  
+                        <div *ngIf="(displayData.length > 0)" class="list-items display-device">   
                             <ul>
                                <li 
                                  (click)="clickHandler($event)"

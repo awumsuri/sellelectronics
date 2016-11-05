@@ -84,7 +84,6 @@ declare var $:any;
                 </div>
                   <footer></footer>
                   `
-
 })
 
 export class MakeView extends BaseView{
