@@ -102,7 +102,7 @@
     "resourceUrl": "Images/macbook",
     "make": "macbook",
     "names": [
-      {"display":"Macbook", "gazelle": "macbook"},
+      {"display":"Macbook", "gazelle": "macbook", "dummy": true},
       {"display":"macbook 21 core 2 duo 20 ghz 13 late 2006", "gazelle": "macbook"},
       {"display":"macbook 21 core 2 duo 216 ghz 13 mid 2007", "gazelle": "macbook"},
       {"display":"macbook 52 core 2 duo 20 ghz 13 early 2009", "gazelle": "macbook"},
@@ -118,7 +118,7 @@
       {"display":"macbook 81 core m 130 ghz 12 early 2015", "gazelle": "macbook"},
       {"display":"macbook 81 core m 110 ghz 12 early 2015", "gazelle": "macbook"},
 
-      {"display":"Macbook Air", "gazelle": "macbook-air"},
+      {"display":"Macbook Air", "gazelle": "macbook-air", "dummy": true},
       {"display":"macbook air 61 core i7 17 11 early 2014", "gazelle": "macbook-air"},
       {"display":"macbook air 71 core i5 16 11 early 2015", "gazelle": "macbook-air"},
       {"display":"macbook air 31 core 2 duo 16 ghz 11 late 2010", "gazelle": "macbook-air"},
@@ -141,7 +141,7 @@
       {"display":"macbook air 21 core 2 duo 186 ghz 13 mid 2009", "gazelle": "macbook-air"},
       {"display":"macbook air 21 core 2 duo 213 ghz 13 mid 2009", "gazelle": "macbook-air"},
 
-      {"display":"Macbook Pro", "gazelle": "macbook-pro"},
+      {"display":"Macbook Pro", "gazelle": "macbook-pro", "dummy": true},
       {"display":"macbook pro 55 core 2 duo 226 ghz 13 mid 2009", "gazelle":"macbook-pro"},
       {"display":"macbook pro 55 core 2 duo 253 ghz 13 mid 2009", "gazelle":"macbook-pro"},
       {"display":"macbook pro 71 core 2 duo 24 ghz 13 mid 2010", "gazelle":"macbook-pro"},

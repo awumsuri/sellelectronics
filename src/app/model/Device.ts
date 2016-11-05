@@ -18,7 +18,8 @@ export class Device {
         public make: string,
         public deviceMap: any,
         public displayName: string,
-        public carrier: string
+        public carrier: string,
+        public isDummy
 
     ){}
 

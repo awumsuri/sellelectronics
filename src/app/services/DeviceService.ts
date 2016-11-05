@@ -86,12 +86,22 @@ export class DeviceService {
     }
 
     private populateDeviceData(data: Device[]) {
+
         data.forEach(d => {
             d.names.forEach(name => {
+                /*if(name["dummy"])
+                  return;*/
                 var imageName: string = name.display;
+
                 while(imageName.indexOf(" ") !== -1){
                     imageName = imageName.replace(" ", "");
                 }
+
+                if(imageName.indexOf("&amp;") != -1) {
+                  //debugger;
+                  imageName = imageName.replace("&amp;", "");
+                }
+
                 this.deviceData.push(
                     new Device(
                         this.getType(d),
@@ -99,12 +109,13 @@ export class DeviceService {
                         null,
                         (d.resourceUrl + "/"+ imageName +".png"),
                         null,
-                        name["display"],
+                        name["display"].replace("&amp;", "&"),
                         null,
                         name["gazelle"],
                         d.deviceMap,
                         null,
-                        null
+                        null,
+                        name["dummy"]
 
                     )
                 )

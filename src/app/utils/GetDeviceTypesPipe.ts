@@ -20,7 +20,7 @@ export class GetDeviceTypesPipe implements PipeTransform{
           test[device.make] = true;
           device.displayName = this.getDisplayName(device.name, device.deviceType);
           makes.push(device);
-        }
+        }        
       });
 
       return makes;
@@ -29,7 +29,7 @@ export class GetDeviceTypesPipe implements PipeTransform{
     getDisplayName(name:string, deviceType): string {
       var a: string[] = name.split(" ");
       var newName: string = "";
-     
+
       if(deviceType === 3)
         return name;
 

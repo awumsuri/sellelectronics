@@ -12,6 +12,6 @@ export class UserDevice extends Device {
 
 
     constructor(){
-        super(null, null, null, null, null, null, null, null, null, null, null);
+        super(null, null, null, null, null, null, null, null, null, null, null, null);
     }
 }
