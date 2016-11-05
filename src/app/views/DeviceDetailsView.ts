@@ -57,9 +57,7 @@ declare var $:any;
                       </div>
                      
                       </div>
-                        <div *ngIf="(displayData.length > 0)" class="list-items display-device">                     
-                          
-                                                  
+                        <div *ngIf="(displayData.length > 0)" class="list-items display-device">   
                             <ul>
                                <li 
                                  (click)="clickHandler($event)"
