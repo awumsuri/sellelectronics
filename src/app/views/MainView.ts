@@ -7,23 +7,28 @@ declare var $:any;
 @Component({
     selector: 'main-view',
         template: `
-                    <div mwlResizable class="app">
+                   
                     
-                                <div class="title-display">
-                                <span class="heading-pharse">
-                                    <h2>SELL YOUR ELECTRONIC DEVICES BY CLICKING BELOW</h2>
-                                </span>
-                                </div>
-                               <div class="downbutton">
-                                    <img src="/Images/downbutton.png"/>                             
-                                </div> 
-                                <div class="startbutton" >
-                                    <img routerLink="make" routerLinkActive="active" on-mouseover="over(event)" on-mouseout="out(event)" src="/Images/startbutton.png"/>                                   
-                                </div>
-                                <div class="tradin">
-                                    <span><a routerLink="make" routerLinkActive="active">SELL YOUR DEVICE</a></span>         
-                                 </div>
-                    </div>                     
+                    <div class="container">
+                      <div class="row">
+                        <div class="page-header">
+                              <h1>SELL YOUR MACBOOK</h1>
+                              <span class="icon-bar">
+                                <i class="glyphicon glyphicon-tower" aria-hidden="true"></i>
+                              </span>                                         
+                            </div>
+                      </div>
+                    </div>
+                   <div class="logo-main">
+                        <img src="/Images/macbook/MacbookPro.png"/>                             
+                    </div> 
+                    <div class="startbutton" >
+                        <img routerLink="make" routerLinkActive="active" on-mouseover="over(event)" on-mouseout="out(event)" src="/Images/startbutton.png"/>                                   
+                    </div>
+                    <div class="tradin">
+                        <span><a routerLink="make" routerLinkActive="active">SELL YOUR DEVICE</a></span>         
+                     </div>
+                                        
                   `,
 })
 

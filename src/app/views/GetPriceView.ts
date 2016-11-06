@@ -95,7 +95,7 @@ declare var $:any;
                         <div class="input-container">
                          <input type="radio" (click)='conditionHandler($event);' name="condition" value="BROKEN">BROKEN<br>                         
                         </div>                      
-                        <div class="broken-buttons">
+                        <div class="broken-buttons form-group">
                             <span class="broken-button-title">DOES IT TURN ON ?</span>
                             <input type="radio" checked="true" (click)='conditionHandler($event);' name="turnson" value="YES">Yes
                             <input type="radio" checked="false" (click)='conditionHandler($event);' name="turnson" value="NO">No<br>                        
@@ -123,7 +123,7 @@ export class GetPriceView extends BaseView {
     }
 
     constructor(protected userDevice: UserDevice,
-                private deviceService: DeviceService,
+                private deviceService: DeviceService
                 ) {
 
       super();

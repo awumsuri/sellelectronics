@@ -13,6 +13,7 @@ import {DeviceListView} from "./views/DeviceListView";
 export const appRoutes: Routes = [
     { path: '', component: EntryView },
     { path: 'calculator', component: EntryView },
+    { path: 'macs', component: EntryView },
     { path: "make", component: MakeView},
     { path: "device-details", component: DeviceDetailsView, data: {s: "", x: ""}},
     { path: "final-price", component: GetPriceView, data: {s: "", x: ""}},

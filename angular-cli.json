@@ -16,10 +16,13 @@
       "mobile": false,
       "styles": [
         "css/styles.css",
+        "css/tether.min.css",
         "css/bootstrap.min.css"
       ],
       "scripts": [
+        "js/tether.min.js",
         "js/bootstrap.js"
+
       ],
       "environments": {
         "source": "environments/environment.ts",
