@@ -10,6 +10,7 @@ export class UserDevice extends Device {
     public carrier: string;
     public size: string;
     public year: string;
+    public yearDisplay: string;
 
 
     constructor(){

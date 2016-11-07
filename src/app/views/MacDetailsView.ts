@@ -5,22 +5,17 @@ import {Component} from "@angular/core";
 import {UserDevice} from "../model/UserDevice";
 import {GetDeviceByMakePipe} from "../utils/GetDeviceByMakePipe";
 import {DeviceService} from "../services/DeviceService";
-import {Device} from "../model/Device";
 import {GazelleDAO} from "../model/GazelleDAO";
 import {Utils} from "../utils/Utils";
 
 declare var $:any;
 
-
 @Component({
   selector: "mac-detailed-view",
-  template: `
-              
-                
-                <div class="logo-main" name="macbook-air">
-                        <img src="{{userDevice.resourceUrl}}" />  
-                          <span id="mac-details">{{userDevice.displayName}}</span>  
-                          
+  template: `               
+                <div class="logo-main">
+                  <img src="{{userDevice.resourceUrl}}" />  
+                  <span id="mac-details">{{userDevice.displayName}}</span>                         
                 </div> 
                 <div id="screen-size" class="row center">                  
                     <div ngbDropdown class="d-inline-block">
@@ -46,6 +41,32 @@ declare var $:any;
                       </div>
                     </div>
                 </div>
+                <div id="maclist" class="hide">
+                    <ul>
+                        <li class="mac-list">
+                        <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+                          <div class="thumbnail">
+                              <div class="caption">
+                                <div class='col-lg-12'>
+                                    <span class="glyphicon glyphicon-credit-card"></span>
+                                    <span class="glyphicon glyphicon-trash pull-right text-primary"></span>
+                                </div>
+                                <div class='col-lg-12 well well-add-card'>
+                                    <h4>John Deo Mobilel</h4>
+                                </div>
+                                <div class='col-lg-12'>
+                                    <p>4111xxxxxxxx3265</p>
+                                    <p class="text-muted">Exp: 12-08</p>
+                                </div>
+                                <button type="button" class="btn btn-primary btn-xs btn-update btn-add-card">Update</button>
+                                <button type="button" class="btn btn-danger btn-xs btn-update btn-add-card">Vrify Now</button>
+                                <span class='glyphicon glyphicon-exclamation-sign text-danger pull-right icon-style'></span>
+                            </div>
+                          </div>
+                        </div>
+                          </li>
+                    </ul>
+                </div>
                 
                            
             `
@@ -56,6 +77,7 @@ export class MacDetailsView {
   private macScreenSizes: string[] = [];
   private macYear: string[] = [];
   private macProcessor: string[] = [];
+  private macs: Device[] = [];
 
   private resourceUrl: string = "n/a";
 
@@ -140,6 +162,8 @@ export class MacDetailsView {
     $("#year").addClass("hide");
     $("#processor").removeClass("hide");
 
+    this.userDevice.yearDisplay = year;
+
     year = year.toLocaleLowerCase().replace(" ", "-");
 
     this.macData = this.macData.filter(
@@ -151,10 +175,16 @@ export class MacDetailsView {
     this.userDevice.year = year;
 
     this.macProcessor = this.getProcessor();
-    debugger;
+
   }
 
   processorHandler(event) {
+    let processor:string = event.target.innerHTML;
+    $("#mac-details").html(this.userDevice.displayName + " "
+      + this.userDevice.size + "\" " + this.userDevice.yearDisplay + " "+ processor);
+
+    $("#processor").addClass("hide");
+    $("#maclist").removeClass("hide");
 
   }
 }

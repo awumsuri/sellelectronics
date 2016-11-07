@@ -9,10 +9,7 @@ declare var $:any;
 
 @Component({
     selector: 'main-view',
-        template: `
-                   
-                    
-                    <div class="container">
+        template: `<div class="container">
                       <div class="row">
                         <div class="page-header">
                               <h1>SELL YOUR MACBOOK</h1>
