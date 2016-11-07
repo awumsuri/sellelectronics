@@ -5,6 +5,10 @@
   background:transparent url('https://webcube-general.s3.amazonaws.com:443/stampd%2Fmedia%2Fcloud%2F2013%2F04%2F03%2Flogo.png') no-repeat left top;
 }
 
+.selection {
+  display: inline-flex;
+}
+
 @font-face{
   font-family:"custom";
   src:url("/fonts/futureFonts.ttf");
@@ -913,11 +917,31 @@
 
 .logo-main {
   width: 100%;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.logo-main span {
+  display: block;
 }
 
 .logo-main img{
   display: inline-block;
   width: 300px;
+}
+
+.logo-main img:hover {
+  opacity: 0.7;
+  cursor: pointer;
+}
+
+.fullwidth {
+  width: 100%;
+}
+
+.center {
+  text-align: center;
+  margin: auto;
 }
 
 .container {

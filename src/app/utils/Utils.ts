@@ -40,4 +40,11 @@ export class  Utils {
         return null;
     }
   }
+
+  static toUpperCaseFirstLetter(s:string): string {
+
+    return s.toLowerCase().replace(/\b[a-z]/g, (letter) => {
+      return letter.toUpperCase();
+    });
+  }
 }

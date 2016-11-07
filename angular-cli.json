@@ -20,8 +20,6 @@
         "css/bootstrap.min.css"
       ],
       "scripts": [
-        "js/tether.min.js",
-        "js/bootstrap.js"
 
       ],
       "environments": {

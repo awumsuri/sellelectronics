@@ -25,6 +25,7 @@
     "bootstrap-material-design": "^0.5.10",
     "core-js": "^2.4.1",
     "mongodb": "^2.2.10",
+    "ng2-bootstrap": "^1.1.16",
     "ng2-responsive": "^0.4.6",
     "nightmare": "^2.7.0",
     "node-schedule": "^1.1.1",

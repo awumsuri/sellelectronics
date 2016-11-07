@@ -12,4 +12,6 @@ export class GazelleDAO{
     public priceBrokenYes: number; //pricebrokenYes
     public priceBrokenNo: number; //pricebrokenNo
     public priceBroken: number;
+    public year: string;
+    public processor: string;
 }

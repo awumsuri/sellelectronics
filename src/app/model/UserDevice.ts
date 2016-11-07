@@ -9,6 +9,7 @@ export class UserDevice extends Device {
     public displayData: Device[];
     public carrier: string;
     public size: string;
+    public year: string;
 
 
     constructor(){

@@ -27,6 +27,7 @@ import {GetDeviceByMakePipe} from "./utils/GetDeviceByMakePipe";
 import {FilterCarrierPipe} from "./utils/FilterCarrierPipe";
 import {GetDeviceModelPipe} from "./utils/GetDeviceModelPipe";
 import {NgbModule} from "@ng-bootstrap/ng-bootstrap";
+import {MacDetailsView} from "./views/MacDetailsView";
 
 
 let config: ResponsiveConfigInterface = {
@@ -61,6 +62,7 @@ let config: ResponsiveConfigInterface = {
         HasDeviceType,
         DeviceDetailsView,
         GetPriceView,
+        MacDetailsView,
         FindPricePipe,
         GetDeviceTypesPipe,
         GetDeviceByMakePipe,

@@ -115,7 +115,7 @@ export class DeviceService {
                         d.deviceMap,
                         null,
                         null,
-                        name["dummy"]
+                        name["dummy"] 
 
                     )
                 )

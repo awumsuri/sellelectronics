@@ -131,15 +131,17 @@
       {"display":"macbook air 62 core i5 13 ghz 13 mid 2013", "gazelle": "macbook-air"},
       {"display":"macbook air 62 core i5 14 ghz 13 early 2014", "gazelle": "macbook-air"},
       {"display":"macbook air 11 core 2 duo 16 ghz 13 early 2008", "gazelle": "macbook-air"},
-      {"display":"macbook air 72 core i5 16 ghz 13 early 2015", "gazelle": "macbook-air"},
+
       {"display":"macbook air 21 core 2 duo 16 ghz 13 late 2008", "gazelle": "macbook-air"},
-      {"display":"macbook air 72 core i7 22 ghz 13 early 2015", "gazelle": "macbook-air"},
       {"display":"macbook air 21 core 2 duo 186 ghz 13 late 2008", "gazelle": "macbook-air"},
-      {"display":"macbook air 52 core i7 20 ghz 13 mid 2012", "gazelle": "macbook-air"},
-      {"display":"macbook air 32 core 2 duo 186 ghz 13 late 2010", "gazelle": "macbook-air"},
-      {"display":"macbook air 32 core 2 duo 213 ghz 13 late 2010", "gazelle": "macbook-air"},
       {"display":"macbook air 21 core 2 duo 186 ghz 13 mid 2009", "gazelle": "macbook-air"},
       {"display":"macbook air 21 core 2 duo 213 ghz 13 mid 2009", "gazelle": "macbook-air"},
+      {"display":"macbook air 32 core 2 duo 186 ghz 13 late 2010", "gazelle": "macbook-air"},
+      {"display":"macbook air 32 core 2 duo 213 ghz 13 late 2010", "gazelle": "macbook-air"},
+      {"display":"macbook air 52 core i7 20 ghz 13 mid 2012", "gazelle": "macbook-air"},
+      {"display":"macbook air 72 core i7 22 ghz 13 early 2015", "gazelle": "macbook-air"},
+      {"display":"macbook air 72 core i5 16 ghz 13 early 2015", "gazelle": "macbook-air"},
+
 
       {"display":"Macbook Pro", "gazelle": "macbook-pro", "dummy": true},
       {"display":"macbook pro 55 core 2 duo 226 ghz 13 mid 2009", "gazelle":"macbook-pro"},
@@ -158,11 +160,6 @@
       {"display":"macbook pro 111 core i5 24 ghz 13 retina late 2013", "gazelle":"macbook-pro"},
       {"display":"macbook pro 111 core i5 26 ghz 13 retina late 2013", "gazelle":"macbook-pro"},
       {"display":"macbook pro 111 core i7 28 ghz 13 retina late 2013", "gazelle":"macbook-pro"},
-      {"display":"macbook pro 111 core i5 26 ghz 13 retina mid 2014", "gazelle":"macbook-pro"},
-      {"display":"macbook pro 111 core i7 30 ghz 13 retina mid 2014", "gazelle":"macbook-pro"},
-      {"display":"macbook pro 121 core i5 27 ghz 13 retina early 2015", "gazelle":"macbook-pro"},
-      {"display":"macbook pro 121 core i5 29 ghz 13 retina early 2015", "gazelle":"macbook-pro"},
-      {"display":"macbook pro 121 core i7 31 ghz 13 retina early 2015", "gazelle":"macbook-pro"},
       {"display":"macbook pro 11 core duo 167 ghz 15 early 2006", "gazelle":"macbook-pro"},
       {"display":"macbook pro 11 core duo 183 ghz 15 early 2006", "gazelle":"macbook-pro"},
       {"display":"macbook pro 11 core duo 20 ghz 15 early 2006", "gazelle":"macbook-pro"},
@@ -196,6 +193,12 @@
       {"display":"macbook pro 101 core i7 28 ghz 15 retina early 2013", "gazelle":"macbook-pro"},
       {"display":"macbook pro 112 core i7 20 ghz 15 retina late 2013", "gazelle":"macbook-pro"},
       {"display":"macbook pro 112 core i7 22 ghz 15 retina mid 2014", "gazelle":"macbook-pro"},
+      {"display":"macbook pro 111 core i5 26 ghz 13 retina mid 2014", "gazelle":"macbook-pro"},
+      {"display":"macbook pro 111 core i7 30 ghz 13 retina mid 2014", "gazelle":"macbook-pro"},
+
+      {"display":"macbook pro 121 core i5 27 ghz 13 retina early 2015", "gazelle":"macbook-pro"},
+      {"display":"macbook pro 121 core i5 29 ghz 13 retina early 2015", "gazelle":"macbook-pro"},
+      {"display":"macbook pro 121 core i7 31 ghz 13 retina early 2015", "gazelle":"macbook-pro"},
       {"display":"macbook pro 114 core i7 25 ghz 15 retina mid 2015", "gazelle":"macbook-pro"}
     ]
   },

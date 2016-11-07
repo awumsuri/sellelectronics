@@ -19,6 +19,7 @@ export class Device {
         public deviceMap: any,
         public displayName: string,
         public carrier: string,
+        
         public isDummy
 
     ){}

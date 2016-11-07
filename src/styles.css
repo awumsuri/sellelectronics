@@ -1079,6 +1079,10 @@ body,html {
   padding-top: 20px;
 }
 
+.dropdown-selector {
+  width: 150px;
+}
+
 
 .map {
   width: 100% !important;
