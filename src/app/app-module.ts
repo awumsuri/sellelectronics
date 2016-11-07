@@ -28,6 +28,7 @@ import {FilterCarrierPipe} from "./utils/FilterCarrierPipe";
 import {GetDeviceModelPipe} from "./utils/GetDeviceModelPipe";
 import {NgbModule} from "@ng-bootstrap/ng-bootstrap";
 import {MacDetailsView} from "./views/MacDetailsView";
+import {ArraySortPipe} from "./utils/SortPipe";
 
 
 let config: ResponsiveConfigInterface = {
@@ -69,6 +70,7 @@ let config: ResponsiveConfigInterface = {
         FindPricePipe,
         FilterCarrierPipe,
         GetDeviceModelPipe,
+        ArraySortPipe,
         CenterDivDirective
     ],
     providers:[

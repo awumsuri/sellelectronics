@@ -927,7 +927,7 @@
 
 .logo-main img{
   display: inline-block;
-  width: 300px;
+  width: 200px;
 }
 
 .logo-main img:hover {
@@ -1335,9 +1335,6 @@ h2 {
   right: 35px;
 }
 
-
-
-
 .well {
   min-height: 20px;
   padding: 0px;
@@ -1394,4 +1391,8 @@ p
 }
 .btn-update {
   margin-left: 15px;
+}
+
+.col-xs-12 {
+  width: 400px !important;
 }

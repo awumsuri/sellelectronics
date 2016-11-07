@@ -143,22 +143,13 @@
 
 
       {"display":"Macbook Pro", "gazelle": "macbook-pro", "dummy": true},
-      {"display":"macbook pro 55 core 2 duo 226 ghz 13 mid 2009", "gazelle":"macbook-pro"},
-      {"display":"macbook pro 55 core 2 duo 253 ghz 13 mid 2009", "gazelle":"macbook-pro"},
+
       {"display":"macbook pro 71 core 2 duo 24 ghz 13 mid 2010", "gazelle":"macbook-pro"},
       {"display":"macbook pro 71 core 2 duo 266 ghz 13 mid 2010", "gazelle":"macbook-pro"},
       {"display":"macbook pro 81 core i5 23 ghz 13 inches early 2011", "gazelle":"macbook-pro"},
       {"display":"macbook pro 81 core i7 27 ghz 13 early 2011", "gazelle":"macbook-pro"},
-      {"display":"macbook pro 92 core i5 25 ghz 13 mid 2012", "gazelle":"macbook-pro"},
-      {"display":"macbook pro 92 core i7 29 ghz 13 mid 2012", "gazelle":"macbook-pro"},
-      {"display":"macbook pro 102 core i5 25 ghz 13 retina late 2012", "gazelle":"macbook-pro"},
-      {"display":"macbook pro 102 core i7 29 ghz 13 retina late 2012", "gazelle":"macbook-pro"},
-      {"display":"macbook pro 102 core i5 26 ghz 13 retina early 2013", "gazelle":"macbook-pro"},
-      {"display":"macbook pro 102 core i5 30 ghz 13 retina early 2013", "gazelle":"macbook-pro"},
-      {"display":"macbook pro 102 core i7 30 ghz 13 retina early 2013", "gazelle":"macbook-pro"},
-      {"display":"macbook pro 111 core i5 24 ghz 13 retina late 2013", "gazelle":"macbook-pro"},
-      {"display":"macbook pro 111 core i5 26 ghz 13 retina late 2013", "gazelle":"macbook-pro"},
-      {"display":"macbook pro 111 core i7 28 ghz 13 retina late 2013", "gazelle":"macbook-pro"},
+
+
       {"display":"macbook pro 11 core duo 167 ghz 15 early 2006", "gazelle":"macbook-pro"},
       {"display":"macbook pro 11 core duo 183 ghz 15 early 2006", "gazelle":"macbook-pro"},
       {"display":"macbook pro 11 core duo 20 ghz 15 early 2006", "gazelle":"macbook-pro"},
@@ -176,6 +167,9 @@
       {"display":"macbook pro 51 core 2 duo 28 ghz 15 late 2008", "gazelle":"macbook-pro"},
       {"display":"macbook pro 51 core 2 duo 293 ghz 15 late 2008", "gazelle":"macbook-pro"},
       {"display":"macbook pro 54 core 2 duo 253 ghz 15 mid 2009", "gazelle":"macbook-pro"},
+      {"display":"macbook pro 55 core 2 duo 226 ghz 13 mid 2009", "gazelle":"macbook-pro"},
+      {"display":"macbook pro 55 core 2 duo 253 ghz 13 mid 2009", "gazelle":"macbook-pro"},
+
       {"display":"macbook pro 53 core 2 duo 266 ghz 15 mid 2009", "gazelle":"macbook-pro"},
       {"display":"macbook pro 53 core 2 duo 28 ghz 15 mid 2009", "gazelle":"macbook-pro"},
       {"display":"macbook pro 53 core 2 duo 306 ghz 15 mid 2009", "gazelle":"macbook-pro"},
@@ -187,10 +181,23 @@
       {"display":"macbook pro 82 core i7 20 ghz 15 early 2011", "gazelle":"macbook-pro"},
       {"display":"macbook pro 82 core i7 22 ghz 15 2011", "gazelle":"macbook-pro"},
       {"display":"macbook pro 82 core i7 23 ghz 15 early 2011", "gazelle":"macbook-pro"},
+
+      {"display":"macbook pro 92 core i5 25 ghz 13 mid 2012", "gazelle":"macbook-pro"},
+      {"display":"macbook pro 92 core i7 29 ghz 13 mid 2012", "gazelle":"macbook-pro"},
+      {"display":"macbook pro 102 core i5 25 ghz 13 retina late 2012", "gazelle":"macbook-pro"},
+      {"display":"macbook pro 102 core i7 29 ghz 13 retina late 2012", "gazelle":"macbook-pro"},
+
+      {"display":"macbook pro 102 core i5 26 ghz 13 retina early 2013", "gazelle":"macbook-pro"},
+      {"display":"macbook pro 102 core i5 30 ghz 13 retina early 2013", "gazelle":"macbook-pro"},
+      {"display":"macbook pro 102 core i7 30 ghz 13 retina early 2013", "gazelle":"macbook-pro"},
+      {"display":"macbook pro 111 core i5 24 ghz 13 retina late 2013", "gazelle":"macbook-pro"},
+      {"display":"macbook pro 111 core i5 26 ghz 13 retina late 2013", "gazelle":"macbook-pro"},
+      {"display":"macbook pro 111 core i7 28 ghz 13 retina late 2013", "gazelle":"macbook-pro"},
       {"display":"macbook pro 101 core i7 24 ghz 15 retina early 2013", "gazelle":"macbook-pro"},
       {"display":"macbook pro 101 core i7 27 ghz 15 retina early 2013", "gazelle":"macbook-pro"},
       {"display":"macbook pro 101 core i7 28 ghz 15 retina early 2013", "gazelle":"macbook-pro"},
       {"display":"macbook pro 112 core i7 20 ghz 15 retina late 2013", "gazelle":"macbook-pro"},
+
       {"display":"macbook pro 112 core i7 22 ghz 15 retina mid 2014", "gazelle":"macbook-pro"},
       {"display":"macbook pro 111 core i5 26 ghz 13 retina mid 2014", "gazelle":"macbook-pro"},
       {"display":"macbook pro 111 core i7 30 ghz 13 retina mid 2014", "gazelle":"macbook-pro"},
@@ -211,14 +218,23 @@
       {"display":"Galaxy Mega SGH-i527", "gazelle":"samsung-mega"},
       {"display":"Galaxy Mega 6.3 GT-i9200", "gazelle":"samsung-mega"},
 
+      {"display":"Galaxy S II SGH-I777", "gazelle":"samsung-s2"},
+      {"display":"Galaxy S II Skyrocket SGH-I727", "gazelle":"samsung-s2"},
+      {"display":"Galaxy S II SGH-T989 (2011)", "gazelle":"samsung-s2"},
+      {"display":"Galaxy S II GT-I9100", "gazelle":"samsung-s2"},
+
       {"display":"Galaxy Note 3 SM-N900A", "gazelle":"samsung-note"},
+      {"display":"Galaxy Note 3 SM-N900P", "gazelle":"samsung-note"},
+      {"display":"Galaxy Note 3 SM-N900T", "gazelle":"samsung-note"},
+      {"display":"Galaxy Note 3 N9000", "gazelle":"samsung-note"},
+
       {"display":"Galaxy Note 4 SM-N910A (AT&amp;T)", "gazelle":"samsung-note"},
       {"display":"Galaxy Note 5 SM-N920A (AT&amp;T)", "gazelle":"samsung-note"},
       {"display":"Galaxy Note 5 SM-N920A 64GB (AT&amp;T)", "gazelle":"samsung-note"},
       {"display":"Galaxy Note II SGH-i317", "gazelle":"samsung-note"},
       {"display":"Galaxy Note Edge SM-N915A (AT&amp;T)", "gazelle":"samsung-note"},
       {"display":"Galaxy Note SGH-I717", "gazelle":"samsung-note"},
-      {"display":"Galaxy Note 3 SM-N900P", "gazelle":"samsung-note"},
+
       {"display":"Galaxy Note 4 SM-N910P (Sprint)", "gazelle":"samsung-note"},
       {"display":"Galaxy Note 5 SM-N920P 32GB (Sprint)", "gazelle":"samsung-note"},
       {"display":"Galaxy Note 5 SM-N920P 64GB (Sprint)", "gazelle":"samsung-note"},
@@ -230,25 +246,24 @@
       {"display":"Galaxy Note Edge SM-N915V (Verizon)", "gazelle":"samsung-note"},
       {"display":"Galaxy Note 4 SM-N910V (Verizon)", "gazelle":"samsung-note"},
       {"display":"Galaxy Note II SCH-i605", "gazelle":"samsung-note"},
-      {"display":"Galaxy Note 3 SM-N900T", "gazelle":"samsung-note"},
+
+      {"display":"Galaxy Note 4 SM-N910H (Unlocked)", "gazelle":"samsung-note"},
       {"display":"Galaxy Note 4 SM-N910T (T-Mobile)", "gazelle":"samsung-note"},
+
       {"display":"Galaxy Note 5 SM-N920T 32GB (T-Mobile)", "gazelle":"samsung-note"},
       {"display":"Galaxy Note Edge SM-N915T (T-Mobile)", "gazelle":"samsung-note"},
       {"display":"Galaxy Note II SGH-T889", "gazelle":"samsung-note"},
       {"display":"Galaxy Note SGH-T879", "gazelle":"samsung-note"},
       {"display":"Galaxy Note 5 SM-N920T 64GB (T-Mobile)", "gazelle":"samsung-note"},
-      {"display":"Galaxy Note 4 SM-N910H (Unlocked)", "gazelle":"samsung-note"},
+
       {"display":"Galaxy Note 5 SM-N920 32GB (Unlocked)", "gazelle":"samsung-note"},
       {"display":"Galaxy Note 5 SM-N920 64GB (Unlocked)", "gazelle":"samsung-note"},
       {"display":"Galaxy Note Edge SM-N915G (Unlocked)", "gazelle":"samsung-note"},
-      {"display":"Galaxy Note 3 N9000", "gazelle":"samsung-note"},
+
       {"display":"Galaxy Note GT-N7000", "gazelle":"samsung-note"},
       {"display":"Galaxy Note II GT-N7100", "gazelle":"samsung-note"},
 
-      {"display":"Galaxy S II SGH-I777", "gazelle":"samsung-s2"},
-      {"display":"Galaxy S II Skyrocket SGH-I727", "gazelle":"samsung-s2"},
-      {"display":"Galaxy S II SGH-T989 (2011)", "gazelle":"samsung-s2"},
-      {"display":"Galaxy S II GT-I9100", "gazelle":"samsung-s2"},
+
 
       {"display":"Galaxy S III Mini", "gazelle":"samsung-s3", "dummy": true},
       {"display":"Galaxy S III Mini SM-G730A", "gazelle":"samsung-s3"},

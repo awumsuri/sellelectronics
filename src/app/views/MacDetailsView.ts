@@ -29,7 +29,7 @@ declare var $:any;
                     <div ngbDropdown class="d-inline-block">
                       <button class="btn btn-primary" id="dropdownMenu1" ngbDropdownToggle>Select Year</button>
                       <div   class="dropdown-menu dropdown-selector" aria-labelledby="dropdownMenu1">
-                        <button *ngFor="let year of macYear;" class="dropdown-item" (click)="yearHandler($event); " >{{year}}</button>                        
+                        <button *ngFor="let year of macYear | sort" class="dropdown-item" (click)="yearHandler($event); " >{{year}}</button>                        
                       </div>
                     </div>
                 </div>
@@ -37,12 +37,12 @@ declare var $:any;
                     <div ngbDropdown class="d-inline-block">
                       <button class="btn btn-primary" id="dropdownMenu1" ngbDropdownToggle>Select Processor</button>
                       <div   class="dropdown-menu dropdown-selector" aria-labelledby="dropdownMenu1">
-                        <button *ngFor="let processor of macProcessor;" class="dropdown-item" (click)="processorHandler($event);">{{processor}}</button>                        
+                        <button *ngFor="let processor of macProcessor | sort" class="dropdown-item" (click)="processorHandler($event);">{{processor}}</button>                        
                       </div>
                     </div>
                 </div>
                 <div id="maclist" class="hide">
-                    <ul>
+                    <ul *ngFor="let mac of macData | sort">
                         <li class="mac-list">
                         <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
                           <div class="thumbnail">
@@ -52,14 +52,13 @@ declare var $:any;
                                     <span class="glyphicon glyphicon-trash pull-right text-primary"></span>
                                 </div>
                                 <div class='col-lg-12 well well-add-card'>
-                                    <h4>John Deo Mobilel</h4>
+                                    <p>{{mac.name}}</p>
                                 </div>
                                 <div class='col-lg-12'>
-                                    <p>4111xxxxxxxx3265</p>
-                                    <p class="text-muted">Exp: 12-08</p>
+                                    <h2>$ {{mac.priceFlawless}}</h2>                                    
                                 </div>
-                                <button type="button" class="btn btn-primary btn-xs btn-update btn-add-card">Update</button>
-                                <button type="button" class="btn btn-danger btn-xs btn-update btn-add-card">Vrify Now</button>
+                                <button type="button" class="btn btn-primary btn-xs btn-update btn-add-card">Flawless</button>
+                                <button type="button" class="btn btn-danger btn-xs btn-update btn-add-card">Broken</button>
                                 <span class='glyphicon glyphicon-exclamation-sign text-danger pull-right icon-style'></span>
                             </div>
                           </div>
@@ -77,7 +76,7 @@ export class MacDetailsView {
   private macScreenSizes: string[] = [];
   private macYear: string[] = [];
   private macProcessor: string[] = [];
-  private macs: Device[] = [];
+  private price:string;
 
   private resourceUrl: string = "n/a";
 
@@ -173,9 +172,7 @@ export class MacDetailsView {
     );
 
     this.userDevice.year = year;
-
     this.macProcessor = this.getProcessor();
-
   }
 
   processorHandler(event) {
@@ -186,5 +183,14 @@ export class MacDetailsView {
     $("#processor").addClass("hide");
     $("#maclist").removeClass("hide");
 
+    let processorOriginal = processor.replace(" Ghz","-ghz").replace(".", "-").toLowerCase();
+
+    this.macData = this.macData.filter(
+      data => {
+        data.name = Utils.toUpperCaseFirstLetter(data.name);
+        return data.processor === processorOriginal;
+      }
+    );
+    //debugger;
   }
 }
