@@ -914,6 +914,21 @@
   width: 300px;
 }
 
+.headline h4{
+  color: black;
+}
+
+.headline {
+  font-family: arial;
+  font-weight: bold;
+  color: black;
+}
+
+.descriptionLi {
+  font-family: arial;
+  color: black;
+}
+
 .logo{
   display: inline-flex;
   margin: auto;

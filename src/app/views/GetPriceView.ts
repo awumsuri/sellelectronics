@@ -77,24 +77,26 @@ declare var $:any;
                           (click)="clickHandler($event)" 
                           src="/Images/carries/unlockedicon.png"/>
                       </div>                      
-                    </li>
-                    
+                    </li>                    
                     </ul>
                 </div>
                 </div>
-                <div class="condition">
+               
+                <div class="condition">     
                 
                 <div class="carriers inputs">  
                          <!-- <div class="condition-title"><span><h2>Condition</h2></span></div>-->
                          <!--<div class="input-container">
                          <input type="radio" (click)='conditionHandler($event);'  name="condition" value="GOOD">GOOD<br>
                         </div>-->
+                        
                         <div class="input-container">
                          <input type="radio" (click)='conditionHandler($event)'  name="condition" value="FLAWLESS">FLAWLESS<br>
                         </div>
                         <div class="input-container">
                          <input type="radio" (click)='conditionHandler($event);' name="condition" value="BROKEN">BROKEN<br>                         
-                        </div>                      
+                        </div>      
+                        
                         <div class="broken-buttons">
                             <span class="broken-button-title">DOES IT TURN ON ?</span>
                             <input type="radio" checked="true" (click)='conditionHandler($event);' name="turnson" value="YES">Yes
@@ -103,10 +105,25 @@ declare var $:any;
                 </div>   
               
                 </div>
+                 <div class="broken-notes carriers">
+                  <ul class="description perfect" style="display: none;">
+                    <li class="headline" style="color: black;"><h4>Flawless means <strong>all</strong> of these are true:</h4></li>
+                    <li class="descriptionLi">Works perfectly</li>
+                    <li class="descriptionLi">No noticeable flaws, still in its package or looks like new</li>
+                    <li class="descriptionLi">Has zero scratches or scuffs</li>
+                  </ul>
+                  <ul class="description poor" style="display: none;">
+                      <li class="headline"><h4>Choose this if your phone powers <strong>on</strong> and <strong>any</strong> of the following of these are true:</h4></li>
+                    <li class="descriptionLi">Cracked screen or body</li>
+                    <li class="descriptionLi">Broken or cracked hardware</li>
+                    <li class="descriptionLi">Missing buttons or parts</li>
+                  </ul>
+                </div>
                 <div class="finalprice hide" >
                     <span><h2 [innerText]="price"></h2></span>                    
                 </div>
                 <div class="footer-push"></div>
+                <p>Please Note: We do not pay for devices that have been reported lost or stolen.</p>
                 </div>
                 <footer></footer>                    
                 `
@@ -123,7 +140,7 @@ export class GetPriceView extends BaseView {
     }
 
     constructor(protected userDevice: UserDevice,
-                private deviceService: DeviceService,
+                private deviceService: DeviceService
                 ) {
 
       super();
@@ -189,6 +206,8 @@ export class GetPriceView extends BaseView {
         var device: GazelleDAO = this.getPrice();
         $(".input-container").css("margin-top", "10px");
         this.removeErrorPrice();
+        $(".description.perfect").css("display", "block");
+        $(".description.poor").css("display", "none");
         switch (button.value) {
             case "GOOD":
                 if(device == null){
@@ -233,6 +252,8 @@ export class GetPriceView extends BaseView {
                     }
 
                   }
+                  $(".description.perfect").css("display", "none");
+                  $(".description.poor").css("display", "block");
                 }
 
                 break;
@@ -248,6 +269,8 @@ export class GetPriceView extends BaseView {
                   }
                   this.price = "$" + device.priceBrokenYes;
                 }
+                $(".description.perfect").css("display", "none");
+                $(".description.poor").css("display", "block");
                 break;
             case "NO":
                 if(device == null) {
@@ -262,6 +285,8 @@ export class GetPriceView extends BaseView {
                   }
                   this.price = "$" + device.priceBrokenNo;
                 }
+                $(".description.perfect").css("display", "none");
+                $(".description.poor").css("display", "block");
                 break;
         }
         $(".hide").css("display", "block");

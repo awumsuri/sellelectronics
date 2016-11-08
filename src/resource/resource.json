@@ -210,44 +210,66 @@
       {"display":"Galaxy Mega SGH-i527", "gazelle":"samsung-mega"},
       {"display":"Galaxy Mega 6.3 GT-i9200", "gazelle":"samsung-mega"},
 
-      {"display":"Galaxy Note 3 SM-N900A", "gazelle":"samsung-note"},
-      {"display":"Galaxy Note 4 SM-N910A (AT&amp;T)", "gazelle":"samsung-note"},
-      {"display":"Galaxy Note 5 SM-N920A (AT&amp;T)", "gazelle":"samsung-note"},
-      {"display":"Galaxy Note 5 SM-N920A 64GB (AT&amp;T)", "gazelle":"samsung-note"},
-      {"display":"Galaxy Note II SGH-i317", "gazelle":"samsung-note"},
+
+
+
+
       {"display":"Galaxy Note Edge SM-N915A (AT&amp;T)", "gazelle":"samsung-note"},
       {"display":"Galaxy Note SGH-I717", "gazelle":"samsung-note"},
-      {"display":"Galaxy Note 3 SM-N900P", "gazelle":"samsung-note"},
-      {"display":"Galaxy Note 4 SM-N910P (Sprint)", "gazelle":"samsung-note"},
-      {"display":"Galaxy Note 5 SM-N920P 32GB (Sprint)", "gazelle":"samsung-note"},
-      {"display":"Galaxy Note 5 SM-N920P 64GB (Sprint)", "gazelle":"samsung-note"},
-      {"display":"Galaxy Note Edge SM-N915P (Sprint)", "gazelle":"samsung-note"},
-      {"display":"Galaxy Note II SPH-L900", "gazelle":"samsung-note"},
-      {"display":"Galaxy Note 3 SM-N900V", "gazelle":"samsung-note"},
-      {"display":"Galaxy Note 5 SM-N920V 32GB (Verizon)", "gazelle":"samsung-note"},
-      {"display":"Galaxy Note 5", "gazelle":"samsung-note"},
-      {"display":"Galaxy Note Edge SM-N915V (Verizon)", "gazelle":"samsung-note"},
-      {"display":"Galaxy Note 4 SM-N910V (Verizon)", "gazelle":"samsung-note"},
-      {"display":"Galaxy Note II SCH-i605", "gazelle":"samsung-note"},
-      {"display":"Galaxy Note 3 SM-N900T", "gazelle":"samsung-note"},
-      {"display":"Galaxy Note 4 SM-N910T (T-Mobile)", "gazelle":"samsung-note"},
-      {"display":"Galaxy Note 5 SM-N920T 32GB (T-Mobile)", "gazelle":"samsung-note"},
-      {"display":"Galaxy Note Edge SM-N915T (T-Mobile)", "gazelle":"samsung-note"},
-      {"display":"Galaxy Note II SGH-T889", "gazelle":"samsung-note"},
+
+
+
+
+      {"display":"Galaxy Note II SPH-L900", "gazelle":"samsung-note2"},
+      {"display":"Galaxy Note II SGH-T889", "gazelle":"samsung-note2"},
+      {"display":"Galaxy Note II SCH-i605", "gazelle":"samsung-note2"},
+      {"display":"Galaxy Note II SGH-i317", "gazelle":"samsung-note2"},
+
+      {"display":"Galaxy Note 3 SM-N900V", "gazelle":"samsung-note3"},
+      {"display":"Galaxy Note 3 SM-N900P", "gazelle":"samsung-note3"},
+      {"display":"Galaxy Note 3 SM-N900A", "gazelle":"samsung-note3"},
+      {"display":"Galaxy Note 3 SM-N900T", "gazelle":"samsung-note3"},
+      {"display":"Galaxy Note 3 N9000", "gazelle":"samsung-note3"},
+
+      {"display":"Galaxy Note Edge SM-N915V (Verizon)", "gazelle":"samsung-noteE"},
+      {"display":"Galaxy Note Edge SM-N915G (Unlocked)", "gazelle":"samsung-noteE"},
+      {"display":"Galaxy Note Edge SM-N915T (T-Mobile)", "gazelle":"samsung-noteE"},
+      {"display":"Galaxy Note Edge SM-N915P (Sprint)", "gazelle":"samsung-noteE"},
+
+
+
+
+      {"display":"Galaxy Note 4 SM-N910T (T-Mobile)", "gazelle":"samsung-note4"},
+      {"display":"Galaxy Note 4 SM-N910H (Unlocked)", "gazelle":"samsung-note4"},
+      {"display":"Galaxy Note 4 SM-N910V (Verizon)", "gazelle":"samsung-note4"},
+      {"display":"Galaxy Note 4 SM-N910P (Sprint)", "gazelle":"samsung-note4"},
+      {"display":"Galaxy Note 4 SM-N910A (AT&amp;T)", "gazelle":"samsung-note4"},
+
+
       {"display":"Galaxy Note SGH-T879", "gazelle":"samsung-note"},
-      {"display":"Galaxy Note 5 SM-N920T 64GB (T-Mobile)", "gazelle":"samsung-note"},
-      {"display":"Galaxy Note 4 SM-N910H (Unlocked)", "gazelle":"samsung-note"},
-      {"display":"Galaxy Note 5 SM-N920 32GB (Unlocked)", "gazelle":"samsung-note"},
-      {"display":"Galaxy Note 5 SM-N920 64GB (Unlocked)", "gazelle":"samsung-note"},
-      {"display":"Galaxy Note Edge SM-N915G (Unlocked)", "gazelle":"samsung-note"},
-      {"display":"Galaxy Note 3 N9000", "gazelle":"samsung-note"},
+
+      {"display":"Galaxy Note 5", "gazelle":"samsung-note5"},
+      {"display":"Galaxy Note 5 SM-N920T 64GB (T-Mobile)", "gazelle":"samsung-note5"},
+      {"display":"Galaxy Note 5 SM-N920P 32GB (Sprint)", "gazelle":"samsung-note5"},
+      {"display":"Galaxy Note 5 SM-N920P 64GB (Sprint)", "gazelle":"samsung-note5"},
+      {"display":"Galaxy Note 5 SM-N920 32GB (Unlocked)", "gazelle":"samsung-note5"},
+      {"display":"Galaxy Note 5 SM-N920 64GB (Unlocked)", "gazelle":"samsung-note5"},
+      {"display":"Galaxy Note 5 SM-N920A (AT&amp;T)", "gazelle":"samsung-note5"},
+      {"display":"Galaxy Note 5 SM-N920A 64GB (AT&amp;T)", "gazelle":"samsung-note5"},
+      {"display":"Galaxy Note 5 SM-N920T 32GB (T-Mobile)", "gazelle":"samsung-note5"},
+      {"display":"Galaxy Note 5 SM-N920V 32GB (Verizon)", "gazelle":"samsung-note5"},
+
+
+
       {"display":"Galaxy Note GT-N7000", "gazelle":"samsung-note"},
-      {"display":"Galaxy Note II GT-N7100", "gazelle":"samsung-note"},
+
+      {"display":"Galaxy S II GT-I9100", "gazelle":"samsung-s2"},
+      {"display":"Galaxy Note II GT-N7100", "gazelle":"samsung-note2"},
 
       {"display":"Galaxy S II SGH-I777", "gazelle":"samsung-s2"},
       {"display":"Galaxy S II Skyrocket SGH-I727", "gazelle":"samsung-s2"},
       {"display":"Galaxy S II SGH-T989 (2011)", "gazelle":"samsung-s2"},
-      {"display":"Galaxy S II GT-I9100", "gazelle":"samsung-s2"},
+
 
       {"display":"Galaxy S III Mini", "gazelle":"samsung-s3", "dummy": true},
       {"display":"Galaxy S III Mini SM-G730A", "gazelle":"samsung-s3"},
@@ -286,6 +308,7 @@
       {"display":"Galaxy S6 Edge SM-G925A 32GB (AT&amp;T)", "gazelle":"samsung-s6"},
       {"display":"Galaxy S6 Edge SM-G925A 64GB (AT&amp;T)", "gazelle":"samsung-s6"},
       {"display":"Galaxy S6 Edge SM-G925A 128GB (AT&amp;T)", "gazelle":"samsung-s6"},
+
       {"display":"Galaxy S6 SM-G920A 32GB (AT&amp;T)", "gazelle":"samsung-s6"},
       {"display":"Galaxy S6 SM-G920A 64GB (AT&amp;T)", "gazelle":"samsung-s6"},
       {"display":"Galaxy S6 edge+ SM-G928A 32GB (AT&amp;T)", "gazelle":"samsung-s6"},

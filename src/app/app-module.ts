@@ -26,7 +26,6 @@ import {MainView} from "./views/MainView";
 import {GetDeviceByMakePipe} from "./utils/GetDeviceByMakePipe";
 import {FilterCarrierPipe} from "./utils/FilterCarrierPipe";
 import {GetDeviceModelPipe} from "./utils/GetDeviceModelPipe";
-import {NgbModule} from "@ng-bootstrap/ng-bootstrap";
 
 
 let config: ResponsiveConfigInterface = {
@@ -46,8 +45,7 @@ let config: ResponsiveConfigInterface = {
         RouterModule.forRoot(appRoutes),
         HttpModule,
         ResponsiveModule,
-        ResizableModule,
-        NgbModule.forRoot()
+        ResizableModule
     ],
     declarations: [
         AppComponent,

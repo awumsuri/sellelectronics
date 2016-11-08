@@ -43,12 +43,12 @@ declare var $:any;
                         (click)="clickHandlerDevice($event)" src="/Images/ipad.png"/></a>
                                        <p><span class="title-list">Tablet</span></p>
                                   </div> 
-                                  <div *ngIf="(filteredModel | hasDeviceType:3)" class="device-list macbook-list">
+                                  <!--<div *ngIf="(filteredModel | hasDeviceType:3)" class="device-list macbook-list">
                                        <a><img name="Laptop" (mouseover)="over($event)" 
                         (mouseleave)="out($event)" 
                         (click)="clickHandlerDevice($event)" src="/Images/macbook.png"/></a>
                                         <span class="title-list">Mac</span>
-                                  </div>                                          
+                                  </div> -->                                         
                                   
                             </div>
                             <div *ngIf="(filteredModel.length === 0)" class="device-models" centerDiv>
@@ -70,6 +70,7 @@ declare var $:any;
                         </div>
                         
                         <div class="footer-push"></div>
+                        
                     </div>    
                     <footer></footer>
               `
