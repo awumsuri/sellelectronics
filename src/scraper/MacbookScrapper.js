@@ -20,9 +20,9 @@ const MACBOOK = {
     {
       size: "12",
       processors: [
-        "1-1-ghz",
-        "1-20-ghz",
-        "1-30-ghz"
+        "1-10-ghz",
+        /*"1-20-ghz",
+        "1-30-ghz"*/
       ],
       year: [
         "early-2015"

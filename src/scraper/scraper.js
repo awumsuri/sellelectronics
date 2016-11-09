@@ -12,7 +12,7 @@ const deviceTypes = ["iphone", "cell-phone","tablet"];
 
 var complete = [];
 var url;
-var index = 53;
+var index = 0;
 var device;
 var deviceTypesGazelle;
 var DbRef = null;
@@ -310,7 +310,6 @@ function updatePrices(callback, query) {
                 console.log("devices count:" + devices.length);
                 if (index < devices.length) {
                     device = devices[index];
-                    debugger;
                     url = getURL(device);
                     console.log("url:"+url);
                     gazelleGood(callback);
@@ -348,6 +347,7 @@ function updateSelected(query, callback, callFn) {
                     device = devices[index];
                     console.log("device:"+device.make);
                     url = getURL(device);
+                    console.log("url:"+url);
                     gazelleGood(callback, callFn);
                 }
             });
