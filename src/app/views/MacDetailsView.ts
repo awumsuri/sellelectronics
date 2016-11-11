@@ -12,32 +12,32 @@ declare var $:any;
 
 @Component({
   selector: "mac-detailed-view",
-  template: `               
+  template: `
                 <div class="logo-main">
-                  <img src="{{userDevice.resourceUrl}}" />  
-                  <span id="mac-details">{{userDevice.displayName}}</span>                         
-                </div> 
-                <div id="screen-size" class="row center">                  
+                  <img src="{{userDevice.resourceUrl}}" />
+                  <span id="mac-details">{{userDevice.displayName}}</span>
+                </div>
+                <div id="screen-size" class="row center">
                     <div ngbDropdown class="d-inline-block">
                       <button class="btn btn-primary" id="dropdownMenu1" ngbDropdownToggle>Screen Size</button>
                       <div   class="dropdown-menu dropdown-selector" aria-labelledby="dropdownMenu1">
-                        <button *ngFor="let screen of macScreenSizes;" class="dropdown-item" (click)="screenHandler($event);">{{screen}}</button>                        
+                        <button *ngFor="let screen of macScreenSizes;" class="dropdown-item" (click)="screenHandler($event);">{{screen}}</button>
                       </div>
                     </div>
                 </div>
-                <div id="year" class="row center hide">                  
+                <div id="year" class="row center hide">
                     <div ngbDropdown class="d-inline-block">
                       <button class="btn btn-primary" id="dropdownMenu1" ngbDropdownToggle>Select Year</button>
                       <div   class="dropdown-menu dropdown-selector" aria-labelledby="dropdownMenu1">
-                        <button *ngFor="let year of macYear | sort" class="dropdown-item" (click)="yearHandler($event); " >{{year}}</button>                        
+                        <button *ngFor="let year of macYear | sort" class="dropdown-item" (click)="yearHandler($event); " >{{year}}</button>
                       </div>
                     </div>
                 </div>
-                <div id="processor" class="row center hide">                  
+                <div id="processor" class="row center hide">
                     <div ngbDropdown class="d-inline-block">
                       <button class="btn btn-primary" id="dropdownMenu1" ngbDropdownToggle>Select Processor</button>
                       <div   class="dropdown-menu dropdown-selector" aria-labelledby="dropdownMenu1">
-                        <button *ngFor="let processor of macProcessor | sort" class="dropdown-item" (click)="processorHandler($event);">{{processor}}</button>                        
+                        <button *ngFor="let processor of macProcessor | sort" class="dropdown-item" (click)="processorHandler($event);">{{processor}}</button>
                       </div>
                     </div>
                 </div>
@@ -55,7 +55,7 @@ declare var $:any;
                                     <p>{{mac.name}}</p>
                                 </div>
                                 <div class='col-lg-12'>
-                                    <h2>$ {{mac.priceFlawless}}</h2>                                    
+                                    <h2>$ {{mac.priceFlawless}}</h2>
                                 </div>
                                 <button type="button" class="btn btn-primary btn-xs btn-update btn-add-card">Flawless</button>
                                 <button type="button" class="btn btn-danger btn-xs btn-update btn-add-card">Broken</button>
@@ -66,8 +66,8 @@ declare var $:any;
                           </li>
                     </ul>
                 </div>
-                
-                           
+
+
             `
 })
 export class MacDetailsView {
@@ -171,6 +171,7 @@ export class MacDetailsView {
       }
     );
 
+    debugger;
     this.userDevice.year = year;
     this.macProcessor = this.getProcessor();
   }

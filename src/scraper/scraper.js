@@ -292,7 +292,6 @@ function getURL(device) {
         + device.processor +"/"
         + device.year + "/"
         + device.id + "-gpid";
-
       break;
     default:
           throw new Error("Incorrect device type passed as a parameter.")
@@ -311,7 +310,6 @@ function updatePrices(callback, query) {
                 console.log("devices count:" + devices.length);
                 if (index < devices.length) {
                     device = devices[index];
-                    debugger;
                     url = getURL(device);
                     console.log("url:"+url);
                     gazelleGood(callback);
@@ -420,6 +418,7 @@ function start() {
     index = parseInt(process.argv[n]);
     console.log("index:"+index);
   }
+
 
   switch(process.argv[2]) {
     case "updateiPhonePrices":

@@ -179,7 +179,7 @@ const MACBOOK_PRO = {
     {
       size:"15",
       processors: [
-          "1-67-ghz",
+         /* "1-67-ghz",
           "1-83-ghz",
           "2-0-ghz",
           "2-16-ghz",
@@ -193,11 +193,11 @@ const MACBOOK_PRO = {
           "2-66-ghz",
           "2-70-ghz",
           "2-80-ghz",
-          "2-93-ghz",
+          "2-93-ghz",*/
           "3-06-ghz"
       ],
       year: [
-        "mid-2006",
+       /* "mid-2006",
         "early-2006",
         "late-2006",
         "mid-2007",
@@ -205,9 +205,9 @@ const MACBOOK_PRO = {
         "late-2007",
         "mid-2008",
         "early-2008",
-        "late-2008",
+        "late-2008",*/
         "mid-2009",
-        "early-2009",
+       /* "early-2009",
         "late-2009",
         "mid-2010",
         "late-2010",
@@ -226,7 +226,7 @@ const MACBOOK_PRO = {
         "late-2014",
         "early-2015",
         "mid-2015",
-        "late-2015"
+        "late-2015"*/
       ]
     }
   ]
@@ -237,8 +237,8 @@ const USER_AGENT = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/
 function scrape(url, macbook, ref) {
 
   var scraper = new Nightmare({
-    waitTimeout: 6000,
-    gotoTimeout: 3000
+    waitTimeout: 3000,
+    gotoTimeout: 2000
   });
 
   console.log("url:"+url);
