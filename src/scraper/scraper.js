@@ -32,7 +32,7 @@ function gazelleFlawless(callback, callFn) {
             .click("li#perfect a")
             .wait(3000)
             .wait(".clearfix h3")
-            .wait(10000)
+            .wait(5000)
             .evaluate(function () {
                 var value = document.querySelector('.clearfix h3 span').innerHTML;
                 return isNaN(value) ? 0 : value;
@@ -81,7 +81,7 @@ function gazelleBroken(callback, callFn) {
       .click("li#poor a")
       .wait(3000)
       .wait(".clearfix h3")
-      .wait(5000)
+      .wait(3000)
       .evaluate(function () {
         var value = document.querySelector('.clearfix h3 span').innerHTML;
         return isNaN(value) ? "0" : value;
@@ -173,7 +173,7 @@ function gazelleBrokenNo(callback, callFn) {
             .wait(2000)
             .wait("[data-api-name=no]")
             .click("[data-api-name=no]")
-            .wait(10000)
+            .wait(5000)
             .wait(".clearfix h3")
             .evaluate(function () {
                 var value = document.querySelector('.clearfix h3 span').innerHTML;
@@ -216,11 +216,12 @@ function gazelleGood(callback, callFn) {
             .useragent(USER_AGENT)
             .goto(url)
             .wait(".clearfix h3")
-            .wait(10000)
+            .wait(5000)
             .evaluate(function () {
                 var value = document.querySelector('.clearfix h3 span').innerHTML;
                 return isNaN(value) ? 0 : value;
             })
+            .end()
             .then(function (result) {
                 console.log("Found good:"+result+url+" index:"+index);
                 var price = Math.round(parseInt(result) * 1.06);
@@ -310,6 +311,7 @@ function updatePrices(callback, query) {
                 console.log("devices count:" + devices.length);
                 if (index < devices.length) {
                     device = devices[index];
+                    debugger;
                     url = getURL(device);
                     console.log("url:"+url);
                     gazelleGood(callback);
@@ -347,7 +349,6 @@ function updateSelected(query, callback, callFn) {
                     device = devices[index];
                     console.log("device:"+device.make);
                     url = getURL(device);
-                    console.log("url:"+url);
                     gazelleGood(callback, callFn);
                 }
             });
@@ -412,66 +413,84 @@ function saveData(closeDB, exit) {
     }
 }
 
-switch(process.argv[2]) {
+function start() {
 
-  case "updateiPhonePrices":
+  if (process.argv.indexOf("--index") !== -1) {
+    var n = process.argv.indexOf("--index")  + 1;
+    index = parseInt(process.argv[n]);
+    console.log("index:"+index);
+  }
+
+  switch(process.argv[2]) {
+    case "updateiPhonePrices":
+        var query = {
+          make: /iphone/
+        };
+        deviceType = "iphone";
+        updatePrices(updatePrices, query);
+        break;
+
+    case "updateiPadPrices":
+          var query = {
+            make: /ipad/
+          };
+          deviceType = "ipad";
+          updatePrices(updatePrices, query);
+          break;
+    case "updateSamsungPrices":
       var query = {
-        make: /iphone/
+        make: "samsung"
       };
-      deviceType = "iphone";
+      deviceType = "samsung";
+      updatePrices(updatePrices, query);
+      break;
+      case "saveData":
+          saveData(true);
+          break;
+    case "updateMacbookPrices":
+          var query = {
+            make: "macbook"
+          };
+
+          deviceType = "macbook";
+          updatePrices(updatePrices, query);
+          break;
+    case "updateMacbookAirPrices":
+      var query = {
+        make: "macbook-air"
+      };
+
+      deviceType = "macbook-air";
+      updatePrices(updatePrices, query);
+      break;
+    case "updateMacbookProPrices":
+      var query = {
+        make: "macbook-pro"
+      };
+
+      deviceType = "macbook-pro";
       updatePrices(updatePrices, query);
       break;
 
-  case "updateiPadPrices":
-        var query = {
-          make: /ipad/
-        };
-        deviceType = "ipad";
-        updatePrices(updatePrices, query);
-        break;
-  case "updateSamsungPrices":
-    var query = {
-      make: "samsung"
-    };
-    deviceType = "samsung";
-    updatePrices(updatePrices, query);
-    break;
-    case "saveData":
-        saveData(true);
-        break;
-  case "updateMacbookPrices":
-        var query = {
-          make: "macbook"
-        };
+    case "updateSelected":
+          var query = {
+              "$where": process.argv[3]
+          };
+          deviceType = process.argv[5] || "";
+          var allowedFunction = process.argv[4];
+          if(!allowedFunction)
+            allowedFunction = "gazelleGood:gazelleFlawless:gazelleBrokenYes:gazelleBrokenNo";
+          var allow = allowedFunction.split(":");
+          updateSelected(query, updateSelected, allow);
+          break;
 
-        deviceType = "macbook";
-        updatePrices(updatePrices, query);
-        break;
-  case "updateMacbookAirPrices":
-    var query = {
-      make: "macbook-air"
-    };
-
-    deviceType = "macbook-air";
-    updatePrices(updatePrices, query);
-    break;
-
-  case "updateSelected":
-        var query = {
-            "$where": process.argv[3]
-        };
-        deviceType = process.argv[5] || "";
-        var allowedFunction = process.argv[4];
-        if(!allowedFunction)
-          allowedFunction = "gazelleGood:gazelleFlawless:gazelleBrokenYes:gazelleBrokenNo";
-        var allow = allowedFunction.split(":");
-        updateSelected(query, updateSelected, allow);
-        break;
-
-    default:
-        process.argv.forEach(function (val, index, array) {
-            console.log(index + ': ' + val);
-        });
-        console.log("\nNo vailid parameters given use\n: saveData, updateSelected, updateiPhonePrices, updateiPadPrices, updateSamsungPhones");
-        break;
+      default:
+          process.argv.forEach(function (val, index, array) {
+              console.log(index + ': ' + val);
+          });
+          console.log("\nNo vailid parameters given use\n: saveData, updateSelected, updateiPhonePrices, updateiPadPrices, updateSamsungPhones");
+          break;
+  }
 }
+
+start();
