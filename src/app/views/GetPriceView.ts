@@ -1,7 +1,7 @@
 /**
  * Created by Mtui on 9/24/16.
  */
-import { Component } from "@angular/core";
+import { Component, AfterViewChecked } from "@angular/core";
 import {UserDevice} from "../model/UserDevice";
 import {ConditionType} from "../model/ConditionType";
 import {DeviceService} from "../services/DeviceService";
@@ -20,90 +20,90 @@ declare var $:any;
                         <h2>CHOOSE DEVICE AND CARRIER FOR <span class="orange-title">{{userDevice.displayName}}</span></h2>
                      </span>
                   </div>
-                   <history></history>  
+                   <history></history>
                    <div>
-                   
 
-                   <div class="display-device center-border">
-                         <img src="{{userDevice.resourceUrl}}"/>                        
+
+                   <div  class="display-device center-border">
+                         <img src="{{userDevice.resourceUrl}}"/>
                     </div>
-                    <br>                    
-                    <div class="carriers">
-                    <ul>                      
+                    <br>
+                    <div id="carriers" class="carriers">
+                    <ul>
                     <li  *ngIf="(deviceProperties | filterCarrierType:'at-t')">
-                    
+
                     <div   class="make-menu att-menu">
-                        <img name="at-t" (mouseover)="over($event)" 
-                        (mouseleave)="out($event)" 
-                        (click)="clickHandler($event)" 
+                        <img name="at-t" (mouseover)="over($event)"
+                        (mouseleave)="out($event)"
+                        (click)="clickHandler($event)"
                         src="/Images/carries/att.png"/>
                     </div>
                     </li>
                      <li *ngIf="(deviceProperties | filterCarrierType:'sprint')"><div   class="make-menu sprint-menu">
-                        <img name="sprint" (mouseover)="over($event)" 
-                        (mouseleave)="out($event)" 
-                        (click)="clickHandler($event)" 
+                        <img name="sprint" (mouseover)="over($event)"
+                        (mouseleave)="out($event)"
+                        (click)="clickHandler($event)"
                         src="/Images/carries/sprint.png"/>
                     </div></li>
                     <li *ngIf="(deviceProperties | filterCarrierType:'verizon')">
                     <div  class="make-menu verizon-menu">
-                        <img name="verizon" (mouseover)="over($event)" 
-                        (mouseleave)="out($event)" 
-                        (click)="clickHandler($event)" 
+                        <img name="verizon" (mouseover)="over($event)"
+                        (mouseleave)="out($event)"
+                        (click)="clickHandler($event)"
                         src="/Images/carries/verizon.png"/>
                     </div>
                     </li>
-                    
-                    <li *ngIf="(deviceProperties | filterCarrierType:'t-mobile')"> 
+
+                    <li *ngIf="(deviceProperties | filterCarrierType:'t-mobile')">
                       <div  class="make-menu tmobile-menu">
-                          <img name="t-mobile" (mouseover)="over($event)" 
-                          (mouseleave)="out($event)" 
-                          (click)="clickHandler($event)" 
+                          <img name="t-mobile" (mouseover)="over($event)"
+                          (mouseleave)="out($event)"
+                          (click)="clickHandler($event)"
                           src="/Images/carries/tmobile.png"/>
-                      </div>                      
+                      </div>
                     </li>
-                    <li *ngIf="(deviceProperties | filterCarrierType:'wifi')"> 
+                    <li *ngIf="(deviceProperties | filterCarrierType:'wifi')">
                       <div   class="make-menu tmobile-menu">
-                          <img name="wifi" (mouseover)="over($event)" 
-                          (mouseleave)="out($event)" 
-                          (click)="clickHandler($event)" 
+                          <img name="wifi" (mouseover)="over($event)"
+                          (mouseleave)="out($event)"
+                          (click)="clickHandler($event)"
                           src="/Images/carries/wifiicon.png"/>
-                      </div>                      
+                      </div>
                     </li>
-                    <li *ngIf="(deviceProperties | filterCarrierType:'unlocked')"> 
+                    <li *ngIf="(deviceProperties | filterCarrierType:'unlocked')">
                       <div  class="make-menu unlocked-menu">
-                          <img name="unlocked" (mouseover)="over($event)" 
-                          (mouseleave)="out($event)" 
-                          (click)="clickHandler($event)" 
+                          <img name="unlocked" (mouseover)="over($event)"
+                          (mouseleave)="out($event)"
+                          (click)="clickHandler($event)"
                           src="/Images/carries/unlockedicon.png"/>
-                      </div>                      
-                    </li>                    
+                      </div>
+                    </li>
                     </ul>
                 </div>
                 </div>
-               
-                <div class="condition">     
-                
-                <div class="carriers inputs">  
+
+                <div class="condition">
+
+                <div class="carriers inputs">
                          <!-- <div class="condition-title"><span><h2>Condition</h2></span></div>-->
                          <!--<div class="input-container">
                          <input type="radio" (click)='conditionHandler($event);'  name="condition" value="GOOD">GOOD<br>
                         </div>-->
-                        
+
                         <div class="input-container">
-                         <input type="radio" (click)='conditionHandler($event)'  name="condition" value="FLAWLESS">FLAWLESS<br>
+                         <input id="flawless" type="radio" (click)='conditionHandler($event)'  name="condition" value="FLAWLESS">FLAWLESS<br>
                         </div>
                         <div class="input-container">
-                         <input type="radio" (click)='conditionHandler($event);' name="condition" value="BROKEN">BROKEN<br>                         
-                        </div>      
-                        
+                         <input type="radio" (click)='conditionHandler($event);' name="condition" value="BROKEN">BROKEN<br>
+                        </div>
+
                         <div class="broken-buttons">
                             <span class="broken-button-title">DOES IT TURN ON ?</span>
                             <input type="radio" checked="true" (click)='conditionHandler($event);' name="turnson" value="YES">Yes
-                            <input type="radio" checked="false" (click)='conditionHandler($event);' name="turnson" value="NO">No<br>                        
+                            <input type="radio" checked="false" (click)='conditionHandler($event);' name="turnson" value="NO">No<br>
                         </div>
-                </div>   
-              
+                </div>
+
                 </div>
                  <div class="broken-notes carriers">
                   <ul class="description perfect" style="display: none;">
@@ -120,23 +120,34 @@ declare var $:any;
                   </ul>
                 </div>
                 <div class="finalprice hide" >
-                    <span><h2 [innerText]="price"></h2></span>                    
+                    <span><h2 [innerText]="price"></h2></span>
                 </div>
                 <div class="footer-push"></div>
                 <p>Please Note: We do not pay for devices that have been reported lost or stolen.</p>
                 </div>
-                <footer></footer>                    
+                <footer></footer>
                 `
 })
 
-export class GetPriceView extends BaseView {
+export class GetPriceView extends BaseView implements AfterViewChecked{
+
+    public price: string;
 
     private gazelleData: GazelleDAO[];
-    public price: string;
     private deviceProperties: GazelleDAO[] = [];
+    private currentDevice;
+    private isChecked: boolean = false;
 
     ngOnInit() {
         this.userDevice.page = 3;
+    }
+
+    ngAfterViewChecked() {
+      if (this.isChecked) return;
+      if(this.userDevice.make.indexOf("samsung") !== -1) {
+        this.handleSamsung();
+        this.isChecked = true;
+      }
     }
 
     constructor(protected userDevice: UserDevice,
@@ -146,9 +157,26 @@ export class GetPriceView extends BaseView {
       super();
 
       this.gazelleData = this.deviceService.getGazelleData();
+
+      if(this.userDevice.make.indexOf("samsung") !== -1) {
+        //this.handleSamsung();
+        return;
+      }
+
       this.deviceProperties = this.gazelleData.filter( device => {
         return device.make === this.userDevice.make;
       });
+    }
+
+    handleSamsung() {
+      this.currentDevice = this.gazelleData.filter( device => {
+        return device.name === this.userDevice.displayName;
+      });
+
+      this.displayCondition({});
+      $("#carriers").css("display", "none");
+      $('input[name=condition]:checked').val()
+      //$("#flawless").prop("checked", true);
     }
 
     clickHandler(event) {
@@ -202,8 +230,8 @@ export class GetPriceView extends BaseView {
 
     conditionHandler(event) {
         var button  = event.target;
-       // this.userDevice.condition = ConditionType[button.value];
-        var device: GazelleDAO = this.getPrice();
+        var device: GazelleDAO = (this.currentDevice) ? this.currentDevice[0] : this.getPrice();
+
         $(".input-container").css("margin-top", "10px");
         this.removeErrorPrice();
         $(".description.perfect").css("display", "block");

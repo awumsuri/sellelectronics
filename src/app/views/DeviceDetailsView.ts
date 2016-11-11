@@ -126,7 +126,6 @@ export class DeviceDetailsView extends BaseView {
         this.userDevice.make = devices[0].make;
         this.userDevice.displayName = element.parentElement.querySelector("span p").innerHTML;
         this.userDevice.displayData = new GetDeviceByMakePipe().transform(this.filteredModel, this.userDevice.make);
-        debugger;
         this.router.navigate(["device-list"]);
     }
 

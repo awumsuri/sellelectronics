@@ -32,7 +32,7 @@ function gazelleFlawless(callback, callFn) {
             .click("li#perfect a")
             .wait(3000)
             .wait(".clearfix h3")
-            .wait(10000)
+            .wait(5000)
             .evaluate(function () {
                 var value = document.querySelector('.clearfix h3 span').innerHTML;
                 return isNaN(value) ? 0 : value;
@@ -81,7 +81,7 @@ function gazelleBroken(callback, callFn) {
       .click("li#poor a")
       .wait(3000)
       .wait(".clearfix h3")
-      .wait(5000)
+      .wait(3000)
       .evaluate(function () {
         var value = document.querySelector('.clearfix h3 span').innerHTML;
         return isNaN(value) ? "0" : value;
@@ -173,7 +173,7 @@ function gazelleBrokenNo(callback, callFn) {
             .wait(2000)
             .wait("[data-api-name=no]")
             .click("[data-api-name=no]")
-            .wait(10000)
+            .wait(5000)
             .wait(".clearfix h3")
             .evaluate(function () {
                 var value = document.querySelector('.clearfix h3 span').innerHTML;
@@ -193,7 +193,7 @@ function gazelleBrokenNo(callback, callFn) {
                     pushNext(callback, callFn);
                 });
 
-            })            
+            })
             .catch(function (error) {
                 console.error('Search Failed .....' + error + " \n" + url);
                 pushNext(callback, callFn);
@@ -216,7 +216,7 @@ function gazelleGood(callback, callFn) {
             .useragent(USER_AGENT)
             .goto(url)
             .wait(".clearfix h3")
-            .wait(10000)
+            .wait(5000)
             .evaluate(function () {
                 var value = document.querySelector('.clearfix h3 span').innerHTML;
                 return isNaN(value) ? 0 : value;
@@ -416,15 +416,12 @@ function saveData(closeDB, exit) {
 function start() {
 
   if (process.argv.indexOf("--index") !== -1) {
-
     var n = process.argv.indexOf("--index")  + 1;
     index = parseInt(process.argv[n]);
     console.log("index:"+index);
   }
 
   switch(process.argv[2]) {
-
-
     case "updateiPhonePrices":
         var query = {
           make: /iphone/
