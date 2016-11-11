@@ -108,6 +108,7 @@ export class MakeView extends BaseView{
     }
 
     clickHandler(event) {
+
         this.resetButtons();
         var button = event.target;
         this.over(event);
