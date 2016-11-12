@@ -18,30 +18,36 @@ declare var $:any;
                   <img src="{{userDevice.resourceUrl}}" />
                   <span id="mac-details">{{userDevice.displayName}}</span>
                 </div>
-                <div id="screen-size" class="row center">
-                    <div ngbDropdown class="d-inline-block">
-                      <button class="btn btn-primary" id="dropdownMenu1" ngbDropdownToggle>Screen Size</button>
-                      <div   class="dropdown-menu dropdown-selector" aria-labelledby="dropdownMenu1">
-                        <button *ngFor="let screen of macScreenSizes;" class="dropdown-item" (click)="screenHandler($event);">{{screen}}</button>
-                      </div>
-                    </div>
+                <div id="screen-size" ngbDropdown class="btn-group" dropdown keyboardNav="true">
+                  <button id="simple-btn-keyboard-nav" type="button" class="btn btn-primary" ngbDropdownToggle>
+                    Screen Size <span class="caret"></span>
+                  </button>
+                  <ul class="dropdown-menu" dropdownMenu role="menu" aria-labelledby="simple-btn-keyboard-nav">
+                    <li *ngFor="let screen of macScreenSizes;" class="dropdown-item" (click)="screenHandler($event);" role="menuitem">
+                      <a class="dropdown-item">{{screen}}</a>
+                    </li>
+                  </ul>
                 </div>
-                <div id="year" class="row center hide">
-                    <div ngbDropdown class="d-inline-block">
-                      <button class="btn btn-primary" id="dropdownMenu1" ngbDropdownToggle>Select Year</button>
-                      <div   class="dropdown-menu dropdown-selector" aria-labelledby="dropdownMenu1">
-                        <button *ngFor="let year of macYear | sort" class="dropdown-item" (click)="yearHandler($event); " >{{year}}</button>
-                      </div>
-                    </div>
+                <div id="year" ngbDropdown class="btn-group hide" dropdown keyboardNav="true">
+                  <button id="simple-btn-keyboard-nav" type="button" class="btn btn-primary" ngbDropdownToggle>
+                    Select Year 2<span class="caret"></span>
+                  </button>
+                  <ul class="dropdown-menu" dropdownMenu role="menu" aria-labelledby="simple-btn-keyboard-nav">
+                    <li *ngFor="let year of macYear | sort" class="dropdown-item" (click)="yearHandler($event);" role="menuitem">
+                      <a class="dropdown-item">{{year}}</a>
+                    </li>
+                  </ul>
                 </div>
-                <div id="processor" class="row center hide">
-                    <div ngbDropdown class="d-inline-block">
-                      <button class="btn btn-primary" id="dropdownMenu1" ngbDropdownToggle>Select Processor</button>
-                      <div   class="dropdown-menu dropdown-selector" aria-labelledby="dropdownMenu1">
-                        <button *ngFor="let processor of macProcessor | sort" class="dropdown-item" (click)="processorHandler($event);">{{processor}}</button>
-                      </div>
-                    </div>
-                </div>
+                <div id="processor" ngbDropdown class="btn-group hide" dropdown keyboardNav="true">
+                  <button id="simple-btn-keyboard-nav" type="button" class="btn btn-primary" ngbDropdownToggle>
+                    Processor 2<span class="caret"></span>
+                  </button>
+                  <ul class="dropdown-menu" dropdownMenu role="menu" aria-labelledby="simple-btn-keyboard-nav">
+                    <li *ngFor="let processor of macProcessor | sort" class="dropdown-item" (click)="processorHandler($event);" role="menuitem">
+                      <a class="dropdown-item">{{processor}}</a>
+                    </li>
+                  </ul>
+                </div>                
                 <div id="maclist" *ngFor="let mac of macData | sort" class="panel panel-success hide">
                   <div class="panel-heading">
                     <ngb-alert class="panel-title">{{mac.name}}</ngb-alert>

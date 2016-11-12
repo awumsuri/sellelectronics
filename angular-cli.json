@@ -18,10 +18,11 @@
         "css/styles.css",
         "css/tether.min.css",
         "css/bootstrap.min.css"
+
       ],
       "scripts": [
-        "js/tether.min.js"
-
+        "js/tether.min.js",
+        "js/bootstrap3.min.js"        
       ],
       "environments": {
         "source": "environments/environment.ts",
