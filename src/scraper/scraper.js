@@ -48,7 +48,7 @@ function gazelleFlawless(callback, callFn) {
                     "carrier": device.carrier
                 }, {$set: {"priceFlawless": price}}, function (err) {
                     if (err) throw err;
-                  if(deviceType === "ipad")
+                  if(deviceType === "ipad" || deviceType.indexOf("macbook") !== -1)
                     gazelleBroken(callback, callFn);
                   else
                     gazelleBrokenYes(callback, callFn)

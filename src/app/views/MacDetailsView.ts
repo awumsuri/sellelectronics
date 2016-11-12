@@ -7,6 +7,7 @@ import {GetDeviceByMakePipe} from "../utils/GetDeviceByMakePipe";
 import {DeviceService} from "../services/DeviceService";
 import {GazelleDAO} from "../model/GazelleDAO";
 import {Utils} from "../utils/Utils";
+import {NgbAlertModule} from "@ng-bootstrap/ng-bootstrap"
 
 declare var $:any;
 
@@ -41,30 +42,17 @@ declare var $:any;
                       </div>
                     </div>
                 </div>
-                <div id="maclist" class="hide">
-                    <ul *ngFor="let mac of macData | sort">
-                        <li class="mac-list">
-                        <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-                          <div class="thumbnail">
-                              <div class="caption">
-                                <div class='col-lg-12'>
-                                    <span class="glyphicon glyphicon-credit-card"></span>
-                                    <span class="glyphicon glyphicon-trash pull-right text-primary"></span>
-                                </div>
-                                <div class='col-lg-12 well well-add-card'>
-                                    <p>{{mac.name}}</p>
-                                </div>
-                                <div class='col-lg-12'>
-                                    <h2>$ {{mac.priceFlawless}}</h2>
-                                </div>
-                                <button type="button" class="btn btn-primary btn-xs btn-update btn-add-card">Flawless</button>
-                                <button type="button" class="btn btn-danger btn-xs btn-update btn-add-card">Broken</button>
-                                <span class='glyphicon glyphicon-exclamation-sign text-danger pull-right icon-style'></span>
-                            </div>
-                          </div>
-                        </div>
-                          </li>
-                    </ul>
+                <div id="maclist" *ngFor="let mac of macData | sort" class="panel panel-success hide">
+                  <div class="panel-heading">
+                    <ngb-alert class="panel-title">{{mac.name}}</ngb-alert>
+                    <h3 class="panel-title">$ {{mac.priceFlawless}}</h3>
+                    <span class="pull-right clickable"><i class="glyphicon glyphicon-chevron-up"></i></span>
+                  </div>
+                  <div class="panel-body">
+                    <button type="button" class="btn btn-primary btn-xs btn-update btn-add-card">Flawless</button>
+                    <button type="button" class="btn btn-danger btn-xs btn-update btn-add-card">Broken</button>
+                    <span class='glyphicon glyphicon-exclamation-sign text-danger pull-right icon-style'></span>
+                  </div>
                 </div>
 
 
@@ -162,7 +150,6 @@ export class MacDetailsView {
     $("#processor").removeClass("hide");
 
     this.userDevice.yearDisplay = year;
-
     year = year.toLocaleLowerCase().replace(" ", "-");
 
     this.macData = this.macData.filter(
@@ -171,7 +158,6 @@ export class MacDetailsView {
       }
     );
 
-    debugger;
     this.userDevice.year = year;
     this.macProcessor = this.getProcessor();
   }
@@ -184,6 +170,7 @@ export class MacDetailsView {
     $("#processor").addClass("hide");
     $("#maclist").removeClass("hide");
 
+
     let processorOriginal = processor.replace(" Ghz","-ghz").replace(".", "-").toLowerCase();
 
     this.macData = this.macData.filter(
@@ -192,6 +179,5 @@ export class MacDetailsView {
         return data.processor === processorOriginal;
       }
     );
-    //debugger;
   }
 }

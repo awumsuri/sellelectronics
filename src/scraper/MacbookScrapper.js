@@ -21,8 +21,8 @@ const MACBOOK = {
       size: "12",
       processors: [
         "1-10-ghz",
-        /*"1-20-ghz",
-        "1-30-ghz"*/
+        "1-20-ghz",
+        "1-30-ghz"
       ],
       year: [
         "early-2015"
@@ -31,29 +31,29 @@ const MACBOOK = {
      {
        size:"13",
        processors: [
-       /*"1-83-ghz"
+       "1-83-ghz",
        "2-0-ghz",
        "2-1-ghz",
        "2-13-ghz",
        "2-16-ghz",
        "2-20-ghz",
-       "2-26-ghz",*/
+       "2-26-ghz",
        "2-40-ghz"
        ],
        year: [
-       /*"early-2009",
+       "early-2009",
        "late-2006",
-       "late-2007",*/
+       "late-2007",
        "early-2008",
-       /*"late-2008",
+       "late-2008",
          "mid-2008",
-       /*"late-2006",
+       "late-2006",
        "mid-2006",
        "mid-2006",
-         "early-2008"
-         "mid-2009"
-         "mid-2007"
-         "mid-2010"*/
+         "early-2008",
+         "mid-2009",
+         "mid-2007",
+         "mid-2010"
      ]
      }
   ]
@@ -64,42 +64,55 @@ const MACBOOK_AIR = {
     {
      size: "11",
      processors: [
-    /* "1-30-ghz",
-    /*"1-40-ghz",
-     "1-60-ghz",*/
-       /*"1-70-ghz",
+       "1-30-ghz",
+       "1-40-ghz",
+       "1-60-ghz",
+       "1-70-ghz",
        "1-80-ghz",
        "2-0-ghz",
-       "2-20-ghz"*/
+       "2-20-ghz"
      ],
      year: [
-      /*"mid-2013",
-       "late-2010",*/
-       /* "early-2014",
-        "mid-2011",
+       "mid-2006",
+       "early-2006",
+       "late-2006",
+       "mid-2007",
+       "early-2007",
+       "late-2007",
+       "mid-2008",
+       "early-2008",
+       "late-2008",
+       "mid-2009",
+       "early-2009",
+       "late-2009",
+       "mid-2010",
+       "late-2010",
+       "mid-2010",
+       "mid-2011",
+       "mid-2011",
+       "early-2011",
+       "early-2012",
        "mid-2012",
-       "early-2015"
+       "late-2012",
+       "early-2013",
+       "mid-2013",
+       "late-2013",
+       "early-2014",
+       "mid-2014",
+       "late-2014",
        "early-2015",
-        "mid-2012",
-        "mid-2013",
-        "late-2006",
-        "mid-2006",
-        "mid-2006",
-        "early-2008"
-        "mid-2009"
-        "mid-2007"
-        "mid-2010"
-      "early-2015" */
+       "mid-2015",
+       "late-2015"
      ]
      },
     {
       size:"13",
       processors: [
-        /*"1-30-ghz",*/
-         /*"1-40-ghz",
-        "1-60-ghz"
+        "1-30-ghz",
+         "1-40-ghz",
+        "1-60-ghz",
          "1-70-ghz",
-         "1-80-ghz",*/
+         "1-80-ghz",
          "1-86-ghz",
          "2-0-ghz",
          "2-13-ghz",
@@ -107,17 +120,36 @@ const MACBOOK_AIR = {
 
       ],
       year: [
-        "mid-2013",
-        "early-2014",
+        "mid-2006",
+        "early-2006",
+        "late-2006",
+        "mid-2007",
+        "early-2007",
+        "late-2007",
+        "mid-2008",
         "early-2008",
-        "early-2015",
         "late-2008",
-        "mid-2011",
-        "mid-2013",
-        "mid-2012",
-        "late-2010",
         "mid-2009",
-        "early-2015"
+        "early-2009",
+        "late-2009",
+        "mid-2010",
+        "late-2010",
+        "mid-2010",
+        "mid-2011",
+        "mid-2011",
+        "early-2011",
+        "early-2012",
+        "mid-2012",
+        "late-2012",
+        "early-2013",
+        "mid-2013",
+        "late-2013",
+        "early-2014",
+        "mid-2014",
+        "late-2014",
+        "early-2015",
+        "mid-2015",
+        "late-2015"
       ]
     }
   ]
@@ -125,7 +157,7 @@ const MACBOOK_AIR = {
 
 const MACBOOK_PRO = {
   screen: [
-    /*{
+    {
       size: "13",
       processors: [
          "2-26-ghz",
@@ -152,7 +184,6 @@ const MACBOOK_PRO = {
         "mid-2008",
         "early-2008",
         "late-2008",
-
         "mid-2009",
         "early-2009",
         "late-2009",
@@ -175,11 +206,11 @@ const MACBOOK_PRO = {
         "mid-2015",
         "late-2015",
       ]
-    },*/
+    },
     {
       size:"15",
       processors: [
-         /* "1-67-ghz",
+          "1-67-ghz",
           "1-83-ghz",
           "2-0-ghz",
           "2-16-ghz",
@@ -193,11 +224,11 @@ const MACBOOK_PRO = {
           "2-66-ghz",
           "2-70-ghz",
           "2-80-ghz",
-          "2-93-ghz",*/
+          "2-93-ghz",
           "3-06-ghz"
       ],
       year: [
-       /* "mid-2006",
+        "mid-2006",
         "early-2006",
         "late-2006",
         "mid-2007",
@@ -205,9 +236,9 @@ const MACBOOK_PRO = {
         "late-2007",
         "mid-2008",
         "early-2008",
-        "late-2008",*/
+        "late-2008",
         "mid-2009",
-       /* "early-2009",
+        "early-2009",
         "late-2009",
         "mid-2010",
         "late-2010",
@@ -226,7 +257,7 @@ const MACBOOK_PRO = {
         "late-2014",
         "early-2015",
         "mid-2015",
-        "late-2015"*/
+        "late-2015"
       ]
     }
   ]
@@ -404,6 +435,3 @@ switch(process.argv[2]) {
   default:
         throw new Error("No type found");
 }
-
-
-
