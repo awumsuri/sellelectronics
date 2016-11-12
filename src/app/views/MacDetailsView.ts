@@ -40,7 +40,7 @@ declare var $:any;
                     Select Year<span class="caret"></span>
                   </button>
                   <ul class="dropdown-menu" dropdownMenu role="menu" aria-labelledby="simple-btn-keyboard-nav">
-                    <li *ngFor="let year of macYear | sort" class="dropdown-item" (click)="yearHandler($event);" role="menuitem">
+                    <li *ngFor="let year of macYear | sortYear" class="dropdown-item" (click)="yearHandler($event);" role="menuitem">
                       <a class="dropdown-item">{{year}}</a>
                     </li>
                   </ul>
@@ -55,7 +55,7 @@ declare var $:any;
                     </li>
                   </ul>
                 </div>
-                <div id="maclist" *ngFor="let mac of macData | sort" class="panel panel-success hide">
+                <div id="maclist" *ngFor="let mac of macData" class="panel panel-success hide">
                   <div class="panel-heading">
                     <h2 class="panel-title">{{mac.name}}</h2>
                   </div>

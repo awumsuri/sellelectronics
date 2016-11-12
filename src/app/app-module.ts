@@ -29,6 +29,7 @@ import {GetDeviceModelPipe} from "./utils/GetDeviceModelPipe";
 import {NgbModule} from "@ng-bootstrap/ng-bootstrap";
 import {MacDetailsView} from "./views/MacDetailsView";
 import {ArraySortPipe} from "./utils/SortPipe";
+import {SortByYear} from "./utils/SortYearPipe"
 
 
 let config: ResponsiveConfigInterface = {
@@ -71,6 +72,7 @@ let config: ResponsiveConfigInterface = {
         FilterCarrierPipe,
         GetDeviceModelPipe,
         ArraySortPipe,
+        SortByYear,
         CenterDivDirective
     ],
     providers:[
