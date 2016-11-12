@@ -13,6 +13,7 @@ import {MacDetailsView} from "./views/MacDetailsView";
 
 export const appRoutes: Routes = [
     { path: '', component: EntryView },
+    { path: 'calculator/macbook', component: EntryView },
     { path: 'maclist', component: MacDetailsView },
     { path: 'calculator', component: EntryView },
     { path: 'macs', component: EntryView },

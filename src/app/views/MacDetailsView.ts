@@ -60,8 +60,8 @@ declare var $:any;
                     <h2 class="panel-title">{{mac.name}}</h2>
                   </div>
                   <div class="panel-body">
-                    <h3 class="panel-primary">$ {{mac.priceFlawless}}</h3>
-                    <ngb-alert type="success">
+                    <h1 class="panel-primary">$ {{price}}</h1>
+                    <ngb-alert id="flawless-alert" type="success">
                        <ul class="description perfect">
                          <li class="headline" style="color: black;"><h4>Flawless means <strong>all</strong> of these are true:</h4></li>
                          <li class="descriptionLi">Works perfectly</li>
@@ -69,7 +69,7 @@ declare var $:any;
                          <li class="descriptionLi">Has zero scratches or scuffs</li>
                        </ul>
                      </ngb-alert>
-                     <ngb-alert type="danger" dismissible="false">
+                     <ngb-alert id="broken-alert" type="danger" dismissible="false" closable="false" class="hide">
                        <ul class="description poor">
                            <li class="headline"><h4>Choose this if your phone powers <strong>on</strong> and <strong>any</strong> of the following of these are true:</h4></li>
                          <li class="descriptionLi">Cracked screen or body</li>
@@ -77,8 +77,8 @@ declare var $:any;
                          <li class="descriptionLi">Missing buttons or parts</li>
                        </ul>
                       </ngb-alert>
-                    <button type="button" class="btn btn-primary btn-xs btn-update btn-add-card">Flawless</button>
-                    <button type="button" class="btn btn-danger btn-xs btn-update btn-add-card">Broken</button>
+                    <button type="button" class="btn btn-primary btn-xs btn-update btn-add-card" (click)="flawlessHandler($event);">Flawless</button>
+                    <button type="button" class="btn btn-danger btn-xs btn-update btn-add-card" (click)="brokenHandler($event)">Broken</button>
                     <span class='glyphicon glyphicon-exclamation-sign text-danger pull-right icon-style'></span>
                   </div>
                 </div>
@@ -91,7 +91,9 @@ export class MacDetailsView {
   private macScreenSizes: string[] = [];
   private macYear: string[] = [];
   private macProcessor: string[] = [];
-  private price:string;
+  private price:number;
+  private currectDevice: GazelleDAO;
+
 
   private resourceUrl: string = "n/a";
 
@@ -205,5 +207,23 @@ export class MacDetailsView {
         return data.processor === processorOriginal;
       }
     );
+
+    this.price = this.macData[0].priceFlawless;
+    setTimeout(() => {
+        $("#maclist").removeClass("hide");
+    }, 0);
+  }
+
+  brokenHandler(event) {
+    $("#broken-alert").removeClass("hide");
+    $("#flawless-alert").addClass("hide");
+    this.price = this.macData[0].priceBroken;
+  }
+
+  flawlessHandler(event) {
+    $("#broken-alert").addClass("hide");
+    $("#flawless-alert").removeClass("hide");
+    this.price = this.macData[0].priceFlawless;
+
   }
 }
