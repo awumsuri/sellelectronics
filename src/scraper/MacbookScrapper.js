@@ -14,7 +14,38 @@ var MAKE = null;
 var devices = [];
 
 const MAX_CONCURRENT = 10;
-
+const FULL_YEARS = [
+  "mid-2006",
+  "early-2006",
+  "late-2006",
+  "mid-2007",
+  "early-2007",
+  "late-2007",
+  "mid-2008",
+  "early-2008",
+  "late-2008",
+  "mid-2009",
+  "early-2009",
+  "late-2009",
+  "mid-2010",
+  "late-2010",
+  "mid-2010",
+  "mid-2011",
+  "mid-2011",
+  "early-2011",
+  "early-2012",
+  "mid-2012",
+  "late-2012",
+  "early-2013",
+  "mid-2013",
+  "late-2013",
+  "early-2014",
+  "mid-2014",
+  "late-2014",
+  "early-2015",
+  "mid-2015",
+  "late-2015"
+]
 const MACBOOK = {
   screen: [
     {
@@ -40,38 +71,7 @@ const MACBOOK = {
        "2-26-ghz",
        "2-40-ghz"
        ],
-       year: [
-         "mid-2006",
-         "early-2006",
-         "late-2006",
-         "mid-2007",
-         "early-2007",
-         "late-2007",
-         "mid-2008",
-         "early-2008",
-         "late-2008",
-         "mid-2009",
-         "early-2009",
-         "late-2009",
-         "mid-2010",
-         "late-2010",
-         "mid-2010",
-         "mid-2011",
-         "mid-2011",
-         "early-2011",
-         "early-2012",
-         "mid-2012",
-         "late-2012",
-         "early-2013",
-         "mid-2013",
-         "late-2013",
-         "early-2014",
-         "mid-2014",
-         "late-2014",
-         "early-2015",
-         "mid-2015",
-         "late-2015"
-     ]
+       year:FULL_YEARS
      }
   ]
 };
@@ -89,38 +89,7 @@ const MACBOOK_AIR = {
        "2-0-ghz",
        "2-20-ghz"
      ],
-     year: [
-       "mid-2006",
-       "early-2006",
-       "late-2006",
-       "mid-2007",
-       "early-2007",
-       "late-2007",
-       "mid-2008",
-       "early-2008",
-       "late-2008",
-       "mid-2009",
-       "early-2009",
-       "late-2009",
-       "mid-2010",
-       "late-2010",
-       "mid-2010",
-       "mid-2011",
-       "mid-2011",
-       "early-2011",
-       "early-2012",
-       "mid-2012",
-       "late-2012",
-       "early-2013",
-       "mid-2013",
-       "late-2013",
-       "early-2014",
-       "mid-2014",
-       "late-2014",
-       "early-2015",
-       "mid-2015",
-       "late-2015"
-     ]
+     year: FULL_YEARS
      },
     {
       size:"13",
@@ -134,40 +103,8 @@ const MACBOOK_AIR = {
          "2-0-ghz",
          "2-13-ghz",
         "2-20-ghz"
-
       ],
-      year: [
-        "mid-2006",
-        "early-2006",
-        "late-2006",
-        "mid-2007",
-        "early-2007",
-        "late-2007",
-        "mid-2008",
-        "early-2008",
-        "late-2008",
-        "mid-2009",
-        "early-2009",
-        "late-2009",
-        "mid-2010",
-        "late-2010",
-        "mid-2010",
-        "mid-2011",
-        "mid-2011",
-        "early-2011",
-        "early-2012",
-        "mid-2012",
-        "late-2012",
-        "early-2013",
-        "mid-2013",
-        "late-2013",
-        "early-2014",
-        "mid-2014",
-        "late-2014",
-        "early-2015",
-        "mid-2015",
-        "late-2015"
-      ]
+      year: FULL_YEARS
     }
   ]
 }
@@ -191,38 +128,7 @@ const MACBOOK_PRO = {
           "3-0ghz",
           "3-10-ghz"
       ],
-      year: [
-        "mid-2006",
-        "early-2006",
-        "late-2006",
-        "mid-2007",
-        "early-2007",
-        "late-2007",
-        "mid-2008",
-        "early-2008",
-        "late-2008",
-        "mid-2009",
-        "early-2009",
-        "late-2009",
-        "mid-2010",
-        "late-2010",
-        "mid-2010",
-        "mid-2011",
-        "mid-2011",
-        "early-2011",
-        "early-2012",
-        "mid-2012",
-        "late-2012",
-        "early-2013",
-        "mid-2013",
-        "late-2013",
-        "early-2014",
-        "mid-2014",
-        "late-2014",
-        "early-2015",
-        "mid-2015",
-        "late-2015",
-      ]
+      year: FULL_YEARS
     },
     {
       size:"15",
@@ -244,38 +150,7 @@ const MACBOOK_PRO = {
           "2-93-ghz",
           "3-06-ghz"
       ],
-      year: [
-        "mid-2006",
-        "early-2006",
-        "late-2006",
-        "mid-2007",
-        "early-2007",
-        "late-2007",
-        "mid-2008",
-        "early-2008",
-        "late-2008",
-        "mid-2009",
-        "early-2009",
-        "late-2009",
-        "mid-2010",
-        "late-2010",
-        "mid-2010",
-        "mid-2011",
-        "mid-2011",
-        "early-2011",
-        "early-2012",
-        "mid-2012",
-        "late-2012",
-        "early-2013",
-        "mid-2013",
-        "late-2013",
-        "early-2014",
-        "mid-2014",
-        "late-2014",
-        "early-2015",
-        "mid-2015",
-        "late-2015"
-      ]
+      year: FULL_YEARS
     }
   ]
 }
@@ -283,7 +158,6 @@ const MACBOOK_PRO = {
 const USER_AGENT = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.116 Safari/537.36";
 
 function scrape(url, macbook, ref) {
-
   var scraper = new Nightmare({
     waitTimeout: 3000,
     gotoTimeout: 2000
@@ -293,7 +167,6 @@ function scrape(url, macbook, ref) {
 
   var value = URL + "/" + macbook.size + "/" + macbook.processor + "/" + macbook.year;
   console.log("value:"+value);
-
   scraper.viewport(1000, 1000)
     .useragent(USER_AGENT)
     .goto(url)
@@ -301,7 +174,6 @@ function scrape(url, macbook, ref) {
     .select("option", value)
     .wait("#back_button")
     .evaluate(function() {
-
         var a = $("#back_button")[0].href.split("/");
         var id = a[a.length - 1].split("-")[0];
         var name = a[9];
@@ -313,66 +185,51 @@ function scrape(url, macbook, ref) {
         }
     })
     .end()
-    .then(function(result){
-
+    .then(function(result) {
       macbook.id = result.id;
       macbook.name = result.name;
       macbook.make = MAKE;
       console.log("macbook:"+macbook.toString());
 
       save(macbook);
-
       scrapeInit(ref);
-
     })
     .catch(function (err) {
       console.error(err);
-
       scrapeInit();
     });
 }
 
 function scrapePopulateDevices() {
- // for(var i = 0; i < MAX_CONCURRENT; i++) {
     scrapeInit(null);
-  //}
 }
 
 function scrapeInit(ref) {
 
   if(ref)
     ref = null;
-
   if(devices.length != 0) {
       var device = devices[0];
-
-      console.log("scrapeInit id:"+device.macbook.year);
-      console.log("remaing devices:"+devices.length);
-
       var s = new scrape(device.url, device.macbook, s);
+      console.log("scrapeInit id:"+device.macbook.year+ "\n" + "remaing devices:"+devices.length);
+
       devices.shift();
   } else {
     console.log("COMPLETE! Scrape")
-    //process.exit();
   }
 }
 
 function init() {
   var screens = TYPE.screen;
-
   for(var i = 0; i < screens.length; i++ ) {
 
     var screen = screens[i];
     var years = screen.year;
-
     console.log("years:" + years);
 
     for (var j = 0; j < years.length; j++) {
-
       var processors = screen.processors;
-
       for (var k = 0; k < processors.length; k++) {
-
         var macbook = {};
 
         macbook.year = years[j];
@@ -385,13 +242,11 @@ function init() {
           url: url,
           macbook: macbook
         });
-
       }
     }
   }
   scrapePopulateDevices();
 }
-
 
 function save(data, closeDB) {
 
@@ -408,15 +263,12 @@ function save(data, closeDB) {
   }
 }
 
-
 function saveToMongo(data) {
   var deviceTypes = DBRef.collection('deviceTypes');
-
   console.log("data.id:"+data.id + " data.name:"+data.name);
 
   deviceTypes.find({"id":data.id,"name":data.name}).count(function(err, count) {
     if(err) throw err;
-
     console.log("new device:"+count === 0);
 
     if(count === 0){
