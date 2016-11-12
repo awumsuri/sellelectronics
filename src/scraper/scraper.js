@@ -73,7 +73,7 @@ function gazelleBroken(callback, callFn) {
     waitTimeout: 25000
   })
 
-  if(callFn && (callFn.indexOf("gazelleBrokenYes") !== -1) || !callFn) {
+  if(callFn && (callFn.indexOf("gazelleBroken") !== -1) || !callFn) {
     gazelle.viewport(1000, 1000)
       .useragent(USER_AGENT)
       .goto(url)
