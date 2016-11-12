@@ -392,7 +392,7 @@ function saveData(closeDB, exit) {
       })
     } else {
       deviceTypesGazelle = DbRef.collection("deviceTypes");
-      deviceTypesGazelle.find({}).toArray(function (err, devices) {
+      deviceTypesGazelle.find({}, {"_id":0}).toArray(function (err, devices) {
         if (err) throw err;
         var jDevice = JSON.stringify(devices);
         fs.writeFile("../resource/gazelleData.json", jDevice, function (err) {

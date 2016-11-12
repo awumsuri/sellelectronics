@@ -71,7 +71,7 @@ declare var $:any;
                      </ngb-alert>
                      <ngb-alert id="broken-alert" type="danger" dismissible="false" closable="false" class="hide">
                        <ul class="description poor">
-                           <li class="headline"><h4>Choose this if your phone powers <strong>on</strong> and <strong>any</strong> of the following of these are true:</h4></li>
+                           <li class="headline"><h4>Choose this if your macbook powers <strong>on</strong> and <strong>any</strong> of the following of these are true:</h4></li>
                          <li class="descriptionLi">Cracked screen or body</li>
                          <li class="descriptionLi">Broken or cracked hardware</li>
                          <li class="descriptionLi">Missing buttons or parts</li>
@@ -79,7 +79,7 @@ declare var $:any;
                       </ngb-alert>
                     <button type="button" class="btn btn-primary btn-xs btn-update btn-add-card" (click)="flawlessHandler($event);">Flawless</button>
                     <button type="button" class="btn btn-danger btn-xs btn-update btn-add-card" (click)="brokenHandler($event)">Broken</button>
-                    <span class='glyphicon glyphicon-exclamation-sign text-danger pull-right icon-style'></span>
+                    <span class='glyphicon glyphicon-exclamation-sign text-danger pull-right icon-style hide'></span>
                   </div>
                 </div>
                 <p id="warning" class="hide">Please Note: We do not pay for devices that have been reported lost or stolen.</p>
@@ -217,6 +217,7 @@ export class MacDetailsView {
   brokenHandler(event) {
     $("#broken-alert").removeClass("hide");
     $("#flawless-alert").addClass("hide");
+    $(".glyphicon.glyphicon-exclamation-sign.text-danger.pull-right.icon-style").removeClass("hide");
     this.price = this.macData[0].priceBroken;
   }
 
@@ -224,6 +225,7 @@ export class MacDetailsView {
     $("#broken-alert").addClass("hide");
     $("#flawless-alert").removeClass("hide");
     this.price = this.macData[0].priceFlawless;
+    $(".glyphicon.glyphicon-exclamation-sign.text-danger.pull-right.icon-style").addClass("hide");
 
   }
 }
