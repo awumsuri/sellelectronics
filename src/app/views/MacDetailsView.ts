@@ -14,6 +14,13 @@ declare var $:any;
 @Component({
   selector: "mac-detailed-view",
   template: `
+              <div class="page-header">
+
+                    <span class="icon-bar">
+                      <i class="glyphicon glyphicon-tower" aria-hidden="true"></i>
+                    </span>
+                  </div>
+
                 <div class="logo-main">
                   <img src="{{userDevice.resourceUrl}}" />
                   <span id="mac-details">{{userDevice.displayName}}</span>
@@ -30,7 +37,7 @@ declare var $:any;
                 </div>
                 <div id="year" ngbDropdown class="btn-group hide" dropdown keyboardNav="true">
                   <button id="simple-btn-keyboard-nav" type="button" class="btn btn-primary" ngbDropdownToggle>
-                    Select Year 2<span class="caret"></span>
+                    Select Year<span class="caret"></span>
                   </button>
                   <ul class="dropdown-menu" dropdownMenu role="menu" aria-labelledby="simple-btn-keyboard-nav">
                     <li *ngFor="let year of macYear | sort" class="dropdown-item" (click)="yearHandler($event);" role="menuitem">
@@ -40,28 +47,42 @@ declare var $:any;
                 </div>
                 <div id="processor" ngbDropdown class="btn-group hide" dropdown keyboardNav="true">
                   <button id="simple-btn-keyboard-nav" type="button" class="btn btn-primary" ngbDropdownToggle>
-                    Processor 2<span class="caret"></span>
+                    Processor<span class="caret"></span>
                   </button>
                   <ul class="dropdown-menu" dropdownMenu role="menu" aria-labelledby="simple-btn-keyboard-nav">
                     <li *ngFor="let processor of macProcessor | sort" class="dropdown-item" (click)="processorHandler($event);" role="menuitem">
                       <a class="dropdown-item">{{processor}}</a>
                     </li>
                   </ul>
-                </div>                
+                </div>
                 <div id="maclist" *ngFor="let mac of macData | sort" class="panel panel-success hide">
                   <div class="panel-heading">
-                    <ngb-alert class="panel-title">{{mac.name}}</ngb-alert>
-                    <h3 class="panel-title">$ {{mac.priceFlawless}}</h3>
-                    <span class="pull-right clickable"><i class="glyphicon glyphicon-chevron-up"></i></span>
+                    <h2 class="panel-title">{{mac.name}}</h2>
                   </div>
                   <div class="panel-body">
+                    <h3 class="panel-primary">$ {{mac.priceFlawless}}</h3>
+                    <ngb-alert type="success">
+                       <ul class="description perfect">
+                         <li class="headline" style="color: black;"><h4>Flawless means <strong>all</strong> of these are true:</h4></li>
+                         <li class="descriptionLi">Works perfectly</li>
+                         <li class="descriptionLi">No noticeable flaws, still in its package or looks like new</li>
+                         <li class="descriptionLi">Has zero scratches or scuffs</li>
+                       </ul>
+                     </ngb-alert>
+                     <ngb-alert type="danger" dismissible="false">
+                       <ul class="description poor">
+                           <li class="headline"><h4>Choose this if your phone powers <strong>on</strong> and <strong>any</strong> of the following of these are true:</h4></li>
+                         <li class="descriptionLi">Cracked screen or body</li>
+                         <li class="descriptionLi">Broken or cracked hardware</li>
+                         <li class="descriptionLi">Missing buttons or parts</li>
+                       </ul>
+                      </ngb-alert>
                     <button type="button" class="btn btn-primary btn-xs btn-update btn-add-card">Flawless</button>
                     <button type="button" class="btn btn-danger btn-xs btn-update btn-add-card">Broken</button>
                     <span class='glyphicon glyphicon-exclamation-sign text-danger pull-right icon-style'></span>
                   </div>
                 </div>
-
-
+                <p id="warning" class="hide">Please Note: We do not pay for devices that have been reported lost or stolen.</p>
             `
 })
 export class MacDetailsView {
@@ -134,7 +155,6 @@ export class MacDetailsView {
     $("#screen-size").addClass("hide");
     $("#year").removeClass("hide");
 
-
     screenSize = screenSize.replace('"','');
     this.userDevice.size = screenSize;
 
@@ -175,7 +195,7 @@ export class MacDetailsView {
 
     $("#processor").addClass("hide");
     $("#maclist").removeClass("hide");
-
+    $("#warning").removeClass("hide");
 
     let processorOriginal = processor.replace(" Ghz","-ghz").replace(".", "-").toLowerCase();
 
