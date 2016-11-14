@@ -19,7 +19,7 @@ function scrape(type){
     child.on('close', function(data){
         console.info("data-close:"+data);
         killProcess();
-	copyResourceFile();
+	      copyResourceFile();
     });
 }
 
