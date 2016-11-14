@@ -28,7 +28,7 @@ export class DeviceService {
     }
 
     private loadGazelleData() {
-        this.http.get("/resource/gazelleData.json")
+        this.http.get("http://107.170.31.130/resource/gazelleData.json")
             .subscribe(
                 data => {
                     this.gazellData = data.json();
