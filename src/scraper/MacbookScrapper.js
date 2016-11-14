@@ -45,6 +45,7 @@ const FULL_YEARS = [
   "early-2015",
   "mid-2015",
   "late-2015"
+
 ]
 const MACBOOK = {
   screen: [
@@ -196,8 +197,59 @@ function scrape(url, macbook, ref) {
     })
     .catch(function (err) {
       console.error(err);
-      scrapeInit();
+      //scrapeInit();
+      retryMultiMac(url, macbook, ref)
     });
+}
+
+function retryMultiMac(url, macbook, ref) {
+  var scraper = new Nightmare({
+    waitTimeout: 3000,
+    gotoTimeout: 2000
+  });
+  //var value = URL + "/" + macbook.size + "/" + macbook.processor + "/" + macbook.year;
+  url += "/"+macbook.year;
+  console.log("RETRY !!!!!! url:"+url);
+
+  scraper.viewport(1000, 1000)
+    .useragent(USER_AGENT)
+    .goto(url)
+    .wait(".main_stack.product_stack li")
+    .evaluate(function() {
+      var a = $(".main_stack.product_stack li");
+      var result = [];
+      Array.prototype.forEach.call(a, function(item) {
+        result.push({
+          "id": item.getAttribute("data-id"),
+          "name": item.querySelector("h4").innerHTML
+        });
+      });
+
+      return result;
+    })
+    .end()
+    .then(function(resultA) {
+      resultA.forEach(function(result){
+        macbook.id = result.id;
+        macbook.name = result.name;
+        macbook.make = MAKE;
+        console.log("macbook:"+macbook.toString());
+        save({
+          "processor": macbook.processor,
+          "size": macbook.size,
+          "year": macbook.year,
+          "id": result.id,
+          "name": result.name,
+          "make": MAKE
+        });
+      });
+
+      scrapeInit(ref);
+    })
+    .catch(function(err) {
+      console.error("RETRY ERROR!!"+err);
+      scrapeInit();
+    })
 }
 
 function scrapePopulateDevices() {
