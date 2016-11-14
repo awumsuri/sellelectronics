@@ -7,7 +7,7 @@ var child;
 function scrape(type){
     console.info("Scrape starting...");
     exec = require('child_process').spawn;
-    child = exec('node',['scraper.js', type]);
+    child = exec('xvfb-run',['node', 'scraper.js', type]);
     child.stderr.on('data', function(data){
         console.info("data-error:"+data);
     });
@@ -40,13 +40,17 @@ function initializeApplication(){
     var rule = new scheduler.RecurrenceRule();
     rule.hour = 5;
     rule.minute = 1;
-    scheduler.scheduleJob("0 28 19 * * *", function(){
+    scheduler.scheduleJob("0 39 06 * * *", function(){
 	    console.log("scraping gazelle:"+new Date());
 	    scrape("updateMacbookPrices");
     });
-    scheduler.scheduleJob("0 30 19 * * *", function(){
+    scheduler.scheduleJob("0 42 03 * * *", function(){
       console.log("scraping gazelle:"+new Date());
       scrape("updateMacbookProPrices");
+    });
+    scheduler.scheduleJob("0 42 00 * * *", function(){
+      console.log("scraping gazelle:"+new Date());
+      scrape("updateMacbookAirPrices");
     });
 }
 

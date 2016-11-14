@@ -12,7 +12,7 @@ const deviceTypes = ["iphone", "cell-phone","tablet"];
 
 var complete = [];
 var url;
-var index = 18;
+var index = 0;
 var device;
 var deviceTypesGazelle;
 var DbRef = null;
