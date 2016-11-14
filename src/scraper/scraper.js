@@ -418,8 +418,7 @@ function start() {
     index = parseInt(process.argv[n]);
     console.log("index:"+index);
   }
-
-
+  
   switch(process.argv[2]) {
     case "updateiPhonePrices":
         var query = {
