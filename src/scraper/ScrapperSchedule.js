@@ -70,6 +70,18 @@ function initializeApplication(){
       console.log("scraping updateMacbookAirPrices gazelle:"+new Date());
       scrape("updateMacbookAirPrices");
     });
+    scheduler.scheduleJob("0 00 11 * * *", function(){
+      console.log("scraping updateiPhonePrices gazelle:"+new Date());
+      scrape("updateiPhonePrices");
+    });
+    scheduler.scheduleJob("0 00 15 * * *", function(){
+      console.log("scraping updateiPadPrices gazelle:"+new Date());
+      scrape("updateiPadPrices");
+    });
+    scheduler.scheduleJob("0 00 20 * * *", function(){
+      console.log("scraping updateSamsungPrices gazelle:"+new Date());
+      scrape("updateSamsungPrices");
+    });
 }
 
 initializeApplication();
