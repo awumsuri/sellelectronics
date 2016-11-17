@@ -137,9 +137,7 @@ export class DeviceDetailsView extends BaseView {
     }
 
     displayDevices(button) {
-      //debugger;
-      console.log("Device:"+DeviceTypes[DeviceTypes.Laptop]);
-      debugger;
+      
       if(button.name === DeviceTypes[DeviceTypes.Laptop]) {
         this.router.navigate(["mac-main"]);
       }
