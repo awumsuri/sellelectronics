@@ -17,6 +17,7 @@ export class HasDeviceType implements PipeTransform {
                 return true;
             }
         }
+
         return false;
     }
 }
