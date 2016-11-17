@@ -347,5 +347,17 @@
       {"display":"Galaxy S7 SM-G930P 32GB (Sprint)", "gazelle":"samsung-s7"},
       {"display":"Galaxy S7 SM-G930A 32GB (AT&amp;T)", "gazelle":"samsung-s7"}
     ]
+  },
+  {
+    "deviceModel": "Apple",
+    "deviceType": "Laptop",
+    "make": "macbook",
+    "resourceUrl": "/Images/macbook",
+    "deviceMap": {
+
+    },
+    "names": [
+      {"display":"iPad 2nd Gen 16GB", "gazelle": "2nd-gen"}
+    ]
   }
 ]

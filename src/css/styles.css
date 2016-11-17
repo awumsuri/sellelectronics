@@ -53,6 +53,7 @@
   color: white;
   top: -55px;
   position: relative;
+  line-height: 105px !important;
 }
 
 .error {
@@ -109,7 +110,6 @@
   font-family: "customLight";
   font-size: 15px !important;
   color: #333;
-
 }
 
 .description-window {
@@ -1078,6 +1078,7 @@ body,html {
 .device-list{
   display: inline-block;
   padding: 0px;
+  color: black;
 }
 
 .iphone-list img{
@@ -1091,7 +1092,9 @@ body,html {
 
 .macbook-list img{
   width: 150px;
-  padding-top: 20px;
+  padding-top: 44px;
+  top: -38px;
+  position: relative;;
 }
 
 

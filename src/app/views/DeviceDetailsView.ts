@@ -43,12 +43,11 @@ declare var $:any;
                         (click)="clickHandlerDevice($event)" src="/Images/ipad.png"/></a>
                                        <p><span class="title-list">Tablet</span></p>
                                   </div>
-                                  <!--<div *ngIf="(filteredModel | hasDeviceType:3)" class="device-list macbook-list">
-                                       <a><img name="Laptop" (mouseover)="over($event)"
-                        (mouseleave)="out($event)"
-                        (click)="clickHandlerDevice($event)" src="/Images/macbook.png"/></a>
+                                  <div *ngIf="(filteredModel | hasDeviceType:3)" class="device-list macbook-list">
+                                       <a href="/calculator/macbook"><img name="Laptop" (mouseover)="over($event)"
+                        (mouseleave)="out($event)"    src="/Images/macbook.png"/></a>
                                         <span class="title-list">Mac</span>
-                                  </div> -->
+                                  </div>
 
                             </div>
                             <div *ngIf="(filteredModel.length === 0)" class="device-models" centerDiv>
@@ -137,6 +136,9 @@ export class DeviceDetailsView extends BaseView {
     }
 
     displayDevices(button) {
+      if(button.name === DeviceTypes[DeviceTypes.Laptop]) {
+        return;
+      }
       this.displayData = new GetDeviceTypesPipe().transform(this.filteredModel, this.userDevice.deviceType);
     }
 }
